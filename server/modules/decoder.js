@@ -6,7 +6,7 @@ mongoConnection.connect(); // checks for a valid user in the database
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://fhat-iimn-95572.firebaseio.com"
+  databaseURL: "https://fhat-iimn-e55ca.firebaseio.com"
 });
 
 var tokenDecoder = function(req, res, next) {
