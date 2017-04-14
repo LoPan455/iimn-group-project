@@ -1,0 +1,236 @@
+<p>{{bec.user}}</p>
+
+<h1>Monthly Expenses</h1>
+
+<h2>Housing</h2>
+  <p>Rent (monthly payment)
+  <input ng-model="bic.user.monthlyRent" placeholder="$" type="number"></p>
+  <p>Renters Insurance (monthly payment)
+    <input ng-model="bic.user.monthlyRentersInsurance" placeholder="$" type="number"></p>
+  <p>Number of mortgages on primary residence
+    <input ng-model="bic.user.numberOfMortgages" placeholder="$" type="number"></p>
+  <p>Mortgage 1 - Primary Residence (monthly payment)
+    <input ng-model="bic.user.monthlyMortgage1" placeholder="$" type="number"></p>
+  <p>Mortgage 2, 3, etc. - Primary Residence (combined monthly payment)
+    <input ng-model="bic.user.monthlyMortgage2" placeholder="$" type="number"></p>
+  <p>HELOC(s) - Primary Residence (monthly payment)
+    <input ng-model="bic.user.monthlyHeloc" placeholder="$" type="number"></p>
+  <p>Property Tax if not included in mortgage (monthly payment)
+    <input ng-model="bic.user.monthlyPropertyTaxIfNotInMortgage" placeholder="$" type="number"></p>
+  <p>Homeowners Insurance (monthly payment)
+    <input ng-model="bic.user.monthlyHomeownersInsurance" placeholder="$" type="number"></p>
+  <p>Home Maintenance (monthly estimate, pro-rated)
+    <input ng-model="bic.user.monthlyHomeMaintenance" placeholder="$" type="number"></p>
+  <p>Condo/Townhome Fees or Assessments (monthly payment)
+    <input ng-model="bic.user.monthlyCondoTownhomeFees" placeholder="$" type="number"></p>
+  <p>Real Estate Other than Primary Residence (monthly payment)
+    <input ng-model="bic.user.monthlyOtherRealEstate" placeholder="$" type="number"></p>
+  <p>Other Housing Expenses (monthly payment)
+    <input ng-model="bic.user.monthlyOtherHousingExpenses" placeholder="$" type="number"></p>
+<h2>Total Housing Expenses
+  <input ng-model="bic.user.monthlyTotalHousingExpenses" placeholder="$" type="number"></h2>
+
+
+<br>
+<br>
+
+
+<h2>Utilities</h2>
+  <p>Gas/Heating (monthly estimate)
+  <input ng-model="bic.user.monthlyGasHeating" placeholder="$" type="number"></p>
+  <p>Electric (monthly estimate)
+  <input ng-model="bic.user.monthlyElectric" placeholder="$" type="number"></p>
+  <p>Water (monthly estimate)
+  <input ng-model="bic.user.monthlyWater" placeholder="$" type="number"></p>
+  <p>Trash (monthly estimate)
+  <input ng-model="bic.user.monthlyTrash" placeholder="$" type="number"></p>
+  <p>Sewer (monthly estimate)
+  <input ng-model="bic.user.monthlySewer" placeholder="$" type="number"></p>
+  <p>Phone - landline (monthly estimate)
+  <input ng-model="bic.user.monthlyLandline" placeholder="$" type="number"></p>
+  <p>Cell Phone (monthly estimate)
+  <input ng-model="bic.user.monthlyCellPhone" placeholder="$" type="number"></p>
+  <p>Other Utilities Expenses (monthly estimate) (note: cable and internet are located in Personal Expenses)
+  <input ng-model="bic.user.monthlyOtherUtilitiesNotCableAndInternet" placeholder="$" type="number"></p>
+<h2>Total Utilities Expenses
+<input ng-model="bic.user.monthlyTotalUtilities" placeholder="$" type="number"></h2>
+
+
+<br>
+<br>
+
+
+<h2>Food</h2>
+  <p>Groceries (monthly estimate)
+  <input ng-model="bic.user.monthlyGroceries" placeholder="$" type="number"></p>
+  <p>Other Food Expenses - dining out, school lunch, etc. (monthly estimate)
+  <input ng-model="bic.user.monthlyOtherFood" placeholder="$" type="number"></p>
+  <h2>Total Food Expenses
+  <input ng-model="bic.user.monthlyTotalFoodExpenses" placeholder="$" type="number"></h2>
+
+
+  <br>
+  <br>
+
+
+  <h2>Transportation</h2>
+  <p>Number of vehicles
+  <input ng-model="bic.user.numberOfVehicles" placeholder="$" type="number"></p>
+  <p>Vehicle 1 (monthly payment)
+  <input ng-model="bic.user.monthlyVehicle1" placeholder="$" type="number"></p>
+  <p>Vehicle 2 (monthly payment)
+  <input ng-model="bic.user.monthlyVehicle2" placeholder="$" type="number"></p>
+  <p>Vehicle 3, Vehicle 4, Vehicle 5, etc. (combined monthly payment)
+  <input ng-model="bic.user.monthlyVehiclesOther" placeholder="$" type="number"></p>
+  <p>Gas (monthly estimate)
+  <input ng-model="bic.user.monthlyGas" placeholder="$" type="number"></p>
+  <p>Car Insurance (monthly payment, pro-rate if not paid monthly)
+  <input ng-model="bic.user.monthlyCarInsurance" placeholder="$" type="number"></p>
+  <p>Car Maintenance (monthly estimate)
+  <input ng-model="bic.user.monthlyCarMaintenance" placeholder="$" type="number"></p>
+  <p>Public Transportation (monthly estimate)
+  <input ng-model="bic.user.monthlyPublicTransportation" placeholder="$" type="number"></p>
+  <p>Other Transportation Expenses (monthly estimate)
+  <input ng-model="bic.user.monthlyTransportationExpenses" placeholder="$" type="number"></p>
+  <h2>Total Transportation Expenses
+  <input ng-model="bic.user.monthlyTotalTransportationExpenses" placeholder="$" type="number"></h2>
+
+
+  <br>
+  <br>
+
+
+  <h2>Health-Related Expenses</h2>
+    <p>Health Ins., if not deducted from your paycheck or Social Security Check (monthly payment)
+    <input ng-model="bic.user.monthlyHealthInsurance" placeholder="$" type="number"></p>
+    <p>Dental Ins., if not deducted from your paycheck or Social Security Check (monthly payment)
+    <input ng-model="bic.user.monthlyDentalInsurance" placeholder="$" type="number"></p>
+    <p>Life Insurance (monthly payment, pro-rate if not paid monthly)
+    <input ng-model="bic.user.monthlyLifeInsurance" placeholder="$" type="number"></p>
+    <p>Monthly medical and prescriptions bills - copays, prescription drugs, etc. (monthly estimate)
+    <input ng-model="bic.user.monthlyMedicalAndPrescription" placeholder="$" type="number"></p>
+    <p>Other Health-Related Expenses (monthly estimate)
+    <input ng-model="bic.user.monthlyOtherHealthRelated" placeholder="$" type="number"></p>
+    <h2>Total Health-Related Expenses
+    <input ng-model="bic.user.monthlyTotalHealthRelatedExpenses" placeholder="$" type="number"></h2>
+
+
+
+
+  <br>
+  <br>
+
+
+  <h2>Child/Dependent-Related Expenses</h2>
+    <p>Child Support (monthly payment to other parent/guardian)
+    <input ng-model="bic.user.monthlyChildSupport" placeholder="$" type="number"></p>
+    <p>Childcare/Daycare (monthly payment)
+    <input ng-model="bic.user.monthlyChildcare" placeholder="$" type="number"></p>
+    <p>Education (for children/dependents) - tuition, books, pictures, fees, etc. (monthly estimate)
+    <input ng-model="bic.user.monthlyEducation" placeholder="$" type="number"></p>
+    <p>Other Child/Dependent-Related Expenses (monthly estimate)
+    <input ng-model="bic.user.monthlyOtherDependentExpenses" placeholder="$" type="number"></p>
+  <h2>Total Child/Dependent-Related Expenses
+  <input ng-model="bic.user.monthlyTotalDependentRelatedExpenses" placeholder="$" type="number"></h2>
+
+
+
+
+  <br>
+  <br>
+
+
+  <h2>Credit Card/Loan/Other Debt Payments</h2>
+    <p>CC1, CC2, CC3, etc. (combined monthly payment)
+    <input ng-model="bic.user.monthlyCombinedCreditCards" placeholder="$" type="number"></p>
+    <p>Student Loan(s) (monthly payment)
+    <input ng-model="bic.user.monthlyStudentLoans" placeholder="$" type="number"></p>
+    <p>Consumer Loan(s) (monthly payment)
+    <input ng-model="bic.user.monthlyConsumerLoans" placeholder="$" type="number"></p>
+    <p>Business Loan(s) (monthly payment)
+    <input ng-model="bic.user.monthlyBusinessLoans" placeholder="$" type="number"></p>
+    <p>Informal Loan(s) - money owed to family, friends, etc. (monthly payment)
+    <input ng-model="bic.user.monthlyInformalLoans" placeholder="$" type="number"></p>
+    <p>Other Debt Payments (monthly payment)
+    <input ng-model="bic.user.monthlyOtherDebtPayments" placeholder="$" type="number"></p>
+  <h2>Total Credit Card/Loan/Other Debt Payments
+  <input ng-model="bic.user.monthlyTotalCreditCardLoanDebtPayments" placeholder="$" type="number"></h2>
+
+
+  <br>
+  <br>
+
+
+  <h2>Personal</h2>
+    <p>Cable/Internet (monthly payment)
+    <input ng-model="bic.user.monthlyCableInternet" placeholder="$" type="number"></p>
+    <p>Laundry/Dry Cleaning (monthly estimate)
+    <input ng-model="bic.user.monthlyLaundryDryCleaning" placeholder="$" type="number"></p>
+    <p>Tobacco &amp; Alcohol (monthly estimate)
+    <input ng-model="bic.user.monthlyTobaccoAndAlcohol" placeholder="$" type="number"></p>
+    <p>Clothing &amp; Accessories (monthly estimate)
+    <input ng-model="bic.user.monthlyClothingAndAccessories" placeholder="$" type="number"></p>
+    <p>Hair Products/Toiletries (monthly estimate)
+    <input ng-model="bic.user.monthlyHairProductsAndToiletries" placeholder="$" type="number"></p>
+    <p>Beauty Salon/Barber Shop (monthly estimate)
+    <input ng-model="bic.user.monthlyBeautySalonBarberShop" placeholder="$" type="number"></p>
+    <p>Recreation - movies, CD's, sporting events, vacation, etc. (monthly estimate)
+    <input ng-model="bic.user.monthlyRecreation" placeholder="$" type="number"></p>
+    <p>Other Personal Expenses (monthly estimate)
+    <input ng-model="bic.user.monthlyOtherPersonalExpenses" placeholder="$" type="number"></p>
+  <h2>Total Personal Expenses
+  <input ng-model="bic.user.monthlyTotalPersonalExpenses" placeholder="$" type="number"></h2>
+
+
+  <br>
+  <br>
+
+
+  <h2>Miscellaneous</h2>
+    <p>Charitable Giving (monthly estimate)
+    <input ng-model="bic.user.monthlyCharitableGiving" placeholder="$" type="number"></p>
+    <p>Gifts to Others (monthly estimate)
+    <input ng-model="bic.user.monthlyGiftsToOthers" placeholder="$" type="number"></p>
+    <p>Newspapers/Magazines (monthly estimate)
+    <input ng-model="bic.user.monthlyNewspapersMagazines" placeholder="$" type="number"></p>
+    <p>Pet Care (monthly estimate)
+    <input ng-model="bic.user.monthlyPetCare" placeholder="$" type="number"></p>
+    <p>Allowances for Children/Dependents (monthly estimate)
+    <input ng-model="bic.user.monthlyAllowancesForDependencies" placeholder="$" type="number"></p>
+    <p>Membership Dues - health club, professional associations, etc. (monthly payment)
+    <input ng-model="bic.user.monthlyMembershipDues" placeholder="$" type="number"></p>
+    <p>Education (for participant) - not student loan repayment (monthly estimate)
+    <input ng-model="bic.user.monthlyEducationForParticipant" placeholder="$" type="number"></p>
+    <p>Average monthly financial fees from banks/credit unions/currency exchanges -
+    i.e. check cashing, money orders, overdraft, ATM (monthly estimate)
+    <input ng-model="bic.user.monthlyFinancialFees" placeholder="$" type="number"></p>
+    <p>Other Miscellaneous Expenses (monthly estimate)
+    <input ng-model="bic.user.monthlyOtherMiscellaneousExpenses" placeholder="$" type="number"></p>
+    <h2>Total Miscellaneous Expenses
+    <input ng-model="bic.user.monthlyTotalMiscellaneousExpenses" placeholder="$" type="number"></h2>
+
+  <br>
+  <br>
+
+  <h2>Monthly Savings Target
+  <input ng-model="bic.user.monthlySavingsTarget" placeholder="$" type="number"></h2>
+
+  <br>
+  <br>
+
+
+  <h2>Total Monthly Net Income</h2>
+
+  <h4>Total Monthly Income
+  <input ng-model="bic.user.totalMonthlyIncome" placeholder="$" type="number"></h2>
+
+  <h4>Total Monthly Expenses
+  <input ng-model="bic.user.totalMonthlyExpenses" placeholder="$" type="number"></h2>
+
+  <h2>Total Monthly Net Income
+  <input ng-model="bic.user.totalMonthlyNetIncome" placeholder="$" type="number"></h2>
+
+
+
+  <h2>Notes
+  <input ng-model="bic.user.notes" placeholder="Notes" type="text"></h2>

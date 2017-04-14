@@ -1,0 +1,186 @@
+<!-- NOTE:This is Balance Sheet Liabilities Tab-->
+<div layout="column" ng-cloak class="md-inline-form">
+
+  <div><!-- housingLiabilities section -->
+    <h3>Housing Liabailities</h3>
+    <md-input-container ng-if="bsc.user.housing === 'Own'">
+      <label for="mortgage">Mortgage Owed</label>
+      <input class="inputFieldSize" type="number" name="mortgage" ng-change="bsc.addHousing()" ng-model="bsc.user.mortgageBalance">
+    </md-input-container>
+
+    <md-input-container ng-if="bsc.user.heloc">
+      <label for="heloc">HELOC used</label>
+      <input class="inputFieldSize" type="number" name="heloc"  ng-change="bsc.addHousing()" ng-model="bsc.user.helocBalance">
+    </md-input-container>
+
+    <md-input-container ><!--ng-if="bsc.user.otherRealEstateValue != null" -->
+      <label for="otherRealEstate">Other Real Estate</label>
+      <input class="inputFieldSize" type="number" name="otherRealEstate"  ng-change="bsc.addHousing()" ng-model="bsc.user.otherRealEstateBalance">
+    </md-input-container>
+
+  <h4>Total Housing Liabilities:<span ng-model="bsc.totalHousingLiabilities">${{bsc.housingSum}}</span></h4>
+  <hr>
+  </div>
+
+  <div><!-- transportationLiabilities section -->
+    <h3>Transportation Liabilities</h3>
+    <md-input-container ng-if="bsc.user.numberVehicles >= 1">
+      <label for="car1">Vehicle 1 Owed</label>
+      <input class="inputFieldSize" type="number" name="car1" ng-model="bsc.user.vehicle1Balance">
+    </md-input-container>
+
+    <md-input-container ng-if="bsc.user.numberVehicles >= 2">
+      <label for="car2">Vehicle 2 Owed</label>
+      <input class="inputFieldSize" type="number" name="car2" ng-model="bsc.user.vehicle2Balance">
+    </md-input-container>
+
+    <md-input-container ng-if="bsc.user.numberVehicles == 3">
+      <label for="car3">Other Vehilces Owed</label>
+      <input class="inputFieldSize" type="number" name="car3" ng-model="bsc.user.vehicleOthersBalance">
+    </md-input-container>
+
+    <h4>Total Transportation Liabilities:<span ng-model="bsc.totalTransportationLiabilities">${{}}</span></h4>
+    <hr>
+  </div>
+
+  <div><!-- creditCard/Loans section -->
+    <h3>Credit Card & Loan Liabilities</h3>
+    <md-input-container >
+      <label for="card">Credit Cards - combined balance</label>
+      <input class="inputFieldSize" type="number" name="card" ng-model="bsc.user.creditCardsCombinedBalance">
+    </md-input-container>
+
+    <md-input-container >
+      <label for="studentLoan">Student Loans</label>
+      <input class="inputFieldSize" type="number" name="studentLoan" ng-model="bsc.user.studentLoansBalance">
+    </md-input-container>
+
+    <md-input-container >
+      <label for="personLoan">Consumer Loans</label>
+      <input class="inputFieldSize" type="number" name="personLoan" ng-model="bsc.user.consumerLoansBalance">
+    </md-input-container>
+
+    <md-input-container >
+      <label for="bizLoan">Business Loans</label>
+      <input class="inputFieldSize" type="number" name="bizLoan" ng-model="bsc.user.businessLoansBalance">
+    </md-input-container>
+
+    <md-input-container >
+      <label for="famLoan">Informal Loans - money owed to family or friends</label>
+      <input id="informalField" type="number" name="famLoan" ng-model="bsc.user.informalLoansBalance">
+    </md-input-container>
+
+    <h4>Total Credit Card & Loan Liabilities:<span ng-model="bsc.totalCreditCardsOtherLoanBalance">${{}}</span></h4>
+    <hr>
+  </div>
+
+  <div><!-- unpaid bills seciton -->
+    <h3>Unpaid Bills</h3>
+    <md-input-container >
+      <label for="utility">Unpaid Utilities</label>
+      <input class="inputFieldSize" type="number" name="utility" ng-model="bsc.user.unpaidUtilitiesBalance">
+    </md-input-container>
+
+    <md-input-container >
+      <label for="rent">Unpaid Rent</label>
+      <input class="inputFieldSize" type="number" name="rent" ng-model="bsc.user.unpaidRentBalance">
+    </md-input-container>
+
+    <md-input-container >
+      <label for="medBills">Unpaid Medical Bills</label>
+      <input class="inputFieldSize" type="number" name="medBills" ng-model="bsc.user.unpaidMedicalBillsBalance">
+    </md-input-container>
+  </div>
+  <div> <!--sub div for formatting -->
+    <md-input-container >
+      <label for="banks">Money Owed to Banks and/or Credit Unions</label>
+      <input class="inputFieldSize" type="number" name="banks" ng-model="bsc.user.moneyOwedToBanksBalance">
+    </md-input-container>
+
+    <md-input-container>
+      <label for="otherBills">Other Unpaid Bills</label>
+      <input class="inputFieldSize" type="number" name="otherBills" ng-model="bsc.user.otherUnpaidBillsBalance">
+    </md-input-container>
+
+    <h4>Total Unpaid Bills (not in collection):<span ng-model="bsc.totalUnpaidBillsNotInCollections">${{}}</span></h4>
+    <hr>
+  </div>
+
+  <div><!-- collections/judgement section -->
+    <h3>Collections, Charge-Offs, or Judgements</h3>
+    <md-input-container >
+      <label for="medCollect">Medical Collections</label>
+      <input class="inputFieldSize" type="number" name="medCollect" ng-model="bsc.user.medicalCollectionsBalance">
+    </md-input-container>
+
+    <md-input-container >
+      <label for="otherCollect">Other Collections</label>
+      <input class="inputFieldSize" type="number" name="otherCollect" ng-model="bsc.user.allOtherCollectionsBalance">
+    </md-input-container>
+
+    <md-input-container ng-if="bsc.user.dependents">
+      <label for="child">Child Support in Arrears</label>
+      <input class="inputFieldSize" type="number" name="child" ng-model="bsc.user.childSupportInArrearsBalance">
+    </md-input-container>
+  <!-- </div> -->
+<!--sub div for formatting   <div>  -->
+    <md-input-container >
+      <label for="backTax">Back Taxes Owed</label>
+      <input class="inputFieldSize" type="number" name="backTax" ng-model="bsc.user.BackTaxesBalance">
+    </md-input-container>
+
+    <div>
+      <md-input-container>
+        <label for="judgement">Other Public Records</label>
+        <input type="text" name="judgement" ng-model="bsc.user.otherJudgement">
+      </md-input-container>
+      <md-input-container>
+        <label for="otherJudge">Amount Owed</label>
+        <input type="text" name="otherJudge" ng-model="bsc.user.otherPublicRecordsBalance">
+      </md-input-container>
+    </div>
+
+    <h4>Total Collections/Charge-Offs/Judgements:<span ng-model="bsc.totalCollectionsChargeOffsJudgments">${{}}</span></h4>
+  </div>
+
+  <h2>Total Liabilities: $<span ng-model="bsc.user.totalLiabilities">{{}}</span></h2>
+  <button type="button">View Snapshot</button>
+</div>
+  <!-- NOTE: naming scheme for balance sheet -->
+
+  <!-- liabilities_label
+  housingLiabilities_label
+  mortgageBalance
+  helocBalance
+  otherRealEstateBalance
+  totalHousingLiabilities -->
+
+  <!-- transportationLiabilities_label
+  vehicle1Balance
+  vehicle2Balance
+  vehicleOthersBalance
+  totalTransportationLiabilities -->
+
+  <!-- creditCardsOtherLoansBalance_label
+  creditCardsCombinedBalance
+  studentLoansBalance
+  consumerLoansBalance
+  businessLoansBalance
+  informalLoansBalance
+  totalCreditCardsOtherLoansBalance -->
+
+  <!-- unpaidBillsNotInCollections_label
+  unpaidUtilitiesBalance
+  unpaidRentBalance
+  unpaidMedicalBillsBalance
+  moneyOwedToBanksBalance
+  otherUnpaidBillsBalance
+  totalUnpaidBillsNotInCollections -->
+
+  <!-- collectionsChargeOffsJudgments_label
+  medicalCollectionsBalance
+  allOtherCollectionsBalance
+  childSupportInArrearsBalance
+  BackTaxesBalance
+  otherPublicRecordsBalance
+  totalCollectionsChargeOffsJudgments -->

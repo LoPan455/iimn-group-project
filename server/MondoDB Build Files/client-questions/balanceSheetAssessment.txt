@@ -1,0 +1,248 @@
+FFTTM Balance Sheet assessment == balanceSheetAssessment_label
+
+Client Name (required) == clientName
+Assessment Date	(required) == assessmentDate
+Do you want the balance sheet to reflect just your own finances or the finances of your whole household? (Note to participants: please make sure all of your answers for this Balance Sheet assessment stay consistent with your response to this question.) == onlyYouOrWholeHousehold_question
+	___ Balance sheet reflects participant only or a household of one == individual = true
+	___ Balance sheet reflects whole household == individual = false
+Is this the first balance sheet created for this participant? == firstSheetCreated_question
+	___ Yes == firstSheetYes_answer
+	___ No == firstSheetNo_answer
+	Is this a partial or complete update of the balance sheet? == partialOrCompleteUpdate_question
+			___ Partial update == partialUpdate_answer
+			___ Complete update == completeUpdate_answer
+
+balanceOnlyYou: { type: Boolean }, // Boolean logic set with next line
+budgetWholeHousehold: { type: Boolean },
+firstBalanceCreated: { type: Boolean },
+updatePartial: { type: Boolean }, // Boolean logic set with next line
+updateComplete: { type: Boolean },
+
+
+
+
+
+	//// Assets == assets_label
+
+
+			Checking Account(s) (total balance) == checkingBalanceValue
+			Savings Account(s) (total balance) == savingsBalanceValue
+			Cash - not in any type of account (total balance) == cashOnHandValue
+			Vehicle 1 (market value) == vehicle1Value
+			Vehicle 2 (market value) == vehicle2Value
+			Vehicle 3, 4, 5, etc. (combined market value) == vehicleOthersValue
+			Primary Residence (market value) == primaryResidenceValue
+			Real Estate - other than Primary Residence (market value) == otherRealEstateValue
+			Stocks, Bonds, Mutual Funds, and Similar Assets (total value) == stocksBondsAndSimilarValue
+			IRA/Retirement Accounts (total value) == retirementAccountsValue
+			College Savings Account - 529 or Other (total value) == collegeSavingsValue
+			Business (estimated market value) == businessValue
+			Other Assets (including cash value of life insurance, etc.) == otherAssetsValue
+		Total Assets == totalAssets
+
+
+		checkingBalanceValue
+		savingsBalanceValue
+		cashOnHandValue
+		vehicle1Value
+		vehicle2Value
+		vehicleOthersValue
+		primaryResidenceValue
+		otherRealEstateValue
+		stocksBondsAndSimilarValue
+		retirementAccountsValue
+		collegeSavingsValue
+		businessValue
+		otherAssetsValue
+		totalAssets
+
+
+
+	//// Liabilities == liabilities_label
+
+		liabilities_label
+
+		// Housing Liabilities == housingLiabilities_label
+			Mortgage(s) - Primary Residence (combined loan balance) == mortgageBalance
+			HELOC(s) - Primary Residence (portion used) == helocBalance
+			Real Estate - other than Primary Residence (combined loan balance) == otherRealEstateBalance
+		Total Housing Liabilities == totalHousingLiabilities
+
+
+		housingLiabilities_label
+		mortgageBalance
+		helocBalance
+		otherRealEstateBalance
+		totalHousingLiabilities
+
+
+
+		// Transportation Liabilities == transportationLiabilities_label
+			Vehicle 1 (loan balance) == vehicle1Balance
+			Vehicle 2 (loan balance) == vehicle2Balance
+			Vehicle 3, 4, 5, etc. (combined loan balance) == vehicleOthersBalance
+		Total Transportation Liabilities == totalTransportationLiabilities
+
+		transportationLiabilities_label
+		vehicle1Balance
+		vehicle2Balance
+		vehicleOthersBalance
+		totalTransportationLiabilities
+
+
+		// Credit Cards/Other Loans Balance == creditCardsOtherLoansBalance_label
+			CC1, CC2, CC3, etc.  (combined balance) == creditCardsCombinedBalance
+			Student Loans(s) (total balance) == studentLoansBalance
+			Consumer Loans(s) (total balance) == consumerLoansBalance
+			Business Loan(s) (total balance) == businessLoansBalance
+			Informal Loan(s) - money owed to family, friends, etc. (total balance) == informalLoansBalance
+		Total Credit Cards/Other Loans Balance == totalCreditCardsOtherLoansBalance
+
+		creditCardsOtherLoansBalance_label
+		creditCardsCombinedBalance
+		studentLoansBalance
+		consumerLoansBalance
+		businessLoansBalance
+		informalLoansBalance
+		totalCreditCardsOtherLoansBalance
+
+
+		// Unpaid Bills (not in collections/not charge-offs) == unpaidBillsNotInCollections_label
+			Unpaid Utilities (total balance) == unpaidUtilitiesBalance
+			Unpaid Rent (total balance) == unpaidRentBalance
+			Unpaid Medical Bills (total balance) == unpaidMedicalBillsBalance
+			Money Owed to Banks and/or Credit Unions - i.e., bank overdrafts, bounced checks (total balance) == moneyOwedToBanksBalance
+			Other Unpaid Bills (total balance) == otherUnpaidBillsBalance
+		Total Unpaid Bills (not in collections) == totalUnpaidBillsNotInCollections
+
+		unpaidBillsNotInCollections_label
+		unpaidUtilitiesBalance
+		unpaidRentBalance
+		unpaidMedicalBillsBalance
+		moneyOwedToBanksBalance
+		otherUnpaidBillsBalance
+		totalUnpaidBillsNotInCollections
+
+
+		// Collections/Charge-offs/Judgments ==  collectionsChargeOffsJudgments_label
+			Medical Collections/Charge-Offs Only (total balance) == medicalCollectionsBalance
+			All Other Collections/Charge-Offs (total balance) == allOtherCollectionsBalance
+			Child Support in Arrears (total balance) == childSupportInArrearsBalance
+			Back Taxes Owed (total balance) == BackTaxesBalance
+			Other Public Records (not including Child Support Arrears and Back Taxes) (total balance) == otherPublicRecordsBalance
+		Total Collections/Charge-Offs/Judgments == totalCollectionsChargeOffsJudgments
+
+		collectionsChargeOffsJudgments_label
+		medicalCollectionsBalance
+		allOtherCollectionsBalance
+		childSupportInArrearsBalance
+		BackTaxesBalance
+		otherPublicRecordsBalance
+		totalCollectionsChargeOffsJudgments
+
+
+
+	//// Balance Sheet Calculations (auto calculated by system) balanceSheetCalculations_label
+
+			Total Assets == totalAssets
+			Total Liabilities == totalLiabilities
+			Total Net Worth == totalNetWorth
+
+balanceSheetCalculations_label
+totalAssets
+totalLiabilities
+totalNetWorth
+balanceSheetAssessmentNotes
+
+	//// Notes == balanceSheetAssessmentNotes
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+{COPIED}
+
+
+	clientName
+	assessmentDate
+
+	// BALANCE SHEET
+balanceOnlyYou: { type: Boolean }, // Boolean logic set with next line
+budgetWholeHousehold: { type: Boolean },
+firstBalanceCreated: { type: Boolean },
+updatePartial: { type: Boolean }, // Boolean logic set with next line
+updateComplete: { type: Boolean },
+
+=======
+
+assets_label
+	checkingBalanceValue
+	savingsBalanceValue
+
+	cashOnHandValue
+
+	vehicle1Value
+	vehicle2Value
+	vehicleOthersValue
+
+	primaryResidenceValue
+	otherRealEstateValue
+
+	stocksBondsAndSimilarValue
+	retirementAccountsValue
+	collegeSavingsValue
+
+	businessValue
+	otherAssetsValue
+	totalAssets
+
+=======
+
+	liabilities_label
+			housingLiabilities_label
+			mortgageBalance
+			helocBalance
+			otherRealEstateBalance
+			totalHousingLiabilities
+
+					transportationLiabilities_label
+					vehicle1Balance
+					vehicle2Balance
+					vehicleOthersBalance
+					totalTransportationLiabilities
+
+					creditCardsOtherLoansBalance_label
+					creditCardsCombinedBalance
+					studentLoansBalance
+					consumerLoansBalance
+					businessLoansBalance
+					informalLoansBalance
+					totalCreditCardsOtherLoansBalance
+
+					unpaidBillsNotInCollections_label
+					unpaidUtilitiesBalance
+					unpaidRentBalance
+					unpaidMedicalBillsBalance
+					moneyOwedToBanksBalance
+					otherUnpaidBillsBalance
+					totalUnpaidBillsNotInCollections
+
+					collectionsChargeOffsJudgments_label
+					medicalCollectionsBalance
+					allOtherCollectionsBalance
+					childSupportInArrearsBalance
+					BackTaxesBalance
+					otherPublicRecordsBalance
+					totalCollectionsChargeOffsJudgments
+
+					balanceSheetCalculations_label
+					totalAssets
+					totalLiabilities
+					totalNetWorth
+					balanceSheetAssessmentNotes
+
+{COPIED}
+=======

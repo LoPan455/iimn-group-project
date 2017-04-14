@@ -1,0 +1,20 @@
+<div ng-cloak>
+<md-content class="md-padding" flex>
+    <!-- <h1>Welcome to the Budget Page</h1> -->
+  <md-nav-bar
+    layout-align="center center"
+    md-selected-nav-item="currentNavItem"
+    nav-bar-aria-label="navigation links">
+    <md-nav-item md-nav-sref="main.budget.income" name="main.budget.income">Income</md-nav-item>
+    <md-nav-item md-nav-sref="main.budget.expenses" name="main.budget.expenses">Expenses</md-nav-item>
+    <!-- if we need 2 pages for expenses, use below -->
+    <!-- <md-nav-item md-nav-sref="main.budget.three" name="main.budget.three">More Expenses</md-nav-item> -->
+  </md-nav-bar>
+  <div class="ext-content">
+    <!-- Whatever is in Tab 1, 2, or 3 goes in ui-view tag below because they are children-->
+    <ui-view></ui-view>
+  </div>
+
+
+</md-content>
+</div>
