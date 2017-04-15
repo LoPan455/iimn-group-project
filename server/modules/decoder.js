@@ -6,33 +6,52 @@ mongoConnection.connect(); // checks for a valid user in the database
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://fhat-iimn-95572.firebaseio.com"
+  databaseURL: "https://fhat-iimn-e55ca.firebaseio.com"
 });
-
 var tokenDecoder = function(req, res, next) {
   if (req.headers.id_token) {
     admin.auth().verifyIdToken(req.headers.id_token).then(function(decodedToken) {
       req.decodedToken = decodedToken;
-      var userEmail = req.decodedToken.email;
-      UserMon.findOne(
-        {
-          email: userEmail
-        },
-        function(err, user) {
-          // 'email' must match db
-          if (err) {
-            console.log('Error completing user query', err);
-            res.sendStatus(500);
-          } else {
-            console.log('successful user query', user);
-            next();
+      next();
     })
     .catch(function(error) {
       console.log('User token unverified');
       res.sendStatus(403);
     });
   } else {
-    res.sendStatus(403); // chrome error hanfdling??
+    res.sendStatus(403); // chrome error handling??
   }
 };
 module.exports = { token: tokenDecoder };
+// var tokenDecoder = function (req, res, next) {
+//     if (req.headers.id_token) {
+//       admin.auth().verifyIdToken(req.headers.id_token).then(function (decodedToken) {
+//             req.decodedToken = decodedToken;
+//             var userEmail = req.decodedToken.email;
+//             UserMon.findOne({
+//                 email: userEmail
+//               },
+//               function (err, user) {
+//                 // 'email' must match db
+//                 if (err) {
+//                   console.log('Error completing user query', err);
+//                   res.sendStatus(500);
+//                 } else {
+//                   console.log('successful user query', user);
+//                   next();
+//                 }) // UserMon.findOne(
+//               .catch(function (error) {
+//                 console.log('User token unverified');
+//                 res.sendStatus(403);
+//               } else {
+//               res.sendStatus(403) // chrome error handling??
+//               }
+//    }) // .catch(function
+// }
+//           }) //  admin.auth()
+// }); // if (req.headers.id_token)
+//           } //var tokenDecoder
+//           module.exports = { token: tokenDecoder };
+
+
+
