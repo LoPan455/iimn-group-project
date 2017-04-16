@@ -26,13 +26,16 @@ var tokenDecoder = function(req, res, next) {
           } else {
             console.log('successful user query', user);
             next();
+          }
     })
     .catch(function(error) {
       console.log('User token unverified');
       res.sendStatus(403);
     });
+  })
   } else {
     res.sendStatus(403); // chrome error hanfdling??
   }
 };
+
 module.exports = { token: tokenDecoder };
