@@ -4,23 +4,20 @@ app.controller('BalanceSheetController', function(ClientFactory) {
   var self = this;
     self.client = ClientFactory.client;
 
-    // test variables
-    // self.client.numberVehicles = 1;
-    // self.client.housing = 'Own';
-    // self.client.otherRealEstateValue = 0;
-    // self.client.heloc = true;
+    //calculated variables
+    self.client.totalNetWorth = self.client.totalNetWorth || 0;
 
     // asset variables
     self.client.totalAssets = self.client.totalAssets || 0;
 
     //liability variables
-    self.housingSum = 0;
-    self.transportationSum = 0;
-    self.loanSum = 0;
-    self.unpaidBillSum = 0;
-    self.collectionSum = 0;
+    self.client.totalHousingLiabilities = self.client.totalHousingLiabilities|| 0;
+    self.client.totalTransportationLiabilities = self.client.totalTransportationLiabilities || 0;
+    self.client.totalCreditCardsOtherLoanBalance = self.client.totalCreditCardsOtherLoanBalance || 0;
+    self.client.totalUnpaidBillsNotInCollections = self.client.totalUnpaidBillsNotInCollections || 0;
+    self.client.totalCollectionsChargeOffsJudgments = self.client.totalCollectionsChargeOffsJudgments || 0;
     self.client.totalLiabilities = self.client.totalLiabilities || 0;
-    self.otherPropery = true;
+    self.otherProperty = true;
 
 // asset functions
     self.addAssets = function (assetField){
@@ -49,16 +46,16 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       if (subSection == null) {
         subSection = 0;
       }
-      self.housingSum += Number (subSection);
-      return self.housingSum;
+      self.client.totalHousingLiabilities += Number (subSection);
+      return self.client.totalHousingLiabilities;
     }
 
     self.updateHouse = function(inputField){
       if (inputField == null) {
         inputField = 0;
       }
-      self.housingSum -=  inputField
-      return self.housingSum;
+      self.client.totalHousingLiabilities -=  inputField
+      return self.client.totalHousingLiabilities;
     }
 
     //transport section
@@ -66,16 +63,16 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       if (subSection == null) {
         subSection = 0;
       }
-      self.transportationSum += Number (subSection);
-      return self.transportationSum;
+      self.client.totalTransportationLiabilities += Number (subSection);
+      return self.client.totalTransportationLiabilities;
     }
 
     self.updateAuto = function(inputField){
       if (inputField == null) {
         inputField = 0;
       }
-      self.transportationSum -=  inputField
-      return self.transportationSum;
+      self.client.totalTransportationLiabilities -=  inputField
+      return self.client.totalTransportationLiabilities;
     }
 
     // loan section
@@ -83,8 +80,8 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       if (subSection == null) {
         subSection = 0;
       }
-      self.loanSum += Number (subSection);
-      return self.loanSum;
+      self.client.totalCreditCardsOtherLoanBalance += Number (subSection);
+      return self.client.totalCreditCardsOtherLoanBalance;
     }
 
     self.updateLoans = function(inputField){
@@ -92,8 +89,8 @@ app.controller('BalanceSheetController', function(ClientFactory) {
         inputField = 0;
       }
 
-      self.loanSum -=  inputField
-      return self.loanSum;
+      self.client.totalCreditCardsOtherLoanBalance -=  inputField
+      return self.client.totalCreditCardsOtherLoanBalance;
     }
 
     // bills section
@@ -101,16 +98,16 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       if (subSection == null) {
         subSection = 0;
       }
-      self.unpaidBillSum += Number (subSection);
-      return self.unpaidBillSum;
+      self.client.totalUnpaidBillsNotInCollections += Number (subSection);
+      return self.client.totalUnpaidBillsNotInCollections;
     }
 
     self.updateBills = function(inputField){
       if (inputField == null) {
         inputField = 0;
       }
-      self.unpaidBillSum -=  inputField
-      return self.unpaidBillSum;
+      self.client.totalUnpaidBillsNotInCollections -=  inputField
+      return self.client.totalUnpaidBillsNotInCollections;
     }
 
     //collection section
@@ -118,20 +115,25 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       if (subSection == null) {
         subSection = 0;
       }
-      self.collectionSum += Number (subSection);
-      return self.collectionSum;
+      self.client.totalCollectionsChargeOffsJudgments += Number (subSection);
+      return self.client.totalCollectionsChargeOffsJudgments;
     }
 
     self.updateCollection = function(inputField){
       if (inputField == null) {
         inputField = 0;
       }
-      self.collectionSum -=  inputField
-      return self.collectionSum;
+      self.client.totalCollectionsChargeOffsJudgments -=  inputField
+      return self.client.totalCollectionsChargeOffsJudgments;
     }
 
     self.updateLibailities = function(){
-      self.client.totalLiabilities = self.housingSum + self.transportationSum + self.loanSum + self.unpaidBillSum + self.collectionSum;
+      self.client.totalLiabilities = self.client.totalHousingLiabilities + self.client.totalTransportationLiabilities + self.client.totalCreditCardsOtherLoanBalance + self.client.totalUnpaidBillsNotInCollections + self.client.totalCollectionsChargeOffsJudgments;
       return self.client.totalLiabilities;
+    }
+
+    self.calculateWorth = function(){
+      self.client.totalNetWorth = self.client.totalAssets - self.client.totalLiabilities;
+      return self.client.totalNetWorth;
     }
 });//end app.controller
