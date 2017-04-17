@@ -7,17 +7,39 @@ app.controller('BalanceSheetController', function(ClientFactory) {
     // test variables
     self.user.numberVehicles = 2;
     self.user.housing = 'Own';
-    self.user.otherRealEstateValue = 1;
+    // self.user.otherRealEstateValue = 0;
     self.user.heloc = true;
-    //
+    // asset variables
+    self.assetSum = 0;
+
+    //liability variables
     self.housingSum = 0;
     self.transportationSum = 0;
     self.loanSum = 0;
     self.unpaidBillSum = 0;
     self.collectionSum = 0;
+    self.totalLiabilitiesSum = 0;
 
-    self.totalLiabilities = self.housingSum + self.transportationSum + self.loanSum + self.unpaidBillSum + self.collectionSum;
+// asset functions
+    self.addAssets = function (assetField){
+      if (assetField == null) {
+        assetField = 0;
+      }
+    self.assetSum += Number (assetField);
+    return self.assetSum;
+    }
 
+    self.updateAssets = function(assetField){
+      if (assetField == null) {
+        assetField = 0;
+      }
+      self.housingSum -=  assetField;
+      return self.housingSum;
+    }
+
+
+
+// liabilities functions
     // housing section
     self.addHousing = function(subSection) {
       if (subSection == null) {
@@ -104,5 +126,8 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       return self.collectionSum;
     }
 
-
+    self.updateLibailities = function(){
+      self.totalLiabilitiesSum = self.housingSum + self.transportationSum + self.loanSum + self.unpaidBillSum + self.collectionSum;
+      return self.totalLiabilitiesSum;
+    }
 });//end app.controller

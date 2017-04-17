@@ -1,5 +1,5 @@
 <!-- NOTE:This is Balance Sheet Liabilities Tab-->
-<div layout="column" ng-cloak class="md-inline-form">
+<div layout="column" ng-cloak class="md-inline-form" ng-keyup="bsc.updateLibailities()">
 
   <div><!-- housingLiabilities section -->
     <h3>Housing Liabailities</h3>
@@ -13,12 +13,12 @@
       <input class="inputFieldSize" type="number" name="heloc"  ng-blur="bsc.addHousing(bsc.user.helocBalance)" ng-model="bsc.user.helocBalance" ng-focus="bsc.updateHouse(bsc.user.helocBalance)">
     </md-input-container>
 
-    <md-input-container ><!--ng-if="bsc.user.otherRealEstateValue != null" -->
+    <md-input-container ng-if="bsc.user.otherRealEstateValue != null"><!-- -->
       <label for="otherRealEstate">Other Real Estate</label>
       <input class="inputFieldSize" type="number" name="otherRealEstate"  ng-blur="bsc.addHousing(bsc.user.otherRealEstateBalance)" ng-model="bsc.user.otherRealEstateBalance" ng-focus="bsc.updateHouse(bsc.user.otherRealEstateBalance)">
     </md-input-container>
 
-  <h4>Total Housing Liabilities:<span ng-model="bsc.totalHousingLiabilities">${{bsc.housingSum}}</span></h4>
+  <h4>Total Housing Liabilities:<span ng-model="bsc.totalHousingLiabilities" ng-change="bsc.updateLibailities()">${{bsc.housingSum}}</span></h4>
   <hr>
   </div>
 
@@ -39,7 +39,7 @@
       <input class="inputFieldSize" type="number" name="car3" ng-model="bsc.user.vehicleOthersBalance"  ng-focus="bsc.updateAuto(bsc.user.vehicleOthersBalance)" ng-blur="bsc.addAuto(bsc.user.vehicleOthersBalance)">
     </md-input-container>
 
-    <h4>Total Transportation Liabilities:<span ng-model="bsc.totalTransportationLiabilities">${{bsc.transportationSum}}</span></h4>
+    <h4>Total Transportation Liabilities:<span ng-model="bsc.totalTransportationLiabilities" ng-change="bsc.updateLibailities()">${{bsc.transportationSum}}</span></h4>
     <hr>
   </div>
 
@@ -47,30 +47,30 @@
     <h3>Credit Card & Loan Liabilities</h3>
     <md-input-container >
       <label for="card">Credit Cards - combined balance</label>
-      <input class="inputFieldSize" type="number" name="card" ng-model="bsc.user.creditCardsCombinedBalance" ng-model-options="{ updateOn: 'blur' }">
+      <input class="inputFieldSize" type="number" name="card" ng-model="bsc.user.creditCardsCombinedBalance"  ng-focus="bsc.updateLoans(bsc.user.creditCardsCombinedBalance)" ng-blur="bsc.addLoans(bsc.user.creditCardsCombinedBalance)">
     </md-input-container>
 
     <md-input-container >
       <label for="studentLoan">Student Loans</label>
-      <input class="inputFieldSize" type="number" name="studentLoan" ng-model="bsc.user.studentLoansBalance" ng-model-options="{ updateOn: 'blur' }">
+      <input class="inputFieldSize" type="number" name="studentLoan" ng-model="bsc.user.studentLoansBalance" ng-focus="bsc.updateLoans(bsc.user.studentLoansBalance)" ng-blur="bsc.addLoans(bsc.user.studentLoansBalance)">
     </md-input-container>
 
     <md-input-container >
       <label for="personLoan">Consumer Loans</label>
-      <input class="inputFieldSize" type="number" name="personLoan" ng-model="bsc.user.consumerLoansBalance" ng-model-options="{ updateOn: 'blur' }">
+      <input class="inputFieldSize" type="number" name="personLoan" ng-model="bsc.user.consumerLoansBalance" ng-focus="bsc.updateLoans(bsc.user.consumerLoansBalance)" ng-blur="bsc.addLoans(bsc.user.consumerLoansBalance)">
     </md-input-container>
 
     <md-input-container >
       <label for="bizLoan">Business Loans</label>
-      <input class="inputFieldSize" type="number" name="bizLoan" ng-model="bsc.user.businessLoansBalance" ng-model-options="{ updateOn: 'blur' }">
+      <input class="inputFieldSize" type="number" name="bizLoan" ng-model="bsc.user.businessLoansBalance" ng-focus="bsc.updateLoans(bsc.user.businessLoansBalance)" ng-blur="bsc.addLoans(bsc.user.businessLoansBalance)">
     </md-input-container>
 
     <md-input-container >
       <label for="famLoan">Informal Loans - money owed to family or friends</label>
-      <input id="informalField" type="number" name="famLoan" ng-model="bsc.user.informalLoansBalance" ng-model-options="{ updateOn: 'blur' }">
+      <input id="informalField" type="number" name="famLoan" ng-model="bsc.user.informalLoansBalance" ng-focus="bsc.updateLoans(bsc.user.informalLoansBalance)" ng-blur="bsc.addLoans(bsc.user.informalLoansBalance)">
     </md-input-container>
 
-    <h4>Total Credit Card & Loan Liabilities:<span ng-model="bsc.totalCreditCardsOtherLoanBalance">${{bsc.loanSum}}</span></h4>
+    <h4>Total Credit Card & Loan Liabilities:<span ng-model="bsc.totalCreditCardsOtherLoanBalance" ng-change="bsc.updateLibailities()">${{bsc.loanSum}}</span></h4>
     <hr>
   </div>
 
@@ -78,31 +78,31 @@
     <h3>Unpaid Bills</h3>
     <md-input-container >
       <label for="utility">Unpaid Utilities</label>
-      <input class="inputFieldSize" type="number" name="utility" ng-model="bsc.user.unpaidUtilitiesBalance" ng-model-options="{ updateOn: 'blur' }">
+      <input class="inputFieldSize" type="number" name="utility" ng-model="bsc.user.unpaidUtilitiesBalance" ng-focus="bsc.updateBills(bsc.user.unpaidUtilitiesBalance)" ng-blur="bsc.addBills(bsc.user.unpaidUtilitiesBalance)">
     </md-input-container>
 
     <md-input-container >
       <label for="rent">Unpaid Rent</label>
-      <input class="inputFieldSize" type="number" name="rent" ng-model="bsc.user.unpaidRentBalance" ng-model-options="{ updateOn: 'blur' }">
+      <input class="inputFieldSize" type="number" name="rent" ng-model="bsc.user.unpaidRentBalance" ng-focus="bsc.updateBills(bsc.user.unpaidRentBalance)" ng-blur="bsc.addBills(bsc.user.unpaidRentBalance)">
     </md-input-container>
 
     <md-input-container >
       <label for="medBills">Unpaid Medical Bills</label>
-      <input class="inputFieldSize" type="number" name="medBills" ng-model="bsc.user.unpaidMedicalBillsBalance" ng-model-options="{ updateOn: 'blur' }">
+      <input class="inputFieldSize" type="number" name="medBills" ng-model="bsc.user.unpaidMedicalBillsBalance" ng-focus="bsc.updateBills(bsc.user.unpaidMedicalBillsBalance)" ng-blur="bsc.addBills(bsc.user.unpaidMedicalBillsBalance)">
     </md-input-container>
   </div>
   <div> <!--sub div for formatting -->
     <md-input-container >
       <label for="banks">Money Owed to Banks and/or Credit Unions</label>
-      <input class="inputFieldSize" type="number" name="banks" ng-model="bsc.user.moneyOwedToBanksBalance" ng-model-options="{ updateOn: 'blur' }">
+      <input class="inputFieldSize" type="number" name="banks" ng-model="bsc.user.moneyOwedToBanksBalance" ng-focus="bsc.updateBills(bsc.user.moneyOwedToBanksBalance)" ng-blur="bsc.addBills(bsc.user.moneyOwedToBanksBalance)">
     </md-input-container>
 
     <md-input-container>
       <label for="otherBills">Other Unpaid Bills</label>
-      <input class="inputFieldSize" type="number" name="otherBills" ng-model="bsc.user.otherUnpaidBillsBalance" ng-model-options="{ updateOn: 'blur' }">
+      <input class="inputFieldSize" type="number" name="otherBills" ng-model="bsc.user.otherUnpaidBillsBalance" ng-focus="bsc.updateBills(bsc.user.otherUnpaidBillsBalance)" ng-blur="bsc.addBills(bsc.user.otherUnpaidBillsBalance)">
     </md-input-container>
 
-    <h4>Total Unpaid Bills (not in collection):<span ng-model="bsc.totalUnpaidBillsNotInCollections">${{bsc.unpaidBillSum}}</span></h4>
+    <h4>Total Unpaid Bills (not in collection):<span ng-model="bsc.totalUnpaidBillsNotInCollections" ng-change="bsc.updateLibailities()">${{bsc.unpaidBillSum}}</span></h4>
     <hr>
   </div>
 
@@ -110,23 +110,23 @@
     <h3>Collections, Charge-Offs, or Judgements</h3>
     <md-input-container >
       <label for="medCollect">Medical Collections</label>
-      <input class="inputFieldSize" type="number" name="medCollect" ng-model="bsc.user.medicalCollectionsBalance" ng-model-options="{ updateOn: 'blur' }">
+      <input class="inputFieldSize" type="number" name="medCollect" ng-model="bsc.user.medicalCollectionsBalance" ng-focus="bsc.updateCollection(bsc.user.medicalCollectionsBalance)" ng-blur="bsc.addCollection(bsc.user.medicalCollectionsBalance)">
     </md-input-container>
 
     <md-input-container >
       <label for="otherCollect">Other Collections</label>
-      <input class="inputFieldSize" type="number" name="otherCollect" ng-model="bsc.user.allOtherCollectionsBalance" ng-model-options="{ updateOn: 'blur' }">
+      <input class="inputFieldSize" type="number" name="otherCollect" ng-model="bsc.user.allOtherCollectionsBalance" ng-focus="bsc.updateCollection(bsc.user.allOtherCollectionsBalance)" ng-blur="bsc.addCollection(bsc.user.allOtherCollectionsBalance)">
     </md-input-container>
 
     <md-input-container ng-if="bsc.user.dependents">
       <label for="child">Child Support in Arrears</label>
-      <input class="inputFieldSize" type="number" name="child" ng-model="bsc.user.childSupportInArrearsBalance" ng-model-options="{ updateOn: 'blur' }">
+      <input class="inputFieldSize" type="number" name="child" ng-model="bsc.user.childSupportInArrearsBalance" ng-focus="bsc.updateCollection(bsc.user.childSupportInArrearsBalance)" ng-blur="bsc.addCollection(bsc.user.childSupportInArrearsBalance)">
     </md-input-container>
   <!-- </div> -->
 <!--sub div for formatting   <div>  -->
     <md-input-container >
       <label for="backTax">Back Taxes Owed</label>
-      <input class="inputFieldSize" type="number" name="backTax" ng-model="bsc.user.BackTaxesBalance" ng-model-options="{ updateOn: 'blur' }">
+      <input class="inputFieldSize" type="number" name="backTax" ng-model="bsc.user.backTaxesBalance" ng-focus="bsc.updateCollection(bsc.user.backTaxesBalance)" ng-blur="bsc.addCollection(bsc.user.backTaxesBalance)">
     </md-input-container>
 
     <div>
@@ -136,14 +136,14 @@
       </md-input-container>
       <md-input-container>
         <label for="otherJudge">Amount Owed</label>
-        <input type="text" name="otherJudge" ng-model="bsc.user.otherPublicRecordsBalance" ng-model-options="{ updateOn: 'blur' }">
+        <input type="text" name="otherJudge" ng-model="bsc.user.otherPublicRecordsBalance" ng-focus="bsc.updateCollection(bsc.user.otherPublicRecordsBalance)" ng-blur="bsc.addCollection(bsc.user.otherPublicRecordsBalance)">
       </md-input-container>
     </div>
 
-    <h4>Total Collections/Charge-Offs/Judgements:<span ng-model="bsc.totalCollectionsChargeOffsJudgments">${{bsc.collectionSum}}</span></h4>
+    <h4>Total Collections/Charge-Offs/Judgements:<span ng-model="bsc.totalCollectionsChargeOffsJudgments" ng-change="bsc.updateLibailities()">${{bsc.collectionSum}}</span></h4>
   </div>
 
-  <h2>Total Liabilities: $<span ng-model="bsc.user.totalLiabilities">{{bsc.totalLiabilities}}</span></h2>
+  <h2>Total Liabilities: $<span ng-model="bsc.user.totalLiabilities">{{bsc.totalLiabilitiesSum}}</span></h2>
   <button type="button">View Snapshot</button>
 </div>
   <!-- NOTE: naming scheme for balance sheet -->

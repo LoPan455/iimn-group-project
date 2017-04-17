@@ -45,4 +45,5 @@ body {
 #informalField {
   min-width: 350px;
   margin-right: 15px;
+  padding-right: 15px;
 }
