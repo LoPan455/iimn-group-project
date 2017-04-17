@@ -2,12 +2,11 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
     var client = {client: []};
     var clientTester = { };
     var testMessage = " sumtext ";
-    var auth = $firebaseAuth();
+    var auth = $firebaseAuth().$getAuth(); // Auth with every server request
 
     function newClient(newClient) {
       console.log('newClient function called = ', newClient);
-      var firebaseUser = auth.$getAuth();
-      firebaseUser.getToken().then(function(idToken) {
+      auth.getToken().then(function(idToken) { // Auth with every server request
       $http({
             method: 'POST',
             url: '/client/newClient',
