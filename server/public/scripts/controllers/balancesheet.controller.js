@@ -2,15 +2,16 @@ app.controller('BalanceSheetController', function(ClientFactory) {
 
   console.log('BalanceSheetController controller running');
   var self = this;
-    self.user = ClientFactory.client;
+    self.client = ClientFactory.client;
 
     // test variables
-    self.user.numberVehicles = 2;
-    self.user.housing = 'Own';
-    // self.user.otherRealEstateValue = 0;
-    self.user.heloc = true;
+    // self.client.numberVehicles = 1;
+    // self.client.housing = 'Own';
+    // self.client.otherRealEstateValue = 0;
+    // self.client.heloc = true;
+
     // asset variables
-    self.assetSum = 0;
+    self.client.totalAssets = self.client.totalAssets || 0;
 
     //liability variables
     self.housingSum = 0;
@@ -18,26 +19,29 @@ app.controller('BalanceSheetController', function(ClientFactory) {
     self.loanSum = 0;
     self.unpaidBillSum = 0;
     self.collectionSum = 0;
-    self.totalLiabilitiesSum = 0;
+    self.client.totalLiabilities = self.client.totalLiabilities || 0;
+    self.otherPropery = true;
 
 // asset functions
     self.addAssets = function (assetField){
       if (assetField == null) {
         assetField = 0;
       }
-    self.assetSum += Number (assetField);
-    return self.assetSum;
+    self.client.totalAssets += Number (assetField);
+    return self.client.totalAssets;
     }
 
     self.updateAssets = function(assetField){
       if (assetField == null) {
         assetField = 0;
       }
-      self.housingSum -=  assetField;
-      return self.housingSum;
+      self.client.totalAssets -=  assetField;
+      return self.client.totalAssets;
     }
 
-
+    self.toggleClass = function (){
+      self.otherPropery = !self.otherPropery;
+    }
 
 // liabilities functions
     // housing section
@@ -127,7 +131,7 @@ app.controller('BalanceSheetController', function(ClientFactory) {
     }
 
     self.updateLibailities = function(){
-      self.totalLiabilitiesSum = self.housingSum + self.transportationSum + self.loanSum + self.unpaidBillSum + self.collectionSum;
-      return self.totalLiabilitiesSum;
+      self.client.totalLiabilities = self.housingSum + self.transportationSum + self.loanSum + self.unpaidBillSum + self.collectionSum;
+      return self.client.totalLiabilities;
     }
 });//end app.controller
