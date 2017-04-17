@@ -83,6 +83,12 @@ opacity: 1;
   margin-bottom: -10px;
 }
 
+.longerinput{
+  min-width: 900;
+  margin-top: -3px;
+  margin-bottom: -3px;
+  font-size: 20px;
+}
 
 /*Balance sheet input sections*/
 .inputFieldSize {

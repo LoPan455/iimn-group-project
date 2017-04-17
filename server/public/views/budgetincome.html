@@ -1,39 +1,99 @@
-<md-content class="md-padding" flex>
-<p>{{bic.user}}</p>
-
+<div layout="column" ng-cloak class="md-inline-form md-padding" flex >
+  <md-content>
 <h1>Monthly Income</h1>
+<p><md-input-container class="longerinput">
+<label "wages">Wages</label>
+<input type="number" name="wages" ng-model="bic.user.monthlyWagesNet">
+</md-input-container></p>
 
-<p>Wages (take-home amount after all withholding) (monthly participant income - net)
-  <input ng-model="bic.user.monthlyWagesNet" placeholder="$" type="number"></p>
-<p>Income from self-employment or business ownership (monthly participant income  - net)
-  <input ng-model="bic.user.monthlySelfAndBusinessNet" placeholder="$" type="number"></p>
-<p>SSI/SSDI (monthly participant income - net)
-  <input ng-model="bic.user.monthlyNetSSI" placeholder="$" type="number"></p>
-<p>SNAP (food stamps)/WIC (monthly participant income - net)
-  <input ng-model="bic.user.monthlyNetSNAPWIC" placeholder="$"></p>
-<p>Alimony/Child Support (monthly participant income - net)
-  <input ng-model="bic.user.monthlyAlimonyNet" placeholder="$"></p>
-<p>Unemployment (monthly participant income - net)
-  <input ng-model="bic.user.monthlyUnemploymentNet" placeholder="$"></p>
-<p>Workers' Compensation (monthly participant income - net)
-  <input ng-model="bic.user.monthlyWorkersCompensationNet" placeholder="$"></p>
-<p>Veteran Compensation (monthly participant income - net)
-  <input ng-model="bic.user.monthlyVeteransCompensationNet" placeholder=""></p>
-<p>Rental Income (monthly participant income - net)
-  <input ng-model="bic.user.monthlyRentalIncomeNet" placeholder="$"></p>
-<p>Interest/Investment Income (monthly participant income - net)
-  <input ng-model="bic.user.monthlyInvestmentIncomeNet" placeholder="$"></p>
-<p>Income from other household members (monthly income from other household members - net)
-  <input ng-model="bic.user.monthlyIncomeOtherHouseholdMembersNet" placeholder="$"></p>
-<p>Social Security (not SSI/SSD) (monthly participant income - net)
-  <input ng-model="bic.user.monthlySocialSecurityNetNotSSI" placeholder="$"></p>
-<p>Pensions (monthly participant income - net)
-  <input ng-model="bic.user.monthlyPensionsNet" placeholder="$"></p>
-<p>Other Public Benefits (monthly participant income - net)
-  <input ng-model="bic.user.monthlyOtherPublicBenefitsNet" placeholder="$"></p>
-<p>Other Income (not public benefit) (monthly participant income - net)
-  <input ng-model="bic.user.monthlyOtherIncomeNet" placeholder="$"></p>
-<h1>Total Monthly Income (net)
-  <input ng-model="bic.user.totalMonthlyIncomeNet" placeholder="$"></h1>
 
+<p><md-input-container class="longerinput">
+<label "wages">Income from self-employment or business ownership</label>
+  <input  ng-model="bic.user.monthlySelfAndBusinessNet" type="number">
+</md-input-container></p>
+
+
+<p><md-input-container class="longerinput">
+<label "wages">SSI/SSDI</label>
+  <input ng-model="bic.user.monthlyNetSSI" type="number">
+</md-input-container></p>
+
+
+<p><md-input-container class="longerinput">
+<label "wages">SNAP (food stamps)/WIC</label>
+  <input ng-model="bic.user.monthlyNetSNAPWIC">
+</md-input-container></p>
+
+
+<p><md-input-container class="longerinput" >
+<label "wages">Alimony/Child Support</label>
+  <input ng-model="bic.user.monthlyAlimonyNet">
+</md-input-container></p>
+
+
+<p><md-input-container class="longerinput">
+<label "wages">Unemployment</label>
+  <input ng-model="bic.user.monthlyUnemploymentNet">
+</md-input-container></p>
+
+
+<p><md-input-container class="longerinput" >
+<label "wages">Workers' Compensation</label>
+  <input ng-model="bic.user.monthlyWorkersCompensationNet">
+</md-input-container></p>
+
+
+<p><md-input-container class="longerinput">
+<label "wages">Veteran Compensation</label>
+  <input ng-model="bic.user.monthlyVeteransCompensationNet" label="">
+</md-input-container></p>
+
+
+<p><md-input-container class="longerinput">
+<label "wages">Rental Income</label>
+  <input ng-model="bic.user.monthlyRentalIncomeNet">
+</md-input-container></p>
+
+
+<p><md-input-container class="longerinput">
+<label "wages">Interest/Investment Income</label>
+  <input ng-model="bic.user.monthlyInvestmentIncomeNet">
+</md-input-container></p>
+
+
+<p><md-input-container class="longerinput">
+<label "wages">Income from other household members</label>
+  <input ng-model="bic.user.monthlyIncomeOtherHouseholdMembersNet">
+</md-input-container></p>
+
+
+<p><md-input-container class="longerinput">
+<label "wages">Social Security (not SSI/SSD)</label>
+  <input ng-model="bic.user.monthlySocialSecurityNetNotSSI">
+</md-input-container></p>
+
+
+<p><md-input-container class="longerinput">
+<label "wages">Pensions</label>
+  <input ng-model="bic.user.monthlyPensionsNet">
+</md-input-container></p>
+
+
+<p><md-input-container class="longerinput">
+<label "wages">Other Public Benefits</label>
+  <input ng-model="bic.user.monthlyOtherPublicBenefitsNet">
+</md-input-container></p>
+
+
+<p><md-input-container class="longerinput">
+<label "wages">Other Income (not public benefit)</label>
+  <input ng-model="bic.user.monthlyOtherIncomeNet">
+</md-input-container></p>
+
+
+
+<h1>Total Monthly Income
+  <input ng-model="bic.user.totalMonthlyIncomeNet"></h1>
+</md-input-container></p>
 </md-content>
+</div>

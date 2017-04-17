@@ -14,15 +14,44 @@
 
 <div layout="column" flex role="main">
 	<md-content>
-		<div class="login-screen" layout="row" layout-align="center" layout-fill>
-			        <h1>Welcome, {{wc.user.user.firstName}}</h1>
-			<md-whiteframe layout-padding>
+		<div class="login-screen" layout="column" layout-align="top center" layout-fill>
+								<p><md-input-container>
+									<label "wages">First Name</label>
+								  <input ng-model="wc.user.firstName">
+								</md-input-container>
+								<md-input-container>
+								<label "wages">Last Name</label>
+									 <input ng-model="wc.user.lastName">
+								</md-input-container>
 
+								<md-input-container>
+									<label "wages">Date</label>
+									<input ng-model="wc.user.date">
+								</md-input-container>
+
+								<p><md-input-container>
+
+									<md-radio-group>
+										<h2>Is this your first profile?</h2>
+									<md-radio-button ng-value="'first'">Yes</md-radio-button>
+									<md-radio-button ng-value="'return'">No</md-radio-button>
+									</md-radio-group>
+								</md-input-container></p>
+
+<!--
+								<md-radio-group ng-model="pc.user.firstProfile">
+									<h2>Is this your first profile?</h2>
+									<md-radio-button ng-value="'first'">Yes</md-radio-button>
+									<md-radio-button ng-value="'return'">No</md-radio-button>
+								</md-radio-group> -->
+
+		</div>
+			<md-whiteframe layout="column"  layout-padding layout-align="top center">
 				<md-content class="md-whiteframe-24dp">
-					<md-button class="md-raised md-primary" href="#profile">Go To the Profile Questions Form</md-button>
+					<md-button class="md-raised md-primary" href="#profile">Go To Profile</md-button>
 				</md-content>
 			</md-whiteframe>
-		</div>
+
 	</md-content>
 </div>
 </div>
