@@ -13,6 +13,7 @@ app.get('/', function(req, res){
 
 app.use(express.static('server/public'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.use('/client', client);
