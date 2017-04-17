@@ -34,7 +34,7 @@ var tokenDecoder = function(req, res, next) {
     });
   })
   } else {
-    res.sendStatus(403); // chrome error hanfdling??
+    res.sendStatus(403); // chrome error handling??
   }
 };
 

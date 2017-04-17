@@ -1,6 +1,28 @@
-<div ng-show="wc.user.user">
+<!-- <div ng-show="wc.user.user">
   <p>wc.user is: {{wc.user.user}}</p>
-  <h2>We can put whatever we want here</h2>
+  <h1>Welcome</h1>
   <a href="#profile">Go To the Profile Questions Form</a>
   <md-button class="md-primary md-raised" ng-click="wc.logOut()" aria-label="logout">Logout</md-button>
+</div> -->
+
+
+
+<div ng-show="wc.user.user">
+<md-toolbar class="login-toolbar"layout-align="center center">
+	<h1>Financial Health Assessment Tool</h1>
+</md-toolbar>
+
+<div layout="column" flex role="main">
+	<md-content>
+		<div class="login-screen" layout="row" layout-align="center" layout-fill>
+			        <h1>Welcome, {{wc.user.user.firstName}}</h1>
+			<md-whiteframe layout-padding>
+
+				<md-content class="md-whiteframe-24dp">
+					<md-button class="md-raised md-primary" href="#profile">Go To the Profile Questions Form</md-button>
+				</md-content>
+			</md-whiteframe>
+		</div>
+	</md-content>
+</div>
 </div>
