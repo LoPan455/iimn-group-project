@@ -31,30 +31,22 @@ router.post('/newClient', function(req,res){
 PUT REQUESTS
 *////////////////////////////////////////
 
-router.put('/update/:id',function(req,res){
+router.patch('/update/:id',function(req,res){
   console.log('client/update:id route hit. req.params.id is: ', req.params.id);
   console.log('the req.body is: ',req.body);
-  var clientId = req.params.id;
+  var clientId = require('mongodb').ObjectId(req.params.id);
   var clientObject = req.body
-  Client.findById(req.params.id, function (err, client) {
-    // Handle any possible database errors
-    if (err) {
-        console.log('there was an error finding the client to update',err);
-        res.status(500).send(err);
-    } else {
-        // Update each attribute with any possible attribute that may have been submitted in the body of the request
-        // If that attribute isn't in the request body, default back to whatever it was before.
-
-        // Save the updated document back to the database
-        Client.save(function (err, client) {
+  Client.update(
+          {_id: clientId},
+          {
+            $set: clientObject
+          },function (err, client) {
             if (err) {
                 res.status(500).send(err)
             }
             res.send(client);
         });
-    }
-});
-})//end router.put
+    })//end router.put
 
 
 

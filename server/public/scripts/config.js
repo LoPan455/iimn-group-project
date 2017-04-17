@@ -9,4 +9,3 @@ storageBucket: "fhat-iimn-e55ca.appspot.com",
 messagingSenderId: "649247262313"
 };
 firebase.initializeApp(config);
-  firebase.initializeApp(config);
