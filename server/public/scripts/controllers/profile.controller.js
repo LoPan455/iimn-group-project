@@ -3,7 +3,7 @@ app.controller('ProfileController', function(ClientFactory) {
   console.log('ProfileController controller running');
   var self = this;
 
-  self.user = ClientFactory.client;
+  self.client = ClientFactory.client;
   self.assistanceSection = true;
   self.confirmAssistance = function(){
     self.assistanceSection = !self.assistanceSection;
@@ -11,26 +11,26 @@ app.controller('ProfileController', function(ClientFactory) {
 
   self.undoMarriage = function() {
     // console.log('mawige is what bwings us together');
-    if (self.user.maritalStatus === 'single') {
-      self.user.maritalStatus = null;
-    }else if (self.user.maritalStatus === 'married') {
-      self.user.maritalStatus = null;
-      self.user.individual = null;
+    if (self.client.maritalStatus === 'single') {
+      self.client.maritalStatus = null;
+    }else if (self.client.maritalStatus === 'married') {
+      self.client.maritalStatus = null;
+      self.client.individual = null;
     }
   };
 
   self.bankSection = true;
   self.hideBank = function (){
-    if (self.user.bank === false) {
-      self.user.bank = null;
+    if (self.client.bank === false) {
+      self.client.bank = null;
     }else {
     self.bankSection = !self.bankSection;
     }
   };
 
   self.clearAccounts = function(){
-    self.user.checking = false;
-    self.user.savings = false;
+    self.client.checking = false;
+    self.client.savings = false;
   };
 
   self.productSection = true;
@@ -39,11 +39,11 @@ app.controller('ProfileController', function(ClientFactory) {
   };
 
   self.undoVehicle = function() {
-    if (self.user.vehicle === false) {
-      self.user.vehicle = null;
-    }else if (self.user.vehicle === true) {
-      self.user.vehicle = null;
-      self.user.numberVehicles = null;
+    if (self.client.vehicle === false) {
+      self.client.vehicle = null;
+    }else if (self.client.vehicle === true) {
+      self.client.vehicle = null;
+      self.client.numberVehicles = null;
     }
   };
 

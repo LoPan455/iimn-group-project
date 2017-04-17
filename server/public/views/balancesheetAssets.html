@@ -27,51 +27,51 @@ completeUpdate_answer -->
     <md-input-container>
       <label><!--Checking Balance Value-->Checking Account(s) Balance</label>
       <!-- <md-icon md-svg-src="img/icons/ic_card_giftcard_24px.svg"></md-icon> -->
-      <input class="inputFieldSize" ng-model="user.checkingBalanceValue" type="number" step="0.01">
+      <input class="inputFieldSize" ng-model="client.checkingBalanceValue" type="number" step="0.01">
       <!-- <md-icon md-svg-src="img/icons/ic_euro_24px.svg"></md-icon> -->
     </md-input-container>
 
     <md-input-container>
       <label for="savings">Savings Account(s) Balance</label>
-      <input class="inputFieldSize" type="number" name="savings" ng-model="bsc.user.savingsBalanceValue">
+      <input class="inputFieldSize" type="number" name="savings" ng-model="bsc.client.savingsBalanceValue">
     </md-input-container>
 
     <md-input-container>
       <label for="cash">Cash on Hand</label>
-      <input class="inputFieldSize" type="number" name="savings" ng-model="bsc.user.cashOnHandValue">
+      <input class="inputFieldSize" type="number" name="savings" ng-model="bsc.client.cashOnHandValue">
     </md-input-container>
   </div>
 
   <div><!--vehicle owned section-->
     <h3>Vehicle Assets:</h3>
-    <md-input-container ng-if="bsc.user.numberVehicles == 1">
+    <md-input-container ng-if="bsc.client.numberVehicles == 1">
       <label for="vehicleOne">Vehicle Value</label>
-      <input class="inputFieldSize" type="number" name="vehicleOne" ng-model="bsc.user.vehileOneValue">
+      <input class="inputFieldSize" type="number" name="vehicleOne" ng-model="bsc.client.vehileOneValue">
     </md-input-container>
 
-    <div ng-if="bsc.user.numberVehicles == 2">
+    <div ng-if="bsc.client.numberVehicles == 2">
       <md-input-container>
         <label for="vehicleOne">Vehicle 1 Value</label>
-        <input class="inputFieldSize" type="number" name="vehicleOne" ng-model="bsc.user.vehileOneValue">
+        <input class="inputFieldSize" type="number" name="vehicleOne" ng-model="bsc.client.vehileOneValue">
       </md-input-container>
       <md-input-container>
         <label for="vehicleTwo">Vehicle 2 Value</label>
-        <input class="inputFieldSize" type="number" name="vehicleTwo" ng-model="bsc.user.vehileTwoValue">
+        <input class="inputFieldSize" type="number" name="vehicleTwo" ng-model="bsc.client.vehileTwoValue">
       </md-input-container>
     </div>
 
-    <div ng-if="bsc.user.numberVehicles == 3">
+    <div ng-if="bsc.client.numberVehicles == 3">
       <md-input-container>
         <label for="vehicleOne">Vehicle 1 Value</label>
-        <input class="inputFieldSize" type="number" name="vehicleOne" ng-model="bsc.user.vehile1Value">
+        <input class="inputFieldSize" type="number" name="vehicleOne" ng-model="bsc.client.vehile1Value">
       </md-input-container>
       <md-input-container>
         <label for="vehicleTwo">Vehicle 2 Value</label>
-        <input class="inputFieldSize" type="number" name="vehicleTwo" ng-model="bsc.user.vehile2Value">
+        <input class="inputFieldSize" type="number" name="vehicleTwo" ng-model="bsc.client.vehile2Value">
       </md-input-container>
       <md-input-container>
         <label for="vehicleComb">Vehicle Combined Value</label>
-        <input class="inputFieldSize" type="number" name="vehicleComb" ng-model="bsc.user.vehileOtherValue">
+        <input class="inputFieldSize" type="number" name="vehicleComb" ng-model="bsc.client.vehileOtherValue">
       </md-input-container>
     </div>
   </div>
@@ -79,16 +79,16 @@ completeUpdate_answer -->
 
     <div>  <!-- real estate ownership section -->
       <h3>Real Estate:</h3>
-      <div ng-if="bsc.user.housing === 'Own'">
+      <div ng-if="bsc.client.housing === 'Own'">
         <md-input-container>
           <label for="homeOwned">Primary Residence Value</label>
-          <input class="inputFieldSize" type="number" name="homeOwned" ng-model="bsc.user.primaryResidenceValue">
+          <input class="inputFieldSize" type="number" name="homeOwned" ng-model="bsc.client.primaryResidenceValue">
         </md-input-container>
       </div>
 
       <md-input-container>
         <label for="otherRealEstate">Real Estate - other than Primary Residence</label>
-        <input id="informalField" type="number" name="otherRealEstate" ng-model="bsc.user.otherRealEstateValue">
+        <input id="informalField" type="number" name="otherRealEstate" ng-model="bsc.client.otherRealEstateValue">
       </md-input-container>
     </div>
 
@@ -96,17 +96,17 @@ completeUpdate_answer -->
       <h3>Investments:</h3>
       <md-input-container>
         <label for="stocks">Stocks, Bonds, Mutual Funds, and Similar Assets</label>
-        <input id="informalField" type="number" name="stocks" ng-model="bsc.user.stocksBondsAndSimilarValue">
+        <input id="informalField" type="number" name="stocks" ng-model="bsc.client.stocksBondsAndSimilarValue">
       </md-input-container>
 
       <md-input-container>
         <label for="retirement">Retirement Accounts</label>
-        <input class="inputFieldSize" type="number" name="retirement" ng-model="bsc.user.retirementAccountsValue">
+        <input class="inputFieldSize" type="number" name="retirement" ng-model="bsc.client.retirementAccountsValue">
       </md-input-container>
 
       <md-input-container>
         <label for="college">College Savings Account</label>
-        <input class="inputFieldSize" type="number" name="college" ng-model="bsc.user.collegeSavingsValue">
+        <input class="inputFieldSize" type="number" name="college" ng-model="bsc.client.collegeSavingsValue">
       </md-input-container>
     </div>
 
@@ -114,18 +114,18 @@ completeUpdate_answer -->
       <h3>Other Assets:</h3>
       <md-input-container>
         <label for="business">Business</label>
-        <input class="inputFieldSize" type="number" name="business" ng-model="bsc.user.businessValue">
+        <input class="inputFieldSize" type="number" name="business" ng-model="bsc.client.businessValue">
       </md-input-container>
 
       <md-input-container>
         <label for="otherAsset">Other Assests</label>
-        <input class="inputFieldSize" type="number" name="otherAsset" ng-model="bsc.user.otherAssetsValue">
+        <input class="inputFieldSize" type="number" name="otherAsset" ng-model="bsc.client.otherAssetsValue">
       </md-input-container>
       <hr>
     </div>
 
 
-    <h2>Total Assets: $<span ng-model="bsc.user.totalAssets">{{}}</span></h2>
+    <h2>Total Assets: $<span ng-model="bsc.client.totalAssets">{{}}</span></h2>
 
     <button type="button">Enter Liabilities</button>
   </div>

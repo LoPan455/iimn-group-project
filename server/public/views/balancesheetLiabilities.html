@@ -3,19 +3,19 @@
 
   <div><!-- housingLiabilities section -->
     <h3>Housing Liabilities</h3>
-    <md-input-container ng-if="bsc.user.housing === 'Own'">
+    <md-input-container ng-if="bsc.client.housing === 'Own'">
       <label for="mortgage">Mortgage Owed</label>
-      <input class="inputFieldSize" type="number" name="mortgage" ng-change="bsc.addHousing()" ng-model="bsc.user.mortgageBalance">
+      <input class="inputFieldSize" type="number" name="mortgage" ng-change="bsc.addHousing()" ng-model="bsc.client.mortgageBalance">
     </md-input-container>
 
-    <md-input-container ng-if="bsc.user.heloc">
+    <md-input-container ng-if="bsc.client.heloc">
       <label for="heloc">HELOC used</label>
-      <input class="inputFieldSize" type="number" name="heloc"  ng-change="bsc.addHousing()" ng-model="bsc.user.helocBalance">
+      <input class="inputFieldSize" type="number" name="heloc"  ng-change="bsc.addHousing()" ng-model="bsc.client.helocBalance">
     </md-input-container>
 
-    <md-input-container ><!--ng-if="bsc.user.otherRealEstateValue != null" -->
+    <md-input-container ><!--ng-if="bsc.client.otherRealEstateValue != null" -->
       <label for="otherRealEstate">Other Real Estate</label>
-      <input class="inputFieldSize" type="number" name="otherRealEstate"  ng-change="bsc.addHousing()" ng-model="bsc.user.otherRealEstateBalance">
+      <input class="inputFieldSize" type="number" name="otherRealEstate"  ng-change="bsc.addHousing()" ng-model="bsc.client.otherRealEstateBalance">
     </md-input-container>
 
   <h4>Total Housing Liabilities:<span ng-model="bsc.totalHousingLiabilities">${{bsc.housingSum}}</span></h4>
@@ -24,19 +24,19 @@
 
   <div><!-- transportationLiabilities section -->
     <h3>Transportation Liabilities</h3>
-    <md-input-container ng-if="bsc.user.numberVehicles >= 1">
+    <md-input-container ng-if="bsc.client.numberVehicles >= 1">
       <label for="car1">Vehicle 1 Owed</label>
-      <input class="inputFieldSize" type="number" name="car1" ng-model="bsc.user.vehicle1Balance">
+      <input class="inputFieldSize" type="number" name="car1" ng-model="bsc.client.vehicle1Balance">
     </md-input-container>
 
-    <md-input-container ng-if="bsc.user.numberVehicles >= 2">
+    <md-input-container ng-if="bsc.client.numberVehicles >= 2">
       <label for="car2">Vehicle 2 Owed</label>
-      <input class="inputFieldSize" type="number" name="car2" ng-model="bsc.user.vehicle2Balance">
+      <input class="inputFieldSize" type="number" name="car2" ng-model="bsc.client.vehicle2Balance">
     </md-input-container>
 
-    <md-input-container ng-if="bsc.user.numberVehicles == 3">
+    <md-input-container ng-if="bsc.client.numberVehicles == 3">
       <label for="car3">Other Vehilces Owed</label>
-      <input class="inputFieldSize" type="number" name="car3" ng-model="bsc.user.vehicleOthersBalance">
+      <input class="inputFieldSize" type="number" name="car3" ng-model="bsc.client.vehicleOthersBalance">
     </md-input-container>
 
     <h4>Total Transportation Liabilities:<span ng-model="bsc.totalTransportationLiabilities">${{}}</span></h4>
@@ -47,27 +47,27 @@
     <h3>Credit Card & Loan Liabilities</h3>
     <md-input-container >
       <label for="card">Credit Cards - combined balance</label>
-      <input class="inputFieldSize" type="number" name="card" ng-model="bsc.user.creditCardsCombinedBalance">
+      <input class="inputFieldSize" type="number" name="card" ng-model="bsc.client.creditCardsCombinedBalance">
     </md-input-container>
 
     <md-input-container >
       <label for="studentLoan">Student Loans</label>
-      <input class="inputFieldSize" type="number" name="studentLoan" ng-model="bsc.user.studentLoansBalance">
+      <input class="inputFieldSize" type="number" name="studentLoan" ng-model="bsc.client.studentLoansBalance">
     </md-input-container>
 
     <md-input-container >
       <label for="personLoan">Consumer Loans</label>
-      <input class="inputFieldSize" type="number" name="personLoan" ng-model="bsc.user.consumerLoansBalance">
+      <input class="inputFieldSize" type="number" name="personLoan" ng-model="bsc.client.consumerLoansBalance">
     </md-input-container>
 
     <md-input-container >
       <label for="bizLoan">Business Loans</label>
-      <input class="inputFieldSize" type="number" name="bizLoan" ng-model="bsc.user.businessLoansBalance">
+      <input class="inputFieldSize" type="number" name="bizLoan" ng-model="bsc.client.businessLoansBalance">
     </md-input-container>
 
     <md-input-container >
       <label for="famLoan">Informal Loans - money owed to family or friends</label>
-      <input id="informalField" type="number" name="famLoan" ng-model="bsc.user.informalLoansBalance">
+      <input id="informalField" type="number" name="famLoan" ng-model="bsc.client.informalLoansBalance">
     </md-input-container>
 
     <h4>Total Credit Card & Loan Liabilities:<span ng-model="bsc.totalCreditCardsOtherLoanBalance">${{}}</span></h4>
@@ -78,28 +78,28 @@
     <h3>Unpaid Bills</h3>
     <md-input-container >
       <label for="utility">Unpaid Utilities</label>
-      <input class="inputFieldSize" type="number" name="utility" ng-model="bsc.user.unpaidUtilitiesBalance">
+      <input class="inputFieldSize" type="number" name="utility" ng-model="bsc.client.unpaidUtilitiesBalance">
     </md-input-container>
 
     <md-input-container >
       <label for="rent">Unpaid Rent</label>
-      <input class="inputFieldSize" type="number" name="rent" ng-model="bsc.user.unpaidRentBalance">
+      <input class="inputFieldSize" type="number" name="rent" ng-model="bsc.client.unpaidRentBalance">
     </md-input-container>
 
     <md-input-container >
       <label for="medBills">Unpaid Medical Bills</label>
-      <input class="inputFieldSize" type="number" name="medBills" ng-model="bsc.user.unpaidMedicalBillsBalance">
+      <input class="inputFieldSize" type="number" name="medBills" ng-model="bsc.client.unpaidMedicalBillsBalance">
     </md-input-container>
   </div>
   <div> <!--sub div for formatting -->
     <md-input-container >
       <label for="banks">Money Owed to Banks and/or Credit Unions</label>
-      <input class="inputFieldSize" type="number" name="banks" ng-model="bsc.user.moneyOwedToBanksBalance">
+      <input class="inputFieldSize" type="number" name="banks" ng-model="bsc.client.moneyOwedToBanksBalance">
     </md-input-container>
 
     <md-input-container>
       <label for="otherBills">Other Unpaid Bills</label>
-      <input class="inputFieldSize" type="number" name="otherBills" ng-model="bsc.user.otherUnpaidBillsBalance">
+      <input class="inputFieldSize" type="number" name="otherBills" ng-model="bsc.client.otherUnpaidBillsBalance">
     </md-input-container>
 
     <h4>Total Unpaid Bills (not in collection):<span ng-model="bsc.totalUnpaidBillsNotInCollections">${{}}</span></h4>
@@ -110,40 +110,40 @@
     <h3>Collections, Charge-Offs, or Judgements</h3>
     <md-input-container >
       <label for="medCollect">Medical Collections</label>
-      <input class="inputFieldSize" type="number" name="medCollect" ng-model="bsc.user.medicalCollectionsBalance">
+      <input class="inputFieldSize" type="number" name="medCollect" ng-model="bsc.client.medicalCollectionsBalance">
     </md-input-container>
 
     <md-input-container >
       <label for="otherCollect">Other Collections</label>
-      <input class="inputFieldSize" type="number" name="otherCollect" ng-model="bsc.user.allOtherCollectionsBalance">
+      <input class="inputFieldSize" type="number" name="otherCollect" ng-model="bsc.client.allOtherCollectionsBalance">
     </md-input-container>
 
-    <md-input-container ng-if="bsc.user.dependents">
+    <md-input-container ng-if="bsc.client.dependents">
       <label for="child">Child Support in Arrears</label>
-      <input class="inputFieldSize" type="number" name="child" ng-model="bsc.user.childSupportInArrearsBalance">
+      <input class="inputFieldSize" type="number" name="child" ng-model="bsc.client.childSupportInArrearsBalance">
     </md-input-container>
   <!-- </div> -->
 <!--sub div for formatting   <div>  -->
     <md-input-container >
       <label for="backTax">Back Taxes Owed</label>
-      <input class="inputFieldSize" type="number" name="backTax" ng-model="bsc.user.BackTaxesBalance">
+      <input class="inputFieldSize" type="number" name="backTax" ng-model="bsc.client.BackTaxesBalance">
     </md-input-container>
 
     <div>
       <md-input-container>
         <label for="judgement">Other Public Records</label>
-        <input type="text" name="judgement" ng-model="bsc.user.otherJudgement">
+        <input type="text" name="judgement" ng-model="bsc.client.otherJudgement">
       </md-input-container>
       <md-input-container>
         <label for="otherJudge">Amount Owed</label>
-        <input type="text" name="otherJudge" ng-model="bsc.user.otherPublicRecordsBalance">
+        <input type="text" name="otherJudge" ng-model="bsc.client.otherPublicRecordsBalance">
       </md-input-container>
     </div>
 
     <h4>Total Collections/Charge-Offs/Judgements:<span ng-model="bsc.totalCollectionsChargeOffsJudgments">${{}}</span></h4>
   </div>
 
-  <h2>Total Liabilities: $<span ng-model="bsc.user.totalLiabilities">{{}}</span></h2>
+  <h2>Total Liabilities: $<span ng-model="bsc.client.totalLiabilities">{{}}</span></h2>
   <button type="button">View Snapshot</button>
 </div>
   <!-- NOTE: naming scheme for balance sheet -->
