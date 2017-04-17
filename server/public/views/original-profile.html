@@ -1,0 +1,149 @@
+<md-toolbar class="toolbar" layout-align="center center">
+	<h1>Financial Health Assessment Tool</h1>
+</md-toolbar>
+
+<div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
+  <md-content layout-gt-sm="row" layout-padding>
+    <div>
+
+      <div ng-hide="pc.user.maritalStatus === 'single' || (pc.user.maritalStatus === 'married' && pc.user.individual != null)"> <!--Individual or Joint section -->
+        <md-radio-group ng-model="pc.user.maritalStatus">
+          <h2>Are you married?</h2>
+          <md-radio-button ng-value="'married'">Yes</md-radio-button>
+          <md-radio-button ng-value="'single'">No</md-radio-button>
+        </md-radio-group>
+
+        <md-radio-group ng-if="pc.user.maritalStatus === 'married'" ng-model="pc.user.individual">
+          <h2>Do you share finances?</h2>
+          <md-radio-button ng-value="false">Yes</md-radio-button>
+          <md-radio-button ng-value="true">No</md-radio-button>
+        </md-radio-group>
+      </div>
+
+
+
+
+      <div class="sample-show-hide" ng-if="pc.user.maritalStatus === 'single' || (pc.user.maritalStatus === 'married' && pc.user.individual != null)" ng-hide="pc.user.dependents != null"> <!--Dependents section -->
+        <md-radio-group ng-model="pc.user.dependents">
+          <h2>Do you have any children or dependents?</h2>
+          <md-radio-button ng-value="true">Yes</md-radio-button>
+          <md-radio-button ng-value="false">No</md-radio-button>
+        </md-radio-group>
+        <button type="button" ng-click="pc.undoMarrige()">Back</button>
+      </div>
+
+
+      <div class="sample-show-hide" ng-if="pc.user.dependents != null" ng-hide="pc.user.employed != null"> <!--Employment section -->
+        <md-radio-group ng-model="pc.user.employed">
+          <h2>Are you employed?</h2>
+          <md-radio-button ng-value="true">Yes</md-radio-button>
+          <md-radio-button ng-value="false">No</md-radio-button>
+        </md-radio-group>
+        <button type="button" ng-click="pc.user.dependents = null">Back</button>
+      </div>
+
+
+      <div class="sample-show-hide" ng-if="pc.user.employed != null" ng-hide="pc.user.assistance == false || !pc.assistanceSection"> <!--Assistance section -->
+        <md-radio-group ng-model="pc.user.assistance">
+          <h2>Do you receive assistance?</h2>
+          <md-radio-button ng-value="true">Yes</md-radio-button>
+          <md-radio-button ng-value="false">No</md-radio-button>
+        </md-radio-group>
+        <button type="button" ng-click="pc.user.employed = null">Back</button>
+
+        <div class="sample-show-hide" ng-if="pc.user.assistance == true" class="pc.assistanceSection">
+          <md-checkbox md-no-ink class="md-primary" ng-model="pc.user.SNAP">SNAP</md-checkbox>
+          <md-checkbox md-no-ink class="md-primary" ng-model="pc.user.TANF">TANF</md-checkbox>
+          <md-checkbox md-no-ink class="md-primary" ng-model="pc.user.SSI">SSI/SSDI</md-checkbox>
+          <md-checkbox md-no-ink class="md-primary" ng-model="pc.user.alimony">Child Support/Alimony</md-checkbox>
+          <md-checkbox md-no-ink class="md-primary" ng-model="pc.user.workersComp">Workers' Comp</md-checkbox>
+          <md-checkbox md-no-ink class="md-primary" ng-model="pc.user.otherAssist">Other</md-checkbox>
+          <button type="button" ng-click="pc.confirmAssistance()">OK</button>
+        </div>
+      </div>
+
+      <div class="sample-show-hide" ng-if="pc.user.assistance == false || !pc.assistanceSection" ng-hide="pc.user.housing != null"> <!--Housing section -->
+        <md-radio-group ng-model="pc.user.housing">
+          <h2>Do you rent or own your home?</h2>
+          <md-radio-button ng-value="'Rent'">Rent</md-radio-button>
+          <md-radio-button ng-value="'Own'">Own</md-radio-button>
+        </md-radio-group>
+        <button type="button" ng-click="pc.confirmAssistance()">Back</button>
+      </div>
+
+      <div class="sample-show-hide" ng-if="pc.user.housing != null" ng-hide="pc.user.vehicle == false|| pc.user.numberVehicles != null"> <!--Vehicle section -->
+        <md-radio-group ng-model="pc.user.vehicle">
+          <h2>Do you own a vehicle?</h2>
+          <md-radio-button ng-value="true">Yes</md-radio-button>
+          <md-radio-button ng-value="false">No</md-radio-button>
+        </md-radio-group>
+
+        <div class="sample-show-hide" ng-if="pc.user.vehicle == true">
+          <h3>How many vehicles do you own?</h3>
+        <md-select ng-model="pc.user.numberVehicles" placeholder="Number of Vehicles">
+          <md-option value=1>1</md-option>
+          <md-option value=2>2</md-option>
+          <md-option value=3>3+</md-option>
+        </md-select>
+      </div>
+        <button type="button" ng-click="pc.user.housing = null">Back</button>
+      </div>
+
+      <div class="sample-show-hide" ng-class="pc.bankSection" ng-if="pc.user.vehicle == false|| pc.user.numberVehicles != null" ng-hide="pc.user.bank == false || !pc.bankSection">
+        <md-radio-group ng-model="pc.user.bank">
+          <h2>Have you owned a checking or savings account?</h2> <!-- consider revising to checkboxes -->
+          <md-radio-button ng-value="true">Yes</md-radio-button>
+          <md-radio-button ng-value="false" ng-click="pc.clearAccounts()">No</md-radio-button>
+        </md-radio-group>
+
+        <div ng-if="pc.user.bank == true">
+          <h3>Which account(s) have you used?</h3>
+          <md-checkbox ng-model="pc.user.checking">Checking Account</md-checkbox>
+          <md-checkbox ng-model="pc.user.savings">Savings Account</md-checkbox>
+          <button type="button" ng-click="pc.hideBank()">OK</button>
+        </div>
+        <button type="button" ng-click="pc.undoVehicle()">Back</button>
+      </div>
+
+      <div ng-class="pc.productsSection" ng-if="pc.user.bank == false || !pc.bankSection" ng-hide="!pc.productSection">
+        <h2>Have you used any of the following credit products?</h2>
+        <md-checkbox ng-model="pc.user.creditCard">Credit Card</md-checkbox>
+        <md-checkbox ng-model="pc.user.autoLoan">Auto Loan</md-checkbox> <!--ng-hide="pc.user.vehicle ==='No'" -->
+        <md-checkbox ng-model="pc.user.mortgage">Mortgage</md-checkbox> <!--ng-hide="pc.user.housing !=='Own'"  -->
+        <md-checkbox ng-model="pc.user.heloc">HELOC</md-checkbox> <!--ng-hide="pc.user.housing ==='Rent'" -->
+        <md-checkbox ng-model="pc.user.noCreditProducts">None of These</md-checkbox>
+        <button type="button" ng-click="pc.hideProducts()">OK</button>
+        <button type="button" ng-click="pc.hideBank()">Back</button>
+      </div>
+
+      <div class="sample-show-hide" ng-if="!pc.productSection">
+        <p>Marital Status:{{pc.user.maritalStatus}}</p>
+        <p ng-hide="pc.user.maritalStatus === 'single'">Single Filing: {{pc.user.individual}}</p>
+        <p>Dependents: {{pc.user.dependents}}</p>
+        <p>Employed: {{pc.user.employed}}</p>
+        <p>Receiving Assistance: {{pc.user.assistance}}</p>
+        <p ng-if="pc.user.assistance ==true">Assistance Types:</p>
+        <p ng-if="pc.user.SNAP == true">-SNAP</p>
+        <p ng-if="pc.user.TANF == true">-TANF</p>
+        <p ng-if="pc.user.SSI == true">-SSI/SSDI</p>
+        <p ng-if="pc.user.alimony == true">-Alimony</p>
+        <p ng-if="pc.user.workersComp == true">-Workers' Compensation</p>
+        <p ng-if="pc.user.otherAssist == true">-Other</p>
+        <p>Housing Type: {{pc.user.housing}}</p>
+        <p>Own Vehicle: {{pc.user.vehicle}} <span ng-if="pc.user.numberVehicles != null">Number of Vehicles:{{pc.user.numberVehicles}}</span></p>
+        <p>Bank Account: {{pc.user.bank}} <span ng-if="(pc.user.checking == true && pc.user.savings != true)">Checking</span> <span ng-if="(pc.user.checking != true && pc.user.savings == true)">Savings</span><span ng-if="(pc.user.checking == true && pc.user.savings == true)">Checking & Savings</span></p>
+        <p>Credit Products:</p>
+        <p ng-if="pc.user.noCreditProducts == true">-None</p>
+        <p ng-if="pc.user.creditCard">-Credit Card</p>
+        <p ng-if="pc.user.autoLoan == true">-Auto Loan</p>
+        <p ng-if="pc.user.mortgage == true">-Mortgage</p>
+        <p ng-if="pc.user.heloc == true">-HELOC</p>
+        <button type="button" ng-click="pc.hideProducts()">Back</button>
+        <button type="button">Confirm Accuracy</button>
+        <a href="#main">This is just a link now to take us to the main view</a>
+      </div>
+
+
+    </div>
+  </md-content>
+</div>
