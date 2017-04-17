@@ -27,7 +27,6 @@ var tokenDecoder = function(req, res, next) {
             console.log('successful user query', user);
             next();
           }
-<<<<<<< HEAD
         })
         .catch(function(error) {
           console.log('User token unverified');
@@ -38,17 +37,4 @@ var tokenDecoder = function(req, res, next) {
       res.sendStatus(403); // chrome error hanfdling??
     }
   };
-=======
-    })
-    .catch(function(error) {
-      console.log('User token unverified');
-      res.sendStatus(403);
-    });
-  })
-  } else {
-    res.sendStatus(403); // chrome error handling??
-  }
-};
->>>>>>> develop
-
   module.exports = { token: tokenDecoder };

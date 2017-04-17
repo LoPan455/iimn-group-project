@@ -5,19 +5,32 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
 
     function newClient(newClient) {
       console.log('newClient function called = ', newClient);
-      // if (firebaseUser) {
-      //   firebaseUser.getToken().then(function(idToken) {
-          $http({
+
+$firebaseAuth.$onAuthStateChanged(function() {
+      if (firebaseUser.user.email) {
+        firebaseUser.getToken().then(function(idToken) {
+
+  $http({
             method: 'POST',
             url: '/client/newClient',
             data: newClient,
-            // headers: {
-            //   id_token: idToken,
-            // },
+            headers: {
+              id_token: idToken,
+            },
+        });
+    
+          // $http({
+          //   method: 'POST',
+          //   url: '/client/newClient',
+          //   data: newClient,
+          //   headers: {
+          //     id_token: idToken,
+          //   },
           }).then(function(response) {
             console.log('response from factory: ', response);
             console.log('response.data from factory: ', response.data);
             client.client = response.data;
+          
           });
       //   });
       // }

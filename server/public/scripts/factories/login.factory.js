@@ -27,7 +27,6 @@ app.factory('LoginFactory', [
         firebaseUser.getToken().then(function(idToken) {
           getUserEmail(idToken);
           $location.url('/welcome');
-
         });
       } else {
         console.log('$onAuthStateChanged logged out');
