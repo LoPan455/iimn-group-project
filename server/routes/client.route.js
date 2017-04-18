@@ -42,8 +42,10 @@ router.patch('/update/:id',function(req,res){
             $set: clientObject
           },function (err, client) {
             if (err) {
+                console.log('there was an error updating the client document',err);
                 res.status(500).send(err)
             }
+            console.log('success updating the client document. Returning: ',client);
             res.send(client);
         });
     })//end router.put
