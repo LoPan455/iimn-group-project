@@ -1,236 +1,328 @@
-<p>{{bec.user}}</p>
+<!-- <p>{{bc.client}}</p> -->
 
-<h1>Monthly Expenses</h1>
+<div layout="column" ng-cloak class="md-inline-form md-padding" flex ng-keyup="bc.updateExpenses()">
+    <md-content>
+        <h1>Monthly Expenses
+      <span ng-model="bc.client.totalMonthlyExpenses">${{bc.client.totalMonthlyExpenses}}</span></h1>
+        <h2>Housing Expenses
+      <span ng-model="bc.client.monthlyTotalHousingExpenses" type ="number"> ${{bc.client.monthlyTotalHousingExpenses}}</span></h2>
 
-<h2>Housing</h2>
-  <p>Rent (monthly payment)
-  <input ng-model="bic.user.monthlyRent" placeholder="$" type="number"></p>
-  <p>Renters Insurance (monthly payment)
-    <input ng-model="bic.user.monthlyRentersInsurance" placeholder="$" type="number"></p>
-  <p>Number of mortgages on primary residence
-    <input ng-model="bic.user.numberOfMortgages" placeholder="$" type="number"></p>
-  <p>Mortgage 1 - Primary Residence (monthly payment)
-    <input ng-model="bic.user.monthlyMortgage1" placeholder="$" type="number"></p>
-  <p>Mortgage 2, 3, etc. - Primary Residence (combined monthly payment)
-    <input ng-model="bic.user.monthlyMortgage2" placeholder="$" type="number"></p>
-  <p>HELOC(s) - Primary Residence (monthly payment)
-    <input ng-model="bic.user.monthlyHeloc" placeholder="$" type="number"></p>
-  <p>Property Tax if not included in mortgage (monthly payment)
-    <input ng-model="bic.user.monthlyPropertyTaxIfNotInMortgage" placeholder="$" type="number"></p>
-  <p>Homeowners Insurance (monthly payment)
-    <input ng-model="bic.user.monthlyHomeownersInsurance" placeholder="$" type="number"></p>
-  <p>Home Maintenance (monthly estimate, pro-rated)
-    <input ng-model="bic.user.monthlyHomeMaintenance" placeholder="$" type="number"></p>
-  <p>Condo/Townhome Fees or Assessments (monthly payment)
-    <input ng-model="bic.user.monthlyCondoTownhomeFees" placeholder="$" type="number"></p>
-  <p>Real Estate Other than Primary Residence (monthly payment)
-    <input ng-model="bic.user.monthlyOtherRealEstate" placeholder="$" type="number"></p>
-  <p>Other Housing Expenses (monthly payment)
-    <input ng-model="bic.user.monthlyOtherHousingExpenses" placeholder="$" type="number"></p>
-<h2>Total Housing Expenses
-  <input ng-model="bic.user.monthlyTotalHousingExpenses" placeholder="$" type="number"></h2>
+        <div>
+            <md-input-container class="">
+                <label>Rent</label>
+                <input ng-model="bc.client.monthlyRent" type="number" ng-focus="bc.updateHousing(bc.client.monthlyRent)" ng-blur="bc.addHousing(bc.client.monthlyRent)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Renters Insurance</label>
+                <input ng-model="bc.client.monthlyRentersInsurance" type="number" ng-focus="bc.updateHousing(bc.client.monthlyRentersInsurance)" ng-blur="bc.addHousing(bc.client.monthlyRentersInsurance)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Mortgage</label>
+                <input ng-model="bc.client.monthlyMortgage1" type="number" ng-focus="bc.updateHousing(bc.client.monthlyMortgage1)" ng-blur="bc.addHousing(bc.client.monthlyMortgage1)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Mortgage 2, 3, etc.</label>
+                <input ng-model="bc.client.monthlyMortgage2" type="number" ng-focus="bc.updateHousing(bc.client.monthlyMortgage2)" ng-blur="bc.addHousing(bc.client.monthlyMortgage2)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>HELOC(s)</label>
+                <input ng-model="bc.client.monthlyHeloc" type="number" ng-focus="bc.updateHousing(bc.client.monthlyHeloc)" ng-blur="bc.addHousing(bc.client.monthlyHeloc)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Property Tax</label>
+                <input ng-model="bc.client.monthlyPropertyTaxIfNotInMortgage" type="number" ng-focus="bc.updateHousing(bc.client.monthlyPropertyTaxIfNotInMortgage)" ng-blur="bc.addHousing(bc.client.monthlyPropertyTaxIfNotInMortgage)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Homeowners Ins</label>
+                <input ng-model="bc.client.monthlyHomeownersInsurance" type="number" ng-focus="bc.updateExpenses(bc.client.monthlyHomeownersInsurance)" ng-blur="bc.addHousing(bc.client.monthlyHomeownersInsurance)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Home Maintenance</label>
+                <input ng-model="bc.client.monthlyHomeMaintenance" type="number" ng-focus="bc.updateHousing(bc.client.monthlyHomeMaintenance)" ng-blur="bc.addHousing(bc.client.monthlyHomeMaintenance)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Condo Fees</label>
+                <input ng-model="bc.client.monthlyCondoTownhomeFees" type="number" ng-focus="bc.updateHousing(bc.client.monthlyCondoTownhomeFees)" ng-blur="bc.addHousing(bc.client.monthlyCondoTownhomeFees)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Other Real Estate</label>
+                <input ng-model="bc.client.monthlyOtherRealEstate" type="number" ng-focus="bc.updateHousing(bc.client.monthlyOtherRealEstate)" ng-blur="bc.addHousing(bc.client.monthlyOtherRealEstate)">
+            </md-input-container>
+            <md-input-container class="informalField">
+                <label>Other Housing Expenses</label>
+                <input ng-model="bc.client.monthlyOtherHousingExpenses" type="number" ng-focus="bc.updateHousing(bc.client.monthlyOtherHousingExpenses)" ng-blur="bc.addHousing(bc.client.monthlyOtherHousingExpenses)">
+            </md-input-container>
+        </div>
 
+        <br>
 
-<br>
-<br>
+        <h2>Utilities
+        <span ng-model="bc.client.monthlyTotalUtilities" type ="number"> ${{bc.client.monthlyTotalUtilities}}</span></h2>
 
+        <div>
+            <md-input-container class="">
+                <label>Gas/Heating</label>
+                <input ng-model="bc.client.monthlyGasHeating" type="number" ng-focus="bc.updateUtilities(bc.client.monthlyGasHeating)" ng-blur="bc.addUtilities(bc.client.monthlyGasHeating)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Electric</label>
+                <input ng-model="bc.client.monthlyElectric" type="number" ng-focus="bc.updateUtilities(bc.client.monthlyElectric)" ng-blur="bc.addUtilities(bc.client.monthlyElectric)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Water</label>
+                <input ng-model="bc.client.monthlyWater" type="number" ng-focus="bc.updateUtilities(bc.client.monthlyWater)" ng-blur="bc.addUtilities(bc.client.monthlyWater)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Trash</label>
+                <input ng-model="bc.client.monthlyTrash" type="number" ng-focus="bc.updateUtilities(bc.client.monthlyTrash)" ng-blur="bc.addUtilities(bc.client.monthlyTrash)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Sewer</label>
+                <input ng-model="bc.client.monthlySewer" type="number" ng-focus="bc.updateUtilities(bc.client.monthlySewer)" ng-blur="bc.addUtilities(bc.client.monthlySewer)">
+            </md-input-container>
+        </div>
 
-<h2>Utilities</h2>
-  <p>Gas/Heating (monthly estimate)
-  <input ng-model="bic.user.monthlyGasHeating" placeholder="$" type="number"></p>
-  <p>Electric (monthly estimate)
-  <input ng-model="bic.user.monthlyElectric" placeholder="$" type="number"></p>
-  <p>Water (monthly estimate)
-  <input ng-model="bic.user.monthlyWater" placeholder="$" type="number"></p>
-  <p>Trash (monthly estimate)
-  <input ng-model="bic.user.monthlyTrash" placeholder="$" type="number"></p>
-  <p>Sewer (monthly estimate)
-  <input ng-model="bic.user.monthlySewer" placeholder="$" type="number"></p>
-  <p>Phone - landline (monthly estimate)
-  <input ng-model="bic.user.monthlyLandline" placeholder="$" type="number"></p>
-  <p>Cell Phone (monthly estimate)
-  <input ng-model="bic.user.monthlyCellPhone" placeholder="$" type="number"></p>
-  <p>Other Utilities Expenses (monthly estimate) (note: cable and internet are located in Personal Expenses)
-  <input ng-model="bic.user.monthlyOtherUtilitiesNotCableAndInternet" placeholder="$" type="number"></p>
-<h2>Total Utilities Expenses
-<input ng-model="bic.user.monthlyTotalUtilities" placeholder="$" type="number"></h2>
+        <div>
+            <md-input-container class="">
+                <label>Phone - Landline</label>
+                <input ng-model="bc.client.monthlyLandline" type="number" ng-focus="bc.updateUtilities(bc.client.monthlyLandline)" ng-blur="bc.addUtilities(bc.client.monthlyLandline)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Cell Phone</label>
+                <input ng-model="bc.client.monthlyCellPhone" type="number" ng-focus="bc.updateUtilities(bc.client.monthlyCellPhone)" ng-blur="bc.addUtilities(bc.client.monthlyCellPhone)">
+            </md-input-container>
+            <md-input-container class="informalField">
+                <label>Other Utilities (Not Cable and Internet)</label>
+                <input ng-model="bc.client.monthlyOtherUtilitiesNotCableAndInternet" type="number" ng-focus="bc.updateUtilities(bc.client.monthlyOtherUtilitiesNotCableAndInternet)" ng-blur="bc.addUtilities(bc.client.monthlyOtherUtilitiesNotCableAndInternet)">
+            </md-input-container>
+        </div>
 
+        <br>
 
-<br>
-<br>
+        <h2>Food
+          <span ng-model="bc.client.monthlyTotalFoodExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalFoodExpenses}}</span></h2>
 
+        <div>
+            <md-input-container class="">
+                <label>Groceries</label>
+                <input ng-model="bc.client.monthlyGroceries" type="number" ng-focus="bc.updateFood(bc.client.monthlyGroceries)" ng-blur="bc.addFood(bc.client.monthlyGroceries)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Other Food</label>
+                <input ng-model="bc.client.monthlyOtherFood" type="number" ng-focus="bc.updateFood(bc.client.monthlyOtherFood)" ng-blur="bc.addFood(bc.client.monthlyOtherFood)">
+            </md-input-container>
+        </div>
 
-<h2>Food</h2>
-  <p>Groceries (monthly estimate)
-  <input ng-model="bic.user.monthlyGroceries" placeholder="$" type="number"></p>
-  <p>Other Food Expenses - dining out, school lunch, etc. (monthly estimate)
-  <input ng-model="bic.user.monthlyOtherFood" placeholder="$" type="number"></p>
-  <h2>Total Food Expenses
-  <input ng-model="bic.user.monthlyTotalFoodExpenses" placeholder="$" type="number"></h2>
+        <br>
 
+        <h2>Transportation
+            <span ng-model  ="bc.client.monthlyTotalTransportationExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalTransportationExpenses}}</span></h2>
 
-  <br>
-  <br>
+        <div>
+            <md-input-container class="">
+                <label>Vehicle 1</label>
+                <input ng-model="bc.client.monthlyVehicle1" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyVehicle1)" ng-blur="bc.addTransportation(bc.client.monthlyVehicle1)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Vehicle 2</label>
+                <input ng-model="bc.client.monthlyVehicle2" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyVehicle2)" ng-blur="bc.addTransportation(bc.client.monthlyVehicle2)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Vehicle 3, etc.</label>
+                <input ng-model="bc.client.monthlyVehiclesOther" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyVehiclesOther)" ng-blur="bc.addTransportation(bc.client.monthlyVehiclesOther)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Gas</label>
+                <input ng-model="bc.client.monthlyGas" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyGas)" ng-blur="bc.addTransportation(bc.client.monthlyGas)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Car Insurance</label>
+                <input ng-model="bc.client.monthlyCarInsurance" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyCarInsurance)" ng-blur="bc.addTransportation(bc.client.monthlyCarInsurance)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Car Maintenance </label>
+                <input ng-model="bc.client.monthlyCarMaintenance" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyCarMaintenance)" ng-blur="bc.addTransportation(bc.client.monthlyCarMaintenance)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Public Transportation </label>
+                <input ng-model="bc.client.monthlyPublicTransportation" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyPublicTransportation)" ng-blur="bc.addTransportation(bc.client.monthlyPublicTransportation)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Other Transportation</label>
+                <input ng-model="bc.client.monthlyTransportationExpenses" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyTransportationExpenses)" ng-blur="bc.addTransportation(bc.client.monthlyTransportationExpenses)">
+            </md-input-container>
+        </div>
 
+        <br>
 
-  <h2>Transportation</h2>
-  <p>Number of vehicles
-  <input ng-model="bic.user.numberOfVehicles" placeholder="$" type="number"></p>
-  <p>Vehicle 1 (monthly payment)
-  <input ng-model="bic.user.monthlyVehicle1" placeholder="$" type="number"></p>
-  <p>Vehicle 2 (monthly payment)
-  <input ng-model="bic.user.monthlyVehicle2" placeholder="$" type="number"></p>
-  <p>Vehicle 3, Vehicle 4, Vehicle 5, etc. (combined monthly payment)
-  <input ng-model="bic.user.monthlyVehiclesOther" placeholder="$" type="number"></p>
-  <p>Gas (monthly estimate)
-  <input ng-model="bic.user.monthlyGas" placeholder="$" type="number"></p>
-  <p>Car Insurance (monthly payment, pro-rate if not paid monthly)
-  <input ng-model="bic.user.monthlyCarInsurance" placeholder="$" type="number"></p>
-  <p>Car Maintenance (monthly estimate)
-  <input ng-model="bic.user.monthlyCarMaintenance" placeholder="$" type="number"></p>
-  <p>Public Transportation (monthly estimate)
-  <input ng-model="bic.user.monthlyPublicTransportation" placeholder="$" type="number"></p>
-  <p>Other Transportation Expenses (monthly estimate)
-  <input ng-model="bic.user.monthlyTransportationExpenses" placeholder="$" type="number"></p>
-  <h2>Total Transportation Expenses
-  <input ng-model="bic.user.monthlyTotalTransportationExpenses" placeholder="$" type="number"></h2>
+        <h2>Health
+              <span ng-model="bc.client.monthlyTotalHealthRelatedExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalHealthRelatedExpenses}}</span></h2>
 
+        <div>
+            <md-input-container class="">
+                <label>Health Ins</label>
+                <input ng-model="bc.client.monthlyHealthInsurance" type="number" ng-focus="bc.updateHealth(bc.client.monthlyHealthInsurance)" ng-blur="bc.addHealth(bc.client.monthlyHealthInsurance)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Dental Ins</label>
+                <input ng-model="bc.client.monthlyDentalInsurance" type="number" ng-focus="bc.updateHealth(bc.client.monthlyDentalInsurance)" ng-blur="bc.addHealth(bc.client.monthlyDentalInsurance)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Life Ins</label>
+                <input ng-model="bc.client.monthlyLifeInsurance" type="number" ng-focus="bc.updateHealth(bc.client.monthlyLifeInsurance)" ng-blur="bc.addHealth(bc.client.monthlyLifeInsurance)">
+            </md-input-container>
+            <md-input-container class="inputFieldSize">
+                <label>Copays and Medications</label>
+                <input ng-model="bc.client.monthlyMedicalAndPrescription" type="number" ng-focus="bc.updateHealth(bc.client.monthlyMedicalAndPrescription)" ng-blur="bc.addHealth(bc.client.monthlyMedicalAndPrescription)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Other Health</label>
+                <input ng-model="bc.client.monthlyOtherHealthRelated" type="number" ng-focus="bc.updateHealth(bc.client.monthlyOtherHealthRelated)" ng-blur="bc.addHealth(bc.client.monthlyOtherHealthRelated)">
+            </md-input-container>
+        </div>
 
-  <br>
-  <br>
+        <br>
 
+        <h2>Child/Dependent Expenses
+                <span ng-model  ="bc.client.monthlyTotalDependentRelatedExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalDependentRelatedExpenses}}</span></h2>
 
-  <h2>Health-Related Expenses</h2>
-    <p>Health Ins., if not deducted from your paycheck or Social Security Check (monthly payment)
-    <input ng-model="bic.user.monthlyHealthInsurance" placeholder="$" type="number"></p>
-    <p>Dental Ins., if not deducted from your paycheck or Social Security Check (monthly payment)
-    <input ng-model="bic.user.monthlyDentalInsurance" placeholder="$" type="number"></p>
-    <p>Life Insurance (monthly payment, pro-rate if not paid monthly)
-    <input ng-model="bic.user.monthlyLifeInsurance" placeholder="$" type="number"></p>
-    <p>Monthly medical and prescriptions bills - copays, prescription drugs, etc. (monthly estimate)
-    <input ng-model="bic.user.monthlyMedicalAndPrescription" placeholder="$" type="number"></p>
-    <p>Other Health-Related Expenses (monthly estimate)
-    <input ng-model="bic.user.monthlyOtherHealthRelated" placeholder="$" type="number"></p>
-    <h2>Total Health-Related Expenses
-    <input ng-model="bic.user.monthlyTotalHealthRelatedExpenses" placeholder="$" type="number"></h2>
+        <div>
+            <md-input-container class="">
+                <label>Child Support</label>
+                <input ng-model="bc.client.monthlyChildSupport" type="number" ng-focus="bc.updateDependent(bc.client.monthlyChildSupport)" ng-blur="bc.addDependent(bc.client.monthlyChildSupport)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Childcare/Daycare</label>
+                <input ng-model="bc.client.monthlyChildcare" type="number" ng-focus="bc.updateDependent(bc.client.monthlyChildcare)" ng-blur="bc.addDependent(bc.client.monthlyChildcare)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Education</label>
+                <input ng-model="bc.client.monthlyEducation" type="number" ng-focus="bc.updateDependent(bc.client.monthlyEducation)" ng-blur="bc.addDependent(bc.client.monthlyEducation)">
+            </md-input-container>
+            <md-input-container class="informalField">
+                <label>Other Dependent Expenses</label>
+                <input ng-model="bc.client.monthlyOtherDependentExpenses" type="number" ng-focus="bc.updateDependent(bc.client.monthlyOtherDependentExpenses)" ng-blur="bc.addDependent(bc.client.monthlyOtherDependentExpenses)">
+            </md-input-container>
+        </div>
 
+        <br>
 
+        <h2>Credit Card and Debt Payments
+                  <span ng-model="bc.client.monthlyTotalCreditCardLoanDebtPayments" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalCreditCardLoanDebtPayments}}</span></h2>
 
+        <div>
+            <md-input-container class="">
+                <label>Credit Card Payment(s)</label>
+                <input ng-model="bc.client.monthlyCombinedCreditCards" type="number" ng-focus="bc.updateDebt(bc.client.monthlyCombinedCreditCards)" ng-blur="bc.addDebt(bc.client.monthlyCombinedCreditCards)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Student Loan(s)</label>
+                <input ng-model="bc.client.monthlyStudentLoans" type="number" ng-focus="bc.updateDebt(bc.client.monthlyStudentLoans)" ng-blur="bc.addDebt(bc.client.monthlyStudentLoans)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Consumer Loan(s)</label>
+                <input ng-model="bc.client.monthlyConsumerLoans" type="number" ng-focus="bc.updateDebt(bc.client.monthlyConsumerLoans)" ng-blur="bc.addDebt(bc.client.monthlyConsumerLoans)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Business Loan(s)</label>
+                <input ng-model="bc.client.monthlyBusinessLoans" type="number" ng-focus="bc.updateDebt(bc.client.monthlyBusinessLoans)" ng-blur="bc.addDebt(bc.client.monthlyBusinessLoans)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Informal Loan(s)</label>
+                <input ng-model="bc.client.monthlyInformalLoans" type="number" ng-focus="bc.updateDebt(bc.client.monthlyInformalLoans)" ng-blur="bc.addDebt(bc.client.monthlyInformalLoans)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Other Debt Payments</label>
+                <input ng-model="bc.client.monthlyOtherDebtPayments" type="number" ng-focus="bc.updateDebt(bc.client.monthlyOtherDebtPayments)" ng-blur="bc.addDebt(bc.client.monthlyOtherDebtPayments)">
+            </md-input-container>
+        </div>
 
-  <br>
-  <br>
+        <br>
 
+        <h2>Personal
+                    <span ng-model  ="bc.client.monthlyTotalPersonalExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalPersonalExpenses}}</span></h2>
 
-  <h2>Child/Dependent-Related Expenses</h2>
-    <p>Child Support (monthly payment to other parent/guardian)
-    <input ng-model="bic.user.monthlyChildSupport" placeholder="$" type="number"></p>
-    <p>Childcare/Daycare (monthly payment)
-    <input ng-model="bic.user.monthlyChildcare" placeholder="$" type="number"></p>
-    <p>Education (for children/dependents) - tuition, books, pictures, fees, etc. (monthly estimate)
-    <input ng-model="bic.user.monthlyEducation" placeholder="$" type="number"></p>
-    <p>Other Child/Dependent-Related Expenses (monthly estimate)
-    <input ng-model="bic.user.monthlyOtherDependentExpenses" placeholder="$" type="number"></p>
-  <h2>Total Child/Dependent-Related Expenses
-  <input ng-model="bic.user.monthlyTotalDependentRelatedExpenses" placeholder="$" type="number"></h2>
+        <div>
+            <md-input-container class="">
+                <label>Cable/Internet </label>
+                <input ng-model="bc.client.monthlyCableInternet" type="number" ng-focus="bc.updatePersonal(bc.client.monthlyCableInternet)" ng-blur="bc.addPersonal(bc.client.monthlyCableInternet)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Laundry</label>
+                <input ng-model="bc.client.monthlyLaundryDryCleaning" type="number" ng-focus="bc.updatePersonal(bc.client.monthlyLaundryDryCleaning)" ng-blur="bc.addPersonal(bc.client.monthlyLaundryDryCleaning)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Tobacco &amp; Alcohol</label>
+                <input ng-model="bc.client.monthlyTobaccoAndAlcohol" type="number" ng-focus="bc.updatePersonal(bc.client.monthlyTobaccoAndAlcohol)" ng-blur="bc.addPersonal(bc.client.monthlyTobaccoAndAlcohol)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Clothing</label>
+                <input ng-model="bc.client.monthlyClothingAndAccessories" type="number" ng-focus="bc.updatePersonal(bc.client.monthlyClothingAndAccessories)" ng-blur="bc.addPersonal(bc.client.monthlyClothingAndAccessories)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Hair/Toiletries</label>
+                <input ng-model="bc.client.monthlyHairProductsAndToiletries" type="number" ng-focus="bc.updatePersonal(bc.client.monthlyHairProductsAndToiletries)" ng-blur="bc.addPersonal(bc.client.monthlyHairProductsAndToiletries)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Beauty/Barber</label>
+                <input ng-model="bc.client.monthlyBeautySalonBarberShop" type="number" ng-focus="bc.updatePersonal(bc.client.monthlyBeautySalonBarberShop)" ng-blur="bc.addPersonal(bc.client.monthlyBeautySalonBarberShop)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Recreation</label>
+                <input ng-model="bc.client.monthlyRecreation" type="number" ng-focus="bc.updatePersonal(bc.client.monthlyRecreation)" ng-blur="bc.addPersonal(bc.client.monthlyRecreation)">
+            </md-input-container>
+            <md-input-container class="">
+                <label>Other Personal</label>
+                <input ng-model="bc.client.monthlyOtherPersonalExpenses" type="number" ng-focus="bc.updatePersonal(bc.client.monthlyOtherPersonalExpenses)" ng-blur="bc.addPersonal(bc.client.monthlyOtherPersonalExpenses)">
+            </md-input-container>
+          </div>
 
+            <br>
 
+            <h2>Miscellaneous
+                    <span ng-model="bc.client.monthlyTotalMiscellaneousExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalMiscellaneousExpenses}}</span></h2>
 
+            <div>
+                <md-input-container class="">
+                    <label>Charitable Giving</label>
+                    <input ng-model="bc.client.monthlyCharitableGiving" type="number" ng-focus="bc.updateMisc(bc.client.monthlyCharitableGiving)" ng-blur="bc.addMisc(bc.client.monthlyCharitableGiving)">
+                </md-input-container>
+                <md-input-container class="">
+                    <label>Gifts to Others</label>
+                    <input ng-model="bc.client.monthlyGiftsToOthers" type="number" ng-focus="bc.updateMisc(bc.client.monthlyGiftsToOthers)" ng-blur="bc.addMisc(bc.client.monthlyGiftsToOthers)">
+                </md-input-container>
+                <md-input-container class="inputFieldSize">
+                    <label>Newspapers/Magazines</label>
+                    <input ng-model="bc.client.monthlyNewspapersMagazines" type="number" ng-focus="bc.updateMisc(bc.client.monthlyNewspapersMagazines)" ng-blur="bc.addMisc(bc.client.monthlyNewspapersMagazines)">
+                </md-input-container>
+                <md-input-container class="">
+                    <label>Pet Care</label>
+                    <input ng-model="bc.client.monthlyPetCare" type="number" ng-focus="bc.updateMisc(bc.client.monthlyPetCare)" ng-blur="bc.addMisc(bc.client.monthlyPetCare)">
+                </md-input-container>
+                <md-input-container class="inputFieldSize">
+                    <label>Allowances for Dependents</label>
+                    <input ng-model="bc.client.monthlyAllowancesForDependencies" type="number" ng-focus="bc.updateMisc(bc.client.monthlyAllowancesForDependencies)" ng-blur="bc.addMisc(bc.client.monthlyAllowancesForDependencies)">
+                </md-input-container>
+                <md-input-container class="">
+                    <label>Membership Dues</label>
+                    <input ng-model="bc.client.monthlyMembershipDues" type="number" ng-focus="bc.updateMisc(bc.client.monthlyMembershipDues)" ng-blur="bc.addMisc(bc.client.monthlyMembershipDues)">
+                </md-input-container>
+                <md-input-container class="inputFieldSize">
+                    <label>Education (For Participant)</label>
+                    <input ng-model="bc.client.monthlyEducationForParticipant" type="number" ng-focus="bc.updateMisc(bc.client.monthlyEducationForParticipant)" ng-blur="bc.addMisc(bc.client.monthlyEducationForParticipant)">
+                </md-input-container>
+                <md-input-container class="">
+                    <label>Bank Fees</label>
+                    <input ng-model="bc.client.monthlyFinancialFees" type="number" ng-focus="bc.updateMisc(bc.client.monthlyFinancialFees)" ng-blur="bc.addMisc(bc.client.monthlyFinancialFees)">
+                </md-input-container>
+                <md-input-container class="">
+                    <label>Other Miscellaneous</label>
+                    <input ng-model="bc.client.monthlyOtherMiscellaneousExpenses" type="number" ng-focus="bc.updateMisc(bc.client.monthlyOtherMiscellaneousExpenses)" ng-blur="bc.addMisc(bc.client.monthlyOtherMiscellaneousExpenses)">
+                </md-input-container>
+            </div>
 
-  <br>
-  <br>
+            <br>
 
-
-  <h2>Credit Card/Loan/Other Debt Payments</h2>
-    <p>CC1, CC2, CC3, etc. (combined monthly payment)
-    <input ng-model="bic.user.monthlyCombinedCreditCards" placeholder="$" type="number"></p>
-    <p>Student Loan(s) (monthly payment)
-    <input ng-model="bic.user.monthlyStudentLoans" placeholder="$" type="number"></p>
-    <p>Consumer Loan(s) (monthly payment)
-    <input ng-model="bic.user.monthlyConsumerLoans" placeholder="$" type="number"></p>
-    <p>Business Loan(s) (monthly payment)
-    <input ng-model="bic.user.monthlyBusinessLoans" placeholder="$" type="number"></p>
-    <p>Informal Loan(s) - money owed to family, friends, etc. (monthly payment)
-    <input ng-model="bic.user.monthlyInformalLoans" placeholder="$" type="number"></p>
-    <p>Other Debt Payments (monthly payment)
-    <input ng-model="bic.user.monthlyOtherDebtPayments" placeholder="$" type="number"></p>
-  <h2>Total Credit Card/Loan/Other Debt Payments
-  <input ng-model="bic.user.monthlyTotalCreditCardLoanDebtPayments" placeholder="$" type="number"></h2>
-
-
-  <br>
-  <br>
-
-
-  <h2>Personal</h2>
-    <p>Cable/Internet (monthly payment)
-    <input ng-model="bic.user.monthlyCableInternet" placeholder="$" type="number"></p>
-    <p>Laundry/Dry Cleaning (monthly estimate)
-    <input ng-model="bic.user.monthlyLaundryDryCleaning" placeholder="$" type="number"></p>
-    <p>Tobacco &amp; Alcohol (monthly estimate)
-    <input ng-model="bic.user.monthlyTobaccoAndAlcohol" placeholder="$" type="number"></p>
-    <p>Clothing &amp; Accessories (monthly estimate)
-    <input ng-model="bic.user.monthlyClothingAndAccessories" placeholder="$" type="number"></p>
-    <p>Hair Products/Toiletries (monthly estimate)
-    <input ng-model="bic.user.monthlyHairProductsAndToiletries" placeholder="$" type="number"></p>
-    <p>Beauty Salon/Barber Shop (monthly estimate)
-    <input ng-model="bic.user.monthlyBeautySalonBarberShop" placeholder="$" type="number"></p>
-    <p>Recreation - movies, CD's, sporting events, vacation, etc. (monthly estimate)
-    <input ng-model="bic.user.monthlyRecreation" placeholder="$" type="number"></p>
-    <p>Other Personal Expenses (monthly estimate)
-    <input ng-model="bic.user.monthlyOtherPersonalExpenses" placeholder="$" type="number"></p>
-  <h2>Total Personal Expenses
-  <input ng-model="bic.user.monthlyTotalPersonalExpenses" placeholder="$" type="number"></h2>
-
-
-  <br>
-  <br>
-
-
-  <h2>Miscellaneous</h2>
-    <p>Charitable Giving (monthly estimate)
-    <input ng-model="bic.user.monthlyCharitableGiving" placeholder="$" type="number"></p>
-    <p>Gifts to Others (monthly estimate)
-    <input ng-model="bic.user.monthlyGiftsToOthers" placeholder="$" type="number"></p>
-    <p>Newspapers/Magazines (monthly estimate)
-    <input ng-model="bic.user.monthlyNewspapersMagazines" placeholder="$" type="number"></p>
-    <p>Pet Care (monthly estimate)
-    <input ng-model="bic.user.monthlyPetCare" placeholder="$" type="number"></p>
-    <p>Allowances for Children/Dependents (monthly estimate)
-    <input ng-model="bic.user.monthlyAllowancesForDependencies" placeholder="$" type="number"></p>
-    <p>Membership Dues - health club, professional associations, etc. (monthly payment)
-    <input ng-model="bic.user.monthlyMembershipDues" placeholder="$" type="number"></p>
-    <p>Education (for participant) - not student loan repayment (monthly estimate)
-    <input ng-model="bic.user.monthlyEducationForParticipant" placeholder="$" type="number"></p>
-    <p>Average monthly financial fees from banks/credit unions/currency exchanges -
-    i.e. check cashing, money orders, overdraft, ATM (monthly estimate)
-    <input ng-model="bic.user.monthlyFinancialFees" placeholder="$" type="number"></p>
-    <p>Other Miscellaneous Expenses (monthly estimate)
-    <input ng-model="bic.user.monthlyOtherMiscellaneousExpenses" placeholder="$" type="number"></p>
-    <h2>Total Miscellaneous Expenses
-    <input ng-model="bic.user.monthlyTotalMiscellaneousExpenses" placeholder="$" type="number"></h2>
-
-  <br>
-  <br>
-
-  <h2>Monthly Savings Target
-  <input ng-model="bic.user.monthlySavingsTarget" placeholder="$" type="number"></h2>
-
-  <br>
-  <br>
-
-
-  <h2>Total Monthly Net Income</h2>
-
-  <h4>Total Monthly Income
-  <input ng-model="bic.user.totalMonthlyIncome" placeholder="$" type="number"></h2>
-
-  <h4>Total Monthly Expenses
-  <input ng-model="bic.user.totalMonthlyExpenses" placeholder="$" type="number"></h2>
-
-  <h2>Total Monthly Net Income
-  <input ng-model="bic.user.totalMonthlyNetIncome" placeholder="$" type="number"></h2>
-
-
-
-  <h2>Notes
-  <input ng-model="bic.user.notes" placeholder="Notes" type="text"></h2>
+            <h1>Total Monthly Expenses
+                      <span ng-model  ="bc.client.totalMonthlyExpenses" type="number"> ${{bc.client.totalMonthlyExpenses}}</span></h1>
+    </md-content>

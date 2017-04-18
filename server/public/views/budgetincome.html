@@ -1,39 +1,70 @@
-<md-content class="md-padding" flex>
-<p>{{bic.user}}</p>
+<!-- <p>{{bc.client}}</p> -->
 
-<h1>Monthly Income</h1>
-
-<p>Wages (take-home amount after all withholding) (monthly participant income - net)
-  <input ng-model="bic.user.monthlyWagesNet" placeholder="$" type="number"></p>
-<p>Income from self-employment or business ownership (monthly participant income  - net)
-  <input ng-model="bic.user.monthlySelfAndBusinessNet" placeholder="$" type="number"></p>
-<p>SSI/SSDI (monthly participant income - net)
-  <input ng-model="bic.user.monthlyNetSSI" placeholder="$" type="number"></p>
-<p>SNAP (food stamps)/WIC (monthly participant income - net)
-  <input ng-model="bic.user.monthlyNetSNAPWIC" placeholder="$"></p>
-<p>Alimony/Child Support (monthly participant income - net)
-  <input ng-model="bic.user.monthlyAlimonyNet" placeholder="$"></p>
-<p>Unemployment (monthly participant income - net)
-  <input ng-model="bic.user.monthlyUnemploymentNet" placeholder="$"></p>
-<p>Workers' Compensation (monthly participant income - net)
-  <input ng-model="bic.user.monthlyWorkersCompensationNet" placeholder="$"></p>
-<p>Veteran Compensation (monthly participant income - net)
-  <input ng-model="bic.user.monthlyVeteransCompensationNet" placeholder=""></p>
-<p>Rental Income (monthly participant income - net)
-  <input ng-model="bic.user.monthlyRentalIncomeNet" placeholder="$"></p>
-<p>Interest/Investment Income (monthly participant income - net)
-  <input ng-model="bic.user.monthlyInvestmentIncomeNet" placeholder="$"></p>
-<p>Income from other household members (monthly income from other household members - net)
-  <input ng-model="bic.user.monthlyIncomeOtherHouseholdMembersNet" placeholder="$"></p>
-<p>Social Security (not SSI/SSD) (monthly participant income - net)
-  <input ng-model="bic.user.monthlySocialSecurityNetNotSSI" placeholder="$"></p>
-<p>Pensions (monthly participant income - net)
-  <input ng-model="bic.user.monthlyPensionsNet" placeholder="$"></p>
-<p>Other Public Benefits (monthly participant income - net)
-  <input ng-model="bic.user.monthlyOtherPublicBenefitsNet" placeholder="$"></p>
-<p>Other Income (not public benefit) (monthly participant income - net)
-  <input ng-model="bic.user.monthlyOtherIncomeNet" placeholder="$"></p>
-<h1>Total Monthly Income (net)
-  <input ng-model="bic.user.totalMonthlyIncomeNet" placeholder="$"></h1>
-
-</md-content>
+<div layout="column" ng-cloak class="md-inline-form md-padding" flex ng-keyup="bc.updateIncome">
+  <md-content>
+    <h1>Monthly Income
+      <span ng-model="bc.client.totalMonthlyIncome">${{bc.client.totalMonthlyIncome}}</span></h1>
+      <div>
+        <md-input-container class="">
+        <label>Wages</label>
+        <input ng-model="bc.client.monthlyWagesNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyWagesNet)" ng-blur= "bc.addIncome(bc.client.monthlyWagesNet)">
+      </md-input-container>
+      <md-input-container class="informalField">
+        <label>Self-Employment or Business Income</label>
+        <input  ng-model="bc.client.monthlySelfAndBusinessNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlySelfAndBusinessNet)" ng-blur="bc.addIncome(bc.client.monthlySelfAndBusinessNet)">
+      </md-input-container>
+        <md-input-container class="">
+        <label>SSI/SSDI</label>
+        <input ng-model="bc.client.monthlyNetSSI" type="number" ng-focus="bc.updateIncome(bc.client.monthlyNetSSI)" ng-blur= "bc.addIncome(bc.client.monthlyNetSSI)">
+      </md-input-container>
+      <md-input-container class="">
+        <label>SNAP/WIC</label>
+        <input ng-model="bc.client.monthlyNetSNAPWIC" ng-focus="bc.updateIncome(bc.client.monthlyNetSNAPWIC)" type="number" ng-blur= "bc.addIncome(bc.client.monthlyNetSNAPWIC)">
+      </md-input-container>
+      <md-input-container class="" >
+        <label>Alimony/Child Support</label>
+        <input ng-model="bc.client.monthlyAlimonyNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyAlimonyNet)" ng-blur= "bc.addIncome(bc.client.monthlyAlimonyNet)">
+      </md-input-container>
+        <md-input-container class="">
+        <label>Unemployment</label>
+        <input ng-model="bc.client.monthlyUnemploymentNet"type="number" ng-focus="bc.updateIncome(bc.client.monthlyUnemploymentNet)" ng-blur= "bc.addIncome(bc.client.monthlyUnemploymentNet)">
+      </md-input-container>
+      <md-input-container class="" >
+        <label>Workers Comp</label>
+        <input ng-model="bc.client.monthlyWorkersCompensationNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyWorkersCompensationNet)" ng-blur= "bc.addIncome(bc.client.monthlyWorkersCompensationNet)">
+      </md-input-container>
+      <md-input-container class="">
+        <label>Veterans Comp</label>
+        <input ng-model="bc.client.monthlyVeteransCompensationNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyVeteransCompensationNet)" ng-blur= "bc.addIncome(bc.client.monthlyVeteransCompensationNet)">
+      </md-input-container>
+      <md-input-container class="">
+        <label>Rental Income</label>
+        <input ng-model="bc.client.monthlyRentalIncomeNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyRentalIncomeNet)" ng-blur= "bc.addIncome(bc.client.monthlyRentalIncomeNet)">
+      </md-input-container>
+      <md-input-container class="informalField">
+        <label>Interest/Investment Income</label>
+        <input ng-model="bc.client.monthlyInvestmentIncomeNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyInvestmentIncomeNet)" ng-blur= "bc.addIncome(bc.client.monthlyInvestmentIncomeNet)">
+      </md-input-container>
+      <md-input-container class="informalField">
+        <label>Income From Other Household Members</label>
+        <input ng-model="bc.client.monthlyIncomeOtherHouseholdMembersNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyIncomeOtherHouseholdMembersNet)" ng-blur= "bc.addIncome(bc.client.monthlyIncomeOtherHouseholdMembersNet)">
+      </md-input-container>
+      <md-input-container class="informalField">
+        <label>Social Security (not SSI/SSD)</label>
+        <input ng-model="bc.client.monthlySocialSecurityNetNotSSI" type="number" ng-focus="bc.updateIncome(bc.client.monthlySocialSecurityNetNotSSI)" ng-blur= "bc.addIncome(bc.client.monthlySocialSecurityNetNotSSI)">
+      </md-input-container>
+      <md-input-container class="">
+        <label>Pensions</label>
+        <input ng-model="bc.client.monthlyPensionsNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyPensionsNet)" ng-blur= "bc.addIncome(bc.client.monthlyPensionsNet)">
+      </md-input-container>
+      <md-input-container class="informalField">
+        <label>Other Public Benefits</label>
+        <input ng-model="bc.client.monthlyOtherPublicBenefitsNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyOtherPublicBenefitsNet)" ng-blur= "bc.addIncome(bc.client.monthlyOtherPublicBenefitsNet)">
+      </md-input-container>
+      <md-input-container class="informalField">
+        <label>Other Income</label>
+        <input ng-model="bc.client.monthlyOtherIncomeNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyOtherIncomeNet)" ng-blur= "bc.addIncome(bc.client.monthlyOtherIncomeNet)">
+      </md-input-container>
+    </div>
+  </md-content>
+</div>

@@ -43,21 +43,21 @@ app.config(function($stateProvider,$urlRouterProvider) {
   };
   var budgetIncome = {
     name: 'main.budget.income',
-    controller: 'BudgetIncomeController',
-    controllerAs: 'bic',
+    controller: 'BudgetController',
+    controllerAs: 'bc',
     templateUrl:'/views/budgetincome.html'
   };
   var budgetExpenses = {
     name: 'main.budget.expenses',
-    controller: 'BudgetExpensesController',
-    controllerAs: 'bec',
-    templateUrl:'/views/budgetexpenses.html'
-  };
-  var budgetThree = {
-    name: 'main.budget.three',
     controller: 'BudgetController',
     controllerAs: 'bc',
-    templateUrl:'/views/budgetthree.html'
+    templateUrl:'/views/budgetexpenses.html'
+  };
+  var budgetSnapshot = {
+    name: 'main.budget.snapshot',
+    controller: 'BudgetController',
+    controllerAs: 'bc',
+    templateUrl:'/views/budgetsnapshot.html'
   };
   var balanceSheet = {
     name: 'main.balanceSheet',
@@ -128,7 +128,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
   $stateProvider.state(budget);
   $stateProvider.state(budgetIncome);
   $stateProvider.state(budgetExpenses);
-  $stateProvider.state(budgetThree);
+  $stateProvider.state(budgetSnapshot);
   $stateProvider.state(balanceSheet);
   $stateProvider.state(balanceSheetAssets);
   $stateProvider.state(balanceSheetLiabilities);
