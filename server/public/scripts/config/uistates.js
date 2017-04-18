@@ -90,16 +90,16 @@ app.config(function($stateProvider,$urlRouterProvider) {
     templateUrl: '/views/creditreport.html'
   };
   var creditReportOne = {
-    name: 'main.creditReport.one',
+    name: 'main.creditReport.preface',
     controller: 'CreditReportController',
     controllerAs: 'crc',
-    templateUrl: '/views/creditreportone.html'
+    templateUrl: '/views/creditreportpreface.html'
   };
   var creditReportTwo = {
-    name: 'main.creditReport.two',
+    name: 'main.creditReport.scores',
     controller: 'CreditReportController',
     controllerAs: 'crc',
-    templateUrl: '/views/creditreporttwo.html'
+    templateUrl: '/views/creditreportscores.html'
   };
   var creditReportThree = {
     name: 'main.creditReport.three',
