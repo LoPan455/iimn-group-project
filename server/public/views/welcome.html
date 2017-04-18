@@ -1,29 +1,45 @@
-<!-- <div ng-show="wc.user.user">
-  <p>wc.user is: {{wc.user.user}}</p>
-  <h1>Welcome</h1>
-  <a href="#profile">Go To the Profile Questions Form</a>
-  <md-button class="md-primary md-raised" ng-click="wc.logOut()" aria-label="logout">Logout</md-button>
-</div> -->
-
-
-
 <div ng-show="wc.user.user">
-<md-toolbar class="login-toolbar"layout-align="center center">
-	<h1>Financial Health Assessment Tool</h1>
-</md-toolbar>
+	<md-toolbar class="login-toolbar" layout-align="center center">
+		<h1>Financial Health Assessment Tool</h1>
+	</md-toolbar>
+
+	<div layout="column" role="main">
+		<md-content>
+			<div class="login-screen" layout="column" layout-align="top center" layout-fill>
+				<p>
+					<md-input-container>
+						<label style="text-align:center;" class="welcomeInput">First Name</label>
+						<input style="min-width: 250px;" ng-model="wc.client.firstName">
+					</md-input-container>
+
+					<md-input-container>
+						<label style="text-align:left;" class="welcomeInput">Last Name</label>
+						<input style="min-width: 250px;" ng-model="wc.client.lastName">
+					</md-input-container>
 
 
-<div layout="column" flex role="main">
-	<md-content>
-		<div class="login-screen" layout="row" layout-align="center" layout-fill>
-			        <h1>Welcome, {{wc.user.user.firstName}}</h1>
-			<md-whiteframe layout-padding>
+					<!-- Decided to leave the date out for now  - will be in report-->
+					<!-- <md-input-container>
+								<label style="text-align:center;" class="welcomeInput">Date</label>
+								<input type="date" id="theDate" style="min-width: 10px;" ng-model="wc.client.date">
+								</md-input-container></p> -->
 
-				<md-content class="md-whiteframe-24dp">
-					<md-button class="md-raised md-primary" href="#profile">Go To the Profile Questions Form</md-button>
-				</md-content>
-			</md-whiteframe>
-		</div>
-	</md-content>
-</div>
+
+					<!-- Date-picker not working -->
+
+					<!-- <md-content>
+								<md-datepicker ng-model="wc.client.date" md-placeholder="Date" md-open-on-focus></md-datepicker>
+								</md-content> -->
+
+					<div>
+						<md-whiteframe layout="column" layout-align="center center">
+							<md-content class="md-whiteframe-24dp">
+								<md-button class="md-raised md-primary" href="#profile">Go To Profile</md-button>
+							</md-content>
+						</md-whiteframe>
+					</div>
+			</div>
+
+		</md-content>
+	</div>
 </div>

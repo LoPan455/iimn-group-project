@@ -7,3 +7,5 @@ var app = angular.module('fhatApp', ['ngMaterial','ui.router','firebase'])
     .primaryPalette('green')
     .accentPalette('deep-orange');
 });
+
+// "chart.js"

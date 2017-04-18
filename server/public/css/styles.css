@@ -67,6 +67,47 @@ md-content h1{
   color: #737367 !important;
 }
 
+.inline {
+  display: inline-block;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
+.longerInput{
+  min-width: 900px;
+  margin-top: -3px;
+  margin-bottom: -3px;
+  font-size: 20px;
+}
+
+.longerSameMargin{
+  min-width: 900px;
+}
+.welcomeInput {
+  font-size: 40px;
+  /*margin-left: 100px;*/
+}
+
+
+
+/*Balance sheet input sections*/
+.inputFieldSize {
+  min-width: 300px;
+  margin-right: 15px;
+  padding-right: 10px;
+}
+
+.informalField {
+  min-width: 350px;
+  margin-right: 15px;
+  padding-right: 15px;
+}
+
+#billsInputField{
+  margin-left: 15px;
+}
+
+
 /*Trying to slow down Profile questions transitions*/
 /*.sample-show-hide {
 transition: all linear 0.1s;
@@ -77,21 +118,3 @@ opacity: 0;
 .sample-show-hide.ng-show {
 opacity: 1;
 }*/
-.inline {
-  display: inline-block;
-  margin-top: -10px;
-  margin-bottom: -10px;
-}
-
-
-/*Balance sheet input sections*/
-.inputFieldSize {
-  min-width: 300px;
-  margin-right: 15px;
-  padding-right: 10px;
-}
-
-#informalField {
-  min-width: 350px;
-  margin-right: 15px;
-}

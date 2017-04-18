@@ -8,22 +8,23 @@ app.controller('WelcomeController', function($location,ClientFactory,LoginFactor
   self.clientTester = ClientFactory.clientTester;
 
 self.submit = function(dude) {
-console.log("dude = ", dude)
+console.log("dude = ", dude);
 ClientFactory.newClient(dude);
-}
-
-
-self.saveClientData = function(client){
-  console.log('welcome factory saveClientData() has been called with: ',client);
-  ClientFactory.saveClientData(client);
-}
-
-
-self.logOut = function(){
-  console.log('logout button clicked');
-  LoginFactory.logOut();
 };
 
+
+
+  self.client = ClientFactory.client;
+
+
+
+
+  self.logOut = function(){
+    console.log('logout button clicked');
+    LoginFactory.logOut();
+
+
+  };
 
 
 });//end app.controller
