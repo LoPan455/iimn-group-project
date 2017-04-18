@@ -1,5 +1,5 @@
 <!-- NOTE:This is Balance Sheet Liabilities Tab-->
-<div layout="column" ng-cloak class="md-inline-form" ng-keyup="bsc.updateLibailities()">
+<div layout="column" ng-cloak class="md-inline-form" ng-keyup="bsc.updateLibailities()" ng-mousemove="bsc.updateLibailities()"><!---->
 
   <div ng-if="bsc.client.housing === 'Own'"><!-- housingLiabilities section -->
     <h3>Housing Liabailities: <span ng-model="bsc.client.totalHousingLiabilities">${{bsc.client.totalHousingLiabilities}}</span></h3>
