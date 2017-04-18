@@ -24,8 +24,11 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
         });
       }
       
-function export() {
-  console.log('export function called = ');
+
+
+function exportCsv() {
+// var exportCsv = function() {
+  console.log('exportCsv function run');
       var firebaseUser = auth.$getAuth();
       firebaseUser.getToken().then(function(idToken) { // Auth with every server request
       $http({
@@ -42,11 +45,16 @@ function export() {
 }
 
 
+
+
+
+
+
     return {
             client: client,
             testMessage: testMessage,
             clientTester: clientTester,
             newClient: newClient,
-            export: export
+            export: exportCsv
           }
   }]);
