@@ -18,9 +18,11 @@ ClientFactory.newClient(dude);
 
 
 
+
   self.logOut = function(){
     console.log('logout button clicked');
     LoginFactory.logOut();
+
 
   };
 
