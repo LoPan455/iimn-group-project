@@ -43,21 +43,21 @@ app.config(function($stateProvider,$urlRouterProvider) {
   };
   var budgetIncome = {
     name: 'main.budget.income',
-    controller: 'BudgetIncomeController',
-    controllerAs: 'bic',
+    controller: 'BudgetController',
+    controllerAs: 'bc',
     templateUrl:'/views/budgetincome.html'
   };
   var budgetExpenses = {
     name: 'main.budget.expenses',
-    controller: 'BudgetExpensesController',
-    controllerAs: 'bec',
-    templateUrl:'/views/budgetexpenses.html'
-  };
-  var budgetThree = {
-    name: 'main.budget.three',
     controller: 'BudgetController',
     controllerAs: 'bc',
-    templateUrl:'/views/budgetthree.html'
+    templateUrl:'/views/budgetexpenses.html'
+  };
+  var budgetSnapshot = {
+    name: 'main.budget.snapshot',
+    controller: 'BudgetController',
+    controllerAs: 'bc',
+    templateUrl:'/views/budgetsnapshot.html'
   };
   var balanceSheet = {
     name: 'main.balanceSheet',
@@ -113,6 +113,14 @@ app.config(function($stateProvider,$urlRouterProvider) {
     controllerAs: 'sc',
     templateUrl: '/views/summary.html'
   };
+
+  var piechart = {
+    name: 'pieChart',
+    url: '/piechart',
+    controller: 'PieChartController',
+    controllerAs: 'pie',
+    templateUrl: 'views/pie-chart.html'
+  }
   $stateProvider.state(login);
   $stateProvider.state(main);
   $stateProvider.state(welcome);
@@ -120,7 +128,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
   $stateProvider.state(budget);
   $stateProvider.state(budgetIncome);
   $stateProvider.state(budgetExpenses);
-  $stateProvider.state(budgetThree);
+  $stateProvider.state(budgetSnapshot);
   $stateProvider.state(balanceSheet);
   $stateProvider.state(balanceSheetAssets);
   $stateProvider.state(balanceSheetLiabilities);
@@ -130,6 +138,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
   $stateProvider.state(creditReportTwo);
   $stateProvider.state(creditReportThree);
   $stateProvider.state(summary);
+  $stateProvider.state(piechart)
 
   $urlRouterProvider.when('', '/login');
 });

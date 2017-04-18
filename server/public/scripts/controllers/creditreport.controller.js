@@ -1,6 +1,8 @@
 app.controller('CreditReportController', function(ClientFactory) {
 
   console.log('CreditReportController controller running');
+
   var self = this;
-  this.user = {};
+  self.client = ClientFactory.client;
+
 });//end app.controller
