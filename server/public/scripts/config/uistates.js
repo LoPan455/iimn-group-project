@@ -113,6 +113,14 @@ app.config(function($stateProvider,$urlRouterProvider) {
     controllerAs: 'sc',
     templateUrl: '/views/summary.html'
   };
+
+  var piechart = {
+    name: 'pieChart',
+    url: '/piechart',
+    controller: 'PieChartController',
+    controllerAs: 'pie',
+    templateUrl: 'views/pie-chart.html'
+  }
   $stateProvider.state(login);
   $stateProvider.state(main);
   $stateProvider.state(welcome);
@@ -130,6 +138,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
   $stateProvider.state(creditReportTwo);
   $stateProvider.state(creditReportThree);
   $stateProvider.state(summary);
+  $stateProvider.state(piechart)
 
   $urlRouterProvider.when('', '/login');
 });
