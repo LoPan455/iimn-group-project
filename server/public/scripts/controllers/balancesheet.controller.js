@@ -129,6 +129,7 @@ app.controller('BalanceSheetController', function(ClientFactory) {
 
     self.updateLibailities = function(){
       self.client.totalLiabilities = self.client.totalHousingLiabilities + self.client.totalTransportationLiabilities + self.client.totalCreditCardsOtherLoanBalance + self.client.totalUnpaidBillsNotInCollections + self.client.totalCollectionsChargeOffsJudgments;
+      self.calculateWorth();
       return self.client.totalLiabilities;
     }
 
