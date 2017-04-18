@@ -4,6 +4,7 @@ app.controller('BalanceSheetController', function(ClientFactory) {
   var self = this;
     self.client = ClientFactory.client;
 
+
     //calculated variables
     self.client.totalNetWorth = self.client.totalNetWorth || 0;
 
@@ -26,7 +27,7 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       }
     self.client.totalAssets += Number (assetField);
     return self.client.totalAssets;
-    }
+  };
 
     self.updateAssets = function(assetField){
       if (assetField == null) {
@@ -34,11 +35,11 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       }
       self.client.totalAssets -=  assetField;
       return self.client.totalAssets;
-    }
+    };
 
     self.toggleClass = function (){
       self.otherPropery = !self.otherPropery;
-    }
+    };
 
 // liabilities functions
     // housing section
@@ -48,7 +49,7 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       }
       self.client.totalHousingLiabilities += Number (subSection);
       return self.client.totalHousingLiabilities;
-    }
+    };
 
     self.updateHouse = function(inputField){
       if (inputField == null) {
@@ -56,7 +57,7 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       }
       self.client.totalHousingLiabilities -=  inputField
       return self.client.totalHousingLiabilities;
-    }
+    };
 
     //transport section
     self.addAuto = function(subSection) {
@@ -65,7 +66,7 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       }
       self.client.totalTransportationLiabilities += Number (subSection);
       return self.client.totalTransportationLiabilities;
-    }
+    };
 
     self.updateAuto = function(inputField){
       if (inputField == null) {
@@ -73,7 +74,7 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       }
       self.client.totalTransportationLiabilities -=  inputField
       return self.client.totalTransportationLiabilities;
-    }
+    };
 
     // loan section
     self.addLoans = function(subSection) {
@@ -91,7 +92,7 @@ app.controller('BalanceSheetController', function(ClientFactory) {
 
       self.client.totalCreditCardsOtherLoanBalance -=  inputField
       return self.client.totalCreditCardsOtherLoanBalance;
-    }
+    };
 
     // bills section
     self.addBills = function(subSection) {
@@ -100,7 +101,7 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       }
       self.client.totalUnpaidBillsNotInCollections += Number (subSection);
       return self.client.totalUnpaidBillsNotInCollections;
-    }
+    };
 
     self.updateBills = function(inputField){
       if (inputField == null) {
@@ -108,16 +109,17 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       }
       self.client.totalUnpaidBillsNotInCollections -=  inputField
       return self.client.totalUnpaidBillsNotInCollections;
-    }
+    };
 
     //collection section
     self.addCollection = function(subSection) {
       if (subSection == null) {
         subSection = 0;
+
       }
       self.client.totalCollectionsChargeOffsJudgments += Number (subSection);
       return self.client.totalCollectionsChargeOffsJudgments;
-    }
+    };
 
     self.updateCollection = function(inputField){
       if (inputField == null) {
@@ -125,16 +127,16 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       }
       self.client.totalCollectionsChargeOffsJudgments -=  inputField
       return self.client.totalCollectionsChargeOffsJudgments;
-    }
+    };
 
     self.updateLibailities = function(){
       self.client.totalLiabilities = self.client.totalHousingLiabilities + self.client.totalTransportationLiabilities + self.client.totalCreditCardsOtherLoanBalance + self.client.totalUnpaidBillsNotInCollections + self.client.totalCollectionsChargeOffsJudgments;
       self.calculateWorth();
       return self.client.totalLiabilities;
-    }
+    };
 
     self.calculateWorth = function(){
       self.client.totalNetWorth = self.client.totalAssets - self.client.totalLiabilities;
       return self.client.totalNetWorth;
-    }
+    };
 });//end app.controller
