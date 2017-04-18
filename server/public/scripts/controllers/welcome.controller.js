@@ -3,6 +3,15 @@ app.controller('WelcomeController', function($location,ClientFactory,LoginFactor
   console.log('WelcomeController controller running');
   var self = this;
   self.user = LoginFactory.loggedInUser;
+  self.client = ClientFactory.client;
+  self.testMessage = ClientFactory.testMessage;
+  self.clientTester = ClientFactory.clientTester;
+
+self.submit = function(dude) {
+console.log("dude = ", dude);
+ClientFactory.newClient(dude);
+};
+
 
 
   self.client = ClientFactory.client;
@@ -15,10 +24,5 @@ app.controller('WelcomeController', function($location,ClientFactory,LoginFactor
 
   };
 
-    // This probably needs a dependency:  self.client.date = $filter('date')(Date.now(), 'yyyy-MM-dd');
-
-  // This didn't seem to do anything:   self.date = new Date().toISOString().split("T")[0];
-
-  // self.user.date = new Date();
 
 });//end app.controller

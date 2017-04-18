@@ -1,45 +1,44 @@
-
 <div ng-show="wc.user.user">
-<md-toolbar class="login-toolbar"layout-align="center center">
-	<h1>Financial Health Assessment Tool</h1>
-</md-toolbar>
+	<md-toolbar class="login-toolbar" layout-align="center center">
+		<h1>Financial Health Assessment Tool</h1>
+	</md-toolbar>
 
-<div layout="column" role="main">
-	<md-content>
-		<div class="login-screen" layout="column" layout-align="top center" layout-fill>
-								<p><md-input-container>
-									<label style="text-align:center;"  class="welcomeInput">First Name</label>
-								  <input style="min-width: 250px;" ng-model="wc.client.firstName">
-								</md-input-container>
+	<div layout="column" role="main">
+		<md-content>
+			<div class="login-screen" layout="column" layout-align="top center" layout-fill>
+				<p>
+					<md-input-container>
+						<label style="text-align:center;" class="welcomeInput">First Name</label>
+						<input style="min-width: 250px;" ng-model="wc.client.firstName">
+					</md-input-container>
 
-								<md-input-container>
-								<label style="text-align:left;"  class="welcomeInput">Last Name</label>
-									 <input style="min-width: 250px;" ng-model="wc.client.lastName">
-								</md-input-container>
+					<md-input-container>
+						<label style="text-align:left;" class="welcomeInput">Last Name</label>
+						<input style="min-width: 250px;" ng-model="wc.client.lastName">
+					</md-input-container>
 
-								<!-- Decided to leave the date out for now  - will be in report-->
-								<!-- <md-input-container>
+					<!-- Decided to leave the date out for now  - will be in report-->
+					<!-- <md-input-container>
 								<label style="text-align:center;" class="welcomeInput">Date</label>
 								<input type="date" id="theDate" style="min-width: 10px;" ng-model="wc.client.date">
 								</md-input-container></p> -->
 
 
-								<!-- Date-picker not working -->
+					<!-- Date-picker not working -->
 
-								<!-- <md-content>
+					<!-- <md-content>
 								<md-datepicker ng-model="wc.client.date" md-placeholder="Date" md-open-on-focus></md-datepicker>
 								</md-content> -->
 
-<div>
-	<md-whiteframe layout="column" layout-align="center center">
-		<md-content class="md-whiteframe-24dp">
-			<md-button class="md-raised md-primary" href="#profile">Go To Profile</md-button>
+					<div>
+						<md-whiteframe layout="column" layout-align="center center">
+							<md-content class="md-whiteframe-24dp">
+								<md-button class="md-raised md-primary" href="#profile">Go To Profile</md-button>
+							</md-content>
+						</md-whiteframe>
+					</div>
+			</div>
+
 		</md-content>
-	</md-whiteframe>
-</div>
-</div>
-
-	</md-content>
-
-</div>
-</div>
+	</div>
+</div>	
