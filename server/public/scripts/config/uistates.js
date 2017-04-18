@@ -89,23 +89,23 @@ app.config(function($stateProvider,$urlRouterProvider) {
     controllerAs: 'crc',
     templateUrl: '/views/creditreport.html'
   };
-  var creditReportOne = {
-    name: 'main.creditReport.one',
+  var creditReportPreface = {
+    name: 'main.creditReport.preface',
     controller: 'CreditReportController',
     controllerAs: 'crc',
-    templateUrl: '/views/creditreportone.html'
+    templateUrl: '/views/creditreportpreface.html'
   };
-  var creditReportTwo = {
-    name: 'main.creditReport.two',
+  var creditReportScores = {
+    name: 'main.creditReport.scores',
     controller: 'CreditReportController',
     controllerAs: 'crc',
-    templateUrl: '/views/creditreporttwo.html'
+    templateUrl: '/views/creditreportscores.html'
   };
-  var creditReportThree = {
-    name: 'main.creditReport.three',
+  var creditReportLines = {
+    name: 'main.creditReport.lines',
     controller: 'CreditReportController',
     controllerAs: 'crc',
-    templateUrl: '/views/creditreportthree.html'
+    templateUrl: '/views/creditreportlines.html'
   };
   var summary = {
     name: 'main.summary',
@@ -134,9 +134,9 @@ app.config(function($stateProvider,$urlRouterProvider) {
   $stateProvider.state(balanceSheetLiabilities);
   $stateProvider.state(balanceSheetSnapshot);
   $stateProvider.state(creditReport);
-  $stateProvider.state(creditReportOne);
-  $stateProvider.state(creditReportTwo);
-  $stateProvider.state(creditReportThree);
+  $stateProvider.state(creditReportPreface);
+  $stateProvider.state(creditReportScores);
+  $stateProvider.state(creditReportLines);
   $stateProvider.state(summary);
   $stateProvider.state(piechart)
 
