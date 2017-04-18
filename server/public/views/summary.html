@@ -1,8 +1,28 @@
 <div ng-cloak>
   <md-content class="md-padding" flex>
+<div class=""><!--Budget Visualization Section -->
+  <p>Budget visualization section</p>
+</div>
 
+<p>Balance Sheet Snapshot</p><!--balance sheet section -->
+  <table>
+    <tr>
+      <td>Total Assets:</td>
+      <td>${{sc.client.totalAssets}}</td>
+    </tr>
+    <tr>
+      <td>Total Liabilities:</td>
+      <td>${{sc.client.totalLiabilities}}</td>
+    </tr>
+    <tr>
+      <td>Total Net Worth:</td>
+      <td>${{sc.client.totalNetWorth}}</td>
+    </tr>
+  </table>
 
-<p>Sup Summary?</p>
+  <div class=""><!--Action Steps Section-->
+    <p>Action steps</p>
+  </div>
 
     <div class="ext-content">
       <!-- Whatever is in Tab 1, 2, or 3 goes in ui-view tag below -->
