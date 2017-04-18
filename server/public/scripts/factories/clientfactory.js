@@ -21,7 +21,7 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
           });
         });
       }
-      
+
     return {
             client: client,
             testMessage: testMessage,
