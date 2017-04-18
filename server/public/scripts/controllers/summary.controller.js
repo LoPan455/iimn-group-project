@@ -6,4 +6,13 @@ app.controller('SummaryController', function(ClientFactory) {
   self.client = ClientFactory.client;
 
 
+
+
+self.export = function() {
+  ClientFactory.export();
+}
+
+
+
+
 });//end app.controller
