@@ -12,6 +12,18 @@
 	<h1>Financial Health Assessment Tool</h1>
 </md-toolbar>
 
+<div>
+	<form>
+		<label for="first-name">First Name</label>
+		<input type="text" id="first-name"ng-model="wc.client.firstName" />
+		<label for="last-name">Last Name</label>
+		<input type="text" id="last-name" ng-model="wc.client.lastName" />
+		<button ng-click=wc.submit(wc.client)>Save new User</button>
+		<button ng-click=wc.saveClientData(wc.client)>Update Client Data</button>
+	</form>
+	<p>wc.client is: {{wc.client}}</p>
+</div>
+
 <div layout="column" flex role="main">
 	<md-content>
 		<div class="login-screen" layout="row" layout-align="center" layout-fill>
@@ -24,7 +36,5 @@
 			</md-whiteframe>
 		</div>
 	</md-content>
-
-
 </div>
 </div>

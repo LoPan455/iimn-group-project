@@ -31,10 +31,10 @@ router.post('/newClient', function(req,res){
 PUT REQUESTS
 *////////////////////////////////////////
 
-router.patch('/update/:id',function(req,res){
-  console.log('client/update:id route hit. req.params.id is: ', req.params.id);
+router.patch('/update/',function(req,res){
+  console.log('client/update:id route hit. req is: ', req);
   console.log('the req.body is: ',req.body);
-  var clientId = require('mongodb').ObjectId(req.params.id);
+  var clientId = require('mongodb').ObjectId(req.query.id);
   var clientObject = req.body
   Client.update(
           {_id: clientId},

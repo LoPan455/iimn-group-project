@@ -13,10 +13,16 @@ ClientFactory.newClient(dude);
 }
 
 
-  self.logOut = function(){
-    console.log('logout button clicked');
-    LoginFactory.logOut();
-  };
+self.saveClientData = function(client){
+  console.log('welcome factory saveClientData() has been called with: ',client);
+  ClientFactory.saveClientData(client);
+}
+
+
+self.logOut = function(){
+  console.log('logout button clicked');
+  LoginFactory.logOut();
+};
 
 
 
