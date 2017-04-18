@@ -1,0 +1,4 @@
+{"_id":{"$oid":"58ebb0162bb27f227c4fc357"},"firstName":"Phil","lastName":"Curtis","email":"philcurtisengineering@gmail.com"}
+{"_id":{"$oid":"58ebb0562bb27f227c4fc358"},"firstName":"Thomas","lastName":"Johander","email":"tjohander@gmail.com"}
+{"_id":{"$oid":"58ebb0dc2bb27f227c4fc359"},"firstName":"Ed","lastName":"Wippler","email":"ed.wippler@gmail.com"}
+{"_id":{"$oid":"58ebb0dc2bb27f227c4fc35a"},"firstName":"Paul","lastName":"Dunkirk","email":"pauldunkirk@gmail.com"}

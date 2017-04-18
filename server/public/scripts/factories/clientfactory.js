@@ -2,11 +2,13 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
     var client = {client: []};
     var clientTester = { };
     var testMessage = " sumtext ";
-    var auth = $firebaseAuth().$getAuth(); // Auth with every server request
+    var auth = $firebaseAuth() // Auth with every server request
+
 
     function newClient(newClient) {
       console.log('newClient function called = ', newClient);
-      auth.getToken().then(function(idToken) { // Auth with every server request
+      var firebaseUser = auth.$getAuth();
+      firebaseUser.getToken().then(function(idToken) { // Auth with every server request
       $http({
             method: 'POST',
             url: '/client/newClient',
@@ -22,10 +24,29 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
         });
       }
       
+function export() {
+  console.log('export function called = ');
+      var firebaseUser = auth.$getAuth();
+      firebaseUser.getToken().then(function(idToken) { // Auth with every server request
+      $http({
+            method: 'POST',
+            url: '/summary/export',
+            data: "",
+            headers: {
+              id_token: idToken
+            }
+            }).then(function(response) {
+            console.log('export response: ', response);
+          });
+        });
+}
+
+
     return {
             client: client,
             testMessage: testMessage,
             clientTester: clientTester,
-            newClient: newClient
-          };
+            newClient: newClient,
+            export: export
+          }
   }]);
