@@ -114,6 +114,9 @@ app.config(function($stateProvider,$urlRouterProvider) {
     templateUrl: '/views/summary.html'
   };
 
+
+
+
   var piechart = {
     name: 'pieChart',
     url: '/piechart',

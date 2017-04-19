@@ -8,47 +8,47 @@
       <span ng-model="bc.client.monthlyTotalHousingExpenses" type ="number"> ${{bc.client.monthlyTotalHousingExpenses}}</span></h2>
 
         <div>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.housing === 'Rent'" class="">
                 <label>Rent</label>
                 <input ng-model="bc.client.monthlyRent" type="number" ng-focus="bc.updateHousing(bc.client.monthlyRent)" ng-blur="bc.addHousing(bc.client.monthlyRent)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.housing === 'Rent'" class="">
                 <label>Renters Insurance</label>
                 <input ng-model="bc.client.monthlyRentersInsurance" type="number" ng-focus="bc.updateHousing(bc.client.monthlyRentersInsurance)" ng-blur="bc.addHousing(bc.client.monthlyRentersInsurance)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.housing === 'Own'" class="">
                 <label>Mortgage</label>
                 <input ng-model="bc.client.monthlyMortgage1" type="number" ng-focus="bc.updateHousing(bc.client.monthlyMortgage1)" ng-blur="bc.addHousing(bc.client.monthlyMortgage1)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.investments" class="">
                 <label>Mortgage 2, 3, etc.</label>
                 <input ng-model="bc.client.monthlyMortgage2" type="number" ng-focus="bc.updateHousing(bc.client.monthlyMortgage2)" ng-blur="bc.addHousing(bc.client.monthlyMortgage2)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.heloc" class="">
                 <label>HELOC(s)</label>
                 <input ng-model="bc.client.monthlyHeloc" type="number" ng-focus="bc.updateHousing(bc.client.monthlyHeloc)" ng-blur="bc.addHousing(bc.client.monthlyHeloc)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.housing === 'Own'" class="">
                 <label>Property Tax</label>
                 <input ng-model="bc.client.monthlyPropertyTaxIfNotInMortgage" type="number" ng-focus="bc.updateHousing(bc.client.monthlyPropertyTaxIfNotInMortgage)" ng-blur="bc.addHousing(bc.client.monthlyPropertyTaxIfNotInMortgage)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.housing === 'Own'" class="">
                 <label>Homeowners Ins</label>
                 <input ng-model="bc.client.monthlyHomeownersInsurance" type="number" ng-focus="bc.updateExpenses(bc.client.monthlyHomeownersInsurance)" ng-blur="bc.addHousing(bc.client.monthlyHomeownersInsurance)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.housing === 'Own'" class="">
                 <label>Home Maintenance</label>
                 <input ng-model="bc.client.monthlyHomeMaintenance" type="number" ng-focus="bc.updateHousing(bc.client.monthlyHomeMaintenance)" ng-blur="bc.addHousing(bc.client.monthlyHomeMaintenance)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.housing === 'Own'" class="">
                 <label>Condo Fees</label>
                 <input ng-model="bc.client.monthlyCondoTownhomeFees" type="number" ng-focus="bc.updateHousing(bc.client.monthlyCondoTownhomeFees)" ng-blur="bc.addHousing(bc.client.monthlyCondoTownhomeFees)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.housing === 'Own'" class="">
                 <label>Other Real Estate</label>
                 <input ng-model="bc.client.monthlyOtherRealEstate" type="number" ng-focus="bc.updateHousing(bc.client.monthlyOtherRealEstate)" ng-blur="bc.addHousing(bc.client.monthlyOtherRealEstate)">
             </md-input-container>
-            <md-input-container class="informalField">
+            <md-input-container ng-if="bc.client.housing === 'Own'" class="informalField">
                 <label>Other Housing Expenses</label>
                 <input ng-model="bc.client.monthlyOtherHousingExpenses" type="number" ng-focus="bc.updateHousing(bc.client.monthlyOtherHousingExpenses)" ng-blur="bc.addHousing(bc.client.monthlyOtherHousingExpenses)">
             </md-input-container>
@@ -119,27 +119,27 @@
             <span ng-model  ="bc.client.monthlyTotalTransportationExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalTransportationExpenses}}</span></h2>
 
         <div>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.numberVehicles >= 1 && bc.client.autoLoan" class="">
                 <label>Vehicle 1</label>
                 <input ng-model="bc.client.monthlyVehicle1" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyVehicle1)" ng-blur="bc.addTransportation(bc.client.monthlyVehicle1)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.numberVehicles >= 2 && bc.client.autoLoan" class="">
                 <label>Vehicle 2</label>
                 <input ng-model="bc.client.monthlyVehicle2" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyVehicle2)" ng-blur="bc.addTransportation(bc.client.monthlyVehicle2)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.numberVehicles == 3 && bc.client.autoLoan" class="">
                 <label>Vehicle 3, etc.</label>
                 <input ng-model="bc.client.monthlyVehiclesOther" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyVehiclesOther)" ng-blur="bc.addTransportation(bc.client.monthlyVehiclesOther)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.vehicle" class="">
                 <label>Gas</label>
                 <input ng-model="bc.client.monthlyGas" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyGas)" ng-blur="bc.addTransportation(bc.client.monthlyGas)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.vehicle" class="">
                 <label>Car Insurance</label>
                 <input ng-model="bc.client.monthlyCarInsurance" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyCarInsurance)" ng-blur="bc.addTransportation(bc.client.monthlyCarInsurance)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.vehicle" class="">
                 <label>Car Maintenance </label>
                 <input ng-model="bc.client.monthlyCarMaintenance" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyCarMaintenance)" ng-blur="bc.addTransportation(bc.client.monthlyCarMaintenance)">
             </md-input-container>
@@ -183,10 +183,10 @@
 
         <br>
 
-        <h2>Child/Dependent Expenses
+        <h2 ng-if="bc.client.dependents">Child/Dependent Expenses
                 <span ng-model  ="bc.client.monthlyTotalDependentRelatedExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalDependentRelatedExpenses}}</span></h2>
 
-        <div>
+        <div ng-if="bc.client.dependents">
             <md-input-container class="">
                 <label>Child Support</label>
                 <input ng-model="bc.client.monthlyChildSupport" type="number" ng-focus="bc.updateDependent(bc.client.monthlyChildSupport)" ng-blur="bc.addDependent(bc.client.monthlyChildSupport)">
@@ -195,7 +195,7 @@
                 <label>Childcare/Daycare</label>
                 <input ng-model="bc.client.monthlyChildcare" type="number" ng-focus="bc.updateDependent(bc.client.monthlyChildcare)" ng-blur="bc.addDependent(bc.client.monthlyChildcare)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.assistance" class="">
                 <label>Education</label>
                 <input ng-model="bc.client.monthlyEducation" type="number" ng-focus="bc.updateDependent(bc.client.monthlyEducation)" ng-blur="bc.addDependent(bc.client.monthlyEducation)">
             </md-input-container>
@@ -207,31 +207,31 @@
 
         <br>
 
-        <h2>Credit Card and Debt Payments
+        <h2 ng-if="bc.client.borrowedMoney || bc.client.creditCard">Credit Card and Debt Payments
                   <span ng-model="bc.client.monthlyTotalCreditCardLoanDebtPayments" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalCreditCardLoanDebtPayments}}</span></h2>
 
         <div>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.creditCard" class="">
                 <label>Credit Card Payment(s)</label>
                 <input ng-model="bc.client.monthlyCombinedCreditCards" type="number" ng-focus="bc.updateDebt(bc.client.monthlyCombinedCreditCards)" ng-blur="bc.addDebt(bc.client.monthlyCombinedCreditCards)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.studentLoan" class="">
                 <label>Student Loan(s)</label>
                 <input ng-model="bc.client.monthlyStudentLoans" type="number" ng-focus="bc.updateDebt(bc.client.monthlyStudentLoans)" ng-blur="bc.addDebt(bc.client.monthlyStudentLoans)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.borrowedMoney" class="">
                 <label>Consumer Loan(s)</label>
                 <input ng-model="bc.client.monthlyConsumerLoans" type="number" ng-focus="bc.updateDebt(bc.client.monthlyConsumerLoans)" ng-blur="bc.addDebt(bc.client.monthlyConsumerLoans)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.borrowedMoney" class="">
                 <label>Business Loan(s)</label>
                 <input ng-model="bc.client.monthlyBusinessLoans" type="number" ng-focus="bc.updateDebt(bc.client.monthlyBusinessLoans)" ng-blur="bc.addDebt(bc.client.monthlyBusinessLoans)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.borrowedMoney" class="">
                 <label>Informal Loan(s)</label>
                 <input ng-model="bc.client.monthlyInformalLoans" type="number" ng-focus="bc.updateDebt(bc.client.monthlyInformalLoans)" ng-blur="bc.addDebt(bc.client.monthlyInformalLoans)">
             </md-input-container>
-            <md-input-container class="">
+            <md-input-container ng-if="bc.client.borrowedMoney" class="">
                 <label>Other Debt Payments</label>
                 <input ng-model="bc.client.monthlyOtherDebtPayments" type="number" ng-focus="bc.updateDebt(bc.client.monthlyOtherDebtPayments)" ng-blur="bc.addDebt(bc.client.monthlyOtherDebtPayments)">
             </md-input-container>
@@ -299,7 +299,7 @@
                     <label>Pet Care</label>
                     <input ng-model="bc.client.monthlyPetCare" type="number" ng-focus="bc.updateMisc(bc.client.monthlyPetCare)" ng-blur="bc.addMisc(bc.client.monthlyPetCare)">
                 </md-input-container>
-                <md-input-container class="inputFieldSize">
+                <md-input-container ng-if="bc.client.dependents" class="inputFieldSize">
                     <label>Allowances for Dependents</label>
                     <input ng-model="bc.client.monthlyAllowancesForDependencies" type="number" ng-focus="bc.updateMisc(bc.client.monthlyAllowancesForDependencies)" ng-blur="bc.addMisc(bc.client.monthlyAllowancesForDependencies)">
                 </md-input-container>
