@@ -1,4 +1,6 @@
 <!-- NOTE:This is Balance Sheet Liabilities Tab-->
+<h1>Total Liabilities: $<span ng-model="bsc.client.totalLiabilities">{{bsc.client.totalLiabilities}}</span></h1>
+
 <div layout="column" ng-cloak class="md-inline-form" ng-keyup="bsc.updateLibailities()" ng-mousemove="bsc.updateLibailities()"><!---->
 
 
@@ -21,7 +23,6 @@
     </md-input-container>
 
   <!-- <h4>Total Housing Liabilities:<span ng-model="bsc.client.totalHousingLiabilities">${{bsc.client.totalHousingLiabilities}}</span></h4> -->
-  <hr>
   </div>
 
 
@@ -30,25 +31,26 @@
     <md-input-container ng-if="bsc.client.numberVehicles >= 1">
       <label for="car1">Vehicle 1 Balance</label>
       <input class="inputFieldSize" type="number" name="car1" ng-model="bsc.client.vehicle1Balance" ng-focus="bsc.updateAuto(bsc.client.vehicle1Balance)" ng-blur="bsc.addAuto(bsc.client.vehicle1Balance)">
-
     </md-input-container>
 
     <md-input-container ng-if="bsc.client.numberVehicles >= 2">
+
       <label for="car2">Vehicle 2 Balance</label>
 
-      <input class="inputFieldSize" type="number" name="car2" ng-model="bsc.client.vehicle2Balance"  ng-focus="bsc.updateAuto(bsc.client.vehicle2Balance)" ng-blur="bsc.addAuto(bsc.client.vehicle2Balance)">
 
+      <input class="inputFieldSize" type="number" name="car2" ng-model="bsc.client.vehicle2Balance"  ng-focus="bsc.updateAuto(bsc.client.vehicle2Balance)" ng-blur="bsc.addAuto(bsc.client.vehicle2Balance)">
     </md-input-container>
 
     <md-input-container ng-if="bsc.client.numberVehicles == 3">
+
       <label for="car3">Other Vehilces Balance</label>
 
-      <input class="inputFieldSize" type="number" name="car3" ng-model="bsc.client.vehicleOthersBalance"  ng-focus="bsc.updateAuto(bsc.client.vehicleOthersBalance)" ng-blur="bsc.addAuto(bsc.client.vehicleOthersBalance)">
 
+      <input class="inputFieldSize" type="number" name="car3" ng-model="bsc.client.vehicleOthersBalance"  ng-focus="bsc.updateAuto(bsc.client.vehicleOthersBalance)" ng-blur="bsc.addAuto(bsc.client.vehicleOthersBalance)">
     </md-input-container>
 
     <!-- <h4>Total Transportation Liabilities: <span ng-model="bsc.client.totalTransportationLiabilities">${{bsc.client.totalTransportationLiabilities}}</span></h4> -->
-    <hr>
+
   </div>
 
   <div ng-if="bsc.client.creditCard || bsc.client.studentLoan || bc.client.borrowedMoney"><!-- creditCard/Loans section -->
@@ -89,7 +91,7 @@
     </md-input-container>
 
     <!-- <h4>Total Credit Card & Loan Liabilities:<span ng-model="bsc.client.totalCreditCardsOtherLoanBalance">${{bsc.client.totalCreditCardsOtherLoanBalance}}</span></h4> -->
-    <hr>
+
   </div>
 
   <div><!-- unpaid bills seciton -->
@@ -131,7 +133,7 @@
     </md-input-container>
 
     <!-- <h4>Total Unpaid Bills (not in collection):<span ng-model="bsc.client.totalUnpaidBillsNotInCollections">${{bsc.client.totalUnpaidBillsNotInCollections}}</span></h4> -->
-    <hr>
+
   </div>
 
   <div><!-- collections/judgement section ng-if="bsc.client.collectionCall"-->
@@ -182,7 +184,9 @@
   </div>
 
 
+
   <h2>Total Liabilities: $<span ng-model="bsc.client.totalLiabilities">{{bsc.client.totalLiabilities}}</span></h2>
+
 
 </div>
   <!-- NOTE: naming scheme for balance sheet -->
