@@ -3,7 +3,7 @@
 
 
   <div ng-if="bsc.client.housing === 'Own'"><!-- housingLiabilities section -->
-    <h3>Housing Liabailities: <span ng-model="bsc.client.totalHousingLiabilities">${{bsc.client.totalHousingLiabilities}}</span></h3>
+    <h3>Housing Liabilities: <span ng-model="bsc.client.totalHousingLiabilities">${{bsc.client.totalHousingLiabilities}}</span></h3>
     <md-input-container>
       <label for="mortgage">Mortgage Owed</label>
       <input class="inputFieldSize" type="number" name="mortgage" ng-blur="bsc.addHousing(bsc.client.mortgageBalance)" ng-model="bsc.client.mortgageBalance" ng-focus="bsc.updateHouse(bsc.client.mortgageBalance)">

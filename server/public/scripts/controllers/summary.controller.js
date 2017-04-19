@@ -5,5 +5,6 @@ app.controller('SummaryController', function(ClientFactory) {
 
   self.client = ClientFactory.client;
 
+  self.totalLifeExpenses = self.monthlyTotalDependentRelatedExpenses + self.monthlyTotalCreditCardLoanDebtPayments + self.monthlyTotalPersonalExpenses + self.monthlyTotalMiscellaneousExpenses;
 
 });//end app.controller
