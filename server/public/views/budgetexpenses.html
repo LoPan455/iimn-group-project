@@ -20,7 +20,7 @@
                 <label>Mortgage</label>
                 <input ng-model="bc.client.monthlyMortgage1" type="number" ng-focus="bc.updateHousing(bc.client.monthlyMortgage1)" ng-blur="bc.addHousing(bc.client.monthlyMortgage1)">
             </md-input-container>
-            <md-input-container ng-if="bc.client.housing === 'Own'" class="">
+            <md-input-container ng-if="bc.client.investments" class="">
                 <label>Mortgage 2, 3, etc.</label>
                 <input ng-model="bc.client.monthlyMortgage2" type="number" ng-focus="bc.updateHousing(bc.client.monthlyMortgage2)" ng-blur="bc.addHousing(bc.client.monthlyMortgage2)">
             </md-input-container>
