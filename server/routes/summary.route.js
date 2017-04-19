@@ -2,63 +2,58 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var mongoConnection = require('../modules/mongo-connection');
-
-
-
+var Client = require('../models/clientMasterSchema');
 var json2csv = require('json2csv');
 var fs = require('fs');
 
-// var sampleObjects = [{firstName: One}, {lastNames: Two}, {email: Three}];
-// var sampleObject = {firstName: 'One', lastNames: 'Two'};
-// var sampleObject = ['One', 'Two', 'Three'];
-
-var propertyKeys = ['firstName', 'lastName', 'email'];
 var arrayOfObjects = [
 	{
-		//"_id" : ObjectId("58ebb0162bb27f227c4fc357"),
-		"firstName" : "Phil",
-		"lastName" : "Curtis",
-		"email" : "philcurtisengineering@gmail.com"
+		"firstName" : "01a",
+		"lastName" : "01b",
+		"email" : "01c"
 	},
 	{
-		//"_id" : ObjectId("58ebb0562bb27f227c4fc358"),
-		"firstName" : "Thomas",
-		"lastName" : "Johander",
-		"email" : "tjohander@gmail.com"
+		"firstName" : "02a",
+		"lastName" : "02b",
+		"email" : "02c"
 	},
 	{
-		//"_id" : ObjectId("58ebb0dc2bb27f227c4fc359"),
-		"firstName" : "Ed",
-		"lastName" : "Wippler",
-		"email" : "ed.wippler@gmail.com"
+		"firstName" : "03a",
+		"lastName" : "03b",
+		"email" : "03c"
 	},
 	{
-		//"_id" : ObjectId("58ebb0dc2bb27f227c4fc35a"),
-		"firstName" : "Paul",
-		"lastName" : "Dunkirk",
-		"email" : "pauldunkirk@gmail.com"
+		"firstName" : "04a",
+		"lastName" : "04b",
+		"email" : "04c"
 	}
 ];
+var propertyKeys = ['firstName', 'lastName', 'email'];
 
-
-
-
-
-router.post('/export', function(req,res){
-  console.log('summary.route.js route hit');
-  console.log('req.body is: ', req.body);
-    var csv = json2csv({ data: arrayOfObjects, fields: propertyKeys });
-    fs.writeFile('file.csv', csv, function(err) {
-    if(err){
-      console.log('error on json2csv POST: ',err);
-      res.sendStatus(500);
-    } else {
-      console.log('successful json2csv POST: ',csv);
-      res.send(csv)
-    }//end else
+// post or patch??
+router.post('/export/', function(req,res){ // don't need /:id because getting entire object?
+	var clientId = require('mongodb').ObjectId(req.query.id);  //this is with currentClientId
+  		Client.find(
+          {_id: clientId},
+					function (err, client) {
+            if (err) {
+                console.log('error on db lookup POST: ',err);
+                res.status(500).send(err)
+            } else {
+            console.log('successful json2csv POST: ', client);
+            res.send(client);
+	    }//end else
   })//end newClient.save
 });//end router.post
 
+
+
+
+// fs.writeFile('client-export-file.csv', clientId, function(err) {
+// var csv = json2csv({data: arrayOfObjects, fields: propertyKeys });
+//  //   res.send(csv) // saves to server
+//       res.attachment('client-export-file.csv')
+// 			fs.unlink('client-export-file.csv')
 
 
 module.exports = router;
