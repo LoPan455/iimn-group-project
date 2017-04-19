@@ -1,23 +1,5 @@
 <!-- <p>This is Balance Sheet Tab One</p> -->
 
-<!--
-clientName
-assessmentDate
-
-onlyYouOrWholeHousehold_question
-onlyYou_answer
-wholeHousehold_answer
-
-firstSheetCreated_question
-firstSheetYes_answer
-firstSheetNo_answer
-
-partialOrCompleteUpdate_question
-partialUpdate_answer
-completeUpdate_answer -->
-
-
-
 <div layout="column" ng-cloak class="md-inline-form" ng-keyup="bsc.calculateWorth()" ng-mouseleave="bsc.calculateWorth()">
   <!-- <i class="material-icons">attach_money</i> -->
   <h1>Total Assets: $<span>{{bsc.client.totalAssets}}</span></h1><!--ng-model="bsc.client.totalAssets" -->
@@ -44,35 +26,17 @@ completeUpdate_answer -->
   <div ng-if="bsc.client.numberVehicles != null"><!--vehicle owned section-->
     <h3>Vehicle Assets:</h3>
 
-      <md-input-container ng-if="bsc.client.numberVehicles == 1">
-        <label for="vehicleOne">Vehicle Value</label>
-        <input class="inputFieldSize" type="number" name="vehicleOne" ng-model="bsc.client.vehicle1Value" ng-blur="bsc.addAssets(bsc.client.vehicle1Value)" ng-focus="bsc.updateAssets(bsc.client.vehicle1Value)">
-      </md-input-container>
-
-    <form ng-if="bsc.client.numberVehicles == 2">
-      <md-input-container>
-        <label for="vehicleOne">Vehicle 1 Value</label>
-        <input class="inputFieldSize" type="number" name="vehicleOne" ng-model="bsc.client.vehileOneValue" ng-blur="bsc.addAssets(bsc.client.vehicle1Value)" ng-focus="bsc.updateAssets(bsc.client.vehicle1Value)">
-      </md-input-container>
-      <md-input-container>
-        <label for="vehicleTwo">Vehicle 2 Value</label>
-        <input class="inputFieldSize" type="number" name="vehicleTwo" ng-model="bsc.client.vehicle2Value" ng-blur="bsc.addAssets(bsc.client.vehicle2Value)" ng-focus="bsc.updateAssets(bsc.client.vehicle2Value)">
-
-      </md-input-container>
-    </form>
-
-    <div ng-if="bsc.client.numberVehicles == 3">
-      <md-input-container>
+    <div>
+      <md-input-container ng-if="bsc.client.numberVehicles >= 1">
         <label for="vehicleOne">Vehicle 1 Value</label>
         <input class="inputFieldSize" type="number" name="vehicleOne" ng-model="bsc.client.vehicle1Value" ng-blur="bsc.addAssets(bsc.client.vehicle1Value)" ng-focus="bsc.updateAssets(bsc.client.vehicle1Value)">
       </md-input-container>
 
-      <md-input-container>
+      <md-input-container ng-if="bsc.client.numberVehicles >= 2">
         <label for="vehicleTwo">Vehicle 2 Value</label>
         <input class="inputFieldSize" type="number" name="vehicleTwo" ng-model="bsc.client.vehicle2Value" ng-blur="bsc.addAssets(bsc.client.vehicle2Value)" ng-focus="bsc.updateAssets(bsc.client.vehicle2Value)">
       </md-input-container>
-      
-      <md-input-container>
+      <md-input-container ng-if="bsc.client.numberVehicles == 3">
         <label for="vehicleComb">Vehicle Combined Value</label>
         <input class="inputFieldSize" type="number" name="vehicleComb" ng-model="bsc.client.vehileOtherValue" ng-blur="bsc.addAssets(bsc.client.vehileOtherValue)" ng-focus="bsc.updateAssets(bsc.client.vehileOtherValue)">
       </md-input-container>
@@ -80,7 +44,7 @@ completeUpdate_answer -->
   </div>
 
 
-    <div ng-if="bsc.client.housing === 'Own'">  <!-- real estate ownership section -->
+    <div ng-if="bsc.client.housing === 'Own' || bsc.client.investments">  <!-- real estate ownership section -->
       <h3>Real Estate:</h3>
 
       <div>
@@ -89,10 +53,10 @@ completeUpdate_answer -->
           <input class="inputFieldSize" type="number" name="homeOwned" ng-model="bsc.client.primaryResidenceValue" ng-blur="bsc.addAssets(bsc.client.primaryResidenceValue)" ng-focus="bsc.updateAssets(bsc.client.primaryResidenceValue)">
 
         </md-input-container>
-        <button type="button" ng-click="bsc.toggleClass()">Multiple Properties?</button>
+
       </div>
 
-      <md-input-container ng-if="!otherPropery">
+      <md-input-container ng-if="bsc.client.investments">
         <label for="otherRealEstate">Real Estate - other than Primary Residence</label>
 
         <input id="informalField" type="number" name="otherRealEstate" ng-model="bsc.client.otherRealEstateValue" ng-blur="bsc.addAssets(bsc.client.otherRealEstateValue)" ng-focus="bsc.updateAssets(bsc.client.otherRealEstateValue)">
@@ -100,7 +64,7 @@ completeUpdate_answer -->
       </md-input-container>
     </div>
 
-    <div>  <!--investment section-->
+    <div ng-if="bsc.client.investments">  <!--investment section-->
       <h3>Investments:</h3>
       <md-input-container>
         <label for="stocks">Stocks, Bonds, Mutual Funds, and Similar Assets</label>
@@ -122,7 +86,7 @@ completeUpdate_answer -->
 
     <div>
       <h3>Other Assets:</h3>
-      <md-input-container>
+      <md-input-container ng-if="bc.client.employed">
         <label for="business">Business</label>
 
 
@@ -144,7 +108,6 @@ completeUpdate_answer -->
     <h1>Total Assets: $<span>{{bsc.client.totalAssets}}</span></h1><!--ng-model="bsc.client.totalAssets" -->
 
 
-    <button type="button" sref="main.balanceSheet.liabilities">Enter Liabilities</button>
   </div>
   <!-- assets_label
 
