@@ -1,24 +1,38 @@
 <div ng-cloak>
   <md-content class="md-padding" flex>
-<div class=""><!--Budget Visualization Section -->
+<div height="500"><!--Budget Visualization Section -->
   <p>Budget visualization section</p>
+  <div layout="row">
+    <div flex="50">
+      <h2>Suggested Budget</h2>
+        <canvas id="pie" class="chart chart-pie" chart-data="sc.benchmarkData" chart-labels="sc.benchmarkLabels" chart-options="sc.benchmarkOptions"></canvas>
+    </div>
+
+    <div flex="50">
+      <h2>Your Budget</h2>
+        <canvas id="pie" class="chart chart-pie" chart-data="sc.clientData" chart-labels="sc.clientLabels" chart-options="sc.clientOptions"></canvas>
+    </div>
+  </div>
 </div>
 
-<p>Balance Sheet Snapshot</p><!--balance sheet section -->
-  <table>
-    <tr>
-      <td>Total Assets:</td>
-      <td>${{sc.client.totalAssets}}</td>
-    </tr>
-    <tr>
-      <td>Total Liabilities:</td>
-      <td>${{sc.client.totalLiabilities}}</td>
-    </tr>
-    <tr>
-      <td>Total Net Worth:</td>
-      <td>${{sc.client.totalNetWorth}}</td>
-    </tr>
-  </table>
+<div>
+  <p>Balance Sheet Snapshot</p><!--balance sheet section -->
+    <table>
+      <tr>
+        <td>Total Assets:</td>
+        <td>${{sc.client.totalAssets}}</td>
+      </tr>
+      <tr>
+        <td>Total Liabilities:</td>
+        <td>${{sc.client.totalLiabilities}}</td>
+      </tr>
+      <tr>
+        <td>Total Net Worth:</td>
+        <td>${{sc.client.totalNetWorth}}</td>
+      </tr>
+    </table>
+</div>
+
 
 
 
@@ -35,4 +49,4 @@
       <ui-view></ui-view>
     </div>
   </md-content>
-   </div>
+</div>
