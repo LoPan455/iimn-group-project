@@ -1,40 +1,41 @@
 <div ng-cloak>
-  <md-content class="md-padding" flex>
-<div class=""><!--Budget Visualization Section -->
-  <h3>Budget visualization section</h3>
+    <md-content class="md-padding" flex>
+        <div layout="column">
+
+            <div class="">
+                <h4>Budget visualization section</h4>
+            </div>
+
+            <md-whiteframe class="md-whiteframe-2dp" flex-gt-md="25" layout layout-align="center center">
+                <div class="">
+                    <h2>Balance Sheet Snapshot</h2>
+                    <!--balance sheet section -->
+                    <h4>Total Assets ${{sc.client.totalAssets}}</h4>
+                    <h4>Total Liabilities ${{sc.client.totalLiabilities}}</h4>
+                    <hr>
+                    <h4>Total Net Worth ${{sc.client.totalNetWorth}}</h4>
+                </div>
+            </md-whiteframe>
+
+            <md-whiteframe class="md-whiteframe-2dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                <div class="">
+                    <h4>Goals</h4>
+                    <h4><input ng-model="bc.client.goals"type ="number"></input></h4>
+
+                    <h4>Monthly Savings Target</h4>
+                    <h4><input ng-model="bc.client.monthlySavingsTarget" placeholder ="$" type ="number"></input></h4>
+
+                    <h4>Action Steps</h4>
+                    <h4><input ng-model="bc.client.actionSteps"type ="text"></input></h4>
+                  </div>
+            </md-whiteframe>
 </div>
-
-
-<md-whiteframe class="md-whiteframe-2dp"   flex-gt-md="25" layout layout-align="center center">
-<div class="">
-<h3>Balance Sheet Snapshot</h3><!--balance sheet section -->
-      <h3>Total Assets ${{sc.client.totalAssets}}</h3>
-      <h3>Total Liabilities ${{sc.client.totalLiabilities}}</h3>
-      <h3>Total Net Worth ${{sc.client.totalNetWorth}}</h3>
-</div>
-</md-whiteframe>
-
-
-
-<md-whiteframe class="md-whiteframe-2dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
-<div class="summaryGoals">
-<h3>Goals</h3>
-<h3><input ng-model="bc.client.goals"type ="number"></input></h3>
-
-
-<h3>Monthly Savings Target</h3>
-<h3><input ng-model="bc.client.monthlySavingsTarget" placeholder ="$" type ="number"></input></h3>
-
-  <!--Action Steps Section-->
-<h3>Action Steps</h3>
-<h3><input ng-model="bc.client.actionSteps"type ="text"></input></h3>
-</div>
-</md-whiteframe>
-
-
-    <div class="ext-content">
-      <!-- Whatever is in Tab 1, 2, or 3 goes in ui-view tag below -->
-      <ui-view></ui-view>
+    </md-content>
     </div>
-  </md-content>
-   </div>
+
+
+
+    <!-- Whatever is in Tab 1, 2, or 3 goes in ui-view tag below
+      <div class="ext-content">
+      <ui-view></ui-view>
+      </div> -->
