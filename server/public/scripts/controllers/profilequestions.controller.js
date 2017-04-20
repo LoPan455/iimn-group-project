@@ -2,9 +2,11 @@ app.controller('ProfileQuestionsController', function(ClientFactory) {
 
   console.log('ProfileQuestionsController controller running');
   var self = this;
-
   self.client = ClientFactory.client;
   self.assistanceSection = true;
+  ClientFactory.saveClientData(self.client);
+
+
   self.confirmAssistance = function(){
     self.assistanceSection = !self.assistanceSection;
   };
@@ -49,5 +51,6 @@ app.controller('ProfileQuestionsController', function(ClientFactory) {
       self.client.numberVehicles = null;
     }
   };
+
 
 });//end app.controller
