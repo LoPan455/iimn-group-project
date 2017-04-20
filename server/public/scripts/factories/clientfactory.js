@@ -47,7 +47,6 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
                 console.log('response from factory: ', response);
                 console.log('response.data from factory: ', response.data);
                 client = response.data;
-                console.log('var client is now: ');
               });
         });
       } // end saveClientData
