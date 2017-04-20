@@ -1,6 +1,6 @@
 app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseAuth) {
-    var client = { };
-    var currentClientId = '58ecf9c92bb27f227c4fc35d' //used to track the current client for periodic saves
+    var client = {};
+    var currentClientId = ""; //used to track the current client for periodic saves
     var clientTester = { };
     var testMessage = " sumtext ";
     var auth = $firebaseAuth(); // Auth with every server request
@@ -21,6 +21,7 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
             console.log('response.data from factory: ', response.data);
             client = response.data;
             currentClientId = response.data._id;
+
             console.log('client is now: ',client);
             console.log('currentClientId is now: ',currentClientId);
           });
@@ -42,7 +43,7 @@ function exportCsv() {
               id_token: idToken
             }
             }).then(function(response) {
-            console.log('clientFactory / function exportCsv response: ', response.data[0]);
+            console.log('clientFactory / function exportCsv response: ', response.data);
           });
         });
 }

@@ -29,10 +29,11 @@ var arrayOfObjects = [
 	}
 ];
 var propertyKeys = ['firstName', 'lastName', 'email'];
+var client = json2csv({data: arrayOfObjects, fields: propertyKeys }); // Hardcoding works
 
-// post or patch??
+// *NOTE: This still hard-coded from clientfactory / var currentClientId*
 router.post('/export/', function(req,res){ // don't need /:id because getting entire object?
-	var clientId = require('mongodb').ObjectId(req.query.id);  //this is with currentClientId
+	var clientId = require('mongodb').ObjectId(req.query.id);  // this is with currentClientId
   		Client.find(
           {_id: clientId},
 					function (err, client) {
@@ -40,11 +41,13 @@ router.post('/export/', function(req,res){ // don't need /:id because getting en
                 console.log('error on db lookup POST: ',err);
                 res.status(500).send(err)
             } else {
-            console.log('successful json2csv POST: ', client);
-            res.send(client);
-	    }//end else
-  })//end newClient.save
-});//end router.post
+						fs.writeFile('client-export-file.csv', client, function(err) {  // clientId
+					  res.send(client); // saves to server
+            console.log('json2csv-fs.writeFile success / client: ', client);
+					});	
+	    } //end else
+  }); //end newClient.save
+}); //end router.post
 
 
 
@@ -57,3 +60,4 @@ router.post('/export/', function(req,res){ // don't need /:id because getting en
 
 
 module.exports = router;
+
