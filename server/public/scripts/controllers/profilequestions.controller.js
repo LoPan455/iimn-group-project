@@ -1,6 +1,6 @@
-app.controller('ProfileController', function(ClientFactory) {
+app.controller('ProfileQuestionsController', function(ClientFactory) {
 
-  console.log('ProfileController controller running');
+  console.log('ProfileQuestionsController controller running');
   var self = this;
 
   self.client = ClientFactory.client;
@@ -27,7 +27,6 @@ app.controller('ProfileController', function(ClientFactory) {
     self.bankSection = !self.bankSection;
     }
   };
-
   self.neverBorrowed = function(){
     self.client.borrowed = false;
   };

@@ -1,0 +1,30 @@
+<!-- profilequestions8.html Borrowed Money - Financial Products -->
+
+<md-toolbar class="toolbar" layout-align="center center">
+	<h1>Financial Health Assessment Tool</h1>
+</md-toolbar>
+
+<div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
+
+  <md-radio-group ng-model="pqc.client.borrowed">
+    <h2>Have you ever borrowed money or taken out a loan?</h2> <!-- consider revising to checkboxes -->
+    <md-radio-button ng-value="true">Yes</md-radio-button>
+    <md-radio-button ng-value="false" ng-click="pqc.neverBorrowed()">No</md-radio-button>
+  </md-radio-group>
+
+
+  <div ng-if="pqc.client.borrowed == true">
+    <h3>Which products(s) have you used?</h3>
+    <h4>Check all that apply</h4>
+    <md-checkbox ng-model="pqc.client.creditCard">Credit Card</md-checkbox>
+    <md-checkbox ng-model="pqc.client.autoLoan">Auto Loan</md-checkbox> <!--ng-hide="pqc.client.vehicle ==='No'" -->
+    <md-checkbox ng-model="pqc.client.mortgage">Mortgage</md-checkbox> <!--ng-hide="pqc.client.housing !=='Own'"  -->
+    <md-checkbox ng-model="pqc.client.heloc">HELOC</md-checkbox> <!--ng-hide="pqc.client.housing ==='Rent'" -->
+    <md-checkbox ng-model="pqc.client.noCreditProducts">None of These</md-checkbox>
+  </div>
+
+        <md-content class="profile" layout-gt-sm="row" layout-padding>
+          <a href="#profilequestions7">Back</a>
+          <md-button class="md-raised md-primary" href="#profilequestions9">Next</md-button>
+        </md-content>
+</div>
