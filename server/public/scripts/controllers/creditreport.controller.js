@@ -4,6 +4,7 @@ app.controller('CreditReportController', function(ClientFactory) {
 
   var self = this;
   self.client = ClientFactory.client;
+  ClientFactory.saveClientData(self.client);
 
   // self.creditCardArray = [{cardNumber:1, name:"", limit:}];
 

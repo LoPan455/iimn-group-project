@@ -2,6 +2,8 @@
 
 <md-toolbar class="toolbar" layout-align="center center">
 	<h1>Financial Health Assessment Tool</h1>
+	<h2>Welcome, {{pqc.client.firstName}} {{pqc.client.lastName}}</h2>
+
 </md-toolbar>
 
 <div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
@@ -10,7 +12,7 @@
     <md-radio-group ng-model="pqc.client.vehicle">
       <h2>Do you own a vehicle?</h2>
       <md-radio-button ng-value="true">Yes</md-radio-button>
-      <md-radio-button ng-value="false">No</md-radio-button>
+      <md-radio-button ng-value="false" ng-click="pqc.undoVehicle()">No</md-radio-button>
     </md-radio-group>
 
     <div ng-if="pqc.client.vehicle == true">

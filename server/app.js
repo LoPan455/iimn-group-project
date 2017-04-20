@@ -6,6 +6,8 @@ var user = require('./routes/user.route.js');
 var client = require('./routes/client.route.js');
 var decoder = require('./modules/decoder.js');
 var bodyParser = require('body-parser');
+var summary = require('./routes/summary.route.js');
+
 
 app.get('/', function(req, res){
   res.sendFile(path.resolve('server/public/views/index.html'));
@@ -16,10 +18,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-app.use('/client', client);
 app.use(decoder.token);
 app.use('/user', user);
-// app.use('/client', client);
+app.use('/client', client);
+app.use('/summary',summary)
 
 
 
