@@ -13,17 +13,17 @@
         <md-radio-group ng-model="pqc.client.assistance">
           <h2>Do you receive assistance?</h2>
           <md-radio-button ng-value="true">Yes</md-radio-button>
-          <md-radio-button ng-value="false">No</md-radio-button>
+          <md-radio-button ng-value="false" ng-click="pqc.undoAssistance()">No</md-radio-button>
         </md-radio-group>
 
-        <div ng-if="pqc.client.assistance == true" class="pqc.assistanceSection">
+        <div ng-if="pqc.client.assistance" class="pqc.assistanceSection">
           <h3>Check all that apply</h3>
-          <md-checkbox md-no-ink class="md-primary" ng-model="pqc.client.SNAP">SNAP</md-checkbox>
-          <md-checkbox md-no-ink class="md-primary" ng-model="pqc.client.TANF">TANF</md-checkbox>
-          <md-checkbox md-no-ink class="md-primary" ng-model="pqc.client.SSI">SSI/SSDI</md-checkbox>
-          <md-checkbox md-no-ink class="md-primary" ng-model="pqc.client.alimony">Child Support/Alimony</md-checkbox>
-          <md-checkbox md-no-ink class="md-primary" ng-model="pqc.client.workersComp">Workers' Comp</md-checkbox>
-          <md-checkbox md-no-ink class="md-primary" ng-model="pqc.client.otherAssist">Other</md-checkbox>
+          <md-checkbox ng-model="pqc.client.SNAP">SNAP</md-checkbox>
+          <md-checkbox ng-model="pqc.client.TANF">TANF</md-checkbox>
+          <md-checkbox ng-model="pqc.client.SSI">SSI/SSDI</md-checkbox>
+          <md-checkbox ng-if="pqc.client.dependents" ng-model="pqc.client.alimony">Child Support/Alimony</md-checkbox>
+          <md-checkbox ng-model="pqc.client.workersComp">Workers' Comp</md-checkbox>
+          <md-checkbox ng-model="pqc.client.otherAssist">Other</md-checkbox>
         </div>
       </div>
 

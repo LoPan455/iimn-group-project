@@ -28,21 +28,23 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
       }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function exportCsv() {
+// var exportCsv = function() {
+  console.log('exportCsv function run');
+      var firebaseUser = auth.$getAuth();
+      firebaseUser.getToken().then(function(idToken) { // Auth with every server request
+      $http({
+            method: 'POST',
+            url: '/summary/export',
+            data: "",
+            headers: {
+              id_token: idToken
+            }
+            }).then(function(response) {
+            console.log('export response: ', response);
+          });
+        });
+}
 
 
     function saveClientData(client){
@@ -74,6 +76,7 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
             testMessage: testMessage,
             clientTester: clientTester,
             newClient: newClient,
+            export: exportCsv,
             saveClientData: saveClientData
           };
   }]);

@@ -35,4 +35,13 @@ ClientFactory.saveClientData(self.client);
 
 
 
+
+
+self.export = function() {
+  ClientFactory.export();
+}
+
+
+
+
 });//end app.controller
