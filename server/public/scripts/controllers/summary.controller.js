@@ -8,7 +8,7 @@ app.controller('SummaryController', function(ClientFactory) {
     health: 90
   };
 
-ClientFactory.saveClientData(self.client);
+// ClientFactory.saveClientData(self.client);
 
 
   self.totalLifeExpenses = self.monthlyTotalDependentRelatedExpenses + self.monthlyTotalCreditCardLoanDebtPayments + self.monthlyTotalPersonalExpenses + self.monthlyTotalMiscellaneousExpenses;
