@@ -136,7 +136,7 @@
 
   </div>
 
-  <div><!-- collections/judgement section ng-if="bsc.client.collectionCall"-->
+  <div ng-if="bsc.client.pastDueCalls"><!-- collections/judgement section ng-if="bsc.client.collectionCall"-->
     <h3>Collections, Charge-Offs, or Judgements: <span ng-model="bsc.client.totalCollectionsChargeOffsJudgments">${{bsc.client.totalCollectionsChargeOffsJudgments}}</span></h3>
     <md-input-container >
       <label for="medCollect">Medical Collections</label>
