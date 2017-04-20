@@ -69,14 +69,14 @@
 
     </md-input-container>
 
-    <md-input-container ng-if="bc.client.borrowedMoney">
+    <md-input-container ng-if="bc.client.otherLoan">
       <label for="personLoan">Consumer Loans</label>
 
       <input class="inputFieldSize" type="number" name="personLoan" ng-model="bsc.client.consumerLoansBalance" ng-focus="bsc.updateLoans(bsc.client.consumerLoansBalance)" ng-blur="bsc.addLoans(bsc.client.consumerLoansBalance)">
 
     </md-input-container>
 
-    <md-input-container ng-if="bc.client.borrowedMoney">
+    <md-input-container ng-if="bc.client.otherLoan">
       <label for="bizLoan">Business Loans</label>
 
       <input class="inputFieldSize" type="number" name="bizLoan" ng-model="bsc.client.businessLoansBalance" ng-focus="bsc.updateLoans(bsc.client.businessLoansBalance)" ng-blur="bsc.addLoans(bsc.client.businessLoansBalance)">
@@ -118,7 +118,7 @@
     </md-input-container>
   </div>
   <div> <!--sub div for formatting -->
-    <md-input-container >
+    <md-input-container ng-if="pqc.client.borrowedMoney || pqc.client.bank">
       <label for="banks">Money Owed to Banks and/or Credit Unions</label>
 
       <input class="inputFieldSize" type="number" name="banks" ng-model="bsc.client.moneyOwedToBanksBalance" ng-focus="bsc.updateBills(bsc.client.moneyOwedToBanksBalance)" ng-blur="bsc.addBills(bsc.client.moneyOwedToBanksBalance)">
@@ -136,7 +136,7 @@
 
   </div>
 
-  <div><!-- collections/judgement section ng-if="bsc.client.collectionCall"-->
+  <div ng-if="bsc.client.pastDueCalls"><!-- collections/judgement section ng-if="bsc.client.collectionCall"-->
     <h3>Collections, Charge-Offs, or Judgements: <span ng-model="bsc.client.totalCollectionsChargeOffsJudgments">${{bsc.client.totalCollectionsChargeOffsJudgments}}</span></h3>
     <md-input-container >
       <label for="medCollect">Medical Collections</label>
