@@ -13,8 +13,8 @@ POST REQUESTS
 // create a new client document in the 'client' collection
 
 router.post('/newClient', function(req,res){
-  console.log('client/newClient route hit');
-  console.log('req.body is: ', req.body);
+  
+  console.log('client/newClient route hit AND req.body is: ', req.body);
   var newClient =  new Client(req.body);
   newClient.save(function(err,result){
     if(err){
@@ -32,8 +32,8 @@ PUT REQUESTS
 *////////////////////////////////////////
 
 router.patch('/update/',function(req,res){
-  console.log('client/update:id route hit. req is: ', req);
-  console.log('the req.body is: ',req.body);
+  // console.log('client/update:id route hit. req is: ', req);
+  console.log('client.route.js / router.patch / req.body = ',req.body);
   var clientId = require('mongodb').ObjectId(req.query.id);
   var clientObject = req.body
   Client.update(
@@ -45,7 +45,7 @@ router.patch('/update/',function(req,res){
                 console.log('there was an error updating the client document',err);
                 res.status(500).send(err)
             }
-            console.log('success updating the client document. Returning: ',client);
+            console.log('client.route.js / router.patch / client.update success: ',client);
             res.send(client);
         });
     })//end router.put

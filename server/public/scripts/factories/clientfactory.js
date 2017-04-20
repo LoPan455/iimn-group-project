@@ -44,10 +44,7 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
           id_token: idToken,
         },
       }).then(function(response) {
-        console.log(
-          'clientFactory / function exportCsv response: ',
-          response.data
-        );
+        console.log('clientFactory / function exportCsv response: ',response.data);
       });
     });
   }
@@ -68,7 +65,7 @@ function saveClientData(client) {
           id_token: idToken,
         },
       }).then(function(response) {
-        console.log('response from factory: ', response);
+        // console.log('response from factory: ', response);
         console.log('response.data from factory: ', response.data);
         client = response.data;
       });
