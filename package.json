@@ -24,7 +24,7 @@
     "express": "^4.15.2",
     "express-router": "0.0.1",
     "firebase-admin": "^4.2.0",
-    "json2csv": "^3.7.4",
+    "json2csv": "^3.7.3",
     "material-design-icons": "^3.0.1",
     "mongoose": "^4.9.4",
     "npm": "^4.4.4",

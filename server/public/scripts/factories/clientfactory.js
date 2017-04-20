@@ -22,7 +22,6 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
         console.log('response.data from factory: ', response.data);
         client = response.data;
         currentClientId = response.data._id;
-
         console.log('client is now: ', client);
         console.log('currentClientId is now: ', currentClientId);
       });
@@ -35,7 +34,7 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
     var firebaseUser = auth.$getAuth();
     firebaseUser.getToken().then(function(idToken) {
       // Auth with every server request
-      $http({
+        $http({
         method: 'POST',
         url: '/summary/export',
         params: {
@@ -53,13 +52,9 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
     });
   }
 
-  function saveClientData(client) {
-    console.log(
-      'saveClientData function called. Sending this object: ',
-      client
-    );
+function saveClientData(client) {
+    console.log('saveClientData function called. Sending this object: ',client);
     var clientId = client._id;
-    console.log();
     var firebaseUser = auth.$getAuth();
     firebaseUser.getToken().then(function(idToken) {
       $http({
@@ -79,7 +74,7 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
       });
     });
   } // end saveClientData
-
+  
   return {
     client: client,
     testMessage: testMessage,
