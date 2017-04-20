@@ -3,9 +3,9 @@
 <div layout="column" ng-cloak class="md-inline-form md-padding" flex ng-keyup="bc.updateExpenses()">
     <md-content>
         <h1>Monthly Expenses
-      <span ng-model="bc.client.totalMonthlyExpenses">${{bc.client.totalMonthlyExpenses}}</span></h1>
+      <span ng-model="bc.client.totalMonthlyExpenses" ng-if="bc.client.totalMonthlyExpenses > 0">${{bc.client.totalMonthlyExpenses}}</span></h1>
         <h2>Housing Expenses
-      <span ng-model="bc.client.monthlyTotalHousingExpenses" type ="number"> ${{bc.client.monthlyTotalHousingExpenses}}</span></h2>
+      <span ng-model="bc.client.monthlyTotalHousingExpenses" ng-if="bc.client.monthlyTotalHousingExpenses > 0" type ="number"> ${{bc.client.monthlyTotalHousingExpenses}}</span></h2>
 
         <div>
             <md-input-container ng-if="bc.client.housing === 'Rent'" class="">
@@ -57,7 +57,7 @@
         <br>
 
         <h2>Utilities
-        <span ng-model="bc.client.monthlyTotalUtilities" type ="number"> ${{bc.client.monthlyTotalUtilities}}</span></h2>
+        <span ng-model="bc.client.monthlyTotalUtilities" ng-if="bc.client.monthlyTotalUtilities > 0" type ="number"> ${{bc.client.monthlyTotalUtilities}}</span></h2>
 
         <div>
             <md-input-container class="">
@@ -100,7 +100,7 @@
         <br>
 
         <h2>Food
-          <span ng-model="bc.client.monthlyTotalFoodExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalFoodExpenses}}</span></h2>
+          <span ng-model="bc.client.monthlyTotalFoodExpenses" ng-if="bc.client.monthlyTotalFoodExpenses > 0" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalFoodExpenses}}</span></h2>
 
         <div>
             <md-input-container class="">
@@ -116,7 +116,7 @@
         <br>
 
         <h2>Transportation
-            <span ng-model  ="bc.client.monthlyTotalTransportationExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalTransportationExpenses}}</span></h2>
+            <span ng-model="bc.client.monthlyTotalTransportationExpenses" ng-if="bc.client.monthlyTotalTransportationExpenses > 0" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalTransportationExpenses}}</span></h2>
 
         <div>
             <md-input-container ng-if="bc.client.numberVehicles >= 1 && bc.client.autoLoan" class="">
@@ -156,7 +156,7 @@
         <br>
 
         <h2>Health
-              <span ng-model="bc.client.monthlyTotalHealthRelatedExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalHealthRelatedExpenses}}</span></h2>
+              <span ng-model="bc.client.monthlyTotalHealthRelatedExpenses" ng-if="bc.client.monthlyTotalHealthRelatedExpenses > 0" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalHealthRelatedExpenses}}</span></h2>
 
         <div>
             <md-input-container class="">
@@ -184,7 +184,7 @@
         <br>
 
         <h2 ng-if="bc.client.dependents">Child/Dependent Expenses
-                <span ng-model  ="bc.client.monthlyTotalDependentRelatedExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalDependentRelatedExpenses}}</span></h2>
+                <span ng-model="bc.client.monthlyTotalDependentRelatedExpenses" ng-if="bc.client.monthlyTotalDependentRelatedExpenses > 0" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalDependentRelatedExpenses}}</span></h2>
 
         <div ng-if="bc.client.dependents">
             <md-input-container class="">
@@ -208,7 +208,7 @@
         <br>
 
         <h2 ng-if="bc.client.borrowedMoney || bc.client.creditCard">Credit Card and Debt Payments
-                  <span ng-model="bc.client.monthlyTotalCreditCardLoanDebtPayments" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalCreditCardLoanDebtPayments}}</span></h2>
+                  <span ng-model="bc.client.monthlyTotalCreditCardLoanDebtPayments" ng-if="bc.client.monthlyTotalCreditCardLoanDebtPayments > 0" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalCreditCardLoanDebtPayments}}</span></h2>
 
         <div>
             <md-input-container ng-if="bc.client.creditCard" class="">
@@ -240,7 +240,7 @@
         <br>
 
         <h2>Personal
-                    <span ng-model  ="bc.client.monthlyTotalPersonalExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalPersonalExpenses}}</span></h2>
+                    <span ng-if="bc.client.monthlyTotalPersonalExpenses > 0" ng-model="bc.client.monthlyTotalPersonalExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalPersonalExpenses}}</span></h2>
 
         <div>
             <md-input-container class="">
@@ -280,7 +280,7 @@
             <br>
 
             <h2>Miscellaneous
-                    <span ng-model="bc.client.monthlyTotalMiscellaneousExpenses" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalMiscellaneousExpenses}}</span></h2>
+                    <span ng-model="bc.client.monthlyTotalMiscellaneousExpenses" ng-if="bc.client.monthlyTotalMiscellaneousExpenses > 0" placeholder ="$" type ="number"> ${{bc.client.monthlyTotalMiscellaneousExpenses}}</span></h2>
 
             <div>
                 <md-input-container class="">
@@ -324,5 +324,5 @@
             <br>
 
             <h1>Total Monthly Expenses
-                      <span ng-model  ="bc.client.totalMonthlyExpenses" type="number"> ${{bc.client.totalMonthlyExpenses}}</span></h1>
+                      <span ng-model="bc.client.totalMonthlyExpenses" ng-if="bc.client.totalMonthlyExpenses > 0" type="number"> ${{bc.client.totalMonthlyExpenses}}</span></h1>
     </md-content>
