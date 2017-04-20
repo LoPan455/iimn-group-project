@@ -1,10 +1,12 @@
-app.controller('ProfileController', function(ClientFactory) {
+app.controller('ProfileQuestionsController', function(ClientFactory) {
 
-  console.log('ProfileController controller running');
+  console.log('ProfileQuestionsController controller running');
   var self = this;
-
   self.client = ClientFactory.client;
   self.assistanceSection = true;
+  ClientFactory.saveClientData(self.client);
+
+
   self.confirmAssistance = function(){
     self.assistanceSection = !self.assistanceSection;
   };
@@ -27,7 +29,6 @@ app.controller('ProfileController', function(ClientFactory) {
     self.bankSection = !self.bankSection;
     }
   };
-
   self.neverBorrowed = function(){
     self.client.borrowed = false;
   };
@@ -50,5 +51,6 @@ app.controller('ProfileController', function(ClientFactory) {
       self.client.numberVehicles = null;
     }
   };
+
 
 });//end app.controller

@@ -1,0 +1,79 @@
+<div layout="column" ng-cloak class="md-inline-form">
+
+  <div><!--Credit Score Section  -->
+    <h3>Credit Score Section</h3>
+    <md-input-container>
+      <label for="karma">Credit Karma Score</label>
+      <input class="inputFieldSize" type="number" name="karma" ng-model="crc.client.karmaScore">
+    </md-input-container>
+
+    <md-input-container>
+      <label for="union">TransUnion Score</label>
+      <input class="inputFieldSize" type="number" name="union" ng-model="crc.client.transUnionScore">
+    </md-input-container>
+    <br>
+  </div>
+
+
+  <div><!--ng-if="bsc.client.creditCard || bsc.client.heloc"-->
+    <h3>Active Lines of Credit</h3>
+    <table >
+      <thead>
+        <tr>
+          <th>Name of Credit Card(s)</th>
+          <th>Total Limit</th>
+          <th>Account Balance</th>
+          <th>Amount Past Due</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><md-input-container><input type="text" ng-model="crc.client.creditCard1Name" placeholder="Name of Credit Card"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard1Limit" placeholder="Total Limit"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard1Balance" placeholder="Account Balance"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard1PastDue" placeholder="Amount Past Due"></md-input-container></td>
+        </tr>
+        <tr>
+          <td><md-input-container><input type="text" ng-model="crc.client.creditCard2Name" placeholder="Name of Credit Card"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard2Limit" placeholder="Total Limit"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard2Balance" placeholder="Account Balance"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard2PastDue" placeholder="Amount Past Due"></md-input-container></td>
+        </tr>
+        <tr>
+          <td><md-input-container><input type="text" ng-model="crc.client.creditCard3Name" placeholder="Name of Credit Card"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard3Limit" placeholder="Total Limit"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard3Balance" placeholder="Account Balance"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard3PastDue" placeholder="Amount Past Due"></md-input-container></td>
+        </tr>
+        <tr>
+          <td><md-input-container><input type="text" ng-model="crc.client.creditCard4Name" placeholder="Name of Credit Card"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard4Limit" placeholder="Total Limit"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard4Balance" placeholder="Account Balance"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard4PastDue" placeholder="Amount Past Due"></md-input-container></td>
+        </tr>
+        <tr>
+          <td><md-input-container><input type="text" ng-model="crc.client.creditCard5Name" placeholder="Name of Credit Card"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard5Limit" placeholder="Total Limit"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard5Balance" placeholder="Account Balance"></md-input-container></td>
+          <td><md-input-container><input type="number" ng-model="crc.client.creditCard5PastDue" placeholder="Amount Past Due"></md-input-container></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div  ng-if="crc.client.heloc">
+      <h4>Home Equity Line of Credit</h4>
+      <table><!--Heloc active -->
+        <tbody>
+          <tr>
+            <td><md-input-container><input type="text" ng-model="crc.client.helocName" placeholder="Name of HELOC"></md-input-container></td>
+            <td><md-input-container><input type="number" ng-model="crc.client.helocLimit" placeholder="Total Limit"></md-input-container></td>
+            <td><md-input-container><input type="number" ng-model="crc.client.helocBalance" placeholder="Account Balance"></md-input-container></td>
+            <td><md-input-container><input type="number" ng-model="crc.client.helocPastDue" placeholder="Amount Past Due"></md-input-container></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>
