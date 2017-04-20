@@ -27,6 +27,24 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
         });
       }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function saveClientData(client){
       console.log('saveClientData function called. Sending this object: ', client);
       var clientId = client._id;

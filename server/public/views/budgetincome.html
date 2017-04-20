@@ -2,7 +2,7 @@
 
 <div layout="column" ng-cloak class="md-inline-form md-padding" flex ng-keyup="bc.updateIncome()">
   <md-content>
-    <h1>Monthly Income
+    <h1>{{pqc.client.firstName}} {{pqc.client.lastName}}'s Monthly Income
       <span ng-model="bc.client.totalMonthlyIncome">${{bc.client.totalMonthlyIncome}}</span></h1>
       <div>
         <h3>Income Amounts</h3>
