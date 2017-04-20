@@ -2,9 +2,11 @@ app.controller('ProfileQuestionsController', function(ClientFactory) {
 
   console.log('ProfileQuestionsController controller running');
   var self = this;
-
   self.client = ClientFactory.client;
   self.assistanceSection = true;
+  ClientFactory.saveClientData(self.client);
+
+
   self.confirmAssistance = function(){
     self.assistanceSection = !self.assistanceSection;
   };
@@ -20,7 +22,9 @@ app.controller('ProfileQuestionsController', function(ClientFactory) {
 
   self.undoShare = function() {
     // console.log('mawige is what bwings us together');
-      self.client.individual = null;
+    if (self.client.individual != null) {
+      self.client.individual = null;  
+    }
   };
 
   self.neverBorrowed = function(){
@@ -30,7 +34,7 @@ app.controller('ProfileQuestionsController', function(ClientFactory) {
     self.client.mortgage = null;
     self.client.heloc = null;
     self.client.studentLoan = null;
-    self.client.otherLoan = null; 
+    self.client.otherLoan = null;
   };
 
   self.clearAccounts = function(){
@@ -42,5 +46,6 @@ app.controller('ProfileQuestionsController', function(ClientFactory) {
   self.undoVehicle = function() {
       self.client.numberVehicles = null;
   };
+
 
 });//end app.controller

@@ -9,6 +9,7 @@ app.controller('SummaryController', function(ClientFactory) {
   };
 
   self.client = ClientFactory.client;
+  ClientFactory.saveClientData(self.client)
 
 
   self.totalLifeExpenses = self.monthlyTotalDependentRelatedExpenses + self.monthlyTotalCreditCardLoanDebtPayments + self.monthlyTotalPersonalExpenses + self.monthlyTotalMiscellaneousExpenses;
@@ -32,6 +33,15 @@ app.controller('SummaryController', function(ClientFactory) {
               position: 'right'
           }
       };
+
+
+
+
+
+self.export = function() {
+  ClientFactory.export();
+}
+
 
 
 

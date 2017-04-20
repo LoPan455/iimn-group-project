@@ -1,11 +1,11 @@
 app.controller('BudgetController', function(ClientFactory) {
 
-
   console.log('BudgetController controller running');
   var self = this;
-
+  
   self.client = ClientFactory.client;
   console.log('self.client is an empty object', self.client);
+  ClientFactory.saveClientData(self.client);
 
   self.client.totalMonthlyIncome = self.client.totalMonthlyIncome || 0;
   self.client.totalMonthlyExpenses = self.client.totalMonthlyExpenses || 0;

@@ -7,14 +7,12 @@
                     <canvas id="pie" class="chart chart-pie" chart-data="sc.benchmarkData" chart-labels="sc.benchmarkLabels" chart-options="sc.benchmarkOptions"></canvas>
                 </div>
 
-
                 <div flex="50">
                     <h2>Your Budget</h2>
                     <canvas id="pie" class="chart chart-pie" chart-data="sc.clientData" chart-labels="sc.clientLabels" chart-options="sc.clientOptions"></canvas>
                 </div>
             </div>
         </div>
-
 
         <div>
             <p>Balance Sheet Snapshot</p>
@@ -35,7 +33,6 @@
             </table>
         </div>
 
-
         <md-whiteframe class="md-whiteframe-3dp" layout="row" layout-align="space-around center">
             <h3>Housing ${{sc.client.monthlyTotalHousingExpenses}}</h3>
             <h3>Utilities ${{sc.client.monthlyTotalUtilities}}</h3>
@@ -53,27 +50,27 @@
             <h3>Total Net Worth ${{sc.client.totalNetWorth}}</h3>
         </md-whiteframe>
 
-
-
         <md-whiteframe class="md-whiteframe-3dp" layout="row" layout-align="space-around center">
             <h3>Goals
-        <textarea ng-model="bc.client.goals"type ="number"></textarea>
-        </h3>
+                <textarea ng-model="bc.client.goals" type="number"></textarea>
+            </h3>
             <h3>Monthly Savings Target
-        <input ng-model="bc.client.monthlySavingsTarget" placeholder ="$" type ="number"></input>
-        </h3>
+                <input ng-model="bc.client.monthlySavingsTarget" placeholder="$" type="number"></input>
+            </h3>
             <h3>Action Steps
-        <textarea ng-model="bc.client.actionSteps"type ="text"></textarea>
-        </h3>
+                <textarea ng-model="bc.client.actionSteps" type="text"></textarea>
+            </h3>
         </md-whiteframe>
 
+        <div class="ext-content">
+            <!-- Whatever is in Tab 1, 2, or 3 goes in ui-view tag below -->
+            <ui-view></ui-view>
+        </div>
 
-
-
-    <div class="ext-content">
-        <!-- Whatever is in Tab 1, 2, or 3 goes in ui-view tag below -->
-        <ui-view></ui-view>
-    </div>
+        <div id="tester">
+            <!--located http://localhost:5000/#/main-->
+            <md-button class="md-warning" ng-click="sc.export()">Data Export</button>
+                <!--<p>{{sc.exportTester}}</p>-->
+        </div>
     </md-content>
-
 </div>
