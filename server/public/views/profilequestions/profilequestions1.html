@@ -10,7 +10,7 @@
 		<md-radio-group ng-model="pqc.client.maritalStatus">
 			<h2>Are you married?</h2>
 			<md-radio-button ng-value="'married'">Yes</md-radio-button>
-			<md-radio-button ng-value="'single'">No</md-radio-button>
+			<md-radio-button ng-value="'single'" ng-click="pqc.undoShare()">No</md-radio-button>
 		</md-radio-group>
 		<!-- this shares a div with above. it only shows if married. -->
 		<md-radio-group ng-if="pqc.client.maritalStatus === 'married'" ng-model="pqc.client.individual">

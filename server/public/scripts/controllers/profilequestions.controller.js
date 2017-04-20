@@ -9,26 +9,28 @@ app.controller('ProfileQuestionsController', function(ClientFactory) {
     self.assistanceSection = !self.assistanceSection;
   };
 
-  self.undoMarriage = function() {
+  self.undoAssistance = function (){
+    self.client.SNAP = null;
+    self.client.TANF = null;
+    self.client.SSI = null;
+    self.client.alimony = null;
+    self.client.workersComp = null;
+    self.client.otherAssist = null;
+  }
+
+  self.undoShare = function() {
     // console.log('mawige is what bwings us together');
-    if (self.client.maritalStatus === 'single') {
-      self.client.maritalStatus = null;
-    }else if (self.client.maritalStatus === 'married') {
-      self.client.maritalStatus = null;
       self.client.individual = null;
-    }
   };
 
-  self.bankSection = true;
-  self.hideBank = function (){
-    if (self.client.bank === false) {
-      self.client.bank = null;
-    }else {
-    self.bankSection = !self.bankSection;
-    }
-  };
   self.neverBorrowed = function(){
     self.client.borrowed = false;
+    self.client.creditCard = null;
+    self.client.autoLoan = null;
+    self.client.mortgage = null;
+    self.client.heloc = null;
+    self.client.studentLoan = null;
+    self.client.otherLoan = null; 
   };
 
   self.clearAccounts = function(){
@@ -36,18 +38,9 @@ app.controller('ProfileQuestionsController', function(ClientFactory) {
     self.client.savings = false;
   };
 
-  self.productSection = true;
-  self.hideProducts = function (){
-    self.productSection = !self.productSection;
-  };
 
   self.undoVehicle = function() {
-    if (self.client.vehicle === false) {
-      self.client.vehicle = null;
-    }else if (self.client.vehicle === true) {
-      self.client.vehicle = null;
       self.client.numberVehicles = null;
-    }
   };
 
 });//end app.controller

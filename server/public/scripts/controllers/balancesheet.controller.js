@@ -18,7 +18,6 @@ app.controller('BalanceSheetController', function(ClientFactory) {
     self.client.totalUnpaidBillsNotInCollections = self.client.totalUnpaidBillsNotInCollections || 0;
     self.client.totalCollectionsChargeOffsJudgments = self.client.totalCollectionsChargeOffsJudgments || 0;
     self.client.totalLiabilities = self.client.totalLiabilities || 0;
-    self.otherProperty = true;
 
 // asset functions
     self.addAssets = function (assetField){
@@ -37,9 +36,6 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       return self.client.totalAssets;
     };
 
-    self.toggleClass = function (){
-      self.otherPropery = !self.otherPropery;
-    };
 
 // liabilities functions
     // housing section
