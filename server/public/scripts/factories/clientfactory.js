@@ -1,6 +1,6 @@
 app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseAuth) {
     var client = { };
-    var currentClientId = '' //used to track the current client for periodic saves
+    var currentClientId = ''; //used to track the current client for periodic saves
     var clientTester = { };
     var testMessage = " sumtext ";
     var auth = $firebaseAuth(); // Auth with every server request

@@ -8,4 +8,4 @@ var app = angular.module('fhatApp', ['ngMaterial','ui.router','firebase','chart.
     .accentPalette('deep-orange');
 });
 
-// "chart.js"
+// deep-orange #ff5722
