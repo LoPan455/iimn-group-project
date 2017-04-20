@@ -8,8 +8,7 @@ app.controller('SummaryController', function(ClientFactory) {
     health: 90
   };
 
-  self.client = ClientFactory.client;
-  ClientFactory.saveClientData(self.client)
+// ClientFactory.saveClientData(self.client);
 
 
   self.totalLifeExpenses = self.monthlyTotalDependentRelatedExpenses + self.monthlyTotalCreditCardLoanDebtPayments + self.monthlyTotalPersonalExpenses + self.monthlyTotalMiscellaneousExpenses;
@@ -18,7 +17,7 @@ app.controller('SummaryController', function(ClientFactory) {
   self.benchmarkLabels = ["Housing", "Utilities", "Food", "Transportation", "Health", "Savings", "Miscellaneous"];
   self.benchmarkOptions = {
           legend: {
-              display: true,
+              display: false,
               position: 'right'
           }
       };
@@ -29,7 +28,7 @@ app.controller('SummaryController', function(ClientFactory) {
   self.clientLabels = ["Housing", "Utilities", "Food", "Transportation", "Health", "Savings", "Miscellaneous"];
   self.clientOptions = {
           legend: {
-              display: true,
+              display: false,
               position: 'right'
           }
       };

@@ -12,7 +12,7 @@
     <md-radio-group ng-model="pqc.client.vehicle">
       <h2>Do you own a vehicle?</h2>
       <md-radio-button ng-value="true">Yes</md-radio-button>
-      <md-radio-button ng-value="false">No</md-radio-button>
+      <md-radio-button ng-value="false" ng-click="pqc.undoVehicle()">No</md-radio-button>
     </md-radio-group>
 
     <div ng-if="pqc.client.vehicle == true">
