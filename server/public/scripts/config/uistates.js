@@ -53,6 +53,12 @@ app.config(function($stateProvider,$urlRouterProvider) {
     controllerAs: 'bc',
     templateUrl:'/views/budgetexpenses.html'
   };
+  var budgetSavings = {
+    name: 'main.budget.savings',
+    controller: 'BudgetController',
+    controllerAs: 'bc',
+    templateUrl:'/views/budgetsavings.html'
+  };
   var budgetSnapshot = {
     name: 'main.budget.snapshot',
     controller: 'BudgetController',
@@ -210,15 +216,17 @@ app.config(function($stateProvider,$urlRouterProvider) {
   };
 
 
-
   $stateProvider.state(login);
   $stateProvider.state(main);
   $stateProvider.state(welcome);
   $stateProvider.state(profile);
+
   $stateProvider.state(budget);
   $stateProvider.state(budgetIncome);
   $stateProvider.state(budgetExpenses);
+  $stateProvider.state(budgetSavings);
   $stateProvider.state(budgetSnapshot);
+
   $stateProvider.state(balanceSheet);
   $stateProvider.state(balanceSheetAssets);
   $stateProvider.state(balanceSheetLiabilities);

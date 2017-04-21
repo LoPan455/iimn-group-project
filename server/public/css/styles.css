@@ -117,13 +117,27 @@ a {
   color: #737367;
 }
 
-/*Trying to slow down Profile questions transitions*/
-/*.sample-show-hide {
-transition: all linear 0.1s;
+.housing {
+  background-color: #97BBCD;
 }
-.sample-show-hide.ng-hide {
-opacity: 0;
+
+.utilities {
+  background-color: #DCDCDC;
 }
-.sample-show-hide.ng-show {
-opacity: 1;
-}*/
+.food {
+  background-color: #F7464A;
+}
+.transportation {
+  background-color: #46BFBD;
+}
+.health {
+  background-color: #FDB45C;
+}
+.savings {
+  background-color: #949FB1;
+  color: white;
+}
+.miscellaneous {
+  background-color: #4D5360;
+  color: white;
+}

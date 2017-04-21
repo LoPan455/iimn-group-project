@@ -34,12 +34,9 @@ app.controller('SummaryController', function(ClientFactory) {
       };
 
 
-
-
-
 self.export = function() {
   ClientFactory.export();
-}
+};
 
 
 
