@@ -1,11 +1,11 @@
 <!-- NOTE:This is Balance Sheet Liabilities Tab-->
-<h1>Total Liabilities: $<span ng-model="bsc.client.totalLiabilities">{{bsc.client.totalLiabilities}}</span></h1>
+<h1>Total Liabilities: <span ng-model="bsc.client.totalLiabilities" ng-if="bsc.client.totalLiabilities > 0">${{bsc.client.totalLiabilities}}</span></h1>
 
 <div layout="column" ng-cloak class="md-inline-form" ng-keyup="bsc.updateLibailities()" ng-mousemove="bsc.updateLibailities()"><!---->
 
 
   <div ng-if="bsc.client.housing === 'Own'"><!-- housingLiabilities section -->
-    <h3>Housing Liabilities: <span ng-model="bsc.client.totalHousingLiabilities">${{bsc.client.totalHousingLiabilities}}</span></h3>
+    <h3>Housing Liabilities: <span ng-model="bsc.client.totalHousingLiabilities" ng-if="bsc.client.totalHousingLiabilities > 0">${{bsc.client.totalHousingLiabilities}}</span></h3>
     <md-input-container>
       <label for="mortgage">Mortgage Owed</label>
       <input class="inputFieldSize" type="number" name="mortgage" ng-blur="bsc.addHousing(bsc.client.mortgageBalance)" ng-model="bsc.client.mortgageBalance" ng-focus="bsc.updateHouse(bsc.client.mortgageBalance)">
@@ -27,7 +27,7 @@
 
 
   <div ng-if="bsc.client.autoLoan"><!-- transportationLiabilities section -->
-    <h3>Transportation Liabilities:<span ng-model="bsc.client.totalTransportationLiabilities">${{bsc.client.totalTransportationLiabilities}}</span></h3>
+    <h3>Transportation Liabilities:<span ng-model="bsc.client.totalTransportationLiabilities" ng-if="bsc.client.totalTransportationLiabilities > 0">${{bsc.client.totalTransportationLiabilities}}</span></h3>
     <md-input-container ng-if="bsc.client.numberVehicles >= 1">
       <label for="car1">Vehicle 1 Balance</label>
       <input class="inputFieldSize" type="number" name="car1" ng-model="bsc.client.vehicle1Balance" ng-focus="bsc.updateAuto(bsc.client.vehicle1Balance)" ng-blur="bsc.addAuto(bsc.client.vehicle1Balance)">
@@ -54,7 +54,7 @@
   </div>
 
   <div ng-if="bsc.client.creditCard || bsc.client.studentLoan || bc.client.borrowedMoney"><!-- creditCard/Loans section -->
-    <h3>Credit Card & Loan Liabilities: <span ng-model="bsc.client.totalCreditCardsOtherLoanBalance">${{bsc.client.totalCreditCardsOtherLoanBalance}}</span></h3>
+    <h3>Credit Card & Loan Liabilities: <span ng-model="bsc.client.totalCreditCardsOtherLoanBalance" ng-if="bsc.client.totalCreditCardsOtherLoanBalance > 0">${{bsc.client.totalCreditCardsOtherLoanBalance}}</span></h3>
     <md-input-container ng-if="bsc.client.creditCard">
       <label for="card">Credit Cards - combined balance</label>
 
@@ -95,7 +95,7 @@
   </div>
 
   <div><!-- unpaid bills seciton -->
-    <h3>Unpaid Bills (not in collection): <span ng-model="bsc.client.totalUnpaidBillsNotInCollections">${{bsc.client.totalUnpaidBillsNotInCollections}}</span></h3>
+    <h3>Unpaid Bills (not in collection): <span ng-model="bsc.client.totalUnpaidBillsNotInCollections" ng-if="bsc.client.totalUnpaidBillsNotInCollections > 0">${{bsc.client.totalUnpaidBillsNotInCollections}}</span></h3>
     <md-input-container >
       <label for="utility">Unpaid Utilities</label>
 
@@ -118,7 +118,7 @@
     </md-input-container>
   </div>
   <div> <!--sub div for formatting -->
-    <md-input-container ng-if="pqc.client.borrowedMoney || pqc.client.bank">
+    <md-input-container ng-if="bsc.client.borrowedMoney || bsc.client.bank">
       <label for="banks">Money Owed to Banks and/or Credit Unions</label>
 
       <input class="informalField" type="number" name="banks" ng-model="bsc.client.moneyOwedToBanksBalance" ng-focus="bsc.updateBills(bsc.client.moneyOwedToBanksBalance)" ng-blur="bsc.addBills(bsc.client.moneyOwedToBanksBalance)">
@@ -137,7 +137,7 @@
   </div>
 
   <div ng-if="bsc.client.pastDueCalls"><!-- collections/judgement section ng-if="bsc.client.collectionCall"-->
-    <h3>Collections, Charge-Offs, or Judgements: <span ng-model="bsc.client.totalCollectionsChargeOffsJudgments">${{bsc.client.totalCollectionsChargeOffsJudgments}}</span></h3>
+    <h3>Collections, Charge-Offs, or Judgements: <span ng-model="bsc.client.totalCollectionsChargeOffsJudgments" ng-if="bsc.client.totalCollectionsChargeOffsJudgments > 0">${{bsc.client.totalCollectionsChargeOffsJudgments}}</span></h3>
     <md-input-container >
       <label for="medCollect">Medical Collections</label>
 
@@ -185,7 +185,7 @@
 
 
 
-  <h2>Total Liabilities: $<span ng-model="bsc.client.totalLiabilities">{{bsc.client.totalLiabilities}}</span></h2>
+  <h2>Total Liabilities: <span ng-model="bsc.client.totalLiabilities" ng-if="bsc.client.totalLiabilities > 0">${{bsc.client.totalLiabilities}}</span></h2>
 
 
 </div>

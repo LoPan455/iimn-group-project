@@ -1,8 +1,8 @@
 <!-- <p>This is Balance Sheet Tab One</p> -->
 
-<div layout="column" ng-cloak class="md-inline-form" ng-keyup="bsc.calculateWorth()" ng-mouseleave="bsc.calculateWorth()">
+<form layout="column" ng-cloak class="md-inline-form" ng-keyup="bsc.calculateWorth()" ng-mouseleave="bsc.calculateWorth()">
   <!-- <i class="material-icons">attach_money</i> -->
-  <h1>Total Assets: $<span>{{bsc.client.totalAssets}}</span></h1><!--ng-model="bsc.client.totalAssets" -->
+  <h1>Total Assets: <span ng-if="bsc.client.totalAssets > 0">${{bsc.client.totalAssets}}</span></h1><!--ng-model="bsc.client.totalAssets" -->
 
   <!-- cash assets section-->
   <div>
@@ -105,10 +105,10 @@
 
 
 
-    <h1>Total Assets: $<span>{{bsc.client.totalAssets}}</span></h1><!--ng-model="bsc.client.totalAssets" -->
+    <h1>Total Assets: <span ng-if="bsc.client.totalAssets > 0">${{bsc.client.totalAssets}}</span></h1><!--ng-model="bsc.client.totalAssets" -->
 
 
-  </div>
+  </form>
   <!-- assets_label
 
   checkingBalanceValue
