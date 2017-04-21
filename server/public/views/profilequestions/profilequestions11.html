@@ -3,34 +3,34 @@
 	<h1>Financial Health Assessment Tool</h1>
 </md-toolbar>
 <div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
-	<h4>Summary for {{pqc.client.firstName}} {{pqc.client.lastName}}</h4>
+	<h4>Summary for {{pqc.client.details.firstName}} {{pqc.client.details.lastName}}</h4>
 
 	<div class="profile md-inline-form md-title" layout="column"  layout-align="left left">
     <md-content class="profile profileSummaryMargin">
-      <p ng-if="pqc.client.maritalStatus == 'married'">You are married</p>
-      <p ng-if="pqc.client.maritalStatus == 'single'">You are not married</p>
-      <p ng-if="pqc.client.individual == true">You file single</p>
-      <p ng-if="pqc.client.individual == false">You file jointly</p>
-      <p ng-if="pqc.client.dependents">You have children or dependents</p>
-      <p class="inline" ng-if="pqc.client.assistance">You receive assistance in the form of: </p>
-      <p class="inline" ng-if="pqc.client.SNAP"> -SNAP- </p>
-      <p class="inline" ng-if="pqc.client.TANF"> -TANF- </p>
-      <p class="inline" ng-if="pqc.client.SSI"> -SSI/SSDI- </p>
-      <p class="inline" ng-if="pqc.client.alimony"> -alimony- </p>
-      <p class="inline" ng-if="pqc.client.workersComp"> -workers' compensation- </p>
-      <p class="inline" ng-if="pqc.client.otherAssist"> -other assistance- </p>
-      <p ng-if="pqc.client.housing == 'Own'">You own your home</p>
-      <p ng-if="pqc.client.housing == 'Rent'">You rent your home</p>
-      <p ng-if="pqc.client.vehicle">You own {{pqc.client.numberVehicles}} car(s)</p>
-      <p ng-if="pqc.client.bank == true">Your bank accounts are:<span ng-if="(pqc.client.checking == true && pqc.client.savings != true)">checking</span> <span ng-if="(pqc.client.checking != true && pqc.client.savings == true)">savings</span><span ng-if="(pqc.client.checking == true && pqc.client.savings == true)">checking & savings</span></p>
-      <p ng-if="pqc.client.creditCard"> You have a credit card </p>
-      <p ng-if="pqc.client.autoLoan"> You have an auto loan </p>
-      <p ng-if="pqc.client.mortgage"> You have a mortgage </p>
-      <p ng-if="pqc.client.heloc"> You have a HELOC </p>
-			<p ng-if="pqc.client.studentLoan">You have a student loan</p>
-			<p ng-if="pqc.client.otherLoan">You have a personal loan</p>
-			<p ng-if="pqc.client.pastDueCalls">You have received calls about past due bills</p>
-			<p ng-if="pqc.client.investments">You have invested money</p>
+      <p ng-if="pqc.client.details.maritalStatus == 'married'">You are married</p>
+      <p ng-if="pqc.client.details.maritalStatus == 'single'">You are not married</p>
+      <p ng-if="pqc.client.details.individual == true">You file single</p>
+      <p ng-if="pqc.client.details.individual == false">You file jointly</p>
+      <p ng-if="pqc.client.details.dependents">You have children or dependents</p>
+      <p class="inline" ng-if="pqc.client.details.assistance">You receive assistance in the form of: </p>
+      <p class="inline" ng-if="pqc.client.details.SNAP"> -SNAP- </p>
+      <p class="inline" ng-if="pqc.client.details.TANF"> -TANF- </p>
+      <p class="inline" ng-if="pqc.client.details.SSI"> -SSI/SSDI- </p>
+      <p class="inline" ng-if="pqc.client.details.alimony"> -alimony- </p>
+      <p class="inline" ng-if="pqc.client.details.workersComp"> -workers' compensation- </p>
+      <p class="inline" ng-if="pqc.client.details.otherAssist"> -other assistance- </p>
+      <p ng-if="pqc.client.details.housing == 'Own'">You own your home</p>
+      <p ng-if="pqc.client.details.housing == 'Rent'">You rent your home</p>
+      <p ng-if="pqc.client.details.vehicle">You own {{pqc.client.details.numberVehicles}} car(s)</p>
+      <p ng-if="pqc.client.details.bank == true">Your bank accounts are:<span ng-if="(pqc.client.details.checking == true && pqc.client.details.savings != true)">checking</span> <span ng-if="(pqc.client.details.checking != true && pqc.client.details.savings == true)">savings</span><span ng-if="(pqc.client.details.checking == true && pqc.client.details.savings == true)">checking & savings</span></p>
+      <p ng-if="pqc.client.details.creditCard"> You have a credit card </p>
+      <p ng-if="pqc.client.details.autoLoan"> You have an auto loan </p>
+      <p ng-if="pqc.client.details.mortgage"> You have a mortgage </p>
+      <p ng-if="pqc.client.details.heloc"> You have a HELOC </p>
+			<p ng-if="pqc.client.details.studentLoan">You have a student loan</p>
+			<p ng-if="pqc.client.details.otherLoan">You have a personal loan</p>
+			<p ng-if="pqc.client.details.pastDueCalls">You have received calls about past due bills</p>
+			<p ng-if="pqc.client.details.investments">You have invested money</p>
   </md-content>
   </div>
 

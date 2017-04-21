@@ -6,22 +6,22 @@
 
 <div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
 <div class="">
-  <md-radio-group ng-model="pqc.client.borrowedMoney">
+  <md-radio-group ng-model="pqc.client.details.borrowedMoney">
     <h2>Have you ever borrowed money or taken out a loan?</h2> <!-- consider revising to checkboxes -->
     <md-radio-button ng-value="true">Yes</md-radio-button>
     <md-radio-button ng-value="false" ng-click="pqc.neverBorrowed()">No</md-radio-button>
   </md-radio-group>
 </div>
 
-  <div ng-if="pqc.client.borrowedMoney">
+  <div ng-if="pqc.client.details.borrowedMoney">
     <h3>Which products(s) have you used?</h3>
     <h4>Check all that apply</h4>
-    <md-checkbox ng-model="pqc.client.creditCard">Credit Card</md-checkbox>
-    <md-checkbox ng-model="pqc.client.autoLoan">Auto Loan</md-checkbox> <!--ng-hide="pqc.client.vehicle ==='No'" -->
-    <md-checkbox ng-model="pqc.client.mortgage">Mortgage</md-checkbox> <!--ng-hide="pqc.client.housing !=='Own'"  -->
-    <md-checkbox ng-model="pqc.client.heloc" ng-hide="pqc.client.housing ==='Rent'">HELOC</md-checkbox>
-    <md-checkbox ng-model="pqc.client.studentLoan">Student Loan</md-checkbox>
-		<md-checkbox ng-model="pqc.client.otherLoan">Other Loan </md-checkbox>
+    <md-checkbox ng-model="pqc.client.details.creditCard">Credit Card</md-checkbox>
+    <md-checkbox ng-model="pqc.client.details.autoLoan">Auto Loan</md-checkbox> <!--ng-hide="pqc.client.details.vehicle ==='No'" -->
+    <md-checkbox ng-model="pqc.client.details.mortgage">Mortgage</md-checkbox> <!--ng-hide="pqc.client.details.housing !=='Own'"  -->
+    <md-checkbox ng-model="pqc.client.details.heloc" ng-hide="pqc.client.details.housing ==='Rent'">HELOC</md-checkbox>
+    <md-checkbox ng-model="pqc.client.details.studentLoan">Student Loan</md-checkbox>
+		<md-checkbox ng-model="pqc.client.details.otherLoan">Other Loan </md-checkbox>
   </div>
 
         <md-content class="profile" layout-gt-sm="row" layout-padding>

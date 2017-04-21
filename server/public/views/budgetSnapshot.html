@@ -1,12 +1,12 @@
 <h1>Monthly Income
-  <span> {{bc.client.totalMonthlyIncome | currency:"$":0}}</span></h1>
+  <span> {{bc.client.details.totalMonthlyIncome | currency:"$":0}}</span></h1>
 
 <h1>Monthly Expenses
-  <span> {{bc.client.totalMonthlyExpenses | currency:"$":0}}</span></h1>
+  <span> {{bc.client.details.totalMonthlyExpenses | currency:"$":0}}</span></h1>
 <hr>
 <h1>Total Monthly Net
-  <span> {{bc.client.totalMonthlyNetIncome | currency:"$":0}}</span></h1>
+  <span> {{bc.client.details.totalMonthlyNetIncome | currency:"$":0}}</span></h1>
 <br>
 <br>
 <h1>Monthly Savings Target</h1>
-<h1><input ng-model="bc.client.monthlySavingsTarget" placeholder="$" type="number"></input></h1>
+<h1><input ng-model="bc.client.details.monthlySavingsTarget" placeholder="$" type="number"></input></h1>

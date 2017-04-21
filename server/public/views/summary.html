@@ -53,27 +53,27 @@ FDB45C yellow orange health
                 <table>
                     <tr>
                         <td class="housing">Housing:</td>
-                        <td>{{sc.client.monthlyTotalHousingExpenses | currency:"$":0}}</td>
+                        <td>{{sc.client.details.monthlyTotalHousingExpenses | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="utilities">Utilities:</td>
-                        <td>{{sc.client.monthlyTotalUtilities | currency:"$":0}}</td>
+                        <td>{{sc.client.details.monthlyTotalUtilities | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="food">Food:</td>
-                        <td>{{sc.client.monthlyTotalFoodExpenses | currency:"$":0}}</td>
+                        <td>{{sc.client.details.monthlyTotalFoodExpenses | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="transportation">Transportation:</td>
-                        <td>{{sc.client.monthlyTotalTransportationExpenses | currency:"$":0}}</td>
+                        <td>{{sc.client.details.monthlyTotalTransportationExpenses | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="health">Health:</td>
-                        <td>{{sc.client.monthlyTotalHealthRelatedExpenses | currency:"$":0}}</td>
+                        <td>{{sc.client.details.monthlyTotalHealthRelatedExpenses | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="savings">Savings:</td>
-                        <td>{{sc.client.monthlySavingsTarget | currency:"$":0}}</td>
+                        <td>{{sc.client.details.monthlySavingsTarget | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="miscellaneous">Miscellaneous:</td>
@@ -90,15 +90,15 @@ FDB45C yellow orange health
 
         <div class="topMargin" flex>
             <md-whiteframe class="md-whiteframe-5dp" layout="row" layout layout-align="space-around center">
-                <p>Total Assets {{sc.client.totalAssets | currency:"$":0}}</p>
-                <p>Total Liabilities {{sc.client.totalLiabilities | currency:"$":0}}</p>
-                <p>Total Net Worth {{sc.client.totalNetWorth | currency:"$":0}}</p>
+                <p>Total Assets {{sc.client.details.totalAssets | currency:"$":0}}</p>
+                <p>Total Liabilities {{sc.client.details.totalLiabilities | currency:"$":0}}</p>
+                <p>Total Net Worth {{sc.client.details.totalNetWorth | currency:"$":0}}</p>
             </md-whiteframe>
         </div>
         <div flex>
             <md-whiteframe class="md-whiteframe-5dp" layout="row" layout layout-align="space-around center">
-                <p>Goals<textarea ng-model="bc.client.goals" type="number"></textarea></p>
-                <p>Action Steps<textarea ng-model="bc.client.actionSteps" type="text"></textarea></p>
+                <p>Goals<md-input ng-model="bc.client.details.goals" type="number"></textarea></p>
+                <p>Action Steps<textarea ng-model="bc.client.details.actionSteps" type="text"></textarea></p>
             </md-whiteframe>
         </div>
     </md-content>
