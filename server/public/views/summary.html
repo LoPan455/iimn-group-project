@@ -15,31 +15,31 @@ FDB45C yellow orange health
                 <table>
                     <tr>
                         <td class="housing" >Housing:</td>
-                        <td>{{sc.client.monthlyTotalHousingExpenses | currency:"$":0}}</td>
+                        <td>{{sc.suggestedHousing | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="utilities">Utilities:</td>
-                        <td>{{sc.client.monthlyTotalUtilities | currency:"$":0}}</td>
+                        <td>{{sc.suggestedUtilities | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="food">Food:</td>
-                        <td>{{sc.client.monthlyTotalFoodExpenses | currency:"$":0}}</td>
+                        <td>{{sc.suggestedFood | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="transportation">Transportation:</td>
-                        <td>{{sc.client.monthlyTotalTransportationExpenses | currency:"$":0}}</td>
+                        <td>{{sc.suggestedTransportation | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="health">Health:</td>
-                        <td>{{sc.client.monthlyTotalHealthRelatedExpenses | currency:"$":0}}</td>
+                        <td>{{sc.suggestedHealth | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="savings">Savings:</td>
-                        <td>{{sc.client.monthlySavingsTarget | currency:"$":0}}</td>
+                        <td>{{sc.suggestedSavings | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="miscellaneous">Miscellaneous:</td>
-                        <td>{{sc.client.totalLifeExpenses | currency:"$":0}}</td>
+                        <td>{{sc.suggestedMisc | currency:"$":0}}</td>
                     </tr>
                 </table>
             </div>
@@ -77,7 +77,7 @@ FDB45C yellow orange health
                     </tr>
                     <tr>
                         <td class="miscellaneous">Miscellaneous:</td>
-                        <td>{{sc.client.totalLifeExpenses | currency:"$":0}}</td>
+                        <td>{{sc.totalLifeExpenses | currency:"$":0}}</td>
                     </tr>
                 </table>
             </div>

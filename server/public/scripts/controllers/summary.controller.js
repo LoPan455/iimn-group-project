@@ -9,6 +9,16 @@ app.controller('SummaryController', function(ClientFactory) {
 
   self.totalLifeExpenses = self.client.monthlyTotalDependentRelatedExpenses + self.client.monthlyTotalCreditCardLoanDebtPayments + self.client.monthlyTotalPersonalExpenses + self.client.monthlyTotalMiscellaneousExpenses;
 
+  //recommended budget expenses based on income
+  self.suggestedHousing = self.client.totalMonthlyIncome * 0.35;
+  self.suggestedUtilities = self.client.totalMonthlyIncome * 0.05;
+  self.suggestedFood = self.client.totalMonthlyIncome * 0.1;
+  self.suggestedTransportation = self.client.totalMonthlyIncome * 0.1;
+  self.suggestedHealth = self.client.totalMonthlyIncome * 0.05;
+  self.suggestedSavings = self.client.totalMonthlyIncome * 0.1;
+  self.suggestedMisc = self.client.totalMonthlyIncome * 0.15; 
+
+
   self.benchmarkData = [35, 5, 10, 10, 5, 10, 15];
   self.benchmarkLabels = ["Housing", "Utilities", "Food", "Transportation", "Health", "Savings", "Miscellaneous"];
   self.benchmarkOptions = {
