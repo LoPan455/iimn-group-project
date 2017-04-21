@@ -120,11 +120,11 @@
 
         <div>
             <md-input-container ng-if="bc.client.numberVehicles >= 1 && bc.client.autoLoan" class="">
-                <label>Vehicle 1</label>
+                <label>Vehicle 1 Payment</label>
                 <input ng-model="bc.client.monthlyVehicle1" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyVehicle1)" ng-blur="bc.addTransportation(bc.client.monthlyVehicle1)">
             </md-input-container>
             <md-input-container ng-if="bc.client.numberVehicles >= 2 && bc.client.autoLoan" class="">
-                <label>Vehicle 2</label>
+                <label>Vehicle 2 Payment</label>
                 <input ng-model="bc.client.monthlyVehicle2" type="number" ng-focus="bc.updateTransportation(bc.client.monthlyVehicle2)" ng-blur="bc.addTransportation(bc.client.monthlyVehicle2)">
             </md-input-container>
             <md-input-container ng-if="bc.client.numberVehicles == 3 && bc.client.autoLoan" class="">
