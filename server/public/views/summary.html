@@ -86,14 +86,16 @@ FDB45C yellow orange health
             </div>
         </div><!-- end of pie section -->
 
-        <div class="md-padding topMargin" flex>
+
+
+        <div class="topMargin" flex>
             <md-whiteframe class="md-whiteframe-5dp" layout="row" layout layout-align="space-around center">
                 <p>Total Assets {{sc.client.totalAssets | currency:"$":0}}</p>
                 <p>Total Liabilities {{sc.client.totalLiabilities | currency:"$":0}}</p>
                 <p>Total Net Worth {{sc.client.totalNetWorth | currency:"$":0}}</p>
             </md-whiteframe>
         </div>
-        <div class="md-padding" flex>
+        <div flex>
             <md-whiteframe class="md-whiteframe-5dp" layout="row" layout layout-align="space-around center">
                 <p>Goals<textarea ng-model="bc.client.goals" type="number"></textarea></p>
                 <p>Action Steps<textarea ng-model="bc.client.actionSteps" type="text"></textarea></p>

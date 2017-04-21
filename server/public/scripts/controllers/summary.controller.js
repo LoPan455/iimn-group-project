@@ -29,7 +29,7 @@ app.controller('SummaryController', function(ClientFactory) {
       };
 
 
-
+// client pie-chart populated
   self.clientData = [self.client.monthlyTotalHousingExpenses, self.client.monthlyTotalUtilities, self.client.monthlyTotalFoodExpenses, self.client.monthlyTotalTransportationExpenses, self.client.monthlyTotalHealthRelatedExpenses, self.client.monthlySavingsTarget, self.totalLifeExpenses ];
   self.clientLabels = ["Housing", "Utilities", "Food", "Transportation", "Health", "Savings", "Miscellaneous"];
   self.clientOptions = {
