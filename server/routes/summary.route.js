@@ -34,6 +34,7 @@ var client = json2csv({data: arrayOfObjects, fields: propertyKeys }); // Hardcod
 // *NOTE: This still hard-coded from clientfactory / var currentClientId*
 router.post('/export/', function(req,res){ // don't need /:id because getting entire object?
 	var clientId = require('mongodb').ObjectId(req.query.id);  // this is with currentClientId
+	console.log('summary.route.js / router.post / clientId = ', clientId)
   		Client.find(
           {_id: clientId},
 					function (err, client) {
@@ -43,7 +44,7 @@ router.post('/export/', function(req,res){ // don't need /:id because getting en
             } else {
 						fs.writeFile('client-export-file.csv', client, function(err) {  // clientId
 					  res.send(client); // saves to server
-            console.log('json2csv-fs.writeFile success / client: ', client);
+            console.log('summary.route.js / router.post / clientId / json2csv-fs.writeFile success / client: ', client.id);
 					});	
 	    } //end else
   }); //end newClient.save
