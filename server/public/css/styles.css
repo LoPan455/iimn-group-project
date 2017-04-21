@@ -21,27 +21,30 @@ body {
   /*background-attachment: fixed; THIS WILL MAKE LOGO HUGE!*/
 }
 
-/*737367 gray*/
+/*737367 gray text*/
 .toolbar h1 {
   color: #737367;
 }
 
+/*737367 gray text*/
+.toolbar h2 {
+  color: #737367;
+}
+
+/*different toolbar for login and welcome #43471D brown*/
 .login-toolbar{
   background-color: #43471D !important;
 }
 
-
+/*#fafae1 is light tan similar to #FBFBF5 iimn*/
 .login-screen {
   background-image: url(images/iimn-logo2.svg), url(images/map2.png);
   background-position: left top, right bottom;
   background-repeat: no-repeat, no-repeat;
   background-color: #fafae1 !important;
-
-  /*
-  background-image: url(images/iimn-logo2.svg);
-  background-color: #EBEACC;*/
 }
 
+/*#fafae1 is light tan similar to #FBFBF5 iimn*/
 md-content {
   background: #fafae1 url(images/map2.png);
   background-size: cover;
@@ -50,7 +53,7 @@ md-content {
   margin-right: 50px;
 }
 
-
+/*  #E65314 iimn accent orange similar to deep-orange #ff5722 Material accentPallette (see client.js)*/
 md-content h1{
   text-align: center;
   color: #E65314;
@@ -114,13 +117,27 @@ a {
   color: #737367;
 }
 
-/*Trying to slow down Profile questions transitions*/
-/*.sample-show-hide {
-transition: all linear 0.1s;
+.housing {
+  background-color: #97BBCD;
 }
-.sample-show-hide.ng-hide {
-opacity: 0;
+
+.utilities {
+  background-color: #DCDCDC;
 }
-.sample-show-hide.ng-show {
-opacity: 1;
-}*/
+.food {
+  background-color: #F7464A;
+}
+.transportation {
+  background-color: #46BFBD;
+}
+.health {
+  background-color: #FDB45C;
+}
+.savings {
+  background-color: #949FB1;
+  color: white;
+}
+.miscellaneous {
+  background-color: #4D5360;
+  color: white;
+}

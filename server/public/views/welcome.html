@@ -1,6 +1,6 @@
 <div ng-show="wc.user.user">
 	<md-toolbar class="login-toolbar" layout-align="center center">
-		<h1>Financial Health Assessment Tool</h1>
+		<h1>Welcome to the Financial Health Assessment Tool</h1>
 	</md-toolbar>
 
 	<div layout="column" role="main">
@@ -17,25 +17,13 @@
 						<input style="min-width: 250px;" ng-model="wc.client.lastName">
 					</md-input-container>
 
-
-					<!-- Decided to leave the date out for now  - will be in report-->
-					<!-- <md-input-container>
-								<label style="text-align:center;" class="welcomeInput">Date</label>
-								<input type="date" id="theDate" style="min-width: 10px;" ng-model="wc.client.date">
-								</md-input-container></p> -->
-
-
-					<!-- Date-picker not working -->
-
-					<!-- <md-content>
-								<md-datepicker ng-model="wc.client.date" md-placeholder="Date" md-open-on-focus></md-datepicker>
-								</md-content> -->
-
 					<div>
 						<md-whiteframe layout="column" layout-align="center center">
-							<md-content class="md-whiteframe-24dp">
-								<md-button class="md-raised md-primary" href="#profilequestions1" ng-click="wc.saveNewClient(wc.client)">Go To Profile</md-button>
-							</md-content>
+
+						
+								<md-button class="md-whiteframe-24dp md-raised md-primary" href="#profilequestions1" ng-click="wc.saveNewClient(wc.client)">Go To Profile</md-button>
+
+
 						</md-whiteframe>
 					</div>
 			</div>
