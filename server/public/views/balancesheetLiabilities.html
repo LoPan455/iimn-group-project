@@ -86,7 +86,7 @@
     <md-input-container ng-if="bc.client.borrowedMoney">
       <label for="famLoan">Informal Loans - money owed to family or friends</label>
 
-      <input id="informalField" type="number" name="famLoan" ng-model="bsc.client.informalLoansBalance" ng-focus="bsc.updateLoans(bsc.client.informalLoansBalance)" ng-blur="bsc.addLoans(bsc.client.informalLoansBalance)">
+      <input class="informalField" type="number" name="famLoan" ng-model="bsc.client.informalLoansBalance" ng-focus="bsc.updateLoans(bsc.client.informalLoansBalance)" ng-blur="bsc.addLoans(bsc.client.informalLoansBalance)">
 
     </md-input-container>
 
@@ -121,11 +121,11 @@
     <md-input-container ng-if="pqc.client.borrowedMoney || pqc.client.bank">
       <label for="banks">Money Owed to Banks and/or Credit Unions</label>
 
-      <input class="inputFieldSize" type="number" name="banks" ng-model="bsc.client.moneyOwedToBanksBalance" ng-focus="bsc.updateBills(bsc.client.moneyOwedToBanksBalance)" ng-blur="bsc.addBills(bsc.client.moneyOwedToBanksBalance)">
+      <input class="informalField" type="number" name="banks" ng-model="bsc.client.moneyOwedToBanksBalance" ng-focus="bsc.updateBills(bsc.client.moneyOwedToBanksBalance)" ng-blur="bsc.addBills(bsc.client.moneyOwedToBanksBalance)">
 
     </md-input-container>
 
-    <md-input-container id="billsInputField">
+    <md-input-container>
       <label for="otherBills">Other Unpaid Bills</label>
 
       <input class="inputFieldSize" type="number" name="otherBills" ng-model="bsc.client.otherUnpaidBillsBalance" ng-focus="bsc.updateBills(bsc.client.otherUnpaidBillsBalance)" ng-blur="bsc.addBills(bsc.client.otherUnpaidBillsBalance)">
