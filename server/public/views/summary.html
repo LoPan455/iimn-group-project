@@ -1,76 +1,104 @@
+<!-- 97BBCD light blue housing
+DCDCDC gray utilities
+F7464A red Food
+46BFBD green Transportation
+FDB45C yellow orange health
+949FB1 dark gray savings
+4D5360 almost black misc -->
+
 <div ng-cloak>
     <md-content class="md-padding" flex>
-        <div height="500">
-            <div layout="row">
-                <div flex="50">
-                    <h2>Suggested Budget</h2>
-                    <canvas id="pie" class="chart chart-pie" chart-data="sc.benchmarkData" chart-labels="sc.benchmarkLabels" chart-options="sc.benchmarkOptions"></canvas>
-                </div>
+        <div layout="row">
 
-                <div flex="50">
-                    <h2>Your Budget</h2>
-                    <canvas id="pie" class="chart chart-pie" chart-data="sc.clientData" chart-labels="sc.clientLabels" chart-options="sc.clientOptions"></canvas>
-                </div>
+            <div flex="10">
+                <h4>Suggested Budget</h4>
+                <table>
+                    <tr>
+                        <td class="housing" >Housing:</td>
+                        <td>${{sc.client.monthlyTotalHousingExpenses}}</td>
+                    </tr>
+                    <tr>
+                        <td class="utilities">Utilities:</td>
+                        <td>${{sc.client.monthlyTotalUtilities}}</td>
+                    </tr>
+                    <tr>
+                        <td class="food">Food:</td>
+                        <td>${{sc.client.monthlyTotalFoodExpenses}}</td>
+                    </tr>
+                    <tr>
+                        <td class="transportation">Transportation:</td>
+                        <td>${{sc.client.monthlyTotalTransportationExpenses}}</td>
+                    </tr>
+                    <tr>
+                        <td class="health">Health:</td>
+                        <td>${{sc.client.monthlyTotalHealthRelatedExpenses}}</td>
+                    </tr>
+                    <tr>
+                        <td class="savings">Savings:</td>
+                        <td>${{sc.client.monthlySavingsTarget}}</td>
+                    </tr>
+                    <tr>
+                        <td class="miscellaneous">Miscellaneous:</td>
+                        <td>${{sc.client.totalLifeExpenses}}</td>
+                    </tr>
+                </table>
             </div>
+
+            <div flex="40">
+                <canvas id="pie" class="chart chart-pie" chart-data="sc.benchmarkData" chart-labels="sc.benchmarkLabels" chart-options="sc.benchmarkOptions"></canvas>
+            </div>
+
+            <div flex="10">
+                <h4>Your Budget</h4>
+                <table>
+                    <tr>
+                        <td class="housing">Housing:</td>
+                        <td>${{sc.client.monthlyTotalHousingExpenses}}</td>
+                    </tr>
+                    <tr>
+                        <td class="utilities">Utilities:</td>
+                        <td>${{sc.client.monthlyTotalUtilities}}</td>
+                    </tr>
+                    <tr>
+                        <td class="food">Food:</td>
+                        <td>${{sc.client.monthlyTotalFoodExpenses}}</td>
+                    </tr>
+                    <tr>
+                        <td class="transportation">Transportation:</td>
+                        <td>${{sc.client.monthlyTotalTransportationExpenses}}</td>
+                    </tr>
+                    <tr>
+                        <td class="health">Health:</td>
+                        <td>${{sc.client.monthlyTotalHealthRelatedExpenses}}</td>
+                    </tr>
+                    <tr>
+                        <td class="savings">Savings:</td>
+                        <td>${{sc.client.monthlySavingsTarget}}</td>
+                    </tr>
+                    <tr>
+                        <td class="miscellaneous">Miscellaneous:</td>
+                        <td>${{sc.client.totalLifeExpenses}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div flex="40">
+                <canvas id="pie" class="chart chart-pie" chart-data="sc.clientData" chart-labels="sc.clientLabels" chart-options="sc.clientOptions"></canvas>
+            </div>
+        </div><!-- end of pie section -->
+
+
+        <div class="md-padding" flex>
+            <md-whiteframe class="md-whiteframe-3dp" layout="row" layout layout-align="space-around center">
+                <p>Total Assets ${{sc.client.totalAssets}}</p>
+                <p>Total Liabilities ${{sc.client.totalLiabilities}}</p>
+                <p>Total Net Worth ${{sc.client.totalNetWorth}}</p>
+            </md-whiteframe>
         </div>
-
-        <div>
-            <p>Balance Sheet Snapshot</p>
-            <!--balance sheet section -->
-            <table>
-                <tr>
-                    <td>Total Assets:</td>
-                    <td>${{sc.client.totalAssets}}</td>
-                </tr>
-                <tr>
-                    <td>Total Liabilities:</td>
-                    <td>${{sc.client.totalLiabilities}}</td>
-                </tr>
-                <tr>
-                    <td>Total Net Worth:</td>
-                    <td>${{sc.client.totalNetWorth}}</td>
-                </tr>
-            </table>
-        </div>
-
-        <md-whiteframe class="md-whiteframe-3dp" layout="row" layout-align="space-around center">
-            <h3>Housing ${{sc.client.monthlyTotalHousingExpenses}}</h3>
-            <h3>Utilities ${{sc.client.monthlyTotalUtilities}}</h3>
-            <h3>Food ${{sc.client.monthlyTotalFoodExpenses}}</h3>
-            <h3>Transportation ${{sc.client.monthlyTotalTransportationExpenses}}</h3>
-            <h3>Health ${{sc.client.monthlyTotalHealthRelatedExpenses}}</h3>
-            <h3>Savings ${{sc.client.monthlySavingsTarget}}</h3>
-            <h3>Miscellaneous ${{sc.client.totalLifeExpenses}}</h3>
-        </md-whiteframe>
-
-        <md-whiteframe class="md-whiteframe-3dp" layout="column" layout-align="center center">
-            table
-            <h3>Total Assets ${{sc.client.totalAssets}}</h3>
-            <h3>Total Liabilities ${{sc.client.totalLiabilities}}</h3>
-            <h3>Total Net Worth ${{sc.client.totalNetWorth}}</h3>
-        </md-whiteframe>
-
-        <md-whiteframe class="md-whiteframe-3dp" layout="row" layout-align="space-around center">
-            <h3>Goals
-                <textarea ng-model="bc.client.goals" type="number"></textarea>
-            </h3>
-            <h3>Monthly Savings Target
-                <input ng-model="sc.client.monthlySavingsTarget" placeholder="$" type="number"></input>
-            </h3>
-            <h3>Action Steps
-                <textarea ng-model="bc.client.actionSteps" type="text"></textarea>
-            </h3>
-        </md-whiteframe>
-
-        <div class="ext-content">
-            <!-- Whatever is in Tab 1, 2, or 3 goes in ui-view tag below -->
-            <ui-view></ui-view>
-        </div>
-
-        <div id="tester">
-            <!--located http://localhost:5000/#/main-->
-            <md-button class="md-warning" ng-click="sc.export()">Data Export</button>
-                <!--<p>{{sc.exportTester}}</p>-->
+        <div flex>
+            <md-whiteframe class="md-whiteframe-3dp" layout="row" layout layout-align="space-around center">
+                <p>Goals<textarea ng-model="bc.client.goals" type="number"></textarea></p>
+                <p>Action Steps<textarea ng-model="bc.client.actionSteps" type="text"></textarea></p>
+            </md-whiteframe>
         </div>
     </md-content>
 </div>

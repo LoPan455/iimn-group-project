@@ -2,14 +2,9 @@ app.controller('SummaryController', function(ClientFactory) {
   console.log('SummaryController controller running');
 
   var self = this;
-  var dude = {
-    food: 40,
-    housing: 60,
-    health: 90
-  };
-
   self.client = ClientFactory.client;
-  ClientFactory.saveClientData(self.client)
+
+// ClientFactory.saveClientData(self.client);
 
 
   self.totalLifeExpenses = self.client.monthlyTotalDependentRelatedExpenses + self.client.monthlyTotalCreditCardLoanDebtPayments + self.client.monthlyTotalPersonalExpenses + self.client.monthlyTotalMiscellaneousExpenses;
@@ -18,7 +13,7 @@ app.controller('SummaryController', function(ClientFactory) {
   self.benchmarkLabels = ["Housing", "Utilities", "Food", "Transportation", "Health", "Savings", "Miscellaneous"];
   self.benchmarkOptions = {
           legend: {
-              display: true,
+              display: false,
               position: 'right'
           }
       };
@@ -35,12 +30,9 @@ app.controller('SummaryController', function(ClientFactory) {
       };
 
 
-
-
-
 self.export = function() {
   ClientFactory.export();
-}
+};
 
 
 
