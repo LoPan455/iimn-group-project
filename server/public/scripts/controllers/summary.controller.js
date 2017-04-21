@@ -1,5 +1,5 @@
 app.controller('SummaryController', function(ClientFactory) {
-  console.log('SummaryController controller running');
+  console.log('SummaryController is run');
 
   var self = this;
   self.client = ClientFactory.client;

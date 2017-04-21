@@ -15,31 +15,31 @@ FDB45C yellow orange health
                 <table>
                     <tr>
                         <td class="housing" >Housing:</td>
-                        <td>${{sc.client.monthlyTotalHousingExpenses}}</td>
+                        <td>${{sc.client.details.monthlyTotalHousingExpenses}}</td>
                     </tr>
                     <tr>
                         <td class="utilities">Utilities:</td>
-                        <td>${{sc.client.monthlyTotalUtilities}}</td>
+                        <td>${{sc.client.details.monthlyTotalUtilities}}</td>
                     </tr>
                     <tr>
                         <td class="food">Food:</td>
-                        <td>${{sc.client.monthlyTotalFoodExpenses}}</td>
+                        <td>${{sc.client.details.monthlyTotalFoodExpenses}}</td>
                     </tr>
                     <tr>
                         <td class="transportation">Transportation:</td>
-                        <td>${{sc.client.monthlyTotalTransportationExpenses}}</td>
+                        <td>${{sc.client.details.monthlyTotalTransportationExpenses}}</td>
                     </tr>
                     <tr>
                         <td class="health">Health:</td>
-                        <td>${{sc.client.monthlyTotalHealthRelatedExpenses}}</td>
+                        <td>${{sc.client.details.monthlyTotalHealthRelatedExpenses}}</td>
                     </tr>
                     <tr>
                         <td class="savings">Savings:</td>
-                        <td>${{sc.client.monthlySavingsTarget}}</td>
+                        <td>${{sc.client.details.monthlySavingsTarget}}</td>
                     </tr>
                     <tr>
                         <td class="miscellaneous">Miscellaneous:</td>
-                        <td>${{sc.client.totalLifeExpenses}}</td>
+                        <td>${{sc.client.details.totalLifeExpenses}}</td>
                     </tr>
                 </table>
             </div>
@@ -53,31 +53,31 @@ FDB45C yellow orange health
                 <table>
                     <tr>
                         <td class="housing">Housing:</td>
-                        <td>${{sc.client.monthlyTotalHousingExpenses}}</td>
+                        <td>${{sc.client.details.monthlyTotalHousingExpenses}}</td>
                     </tr>
                     <tr>
                         <td class="utilities">Utilities:</td>
-                        <td>${{sc.client.monthlyTotalUtilities}}</td>
+                        <td>${{sc.client.details.monthlyTotalUtilities}}</td>
                     </tr>
                     <tr>
                         <td class="food">Food:</td>
-                        <td>${{sc.client.monthlyTotalFoodExpenses}}</td>
+                        <td>${{sc.client.details.monthlyTotalFoodExpenses}}</td>
                     </tr>
                     <tr>
                         <td class="transportation">Transportation:</td>
-                        <td>${{sc.client.monthlyTotalTransportationExpenses}}</td>
+                        <td>${{sc.client.details.monthlyTotalTransportationExpenses}}</td>
                     </tr>
                     <tr>
                         <td class="health">Health:</td>
-                        <td>${{sc.client.monthlyTotalHealthRelatedExpenses}}</td>
+                        <td>${{sc.client.details.monthlyTotalHealthRelatedExpenses}}</td>
                     </tr>
                     <tr>
                         <td class="savings">Savings:</td>
-                        <td>${{sc.client.monthlySavingsTarget}}</td>
+                        <td>${{sc.client.details.monthlySavingsTarget}}</td>
                     </tr>
                     <tr>
                         <td class="miscellaneous">Miscellaneous:</td>
-                        <td>${{sc.client.totalLifeExpenses}}</td>
+                        <td>${{sc.client.details.totalLifeExpenses}}</td>
                     </tr>
                 </table>
             </div>
@@ -89,15 +89,15 @@ FDB45C yellow orange health
 
         <div class="md-padding" flex>
             <md-whiteframe class="md-whiteframe-3dp" layout="row" layout layout-align="space-around center">
-                <p>Total Assets ${{sc.client.totalAssets}}</p>
-                <p>Total Liabilities ${{sc.client.totalLiabilities}}</p>
-                <p>Total Net Worth ${{sc.client.totalNetWorth}}</p>
+                <p>Total Assets ${{sc.client.details.totalAssets}}</p>
+                <p>Total Liabilities ${{sc.client.details.totalLiabilities}}</p>
+                <p>Total Net Worth ${{sc.client.details.totalNetWorth}}</p>
             </md-whiteframe>
         </div>
         <div flex>
             <md-whiteframe class="md-whiteframe-3dp" layout="row" layout layout-align="space-around center">
-                <p>Goals<textarea ng-model="bc.client.goals" type="number"></textarea></p>
-                <p>Action Steps<textarea ng-model="bc.client.actionSteps" type="text"></textarea></p>
+                <p>Goals<textarea ng-model="bc.client.details.goals" type="number"></textarea></p>
+                <p>Action Steps<textarea ng-model="bc.client.details.actionSteps" type="text"></textarea></p>
             </md-whiteframe>
         </div>
     </md-content>

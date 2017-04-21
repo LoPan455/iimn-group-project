@@ -18,10 +18,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
+app.use('/summary',summary); // need token in factory
 app.use(decoder.token);
 app.use('/user', user);
 app.use('/client', client);
-app.use('/summary',summary)
 
 
 
