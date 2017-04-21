@@ -1,8 +1,8 @@
 <!-- <p>This is Balance Sheet Tab One</p> -->
 
-<div layout="column" ng-cloak class="md-inline-form" ng-keyup="bsc.calculateWorth()" ng-mouseleave="bsc.calculateWorth()">
+<form layout="column" ng-cloak class="md-inline-form" ng-keyup="bsc.calculateWorth()" ng-mouseleave="bsc.calculateWorth()">
   <!-- <i class="material-icons">attach_money</i> -->
-  <h1>Total Assets: $<span>{{bsc.client.totalAssets}}</span></h1><!--ng-model="bsc.client.totalAssets" -->
+  <h1>Total Assets: <span ng-if="bsc.client.totalAssets > 0">${{bsc.client.totalAssets}}</span></h1><!--ng-model="bsc.client.totalAssets" -->
 
   <!-- cash assets section-->
   <div>
@@ -59,7 +59,7 @@
       <md-input-container ng-if="bsc.client.investments">
         <label for="otherRealEstate">Real Estate - other than Primary Residence</label>
 
-        <input id="informalField" type="number" name="otherRealEstate" ng-model="bsc.client.otherRealEstateValue" ng-blur="bsc.addAssets(bsc.client.otherRealEstateValue)" ng-focus="bsc.updateAssets(bsc.client.otherRealEstateValue)">
+        <input class="informalField" type="number" name="otherRealEstate" ng-model="bsc.client.otherRealEstateValue" ng-blur="bsc.addAssets(bsc.client.otherRealEstateValue)" ng-focus="bsc.updateAssets(bsc.client.otherRealEstateValue)">
 
       </md-input-container>
     </div>
@@ -68,7 +68,7 @@
       <h3>Investments:</h3>
       <md-input-container>
         <label for="stocks">Stocks, Bonds, Mutual Funds, and Similar Assets</label>
-        <input id="informalField" type="number" name="stocks" ng-model="bsc.client.stocksBondsAndSimilarValue" ng-blur="bsc.addAssets(bsc.client.stocksBondsAndSimilarValue)" ng-focus="bsc.updateAssets(bsc.client.stocksBondsAndSimilarValue)">
+        <input class="informalField" type="number" name="stocks" ng-model="bsc.client.stocksBondsAndSimilarValue" ng-blur="bsc.addAssets(bsc.client.stocksBondsAndSimilarValue)" ng-focus="bsc.updateAssets(bsc.client.stocksBondsAndSimilarValue)">
       </md-input-container>
 
       <md-input-container>
@@ -105,10 +105,10 @@
 
 
 
-    <h1>Total Assets: $<span>{{bsc.client.totalAssets}}</span></h1><!--ng-model="bsc.client.totalAssets" -->
+    <h1>Total Assets: <span ng-if="bsc.client.totalAssets > 0">${{bsc.client.totalAssets}}</span></h1><!--ng-model="bsc.client.totalAssets" -->
 
 
-  </div>
+  </form>
   <!-- assets_label
 
   checkingBalanceValue

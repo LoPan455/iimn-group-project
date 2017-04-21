@@ -74,7 +74,7 @@ app.controller('BudgetController', function(ClientFactory) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalHousingExpenses -= expenseField
+    self.client.monthlyTotalHousingExpenses -= expenseField;
     return self.client.monthlyTotalHousingExpenses;
   };
 
@@ -91,7 +91,7 @@ app.controller('BudgetController', function(ClientFactory) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalUtilities -= expenseField
+    self.client.monthlyTotalUtilities -= expenseField;
     return self.client.monthlyTotalUtilities;
   };
 
@@ -108,7 +108,7 @@ app.controller('BudgetController', function(ClientFactory) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalFoodExpenses -= expenseField
+    self.client.monthlyTotalFoodExpenses -= expenseField;
     return self.client.monthlyTotalFoodExpenses;
   };
 
@@ -125,7 +125,7 @@ app.controller('BudgetController', function(ClientFactory) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalTransportationExpenses -= expenseField
+    self.client.monthlyTotalTransportationExpenses -= expenseField;
     return self.client.monthlyTotalTransportationExpenses;
   };
 
@@ -142,7 +142,7 @@ app.controller('BudgetController', function(ClientFactory) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalHealthRelatedExpenses -= expenseField
+    self.client.monthlyTotalHealthRelatedExpenses -= expenseField;
     return self.client.monthlyTotalHealthRelatedExpenses;
   };
 
@@ -159,7 +159,7 @@ app.controller('BudgetController', function(ClientFactory) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalDependentRelatedExpenses -= expenseField
+    self.client.monthlyTotalDependentRelatedExpenses -= expenseField;
     return self.client.monthlyTotalDependentRelatedExpenses;
   };
 

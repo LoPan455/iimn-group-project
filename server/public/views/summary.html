@@ -1,35 +1,44 @@
+<!-- 97BBCD light blue housing
+DCDCDC gray utilities
+F7464A red Food
+46BFBD green Transportation
+FDB45C yellow orange health
+949FB1 dark gray savings
+4D5360 almost black misc -->
+
 <div ng-cloak>
     <md-content class="md-padding" flex>
         <div layout="row">
+
             <div flex="10">
                 <h4>Suggested Budget</h4>
                 <table>
                     <tr>
-                        <td>Housing:</td>
+                        <td class="housing" >Housing:</td>
                         <td>${{sc.client.monthlyTotalHousingExpenses}}</td>
                     </tr>
                     <tr>
-                        <td>Utilities:</td>
+                        <td class="utilities">Utilities:</td>
                         <td>${{sc.client.monthlyTotalUtilities}}</td>
                     </tr>
                     <tr>
-                        <td>Food:</td>
+                        <td class="food">Food:</td>
                         <td>${{sc.client.monthlyTotalFoodExpenses}}</td>
                     </tr>
                     <tr>
-                        <td>Transportation:</td>
+                        <td class="transportation">Transportation:</td>
                         <td>${{sc.client.monthlyTotalTransportationExpenses}}</td>
                     </tr>
                     <tr>
-                        <td>Health:</td>
+                        <td class="health">Health:</td>
                         <td>${{sc.client.monthlyTotalHealthRelatedExpenses}}</td>
                     </tr>
                     <tr>
-                        <td>Savings:</td>
+                        <td class="savings">Savings:</td>
                         <td>${{sc.client.monthlySavingsTarget}}</td>
                     </tr>
                     <tr>
-                        <td>Miscellaneous:</td>
+                        <td class="miscellaneous">Miscellaneous:</td>
                         <td>${{sc.client.totalLifeExpenses}}</td>
                     </tr>
                 </table>
@@ -43,42 +52,39 @@
                 <h4>Your Budget</h4>
                 <table>
                     <tr>
-                        <td>Housing:</td>
+                        <td class="housing">Housing:</td>
                         <td>${{sc.client.monthlyTotalHousingExpenses}}</td>
                     </tr>
                     <tr>
-                        <td>Utilities:</td>
+                        <td class="utilities">Utilities:</td>
                         <td>${{sc.client.monthlyTotalUtilities}}</td>
                     </tr>
                     <tr>
-                        <td>Food:</td>
+                        <td class="food">Food:</td>
                         <td>${{sc.client.monthlyTotalFoodExpenses}}</td>
                     </tr>
                     <tr>
-                        <td>Transportation:</td>
+                        <td class="transportation">Transportation:</td>
                         <td>${{sc.client.monthlyTotalTransportationExpenses}}</td>
                     </tr>
                     <tr>
-                        <td>Health:</td>
+                        <td class="health">Health:</td>
                         <td>${{sc.client.monthlyTotalHealthRelatedExpenses}}</td>
                     </tr>
                     <tr>
-                        <td>Savings:</td>
+                        <td class="savings">Savings:</td>
                         <td>${{sc.client.monthlySavingsTarget}}</td>
                     </tr>
                     <tr>
-                        <td>Miscellaneous:</td>
+                        <td class="miscellaneous">Miscellaneous:</td>
                         <td>${{sc.client.totalLifeExpenses}}</td>
                     </tr>
                 </table>
             </div>
-
-
-
             <div flex="40">
                 <canvas id="pie" class="chart chart-pie" chart-data="sc.clientData" chart-labels="sc.clientLabels" chart-options="sc.clientOptions"></canvas>
             </div>
-        </div>
+        </div><!-- end of pie section -->
 
 
         <div class="md-padding" flex>
@@ -91,8 +97,6 @@
         <div flex>
             <md-whiteframe class="md-whiteframe-3dp" layout="row" layout layout-align="space-around center">
                 <p>Goals<textarea ng-model="bc.client.goals" type="number"></textarea></p>
-                <p>Monthly Savings Target<input ng-model="bc.client.monthlySavingsTarget" placeholder="$" type="number"></input>
-                </p>
                 <p>Action Steps<textarea ng-model="bc.client.actionSteps" type="text"></textarea></p>
             </md-whiteframe>
         </div>
