@@ -1,10 +1,12 @@
 <!-- profilequestions11.html  Profile Summary -->
-
+<md-toolbar class="toolbar" layout-align="center center">
+	<h1>Financial Health Assessment Tool</h1>
+</md-toolbar>
 <div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
-	<h2>Summary for {{pqc.client.firstName}} {{pqc.client.lastName}}</h2>
+	<h4>Summary for {{pqc.client.firstName}} {{pqc.client.lastName}}</h4>
 
 	<div class="profile md-inline-form md-title" layout="column"  layout-align="left left">
-    <md-content>
+    <md-content class="profile profileSummaryMargin">
       <p ng-if="pqc.client.maritalStatus == 'married'">You are married</p>
       <p ng-if="pqc.client.maritalStatus == 'single'">You are not married</p>
       <p ng-if="pqc.client.individual == true">You file single</p>
