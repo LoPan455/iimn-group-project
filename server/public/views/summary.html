@@ -15,31 +15,31 @@ FDB45C yellow orange health
                 <table>
                     <tr>
                         <td class="housing" >Housing:</td>
-                        <td>${{sc.client.monthlyTotalHousingExpenses}}</td>
+                        <td>{{sc.suggestedHousing | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="utilities">Utilities:</td>
-                        <td>${{sc.client.monthlyTotalUtilities}}</td>
+                        <td>{{sc.suggestedUtilities | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="food">Food:</td>
-                        <td>${{sc.client.monthlyTotalFoodExpenses}}</td>
+                        <td>{{sc.suggestedFood | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="transportation">Transportation:</td>
-                        <td>$400{{sc.client.monthlyTotalTransportationExpenses}}</td>
+                        <td>{{sc.suggestedTransportation | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="health">Health:</td>
-                        <td>${{sc.client.monthlyTotalHealthRelatedExpenses}}</td>
+                        <td>{{sc.suggestedHealth | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="savings">Savings:</td>
-                        <td>${{sc.client.monthlySavingsTarget}}</td>
+                        <td>{{sc.suggestedSavings | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="miscellaneous">Miscellaneous:</td>
-                        <td>${{sc.client.totalLifeExpenses}}</td>
+                        <td>{{sc.suggestedMisc | currency:"$":0}}</td>
                     </tr>
                 </table>
             </div>
@@ -53,31 +53,31 @@ FDB45C yellow orange health
                 <table>
                     <tr>
                         <td class="housing">Housing:</td>
-                        <td>${{sc.client.monthlyTotalHousingExpenses}}</td>
+                        <td>{{sc.client.monthlyTotalHousingExpenses | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="utilities">Utilities:</td>
-                        <td>${{sc.client.monthlyTotalUtilities}}</td>
+                        <td>{{sc.client.monthlyTotalUtilities | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="food">Food:</td>
-                        <td>${{sc.client.monthlyTotalFoodExpenses}}</td>
+                        <td>{{sc.client.monthlyTotalFoodExpenses | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="transportation">Transportation:</td>
-                        <td>$400{{sc.client.monthlyTotalTransportationExpenses}}</td>
+                        <td>{{sc.client.monthlyTotalTransportationExpenses | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="health">Health:</td>
-                        <td>${{sc.client.monthlyTotalHealthRelatedExpenses}}</td>
+                        <td>{{sc.client.monthlyTotalHealthRelatedExpenses | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="savings">Savings:</td>
-                        <td>${{sc.client.monthlySavingsTarget}}</td>
+                        <td>{{sc.client.monthlySavingsTarget | currency:"$":0}}</td>
                     </tr>
                     <tr>
                         <td class="miscellaneous">Miscellaneous:</td>
-                        <td>${{sc.client.totalLifeExpenses}}</td>
+                        <td>{{sc.totalLifeExpenses | currency:"$":0}}</td>
                     </tr>
                 </table>
             </div>
@@ -86,13 +86,11 @@ FDB45C yellow orange health
             </div>
         </div><!-- end of pie section -->
 
-
-
         <div class="md-padding topMargin" flex>
             <md-whiteframe class="md-whiteframe-5dp" layout="row" layout layout-align="space-around center">
-                <p>Total Assets ${{sc.client.totalAssets}}</p>
-                <p>Total Liabilities ${{sc.client.totalLiabilities}}</p>
-                <p>Total Net Worth ${{sc.client.totalNetWorth}}</p>
+                <p>Total Assets {{sc.client.totalAssets | currency:"$":0}}</p>
+                <p>Total Liabilities {{sc.client.totalLiabilities | currency:"$":0}}</p>
+                <p>Total Net Worth {{sc.client.totalNetWorth | currency:"$":0}}</p>
             </md-whiteframe>
         </div>
         <div class="md-padding" flex>
