@@ -2,6 +2,7 @@ app.controller('SummaryController', function(ClientFactory) {
   console.log('SummaryController controller running');
 
   var self = this;
+
   var dude = {
     food: 40,
     housing: 60,

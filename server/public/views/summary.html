@@ -10,7 +10,7 @@ FDB45C yellow orange health
     <md-content class="md-padding" flex>
         <div layout="row">
 
-            <div flex="10">
+            <div flex="15">
                 <h4>Suggested Budget</h4>
                 <table>
                     <tr>
@@ -27,7 +27,7 @@ FDB45C yellow orange health
                     </tr>
                     <tr>
                         <td class="transportation">Transportation:</td>
-                        <td>${{sc.client.monthlyTotalTransportationExpenses}}</td>
+                        <td>$400{{sc.client.monthlyTotalTransportationExpenses}}</td>
                     </tr>
                     <tr>
                         <td class="health">Health:</td>
@@ -44,11 +44,11 @@ FDB45C yellow orange health
                 </table>
             </div>
 
-            <div flex="40">
-                <canvas id="pie" class="chart chart-pie" chart-data="sc.benchmarkData" chart-labels="sc.benchmarkLabels" chart-options="sc.benchmarkOptions"></canvas>
+            <div class="pieChartMargin" flex="30" layout="row" layout-align="center center">
+                <canvas width="300" height="300" id="pie" class="chart chart-pie" chart-data="sc.benchmarkData" chart-labels="sc.benchmarkLabels" chart-options="sc.benchmarkOptions"></canvas>
             </div>
 
-            <div flex="10">
+            <div flex="15">
                 <h4>Your Budget</h4>
                 <table>
                     <tr>
@@ -65,7 +65,7 @@ FDB45C yellow orange health
                     </tr>
                     <tr>
                         <td class="transportation">Transportation:</td>
-                        <td>${{sc.client.monthlyTotalTransportationExpenses}}</td>
+                        <td>$400{{sc.client.monthlyTotalTransportationExpenses}}</td>
                     </tr>
                     <tr>
                         <td class="health">Health:</td>
@@ -81,22 +81,22 @@ FDB45C yellow orange health
                     </tr>
                 </table>
             </div>
-            <div flex="40">
-                <canvas id="pie" class="chart chart-pie" chart-data="sc.clientData" chart-labels="sc.clientLabels" chart-options="sc.clientOptions"></canvas>
+            <div class="pieChartMargin" flex="30" layout="row" layout-align="center center">
+                <canvas width="300" height="300" id="pie" class="chart chart-pie" chart-data="sc.clientData" chart-labels="sc.clientLabels" chart-options="sc.clientOptions"></canvas>
             </div>
         </div><!-- end of pie section -->
 
 
 
-        <div class="md-padding" flex>
-            <md-whiteframe class="md-whiteframe-3dp" layout="row" layout layout-align="space-around center">
+        <div class="md-padding topMargin" flex>
+            <md-whiteframe class="md-whiteframe-5dp" layout="row" layout layout-align="space-around center">
                 <p>Total Assets ${{sc.client.totalAssets}}</p>
                 <p>Total Liabilities ${{sc.client.totalLiabilities}}</p>
                 <p>Total Net Worth ${{sc.client.totalNetWorth}}</p>
             </md-whiteframe>
         </div>
-        <div flex>
-            <md-whiteframe class="md-whiteframe-3dp" layout="row" layout layout-align="space-around center">
+        <div class="md-padding" flex>
+            <md-whiteframe class="md-whiteframe-5dp" layout="row" layout layout-align="space-around center">
                 <p>Goals<textarea ng-model="bc.client.goals" type="number"></textarea></p>
                 <p>Action Steps<textarea ng-model="bc.client.actionSteps" type="text"></textarea></p>
             </md-whiteframe>
