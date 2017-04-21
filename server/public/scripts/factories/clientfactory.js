@@ -1,6 +1,14 @@
+console.log('clientfactory is run');
 app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseAuth) {
   var client = {};
-  var currentClientId = ''; // used to track the current client for periodic saves
+  // var currentClientId = '58f930d13ca372b44e33bb75'; // used to track the current client for periodic saves
+  // var currentClientId = response.data;
+  // var responseData = {};
+  // console.log('responseData: ', responseData);
+  var currentClientId = client._id
+
+
+
   var clientTester = {};
   var testMessage = ' sumtext ';
   var auth = $firebaseAuth(); // Auth with every server request
@@ -44,10 +52,11 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
           id_token: idToken,
         },
       }).then(function(response) {
-        console.log(
-          'clientFactory / function exportCsv response: ',
-          response.data
-        );
+        console.log('clientFactory / function exportCsv response: ',response.data);
+        responseData = response.data;
+        console.log('responseData: ', responseData);
+        return response.data;
+        // responseData = response.data;
       });
     });
   }
@@ -68,7 +77,7 @@ function saveClientData(client) {
           id_token: idToken,
         },
       }).then(function(response) {
-        console.log('response from factory: ', response);
+        // console.log('response from factory: ', response);
         console.log('response.data from factory: ', response.data);
         client = response.data;
       });
