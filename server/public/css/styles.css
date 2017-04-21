@@ -1,6 +1,6 @@
 body {
   /*  #43471D  iimn navbar brown*/
-  /*  #FBFBF5 iimn light background*/
+  /*  #FBFBF5 iimn light background using #fafae1 instead*/
   /*  #E65314 iimn accent orange*/
   /*  #7AC043 iimn tree light green*/
   /*  #8B9238 iimn tree olive green*/
@@ -12,6 +12,27 @@ body {
   background-attachment: fixed;
 }
 
+
+/*different toolbar for login and welcome #43471D brown*/
+.loginToolbar {
+  background-image: url(), url();
+  background-position: left top, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-color: #fafae1 !important;
+}
+.loginToolbar h1{
+  color: #737367;
+}
+
+/*#fafae1 is light tan similar to #FBFBF5 iimn*/
+.login-screen {
+  background-image: url(images/iimn-logo2.svg), url(images/map2.png);
+  background-position: left top, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-color: #fafae1 !important;
+}
+
+/*profile pages toolbar*/
 .toolbar{
   background-image: url(images/iimn-logo2.svg), url();
   background-position: left top, right bottom;
@@ -20,6 +41,13 @@ body {
   /*position: absolute; THIS WILL HIDE EVERYTHING*/
   /*background-attachment: fixed; THIS WILL MAKE LOGO HUGE!*/
 }
+/*only nav of mainstate*/
+.mainStateToolbar {
+  background-color: #fafae1 !important;
+  margin-top: -20px;
+}
+
+
 
 /*737367 gray text*/
 .toolbar h1 {
@@ -31,18 +59,7 @@ body {
   color: #737367;
 }
 
-/*different toolbar for login and welcome #43471D brown*/
-.login-toolbar{
-  background-color: #43471D !important;
-}
 
-/*#fafae1 is light tan similar to #FBFBF5 iimn*/
-.login-screen {
-  background-image: url(images/iimn-logo2.svg), url(images/map2.png);
-  background-position: left top, right bottom;
-  background-repeat: no-repeat, no-repeat;
-  background-color: #fafae1 !important;
-}
 
 /*#fafae1 is light tan similar to #FBFBF5 iimn*/
 md-content {
@@ -66,9 +83,14 @@ md-content h1{
   margin-top: -10px;
 }
 
+/*737367 gray text*/
 .profile {
   text-align: center;
   color: #737367 !important;
+}
+
+.profileSummaryMargin {
+  margin-top: -30px;
 }
 
 .inline {
@@ -91,7 +113,6 @@ md-content h1{
   font-size: 40px;
   /*margin-left: 100px;*/
 }
-
 
 
 /*Balance sheet input sections*/
@@ -141,3 +162,24 @@ a {
   background-color: #4D5360;
   color: white;
 }
+
+.topMargin{
+  margin-top: 20px;
+}
+
+.pieChartMargin {
+  margin-right: 30px;
+  margin-left: 30px;
+
+}
+
+.chart-pie {
+  /*width: 300px !important;
+  padding: 0px;*/
+  /*padding: 20px;*/
+}
+
+/*.chart {
+  width: 300px !important;
+  padding: 0px;
+}*/
