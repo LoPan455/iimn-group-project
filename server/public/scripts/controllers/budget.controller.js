@@ -1,4 +1,4 @@
-app.controller('BudgetController', function(ClientFactory, hotkeys) {
+app.controller('BudgetController', function(ClientFactory, hotkeys, $state) {
   console.log('BudgetController controller running');
   var self = this;
 
@@ -218,7 +218,7 @@ app.controller('BudgetController', function(ClientFactory, hotkeys) {
     callback: function(){
       self.addIncome();
       self.updateExpenses();
-      console.log('switching to income');
+      $state.transitionTo('main.budget.income');
     }
   });
 
@@ -228,7 +228,7 @@ app.controller('BudgetController', function(ClientFactory, hotkeys) {
     callback: function(){
       self.addIncome();
       self.updateExpenses();
-      console.log('switching to expenses');
+      $state.transitionTo('main.budget.expenses');
     }
   });
 
@@ -238,7 +238,7 @@ app.controller('BudgetController', function(ClientFactory, hotkeys) {
     callback: function(){
       self.addIncome();
       self.updateExpenses();
-      console.log('switching to snapshot');
+      $state.transitionTo('main.budget.snapshot');
     }
   });
 

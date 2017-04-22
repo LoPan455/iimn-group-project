@@ -1,4 +1,4 @@
-app.controller('BalanceSheetController', function(ClientFactory, hotkeys) {
+app.controller('BalanceSheetController', function(ClientFactory, hotkeys, $state) {
 
   console.log('BalanceSheetController controller running');
   var self = this;
@@ -143,7 +143,7 @@ app.controller('BalanceSheetController', function(ClientFactory, hotkeys) {
       callback: function(){
         self.addAssets();
         self.updateLibailities();
-        console.log('Switching to assets view');
+        $state.transitionTo('main.balanceSheet.assets');
       }
     });
 
@@ -153,7 +153,7 @@ app.controller('BalanceSheetController', function(ClientFactory, hotkeys) {
       callback: function(){
         self.addAssets();
         self.updateLibailities();
-        console.log('Switching to liability view');
+        $state.transitionTo('main.balanceSheet.liabilities');
       }
     });
 
@@ -163,7 +163,7 @@ app.controller('BalanceSheetController', function(ClientFactory, hotkeys) {
       callback: function(){
         self.addAssets();
         self.updateLibailities();
-        console.log('Switching to Snapshot view');
+        $state.transitionTo('main.balanceSheet.snapshot');
       }
     });
 
