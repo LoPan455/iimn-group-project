@@ -45,6 +45,7 @@ app.controller('SummaryController', function(ClientFactory,$firebaseAuth) {
       };
 
 
+
 // client pie-chart populated
   self.clientData = [self.client.details.monthlyTotalHousingExpenses, self.client.details.monthlyTotalUtilities, self.client.details.monthlyTotalFoodExpenses, self.client.details.monthlyTotalTransportationExpenses, self.client.details.monthlyTotalHealthRelatedExpenses, self.client.details.monthlySavingsTarget, self.totalLifeExpenses ];
   self.clientLabels = ["Housing", "Utilities", "Food", "Transportation", "Health", "Savings", "Miscellaneous"];
