@@ -1,4 +1,4 @@
-app.controller('BudgetController', function(ClientFactory) {
+app.controller('BudgetController', function(ClientFactory, hotkeys) {
   console.log('BudgetController controller running');
   var self = this;
 
@@ -211,5 +211,35 @@ app.controller('BudgetController', function(ClientFactory) {
     self.client.details.monthlyTotalMiscellaneousExpenses -= expenseField
     return self.client.details.monthlyTotalMiscellaneousExpenses;
   };
+
+  hotkeys.add({
+    combo: 'alt+1',
+    description: 'Switch to income view',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      console.log('switching to income');
+    }
+  });
+
+  hotkeys.add({
+    combo: 'alt+2',
+    description: 'Switch to expenses view',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      console.log('switching to expenses');
+    }
+  });
+
+  hotkeys.add({
+    combo: 'alt+3',
+    description: 'Switch to snapshot view',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      console.log('switching to snapshot');
+    }
+  });
 
 }); //end app.controller

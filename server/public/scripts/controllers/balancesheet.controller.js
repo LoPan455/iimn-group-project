@@ -1,4 +1,4 @@
-app.controller('BalanceSheetController', function(ClientFactory) {
+app.controller('BalanceSheetController', function(ClientFactory, hotkeys) {
 
   console.log('BalanceSheetController controller running');
   var self = this;
@@ -136,4 +136,35 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       self.client.details.totalNetWorth = self.client.details.totalAssets - self.client.details.totalLiabilities;
       return self.client.details.totalNetWorth;
     };
+
+    hotkeys.add({
+      combo: 'alt+1',
+      description: 'Switch to Balancesheet Assets',
+      callback: function(){
+        self.addAssets();
+        self.updateLibailities();
+        console.log('Switching to assets view');
+      }
+    });
+
+    hotkeys.add({
+      combo: 'alt+2',
+      description: 'Switch to Balancesheet Liabilities',
+      callback: function(){
+        self.addAssets();
+        self.updateLibailities();
+        console.log('Switching to liability view');
+      }
+    });
+
+    hotkeys.add({
+      combo: 'alt+3',
+      description: 'Switch to Balancesheet Snapshot',
+      callback: function(){
+        self.addAssets();
+        self.updateLibailities();
+        console.log('Switching to Snapshot view');
+      }
+    });
+
 });//end app.controller
