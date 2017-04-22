@@ -4,7 +4,7 @@ app.controller('SummaryController', function(ClientFactory) {
   var self = this;
   self.client = ClientFactory.client;
 
-ClientFactory.saveClientData(self.client);
+// ClientFactory.saveClientData(self.client);
 
 
   self.totalLifeExpenses = self.client.details.monthlyTotalDependentRelatedExpenses + self.client.details.monthlyTotalCreditCardLoanDebtPayments + self.client.details.monthlyTotalPersonalExpenses + self.client.details.monthlyTotalMiscellaneousExpenses;

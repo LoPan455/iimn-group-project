@@ -1,5 +1,5 @@
 app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseAuth) {
-  var client = {};
+  var client = { details:{} };
   var currentClientId = ''; // used to track the current client for periodic saves
   var clientTester = {};
   var testMessage = ' sumtext ';
@@ -74,7 +74,7 @@ function saveClientData(client) {
       });
     });
   } // end saveClientData
-  
+
   return {
     client: client,
     testMessage: testMessage,

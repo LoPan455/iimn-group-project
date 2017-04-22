@@ -109,6 +109,8 @@ md-content h1{
 .longerSameMargin{
   min-width: 900px;
 }
+
+/*used welcome and goals/action steps of summary*/
 .welcomeInput {
   font-size: 40px;
   /*margin-left: 100px;*/
@@ -173,13 +175,13 @@ a {
 
 }
 
-.chart-pie {
-  /*width: 300px !important;
-  padding: 0px;*/
-  /*padding: 20px;*/
+/*used on summary key and input field of action steps and goals*/
+.largerFont {
+  font-size: 20px;
+  /*color: #9B9B8B;*/
 }
-
-/*.chart {
-  width: 300px !important;
-  padding: 0px;
-}*/
+/*used on summary: action steps and goals headings*/
+.evenLargerFont {
+  font-size: 24px;
+  color: #9B9B8B;
+}
