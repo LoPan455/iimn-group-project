@@ -16,7 +16,7 @@ app.controller('SummaryController', function(ClientFactory) {
   self.suggestedTransportation = self.client.details.totalMonthlyIncome * 0.1;
   self.suggestedHealth = self.client.details.totalMonthlyIncome * 0.05;
   self.suggestedSavings = self.client.details.totalMonthlyIncome * 0.1;
-  self.suggestedMisc = self.client.details.totalMonthlyIncome * 0.15; 
+  self.suggestedMisc = self.client.details.totalMonthlyIncome * 0.15;
 
 
   self.benchmarkData = [35, 5, 10, 10, 5, 10, 15];

@@ -214,7 +214,7 @@ app.controller('BudgetController', function(ClientFactory, hotkeys, $state) {
 
   hotkeys.add({
     combo: 'alt+1',
-    description: 'Switch to income view',
+    description: 'Switch to budget income',
     callback: function(){
       self.addIncome();
       self.updateExpenses();
@@ -224,7 +224,7 @@ app.controller('BudgetController', function(ClientFactory, hotkeys, $state) {
 
   hotkeys.add({
     combo: 'alt+2',
-    description: 'Switch to expenses view',
+    description: 'Switch to budget expenses',
     callback: function(){
       self.addIncome();
       self.updateExpenses();
@@ -234,7 +234,7 @@ app.controller('BudgetController', function(ClientFactory, hotkeys, $state) {
 
   hotkeys.add({
     combo: 'alt+3',
-    description: 'Switch to snapshot view',
+    description: 'Switch to budget snapshot',
     callback: function(){
       self.addIncome();
       self.updateExpenses();
