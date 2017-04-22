@@ -38,7 +38,7 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
       });
     });
   }
-
+// CSV Export Function
   function exportCsv() {
     console.log('exportCsv function run');
       $http.post('/summary/getcsv').then(function(result) {

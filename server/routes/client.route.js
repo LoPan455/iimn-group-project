@@ -13,7 +13,6 @@ POST REQUESTS
 // create a new client document in the 'client' collection
 
 router.post('/newClient', function(req,res){
-  
   console.log('client/newClient route hit AND req.body is: ', req.body);
   var newClient =  new Client(req.body);
   newClient.save(function(err,result){
