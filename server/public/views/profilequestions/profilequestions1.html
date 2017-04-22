@@ -1,0 +1,32 @@
+<!-- profileQuestions1.htm -->
+
+<md-toolbar class="toolbar" layout-align="center center">
+	<h1>Financial Health Assessment Tool</h1>
+
+</md-toolbar>
+
+<div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
+<h3>Welcome, {{pqc.client.details.firstName}} {{pqc.client.details.lastName}}</h3>
+	<div > <!--Individual or Joint section -->
+		<md-radio-group ng-model="pqc.client.details.maritalStatus">
+			<h2>Are you married?</h2>
+			<md-radio-button ng-value="'married'">Yes</md-radio-button>
+			<md-radio-button ng-value="'single'" ng-click="pqc.undoShare()">No</md-radio-button>
+		</md-radio-group>
+		<!-- this shares a div with above. it only shows if married. -->
+		<md-radio-group ng-if="pqc.client.details.maritalStatus === 'married'" ng-model="pqc.client.details.individual">
+			<h2>Do you share finances?</h2>
+			<md-radio-button ng-value="false">Yes</md-radio-button>
+			<md-radio-button ng-value="true">No</md-radio-button>
+		</md-radio-group>
+	</div>
+
+
+
+  <md-content class="profile" layout-gt-sm="row" layout-padding>
+    <div layout="column" layout-align="center center">
+          <md-button class="md-raised md-primary" href="#profilequestions2">Next</md-button>
+    </div>
+  </md-content>
+
+	<p style="color: black">pqc.client.details is: {{pqc.client.details}}</p>

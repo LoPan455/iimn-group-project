@@ -1,0 +1,22 @@
+<!-- profilequestions5.html Own or Rent -->
+
+<md-toolbar class="toolbar" layout-align="center center">
+	<h1>Financial Health Assessment Tool</h1>
+
+</md-toolbar>
+
+<div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
+
+  <div>
+    <md-radio-group ng-model="pqc.client.details.housing">
+      <h2>Do you rent or own your home?</h2>
+      <md-radio-button ng-value="'Rent'">Rent</md-radio-button>
+      <md-radio-button ng-value="'Own'">Own</md-radio-button>
+    </md-radio-group>
+  </div>
+
+        <md-content class="profile" layout-gt-sm="row" layout-padding>
+          <a href="#profilequestions4">Back</a>
+          <md-button class="md-raised md-primary" href="#profilequestions6">Next</md-button>
+        </md-content>
+</div>

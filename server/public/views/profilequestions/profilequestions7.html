@@ -1,0 +1,28 @@
+<!-- profilequestions7.html  Bank Accounts -->
+
+<md-toolbar class="toolbar" layout-align="center center">
+	<h1>Financial Health Assessment Tool</h1>
+
+</md-toolbar>
+
+<div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
+
+  <div>
+    <md-radio-group ng-model="pqc.client.details.bank">
+      <h2>Have you owned a checking or savings account?</h2> <!-- consider revising to checkboxes -->
+      <md-radio-button ng-value="true">Yes</md-radio-button>
+      <md-radio-button ng-value="false" ng-click="pqc.clearAccounts()">No</md-radio-button>
+    </md-radio-group>
+
+    <div ng-if="pqc.client.details.bank == true">
+      <h3>Which account(s) have you used?</h3>
+      <md-checkbox ng-model="pqc.client.details.checking">Checking Account</md-checkbox>
+      <md-checkbox ng-model="pqc.client.details.savings">Savings Account</md-checkbox>
+    </div>
+  </div>
+
+        <md-content class="profile" layout-gt-sm="row" layout-padding>
+          <a href="#profilequestions6">Back</a>
+          <md-button class="md-raised md-primary" href="#profilequestions8">Next</md-button>
+        </md-content>
+</div>

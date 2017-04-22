@@ -1,39 +1,121 @@
 body {
-      /*  #414132  iimn navbar brown*/
-      /*  #FBFBF5 iimn light background*/
-      /*  #E65314 iimn accent orange*/
-      /*  #7AC043 iimn tree light green*/
-      /*  #8B9238 iimn tree olive green*/
-      /*  #D6DE23  iimn tree gold */
-      /*  #EBEACC  iimn body accent tan */
+  /*  #43471D  iimn navbar brown*/
+  /*  #FBFBF5 iimn light background using #fafae1 instead*/
+  /*  #E65314 iimn accent orange*/
+  /*  #7AC043 iimn tree light green*/
+  /*  #8B9238 iimn tree olive green*/
+  /*  #D6DE23  iimn tree gold */
+  /*  #EBEACC  iimn body accent tan */
 
-      background: #fafae1 url(images/map2.png);
-      background-size: cover;
-      background-attachment: fixed;
-    }
-
-.toolbar{
-  background-image: url(images/iimn-logo2.svg), url(images/map.png);
-      background-position: left top, right bottom;
-      background-repeat: no-repeat, no-repeat;
+  background: #fafae1 url(images/map2.png);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
+
+/*different toolbar for login and welcome #43471D brown*/
+.loginToolbar {
+  background-image: url(), url();
+  background-position: left top, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-color: #fafae1 !important;
+}
+.loginToolbar h1{
+  color: #737367;
+}
+
+/*#fafae1 is light tan similar to #FBFBF5 iimn*/
 .login-screen {
-  background-image: url('../assets/blue-gradient-background-wallpaper-1.jpg');
-  background-color: #EBEACC;
+  background-image: url(images/iimn-logo2.svg), url(images/map2.png);
+  background-position: left top, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-color: #fafae1 !important;
+}
+
+/*profile pages toolbar*/
+.toolbar{
+  background-image: url(images/iimn-logo2.svg), url();
+  background-position: left top, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-color: #fafae1 !important;
+  /*position: absolute; THIS WILL HIDE EVERYTHING*/
+  /*background-attachment: fixed; THIS WILL MAKE LOGO HUGE!*/
+}
+/*only nav of mainstate*/
+.mainStateToolbar {
+  background-color: #fafae1 !important;
+  margin-top: -20px;
 }
 
 
-/*.sample-show-hide {
-  transition: all linear 0.1s;
-}
-.sample-show-hide.ng-hide {
-  opacity: 0;
+
+/*737367 gray text*/
+.toolbar h1 {
+  color: #737367;
 }
 
-.sample-show-hide.ng-show {
-  opacity: 1;
-}*/
+/*737367 gray text*/
+.toolbar h2 {
+  color: #737367;
+}
+
+
+
+/*#fafae1 is light tan similar to #FBFBF5 iimn*/
+md-content {
+  background: #fafae1 url(images/map2.png);
+  background-size: cover;
+  background-attachment: fixed;
+  margin-left: 40px;
+  margin-right: 50px;
+}
+
+/*  #E65314 iimn accent orange similar to deep-orange #ff5722 Material accentPallette (see client.js)*/
+md-content h1{
+  text-align: center;
+  color: #E65314;
+}
+
+/*Balance Sheet subtotal centered and less space above*/
+.subtotal {
+  text-align: center;
+  /*margin-left: 300px;*/
+  margin-top: -10px;
+}
+
+/*737367 gray text*/
+.profile {
+  text-align: center;
+  color: #737367 !important;
+}
+
+.profileSummaryMargin {
+  margin-top: -30px;
+}
+
+.inline {
+  display: inline-block;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
+.longerInput{
+  min-width: 900px;
+  margin-top: -3px;
+  margin-bottom: -3px;
+  font-size: 20px;
+}
+
+.longerSameMargin{
+  min-width: 900px;
+}
+
+/*used welcome and goals/action steps of summary*/
+.welcomeInput {
+  font-size: 40px;
+  /*margin-left: 100px;*/
+}
+
 
 /*Balance sheet input sections*/
 .inputFieldSize {
@@ -42,7 +124,64 @@ body {
   padding-right: 10px;
 }
 
-#informalField {
+.informalField {
   min-width: 350px;
   margin-right: 15px;
+  padding-right: 15px;
+}
+
+#billsInputField{
+  margin-left: 15px;
+}
+
+a {
+  font-size: 16px;
+  /*text-decoration: none;*/
+  color: #737367;
+}
+
+.housing {
+  background-color: #97BBCD;
+}
+
+.utilities {
+  background-color: #DCDCDC;
+}
+.food {
+  background-color: #F7464A;
+}
+.transportation {
+  background-color: #46BFBD;
+}
+.health {
+  background-color: #FDB45C;
+}
+.savings {
+  background-color: #949FB1;
+  color: white;
+}
+.miscellaneous {
+  background-color: #4D5360;
+  color: white;
+}
+
+.topMargin{
+  margin-top: 20px;
+}
+
+.pieChartMargin {
+  margin-right: 30px;
+  margin-left: 30px;
+
+}
+
+/*used on summary key and input field of action steps and goals*/
+.largerFont {
+  font-size: 20px;
+  /*color: #9B9B8B;*/
+}
+/*used on summary: action steps and goals headings*/
+.evenLargerFont {
+  font-size: 23px;
+  color: #9B9B8B;
 }

@@ -6,7 +6,7 @@ mongoConnection.connect(); // checks for a valid user in the database
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://fhat-iimn-95572.firebaseio.com"
+  databaseURL: "https://fhat-iimn-e55ca.firebaseio.com"
 });
 
 var tokenDecoder = function(req, res, next) {
@@ -26,13 +26,21 @@ var tokenDecoder = function(req, res, next) {
           } else {
             console.log('successful user query', user);
             next();
-    })
-    .catch(function(error) {
-      console.log('User token unverified');
-      res.sendStatus(403);
-    });
-  } else {
-    res.sendStatus(403); // chrome error hanfdling??
-  }
-};
-module.exports = { token: tokenDecoder };
+          }
+        })
+        .catch(function(error) {
+          console.log('User token unverified');
+          res.sendStatus(403);
+        });
+      })
+    } else {
+      res.sendStatus(403); // chrome error hanfdling??
+    }
+  };
+
+
+
+
+
+
+  module.exports = { token: tokenDecoder };
