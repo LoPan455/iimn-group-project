@@ -2,11 +2,13 @@
 
 <form layout="column" ng-cloak class="md-inline-form" ng-keyup="bsc.calculateWorth()" ng-mouseleave="bsc.calculateWorth()">
   <!-- <i class="material-icons">attach_money</i> -->
-  <h1>Total Assets: <span ng-if="bsc.client.details.totalAssets > 0">${{bsc.client.details.totalAssets}}</span></h1><!--ng-model="bsc.client.details.totalAssets" -->
+
+  <h1>Total Assets <span ng-if="bsc.client.details.totalAssets > 0">{{bsc.client.details.totalAssets | currency:"$":0}}</span></h1><!--ng-model="bsc.client.details.totalAssets" -->
 
   <!-- cash assets section-->
   <div>
-    <h3>Cash Assets:</h3>
+    <h3>Cash Assets</h3>
+
     <md-input-container ng-if="bsc.client.details.checking">
       <label><!--Checking Balance Value-->Checking Account(s) Balance</label>
       <input class="inputFieldSize" ng-model="bsc.client.details.checkingBalanceValue" type="number" ng-blur="bsc.addAssets(bsc.client.details.checkingBalanceValue)" ng-focus="bsc.updateAssets(bsc.client.details.checkingBalanceValue)">
@@ -24,7 +26,9 @@
   </div>
 
   <div ng-if="bsc.client.details.numberVehicles != null"><!--vehicle owned section-->
-    <h3>Vehicle Assets:</h3>
+
+    <h3>Vehicle Assets</h3>
+
 
     <div>
       <md-input-container ng-if="bsc.client.details.numberVehicles >= 1">
@@ -45,7 +49,9 @@
 
 
     <div ng-if="bsc.client.details.housing === 'Own' || bsc.client.details.investments">  <!-- real estate ownership section -->
-      <h3>Real Estate:</h3>
+
+      <h3>Real Estate</h3>
+
 
       <div>
         <md-input-container>
@@ -56,7 +62,9 @@
 
       </div>
 
-      <md-input-container ng-if="bsc.client.details.investments">
+
+      <md-input-container ng-if="bsc.client.details.investments && bsc.client.details.housing == 'Own'">
+
         <label for="otherRealEstate">Real Estate - other than Primary Residence</label>
 
         <input class="informalField" type="number" name="otherRealEstate" ng-model="bsc.client.details.otherRealEstateValue" ng-blur="bsc.addAssets(bsc.client.details.otherRealEstateValue)" ng-focus="bsc.updateAssets(bsc.client.details.otherRealEstateValue)">
@@ -65,7 +73,9 @@
     </div>
 
     <div ng-if="bsc.client.details.investments">  <!--investment section-->
-      <h3>Investments:</h3>
+
+      <h3>Investments</h3>
+
       <md-input-container>
         <label for="stocks">Stocks, Bonds, Mutual Funds, and Similar Assets</label>
         <input class="informalField" type="number" name="stocks" ng-model="bsc.client.details.stocksBondsAndSimilarValue" ng-blur="bsc.addAssets(bsc.client.details.stocksBondsAndSimilarValue)" ng-focus="bsc.updateAssets(bsc.client.details.stocksBondsAndSimilarValue)">
@@ -85,7 +95,9 @@
     </div>
 
     <div>
-      <h3>Other Assets:</h3>
+
+      <h3>Other Assets</h3>
+
       <md-input-container ng-if="bc.client.details.employed">
         <label for="business">Business</label>
 
@@ -105,7 +117,9 @@
 
 
 
-    <h1>Total Assets: <span ng-if="bsc.client.details.totalAssets > 0">${{bsc.client.details.totalAssets}}</span></h1><!--ng-model="bsc.client.details.totalAssets" -->
+
+    <h1>Total Assets <span ng-if="bsc.client.details.totalAssets > 0">{{bsc.client.details.totalAssets | currency:"$":0}}</span></h1><!--ng-model="bsc.client.details.totalAssets" -->
+
 
 
   </form>

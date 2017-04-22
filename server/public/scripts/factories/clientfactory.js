@@ -2,6 +2,7 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
   console.log('Client Factory has loaded');
   var client = { details: {} };
   // var currentClientId = ''; // used to track the current client for periodic saves
+
   var clientTester = {};
   var testMessage = ' sumtext ';
   var auth = $firebaseAuth(); // Auth with every server request

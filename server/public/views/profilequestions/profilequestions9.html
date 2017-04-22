@@ -2,18 +2,18 @@
 
 <md-toolbar class="toolbar" layout-align="center center">
 	<h1>Financial Health Assessment Tool</h1>
-	<h2>Welcome, {{pqc.client.details.firstName}} {{pqc.client.details.lastName}}</h2>
 
 </md-toolbar>
 
 <div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
+<div class="">
 
   <md-radio-group ng-model="pqc.client.details.pastDueCalls">
     <h2>Has anyone called you about past due bills?</h2>
     <md-radio-button ng-value="true">Yes</md-radio-button>
     <md-radio-button ng-value="false">No</md-radio-button>
   </md-radio-group>
-
+</div>
         <md-content class="profile" layout-gt-sm="row" layout-padding>
           <a href="#profilequestions8">Back</a>
           <md-button class="md-raised md-primary" href="#profilequestions10">Next</md-button>

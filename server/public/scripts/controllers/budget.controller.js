@@ -4,6 +4,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
   var auth = $firebaseAuth();
 
   self.client = ClientFactory.client;
+
   // building this out to prevent the race condition on inadvertent page reload
      auth.$onAuthStateChanged(function(firebaseUser) {
        console.log('$onAuthStateChangedTriggered');
@@ -18,6 +19,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
          }
        }
    });
+
 
   self.client.details.totalMonthlyIncome = self.client.details.totalMonthlyIncome || 0;
   self.client.details.totalMonthlyExpenses = self.client.details.totalMonthlyExpenses || 0;

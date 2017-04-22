@@ -3,7 +3,7 @@
 <div layout="column" ng-cloak class="md-inline-form md-padding" flex ng-keyup="bc.calculateBudget()">
   <md-content>
     <h1>Monthly Income
-      <span ng-model="bc.client.details.totalMonthlyIncome" ng-if="bc.client.details.totalMonthlyIncome > 0">${{bc.client.details.totalMonthlyIncome}}</span></h1>
+      <span ng-model="bc.client.details.totalMonthlyIncome" ng-if="bc.client.details.totalMonthlyIncome > 0">{{bc.client.details.totalMonthlyIncome | currency:"$":0}}</span></h1>
       <div>
         <h3>Income Amounts</h3>
         <md-input-container ng-if="bc.client.details.employed"class="">

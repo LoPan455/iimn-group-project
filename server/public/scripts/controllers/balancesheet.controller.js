@@ -25,18 +25,22 @@ app.controller('BalanceSheetController', function(ClientFactory,$firebaseAuth) {
 
 
     //calculated variables
-    self.client.details.totalNetWorth = self.client.totalNetWorth || 0;
+
+    self.client.details.totalNetWorth = self.client.details.totalNetWorth || 0;
 
     // asset variables
-    self.client.details.totalAssets = self.client.totalAssets || 0;
+    self.client.details.totalAssets = self.client.details.totalAssets || 0;
 
     //liability variables
-    self.client.details.totalHousingLiabilities = self.client.totalHousingLiabilities|| 0;
+    self.client.details.totalHousingLiabilities = self.client.details.totalHousingLiabilities|| 0;
+
     self.client.details.totalTransportationLiabilities = self.client.details.totalTransportationLiabilities || 0;
     self.client.details.totalCreditCardsOtherLoanBalance = self.client.details.totalCreditCardsOtherLoanBalance || 0;
     self.client.details.totalUnpaidBillsNotInCollections = self.client.details.totalUnpaidBillsNotInCollections || 0;
     self.client.details.totalCollectionsChargeOffsJudgments = self.client.details.totalCollectionsChargeOffsJudgments || 0;
-    self.client.details.totalLiabilities = self.client.totalLiabilities || 0;
+
+    self.client.details.totalLiabilities = self.client.details.totalLiabilities || 0;
+
 
 // asset functions
     self.addAssets = function (assetField){
@@ -145,7 +149,8 @@ app.controller('BalanceSheetController', function(ClientFactory,$firebaseAuth) {
     };
 
     self.updateLibailities = function(){
-      self.client.details.totalLiabilities = self.client.totalHousingLiabilities + self.client.details.totalTransportationLiabilities + self.client.details.totalCreditCardsOtherLoanBalance + self.client.details.totalUnpaidBillsNotInCollections + self.client.details.totalCollectionsChargeOffsJudgments;
+
+      self.client.details.totalLiabilities = self.client.details.totalHousingLiabilities + self.client.details.totalTransportationLiabilities + self.client.details.totalCreditCardsOtherLoanBalance + self.client.details.totalUnpaidBillsNotInCollections + self.client.details.totalCollectionsChargeOffsJudgments;
       self.calculateWorth();
       return self.client.details.totalLiabilities;
     };

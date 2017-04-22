@@ -2,17 +2,18 @@
 
 <md-toolbar class="toolbar" layout-align="center center">
 	<h1>Financial Health Assessment Tool</h1>
-	<h2>Welcome, {{pqc.client.details.firstName}} {{pqc.client.details.lastName}}</h2>
 
 </md-toolbar>
 
 <div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
+<div class="">
 
   <md-radio-group ng-model="pqc.client.details.borrowedMoney">
     <h2>Have you ever borrowed money or taken out a loan?</h2> <!-- consider revising to checkboxes -->
     <md-radio-button ng-value="true">Yes</md-radio-button>
     <md-radio-button ng-value="false" ng-click="pqc.neverBorrowed()">No</md-radio-button>
   </md-radio-group>
+</div>
 
 
   <div ng-if="pqc.client.details.borrowedMoney">
