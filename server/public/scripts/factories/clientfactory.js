@@ -1,7 +1,7 @@
 console.log('clientfactory is run');
 app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseAuth) {
   var client = { };
-  var currentClientId = '58f8d8163bf99b2537562aa4'; // used to track the current client for periodic saves
+  var currentClientId = '58f8d8163bf99b2537562aa5'; // used to track the current client for periodic saves
   // var currentClientId = client._id;
   var today = new Date();
   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -42,14 +42,20 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
       $http({ 
         method: 'post',
         url: '/summary/getcsv',
+        params: currentClientId,
         headers: {
           id_token: idToken,
         },
-      }).then(function(result) { 
-      console.log('clientfactory / function exportCsv / then(function / getToken = ', idToken)
-      console.log('clientfactory / function exportCsv / then(function / result = ', result)
+      }).then(function(response) {
+      // console.log('clientfactory / function exportCsv / then(function / getToken = ', idToken)
+      // console.log('clientfactory / then(function / response = ', response) // Object {data: ""_bsontype","id"↵"ObjectID","X��Y�_��|,"↵", status: 200, config: Object, statusText: "OK", headers: function}
+      console.log('clientfactory / response typeOf = ', typeof response) // = object
+      console.log('clientfactory / response.data typeOf = ', typeof response.data) // = string
+      console.log('clientfactory / response.data = ', response.data) // = "_bsontype","id"↵"ObjectID","X��Y�_��|,"↵
+
       // Note: CSV Code
-      var blob = new Blob([result.data], { type: result.config.dataType });
+      var blob = new Blob([response.data], { type: response.config.dataType });
+
       var windowUrl = (window.URL || window.webkitURL);
       var downloadUrl = windowUrl.createObjectURL(blob);
       var anchor = document.createElement("a");
@@ -95,5 +101,5 @@ function saveClientData(client) {
     export: exportCsv,
     saveClientData: saveClientData,
   };
-  
+
 }]);
