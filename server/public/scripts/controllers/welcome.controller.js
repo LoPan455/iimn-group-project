@@ -3,7 +3,6 @@ app.controller('WelcomeController', function($location,ClientFactory,LoginFactor
   console.log('WelcomeController controller running');
   var self = this;
   self.user = LoginFactory.loggedInUser;
-  self.client = ClientFactory.client;
   self.testMessage = ClientFactory.testMessage;
   self.clientTester = ClientFactory.clientTester;
 

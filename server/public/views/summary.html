@@ -10,106 +10,118 @@ FDB45C yellow orange health
     <md-content class="md-padding" flex>
         <div layout="row">
 
-            <div flex="10">
-                <h4>Suggested Budget</h4>
+            <div flex="15">
+                <h4 class="largerFont">Suggested Budget</h4>
                 <table>
                     <tr>
-                        <td class="housing" >Housing:</td>
-                        <td>${{sc.client.details.monthlyTotalHousingExpenses}}</td>
+
+                        <td class="housing largerFont">Housing:</td>
+                        <td>{{sc.suggestedHousing | currency:"$":0}}</td>
                     </tr>
                     <tr>
-                        <td class="utilities">Utilities:</td>
-                        <td>${{sc.client.details.monthlyTotalUtilities}}</td>
+                        <td class="utilities largerFont">Utilities:</td>
+                        <td>{{sc.suggestedUtilities | currency:"$":0}}</td>
                     </tr>
                     <tr>
-                        <td class="food">Food:</td>
-                        <td>${{sc.client.details.monthlyTotalFoodExpenses}}</td>
+                        <td class="food largerFont">Food:</td>
+                        <td>{{sc.suggestedFood | currency:"$":0}}</td>
                     </tr>
                     <tr>
-                        <td class="transportation">Transportation:</td>
-                        <td>${{sc.client.details.monthlyTotalTransportationExpenses}}</td>
+                        <td class="transportation largerFont">Transportation:</td>
+                        <td>{{sc.suggestedTransportation | currency:"$":0}}</td>
                     </tr>
                     <tr>
-                        <td class="health">Health:</td>
-                        <td>${{sc.client.details.monthlyTotalHealthRelatedExpenses}}</td>
+                        <td class="health largerFont">Health:</td>
+                        <td>{{sc.suggestedHealth | currency:"$":0}}</td>
                     </tr>
                     <tr>
-                        <td class="savings">Savings:</td>
-                        <td>${{sc.client.details.monthlySavingsTarget}}</td>
+                        <td class="savings largerFont">Savings:</td>
+                        <td>{{sc.suggestedSavings | currency:"$":0}}</td>
                     </tr>
                     <tr>
-                        <td class="miscellaneous">Miscellaneous:</td>
-                        <td>${{sc.client.details.totalLifeExpenses}}</td>
+                        <td class="miscellaneous largerFont">Miscellaneous:</td>
+                        <td>{{sc.suggestedMisc | currency:"$":0}}</td>
                     </tr>
                 </table>
             </div>
 
-            <div flex="40">
-                <canvas id="pie" class="chart chart-pie" chart-data="sc.benchmarkData" chart-labels="sc.benchmarkLabels" chart-options="sc.benchmarkOptions"></canvas>
+            <div class="pieChartMargin" flex="30" layout="row" layout-align="center center">
+                <canvas width="300" height="300" id="pie" class="chart chart-pie" chart-data="sc.benchmarkData" chart-labels="sc.benchmarkLabels"
+                    chart-options="sc.benchmarkOptions"></canvas>
             </div>
 
-            <div flex="10">
-                <h4>Your Budget</h4>
+            <div flex="15">
+                <h4 class="largerFont">Your Budget</h4>
                 <table>
                     <tr>
-                        <td class="housing">Housing:</td>
-                        <td>${{sc.client.details.monthlyTotalHousingExpenses}}</td>
+                        <td class="housing largerFont">Housing:</td>
+                        <td>{{sc.client.details.monthlyTotalHousingExpenses | currency:"$":0}}</td>
                     </tr>
                     <tr>
-                        <td class="utilities">Utilities:</td>
-                        <td>${{sc.client.details.monthlyTotalUtilities}}</td>
+                        <td class="utilities largerFont">Utilities:</td>
+                        <td>{{sc.client.details.monthlyTotalUtilities | currency:"$":0}}</td>
                     </tr>
                     <tr>
-                        <td class="food">Food:</td>
-                        <td>${{sc.client.details.monthlyTotalFoodExpenses}}</td>
+                        <td class="food largerFont">Food:</td>
+                        <td>{{sc.client.details.monthlyTotalFoodExpenses | currency:"$":0}}</td>
                     </tr>
                     <tr>
-                        <td class="transportation">Transportation:</td>
-                        <td>${{sc.client.details.monthlyTotalTransportationExpenses}}</td>
+                        <td class="transportation largerFont">Transportation:</td>
+                        <td>{{sc.client.details.monthlyTotalTransportationExpenses | currency:"$":0}}</td>
                     </tr>
                     <tr>
-                        <td class="health">Health:</td>
-                        <td>${{sc.client.details.monthlyTotalHealthRelatedExpenses}}</td>
+                        <td class="health largerFont">Health:</td>
+                        <td>{{sc.client.details.monthlyTotalHealthRelatedExpenses | currency:"$":0}}</td>
                     </tr>
                     <tr>
-                        <td class="savings">Savings:</td>
-                        <td>${{sc.client.details.monthlySavingsTarget}}</td>
+                        <td class="savings largerFont">Savings:</td>
+                        <td>{{sc.client.details.monthlySavingsTarget | currency:"$":0}}</td>
                     </tr>
                     <tr>
-                        <td class="miscellaneous">Miscellaneous:</td>
-                        <td>${{sc.client.details.totalLifeExpenses}}</td>
+                        <td class="miscellaneous largerFont">Miscellaneous:</td>
+                        <td>{{sc.totalLifeExpenses | currency:"$":0}}</td>
                     </tr>
                 </table>
             </div>
-            <div flex="40">
-                <canvas id="pie" class="chart chart-pie" chart-data="sc.clientData" chart-labels="sc.clientLabels" chart-options="sc.clientOptions"></canvas>
+
+            <div class="pieChartMargin" flex="30" layout="row" layout-align="center center">
+                <canvas width="300" height="300" id="pie" class="chart chart-pie" chart-data="sc.clientData" chart-labels="sc.clientLabels"
+                    chart-options="sc.clientOptions"></canvas>
             </div>
-        </div><!-- end of pie section -->
-
-
-        <div class="md-padding" flex>
-            <md-whiteframe class="md-whiteframe-3dp" layout="row" layout layout-align="space-around center">
-                <p>Total Assets ${{sc.client.details.totalAssets}}</p>
-                <p>Total Liabilities ${{sc.client.details.totalLiabilities}}</p>
-                <p>Total Net Worth ${{sc.client.details.totalNetWorth}}</p>
+        </div>
+        <!-- end of pies section -->
+        <div class="topMargin" flex>
+            <md-whiteframe class="md-whiteframe-5dp" layout="row" layout layout-align="space-around center">
+                <p class="evenLargerFont">Total Assets: {{sc.client.details.totalAssets | currency:"$":0}}</p>
+                <p class="evenLargerFont">Total Liabilities: {{sc.client.details.totalLiabilities | currency:"$":0}}</p>
+                <p class="evenLargerFont">Total Net Worth: {{sc.client.details.totalNetWorth | currency:"$":0}}</p>
             </md-whiteframe>
         </div>
-        <div flex>
-            <md-whiteframe class="md-whiteframe-3dp" layout="row" layout layout-align="space-around center">
-                <p>Goals<textarea ng-model="bc.client.details.goals" type="number"></textarea></p>
-                <p>Action Steps<textarea ng-model="bc.client.details.actionSteps" type="text"></textarea></p>
-            </md-whiteframe>
-        </div>
+
+        <!-- <div layout="row"> -->
+        <md-whiteframe class="md-whiteframe-5dp topMargin" layout="row" layout layout-align="space-around center">
+            <form flex="50">
+                <md-input-container>
+                    <label class="evenLargerFont">Goals:</label>
+                    <textarea class="largerFont" type="text" ng-model="bc.client.details.goals"></textarea>
+                </md-input-container>
+            </form>
+            <!-- </md-whiteframe> -->
+            <!-- <md-whiteframe class="md-whiteframe-5dp" layout="row" layout layout-align="space-around center"> -->
+            <form flex="50">
+                <md-input-container>
+                    <label class="evenLargerFont">Action Steps:</label>
+                    <textarea class="largerFont" type="text" ng-model="bc.client.details.actionSteps"></textarea>
+                </md-input-container>
+            </form>
+        </md-whiteframe>
+        <!-- </div> -->
     </md-content>
 
     <!--CSV Export Button-->
-     <div id="tester">
-    <!--located http://localhost:5000/#/main-->
-    <md-button class="md-warning" ng-click="sc.export()">Data Export</button>
-    <!--<p>{{sc.exportTester}}</p>-->
+    <div id="tester">
+        <!--located http://localhost:5000/#/main-->
+        <md-button class="md-warning" ng-click="sc.export()">Data Export</button>
+            <!--<p>{{sc.exportTester}}</p>-->
 
-  </div>
-
-
-
-</div>
+    </div>

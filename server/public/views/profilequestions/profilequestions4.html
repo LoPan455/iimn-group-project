@@ -2,28 +2,26 @@
 
 <md-toolbar class="toolbar" layout-align="center center">
 	<h1>Financial Health Assessment Tool</h1>
-	<h2>Welcome, {{pqc.client.firstName}} {{pqc.client.lastName}}</h2>
-
 </md-toolbar>
 
 <div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
 
 
       <div>
-        <md-radio-group ng-model="pqc.client.assistance">
+        <md-radio-group ng-model="pqc.client.details.assistance">
           <h2>Do you receive assistance?</h2>
           <md-radio-button ng-value="true">Yes</md-radio-button>
           <md-radio-button ng-value="false" ng-click="pqc.undoAssistance()">No</md-radio-button>
         </md-radio-group>
 
-        <div ng-if="pqc.client.assistance" class="pqc.assistanceSection">
+        <div ng-if="pqc.client.details.assistance" class="pqc.assistanceSection">
           <h3>Check all that apply</h3>
-          <md-checkbox ng-model="pqc.client.SNAP">SNAP</md-checkbox>
-          <md-checkbox ng-model="pqc.client.TANF">TANF</md-checkbox>
-          <md-checkbox ng-model="pqc.client.SSI">SSI/SSDI</md-checkbox>
-          <md-checkbox ng-if="pqc.client.dependents" ng-model="pqc.client.alimony">Child Support/Alimony</md-checkbox>
-          <md-checkbox ng-model="pqc.client.workersComp">Workers' Comp</md-checkbox>
-          <md-checkbox ng-model="pqc.client.otherAssist">Other</md-checkbox>
+          <md-checkbox ng-model="pqc.client.details.SNAP">SNAP</md-checkbox>
+          <md-checkbox ng-model="pqc.client.details.TANF">TANF</md-checkbox>
+          <md-checkbox ng-model="pqc.client.details.SSI">SSI/SSDI</md-checkbox>
+          <md-checkbox ng-if="pqc.client.details.dependents" ng-model="pqc.client.details.alimony">Child Support/Alimony</md-checkbox>
+          <md-checkbox ng-model="pqc.client.details.workersComp">Workers' Comp</md-checkbox>
+          <md-checkbox ng-model="pqc.client.details.otherAssist">Other</md-checkbox>
         </div>
       </div>
 

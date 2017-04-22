@@ -1,13 +1,8 @@
-console.log('clientfactory is run');
-app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseAuth) {
-  var client = { };
-  var currentClientId = '58f8d8163bf99b2537562aa5'; // used to track the current client for periodic saves
-  // var currentClientId = client._id;
+app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($http, $firebaseAuth,$location) {
+  console.log('Client Factory has loaded');
+  var client = { details: {} };
   var today = new Date();
   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-  console.log('clientfactory.js / currentClientId = ', currentClientId);
-
-
   var clientTester = {};
   var testMessage = ' sumtext ';
   var auth = $firebaseAuth(); // Auth with every server request
@@ -25,12 +20,10 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
           id_token: idToken,
         },
       }).then(function(response) {
-        console.log('response from factory: ', response);
-        console.log('response.data from factory: ', response.data);
-        client = response.data;
-        currentClientId = response.data._id;
-        console.log('client is now: ', client);
-        console.log('currentClientId is now: ', currentClientId);
+        console.log('newClient()response.data  from factory: ', response.data);
+        client.details = response.data;
+        console.log('client.details is now: ', client.details);
+        $location.url('/profilequestions1');
       });
     });
   }
@@ -80,19 +73,37 @@ function saveClientData(client) {
         url: '/client/update/',
         data: client,
         params: {
-          id: currentClientId,
+          id: clientId,
         },
         headers: {
           id_token: idToken,
         },
       }).then(function(response) {
-        // console.log('response from factory: ', response);
-        console.log('response.data from factory: ', response.data);
-        client = response.data;
+        console.log('save successful', response);
       });
     });
   } // end saveClientData
-  
+
+ // this is perhaps what we will need for the resuce operation
+  function rescueClientData(){
+    console.log('rescueClientData() function called');
+    // var clientId = client._id  this would have to come from the DB
+    var firebaseUser = auth.$getAuth();
+    firebaseUser.getToken().then(function(idToken) {
+      $http({
+        method: 'GET',
+        url: '/client/rescue/',
+        headers: {
+          id_token: idToken,
+        },
+      }).then(function(response) {
+        console.log('rescueClientData() response.data from factory: ', response.data);
+        client.details = response.data[0];
+        console.log('var client in the factory is now: ',client);
+      });
+    });
+  }
+
   return {
     client: client,
     testMessage: testMessage,
@@ -100,6 +111,6 @@ function saveClientData(client) {
     newClient: newClient,
     export: exportCsv,
     saveClientData: saveClientData,
+    rescueClientData: rescueClientData
   };
-
 }]);

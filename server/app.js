@@ -8,7 +8,6 @@ var decoder = require('./modules/decoder.js');
 var bodyParser = require('body-parser');
 var summary = require('./routes/summary.route.js');
 
-
 app.get('/', function(req, res){
   res.sendFile(path.resolve('server/public/views/index.html'));
 });
@@ -17,14 +16,10 @@ app.use(express.static('server/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
-
 app.use(decoder.token);
 app.use('/user', user);
 app.use('/client', client);
 app.use('/summary',summary); // need token in factory
-
-
 
 app.listen(portDecision, function(){
   console.log("Listening on port: ", portDecision);
