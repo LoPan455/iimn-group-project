@@ -5,7 +5,7 @@ app.controller('ProfileQuestionsController', function(ClientFactory,$firebaseAut
   var auth = $firebaseAuth();
   self.client = ClientFactory.client;
   self.assistanceSection = true;
-  
+
 
  // building this out to prevent the race condition on inadvertent page reload
     auth.$onAuthStateChanged(function(firebaseUser) {
@@ -53,13 +53,10 @@ app.controller('ProfileQuestionsController', function(ClientFactory,$firebaseAut
 
   self.undoShare = function() {
     // console.log('mawige is what bwings us together');
-<<<<<<< HEAD
-    if (self.client.individual != null) {
-      self.client.individual = null;
-=======
+
     if (self.client.details.individual != null) {
       self.client.details.individual = null;
->>>>>>> develop
+
     }
   };
 
