@@ -3,64 +3,64 @@
 <div layout="column" ng-cloak class="md-inline-form md-padding" flex ng-keyup="bc.calculateBudget()">
   <md-content>
     <h1>Monthly Income
-      <span ng-model="bc.client.totalMonthlyIncome" ng-if="bc.client.totalMonthlyIncome > 0">${{bc.client.totalMonthlyIncome}}</span></h1>
+      <span ng-model="bc.client.details.totalMonthlyIncome" ng-if="bc.client.details.totalMonthlyIncome > 0">${{bc.client.details.totalMonthlyIncome}}</span></h1>
       <div>
         <h3>Income Amounts</h3>
-        <md-input-container ng-if="bc.client.employed"class="">
+        <md-input-container ng-if="bc.client.details.employed"class="">
         <label>Wages</label>
-        <input ng-model="bc.client.monthlyWagesNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyWagesNet)" ng-blur= "bc.addIncome(bc.client.monthlyWagesNet)">
+        <input ng-model="bc.client.details.monthlyWagesNet" type="number" ng-focus="bc.updateIncome(bc.client.details.monthlyWagesNet)" ng-blur= "bc.addIncome(bc.client.details.monthlyWagesNet)">
       </md-input-container>
-      <md-input-container ng-if="bc.client.individual == false" class="informalField">
+      <md-input-container ng-if="bc.client.details.individual == false" class="informalField">
         <label>Wages From Other Household Members</label>
-        <input ng-model="bc.client.monthlyIncomeOtherHouseholdMembersNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyIncomeOtherHouseholdMembersNet)" ng-blur= "bc.addIncome(bc.client.monthlyIncomeOtherHouseholdMembersNet)">
+        <input ng-model="bc.client.details.monthlyIncomeOtherHouseholdMembersNet" type="number" ng-focus="bc.updateIncome(bc.client.details.monthlyIncomeOtherHouseholdMembersNet)" ng-blur= "bc.addIncome(bc.client.details.monthlyIncomeOtherHouseholdMembersNet)">
       </md-input-container>
-      <md-input-container ng-if="bc.client.employed" class="informalField">
+      <md-input-container ng-if="bc.client.details.employed" class="informalField">
         <label>Self-Employment or Business Income</label>
-        <input  ng-model="bc.client.monthlySelfAndBusinessNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlySelfAndBusinessNet)" ng-blur="bc.addIncome(bc.client.monthlySelfAndBusinessNet)">
+        <input  ng-model="bc.client.details.monthlySelfAndBusinessNet" type="number" ng-focus="bc.updateIncome(bc.client.details.monthlySelfAndBusinessNet)" ng-blur="bc.addIncome(bc.client.details.monthlySelfAndBusinessNet)">
       </md-input-container>
-        <md-input-container ng-if="bc.client.SSI" class="">
+        <md-input-container ng-if="bc.client.details.SSI" class="">
         <label>SSI/SSDI</label>
-        <input ng-model="bc.client.monthlyNetSSI" type="number" ng-focus="bc.updateIncome(bc.client.monthlyNetSSI)" ng-blur= "bc.addIncome(bc.client.monthlyNetSSI)">
+        <input ng-model="bc.client.details.monthlyNetSSI" type="number" ng-focus="bc.updateIncome(bc.client.details.monthlyNetSSI)" ng-blur= "bc.addIncome(bc.client.details.monthlyNetSSI)">
       </md-input-container>
-      <md-input-container ng-if="bc.client.SNAP" class="">
+      <md-input-container ng-if="bc.client.details.SNAP" class="">
         <label>SNAP/WIC</label>
-        <input ng-model="bc.client.monthlyNetSNAPWIC" ng-focus="bc.updateIncome(bc.client.monthlyNetSNAPWIC)" type="number" ng-blur= "bc.addIncome(bc.client.monthlyNetSNAPWIC)">
+        <input ng-model="bc.client.details.monthlyNetSNAPWIC" ng-focus="bc.updateIncome(bc.client.details.monthlyNetSNAPWIC)" type="number" ng-blur= "bc.addIncome(bc.client.details.monthlyNetSNAPWIC)">
       </md-input-container>
-      <md-input-container ng-if="bc.client.alimony" class="" >
+      <md-input-container ng-if="bc.client.details.alimony" class="" >
         <label>Alimony/Child Support</label>
-        <input ng-model="bc.client.monthlyAlimonyNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyAlimonyNet)" ng-blur= "bc.addIncome(bc.client.monthlyAlimonyNet)">
+        <input ng-model="bc.client.details.monthlyAlimonyNet" type="number" ng-focus="bc.updateIncome(bc.client.details.monthlyAlimonyNet)" ng-blur= "bc.addIncome(bc.client.details.monthlyAlimonyNet)">
       </md-input-container>
-        <md-input-container ng-if="bc.client.employed == false" class="">
+        <md-input-container ng-if="bc.client.details.employed == false" class="">
         <label>Unemployment</label>
-        <input ng-model="bc.client.monthlyUnemploymentNet"type="number" ng-focus="bc.updateIncome(bc.client.monthlyUnemploymentNet)" ng-blur= "bc.addIncome(bc.client.monthlyUnemploymentNet)">
+        <input ng-model="bc.client.details.monthlyUnemploymentNet"type="number" ng-focus="bc.updateIncome(bc.client.details.monthlyUnemploymentNet)" ng-blur= "bc.addIncome(bc.client.details.monthlyUnemploymentNet)">
       </md-input-container>
-      <md-input-container ng-if="bc.client.workersComp" class="" >
+      <md-input-container ng-if="bc.client.details.workersComp" class="" >
         <label>Workers Comp</label>
-        <input ng-model="bc.client.monthlyWorkersCompensationNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyWorkersCompensationNet)" ng-blur= "bc.addIncome(bc.client.monthlyWorkersCompensationNet)">
+        <input ng-model="bc.client.details.monthlyWorkersCompensationNet" type="number" ng-focus="bc.updateIncome(bc.client.details.monthlyWorkersCompensationNet)" ng-blur= "bc.addIncome(bc.client.details.monthlyWorkersCompensationNet)">
       </md-input-container>
-      <md-input-container ng-if="bc.client.investments" class="">
+      <md-input-container ng-if="bc.client.details.investments" class="">
         <label>Rental Income</label>
-        <input ng-model="bc.client.monthlyRentalIncomeNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyRentalIncomeNet)" ng-blur= "bc.addIncome(bc.client.monthlyRentalIncomeNet)">
+        <input ng-model="bc.client.details.monthlyRentalIncomeNet" type="number" ng-focus="bc.updateIncome(bc.client.details.monthlyRentalIncomeNet)" ng-blur= "bc.addIncome(bc.client.details.monthlyRentalIncomeNet)">
       </md-input-container>
-      <md-input-container ng-if="bc.client.investments" class="informalField">
+      <md-input-container ng-if="bc.client.details.investments" class="informalField">
         <label>Interest/Investment Income</label>
-        <input ng-model="bc.client.monthlyInvestmentIncomeNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyInvestmentIncomeNet)" ng-blur= "bc.addIncome(bc.client.monthlyInvestmentIncomeNet)">
+        <input ng-model="bc.client.details.monthlyInvestmentIncomeNet" type="number" ng-focus="bc.updateIncome(bc.client.details.monthlyInvestmentIncomeNet)" ng-blur= "bc.addIncome(bc.client.details.monthlyInvestmentIncomeNet)">
       </md-input-container>
-      <md-input-container ng-if="bc.client.otherAssist" class="informalField">
+      <md-input-container ng-if="bc.client.details.otherAssist" class="informalField">
         <label>Social Security (not SSI/SSD)</label>
-        <input ng-model="bc.client.monthlySocialSecurityNetNotSSI" type="number" ng-focus="bc.updateIncome(bc.client.monthlySocialSecurityNetNotSSI)" ng-blur= "bc.addIncome(bc.client.monthlySocialSecurityNetNotSSI)">
+        <input ng-model="bc.client.details.monthlySocialSecurityNetNotSSI" type="number" ng-focus="bc.updateIncome(bc.client.details.monthlySocialSecurityNetNotSSI)" ng-blur= "bc.addIncome(bc.client.details.monthlySocialSecurityNetNotSSI)">
       </md-input-container>
-      <md-input-container ng-if="bc.client.investments" class="">
+      <md-input-container ng-if="bc.client.details.investments" class="">
         <label>Pensions</label>
-        <input ng-model="bc.client.monthlyPensionsNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyPensionsNet)" ng-blur= "bc.addIncome(bc.client.monthlyPensionsNet)">
+        <input ng-model="bc.client.details.monthlyPensionsNet" type="number" ng-focus="bc.updateIncome(bc.client.details.monthlyPensionsNet)" ng-blur= "bc.addIncome(bc.client.details.monthlyPensionsNet)">
       </md-input-container>
-      <md-input-container ng-if="bc.client.otherAssist" class="informalField">
+      <md-input-container ng-if="bc.client.details.otherAssist" class="informalField">
         <label>Other Public Benefits</label>
-        <input ng-model="bc.client.monthlyOtherPublicBenefitsNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyOtherPublicBenefitsNet)" ng-blur= "bc.addIncome(bc.client.monthlyOtherPublicBenefitsNet)">
+        <input ng-model="bc.client.details.monthlyOtherPublicBenefitsNet" type="number" ng-focus="bc.updateIncome(bc.client.details.monthlyOtherPublicBenefitsNet)" ng-blur= "bc.addIncome(bc.client.details.monthlyOtherPublicBenefitsNet)">
       </md-input-container>
       <md-input-container class="informalField">
         <label>Other Income</label>
-        <input ng-model="bc.client.monthlyOtherIncomeNet" type="number" ng-focus="bc.updateIncome(bc.client.monthlyOtherIncomeNet)" ng-blur= "bc.addIncome(bc.client.monthlyOtherIncomeNet)">
+        <input ng-model="bc.client.details.monthlyOtherIncomeNet" type="number" ng-focus="bc.updateIncome(bc.client.details.monthlyOtherIncomeNet)" ng-blur= "bc.addIncome(bc.client.details.monthlyOtherIncomeNet)">
       </md-input-container>
     </div>
   </md-content>

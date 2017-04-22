@@ -20,7 +20,7 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
         },
       }).then(function(response) {
         console.log('newClient()response.data  from factory: ', response.data);
-        client.details = response.data;
+        client.details = response.data[0];
         console.log('client.details is now: ', client.details);
         $location.url('/profilequestions1');
       });
@@ -73,21 +73,21 @@ function saveClientData(client) {
   } // end saveClientData
 
  // this is perhaps what we will need for the resuce operation
-  function getClientData(){
-    console.log('getClientData() function called');
+  function rescueClientData(){
+    console.log('rescueClientData() function called');
     // var clientId = client._id  this would have to come from the DB
     var firebaseUser = auth.$getAuth();
     firebaseUser.getToken().then(function(idToken) {
       $http({
         method: 'GET',
-        url: '/client/get/',
-        params: clientId,
+        url: '/client/rescue/',
         headers: {
           id_token: idToken,
         },
       }).then(function(response) {
-        console.log('getClientData() response.data from factory: ', response.data);
-        client = response.data;
+        console.log('rescueClientData() response.data from factory: ', response.data);
+        client.details = response.data[0];
+        console.log('var client in the factory is now: ',client);
       });
     });
   }
@@ -99,5 +99,6 @@ function saveClientData(client) {
     newClient: newClient,
     export: exportCsv,
     saveClientData: saveClientData,
+    rescueClientData: rescueClientData
   };
 }]);

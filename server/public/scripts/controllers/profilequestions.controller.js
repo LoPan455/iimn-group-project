@@ -17,7 +17,7 @@ app.controller('ProfileQuestionsController', function(ClientFactory,$firebaseAut
           ClientFactory.saveClientData(self.client.details)
         } else {
           console.log('you no longer have a client in the front end, perfoming rescue');
-          
+          ClientFactory.rescueClientData()
         }
       }
   });
