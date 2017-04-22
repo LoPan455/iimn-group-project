@@ -16,7 +16,8 @@ app.controller('ProfileQuestionsController', function(ClientFactory,$firebaseAut
           console.log('we will save the updated client now....');
           ClientFactory.saveClientData(self.client.details)
         } else {
-          console.log('you no longer have a client in the front end, perfom rescue');
+          console.log('you no longer have a client in the front end, perfoming rescue');
+          
         }
       }
   });
