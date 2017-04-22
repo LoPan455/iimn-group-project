@@ -4,6 +4,8 @@ app.controller('ProfileController', function(ClientFactory) {
   var self = this;
 
   self.client = ClientFactory.client;
+
+  console.log('self.client is ',self.client);
   self.assistanceSection = true;
   self.confirmAssistance = function(){
     self.assistanceSection = !self.assistanceSection;

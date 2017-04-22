@@ -14,6 +14,7 @@ FDB45C yellow orange health
                 <h4 class="largerFont">Suggested Budget</h4>
                 <table>
                     <tr>
+
                         <td class="housing largerFont">Housing:</td>
                         <td>{{sc.suggestedHousing | currency:"$":0}}</td>
                     </tr>
@@ -52,6 +53,7 @@ FDB45C yellow orange health
                 <h4 class="largerFont">Your Budget</h4>
                 <table>
                     <tr>
+
                         <td class="housing largerFont">Housing:</td>
                         <td>{{sc.client.details.monthlyTotalHousingExpenses | currency:"$":0}}</td>
                     </tr>
@@ -78,6 +80,7 @@ FDB45C yellow orange health
                     <tr>
                         <td class="miscellaneous largerFont">Miscellaneous:</td>
                         <td>{{sc.totalLifeExpenses | currency:"$":0}}</td>
+
                     </tr>
                 </table>
             </div>
@@ -90,11 +93,13 @@ FDB45C yellow orange health
 
 
 
+
         <div class="topMargin" flex>
             <md-whiteframe class="md-whiteframe-5dp" layout="row" layout layout-align="space-around center">
                 <p class="evenLargerFont">Total Assets: {{sc.client.details.totalAssets | currency:"$":0}}</p>
                 <p class="evenLargerFont">Total Liabilities: {{sc.client.details.totalLiabilities | currency:"$":0}}</p>
                 <p class="evenLargerFont">Total Net Worth: {{sc.client.details.totalNetWorth | currency:"$":0}}</p>
+
             </md-whiteframe>
         </div>
 
