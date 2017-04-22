@@ -20,7 +20,7 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
         },
       }).then(function(response) {
         console.log('newClient()response.data  from factory: ', response.data);
-        client.details = response.data[0];
+        client.details = response.data;
         console.log('client.details is now: ', client.details);
         $location.url('/profilequestions1');
       });

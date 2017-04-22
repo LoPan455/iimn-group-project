@@ -5,7 +5,7 @@ app.controller('ProfileQuestionsController', function(ClientFactory,$firebaseAut
   var auth = $firebaseAuth();
   self.client = ClientFactory.client;
   self.assistanceSection = true;
-  console.log('PCQ self.client is: ',self.client);
+  
 
  // building this out to prevent the race condition on inadvertent page reload
     auth.$onAuthStateChanged(function(firebaseUser) {
