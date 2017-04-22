@@ -1,10 +1,41 @@
-app.controller('ProfileQuestionsController', function(ClientFactory) {
+app.controller('ProfileQuestionsController', function(ClientFactory,$firebaseAuth) {
 
   console.log('ProfileQuestionsController controller running');
   var self = this;
+  var auth = $firebaseAuth();
   self.client = ClientFactory.client;
   self.assistanceSection = true;
-  ClientFactory.saveClientData(self.client);
+
+
+ // building this out to prevent the race condition on inadvertent page reload
+    auth.$onAuthStateChanged(function(firebaseUser) {
+      console.log('$onAuthStateChangedTriggered');
+      if (firebaseUser) {
+        if (self.client.details.hasOwnProperty('_id') ){
+          console.log('ok, you have a client. self.client.details is: ',self.client.details);
+          console.log('we will save the updated client now....');
+          ClientFactory.saveClientData(self.client.details)
+        } else {
+          console.log('you no longer have a client in the front end, perfoming rescue');
+          ClientFactory.rescueClientData()
+        }
+      }
+  });
+
+
+  //
+  // if (self.client.details._id == null){
+  //   console.log('you no longer have a client in the front end, perfom rescue');
+  // } else {
+  //   console.log('ok, you have a client. self.client.details is: ',self.client.details);
+  //   console.log('we will save the updated client now....');
+  //   ClientFactory.saveClientData(self.client.details)
+  // }
+
+
+
+
+    // ClientFactory.saveClientData(self.client);
 
 
   self.confirmAssistance = function(){

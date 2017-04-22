@@ -26,6 +26,7 @@
   <div ng-if="bsc.client.details.numberVehicles != null"><!--vehicle owned section-->
     <h3>Vehicle Assets</h3>
 
+
     <div>
       <md-input-container ng-if="bsc.client.details.numberVehicles >= 1">
         <label for="vehicleOne">Vehicle 1 Value</label>
@@ -47,6 +48,7 @@
     <div ng-if="bsc.client.details.housing === 'Own' || bsc.client.details.investments">  <!-- real estate ownership section -->
       <h3>Real Estate</h3>
 
+
       <div>
         <md-input-container>
           <label for="homeOwned">Primary Residence Value</label>
@@ -66,6 +68,7 @@
 
     <div ng-if="bsc.client.details.investments">  <!--investment section-->
       <h3>Investments</h3>
+
       <md-input-container>
         <label for="stocks">Stocks, Bonds, Mutual Funds, and Similar Assets</label>
         <input class="informalField" type="number" name="stocks" ng-model="bsc.client.details.stocksBondsAndSimilarValue" ng-blur="bsc.addAssets(bsc.client.details.stocksBondsAndSimilarValue)" ng-focus="bsc.updateAssets(bsc.client.details.stocksBondsAndSimilarValue)">
@@ -85,6 +88,7 @@
     </div>
 
     <div>
+
       <h3>Other Assets</h3>
       <md-input-container ng-if="bc.client.details.employed">
         <label for="business">Business</label>
@@ -102,6 +106,7 @@
       </md-input-container>
 
     </div>
+
 
 
 

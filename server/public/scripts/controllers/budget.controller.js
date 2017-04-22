@@ -1,10 +1,26 @@
 app.controller('BudgetController', function(ClientFactory, hotkeys, $state) {
+
   console.log('BudgetController controller running');
   var self = this;
+  var auth = $firebaseAuth();
 
   self.client = ClientFactory.client;
-  console.log('self.client is an empty object', self.client);
-  ClientFactory.saveClientData(self.client);
+
+  // building this out to prevent the race condition on inadvertent page reload
+     auth.$onAuthStateChanged(function(firebaseUser) {
+       console.log('$onAuthStateChangedTriggered');
+       if (firebaseUser) {
+         if (self.client.details.hasOwnProperty('_id') ){
+           console.log('ok, you have a client. self.client.details.details is: ',self.client.details);
+           console.log('we will save the updated client now....');
+           ClientFactory.saveClientData(self.client.details)
+         } else {
+           console.log('you no longer have a client in the front end, perfoming rescue');
+           ClientFactory.rescueClientData()
+         }
+       }
+   });
+
 
   self.client.details.totalMonthlyIncome = self.client.details.totalMonthlyIncome || 0;
   self.client.details.totalMonthlyExpenses = self.client.details.totalMonthlyExpenses || 0;
