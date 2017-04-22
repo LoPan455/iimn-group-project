@@ -4,6 +4,7 @@ app.controller('SummaryController', function(ClientFactory) {
   var self = this;
   self.client = ClientFactory.client;
 
+  console.log(self.client);
 // ClientFactory.saveClientData(self.client);
 
 

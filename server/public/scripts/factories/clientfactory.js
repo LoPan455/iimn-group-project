@@ -1,6 +1,7 @@
-app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseAuth) {
-  var client = {};
-  var currentClientId = ''; // used to track the current client for periodic saves
+app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($http, $firebaseAuth,$location) {
+  console.log('Client Factory has loaded');
+  var client = { details: {} };
+  // var currentClientId = ''; // used to track the current client for periodic saves
   var clientTester = {};
   var testMessage = ' sumtext ';
   var auth = $firebaseAuth(); // Auth with every server request
@@ -18,12 +19,10 @@ app.factory('ClientFactory', ['$http','$firebaseAuth',function($http, $firebaseA
           id_token: idToken,
         },
       }).then(function(response) {
-        console.log('response from factory: ', response);
-        console.log('response.data from factory: ', response.data);
-        client = response.data;
-        currentClientId = response.data._id;
-        console.log('client is now: ', client);
-        console.log('currentClientId is now: ', currentClientId);
+        console.log('newClient()response.data  from factory: ', response.data);
+        client.details = response.data;
+        console.log('client.details is now: ', client.details);
+        $location.url('/profilequestions1');
       });
     });
   }
@@ -62,19 +61,37 @@ function saveClientData(client) {
         url: '/client/update/',
         data: client,
         params: {
-          id: currentClientId,
+          id: clientId,
         },
         headers: {
           id_token: idToken,
         },
       }).then(function(response) {
-        console.log('response from factory: ', response);
-        console.log('response.data from factory: ', response.data);
-        client = response.data;
+        console.log('save successful', response);
       });
     });
   } // end saveClientData
-  
+
+ // this is perhaps what we will need for the resuce operation
+  function getClientData(){
+    console.log('getClientData() function called');
+    // var clientId = client._id  this would have to come from the DB
+    var firebaseUser = auth.$getAuth();
+    firebaseUser.getToken().then(function(idToken) {
+      $http({
+        method: 'GET',
+        url: '/client/get/',
+        params: clientId,
+        headers: {
+          id_token: idToken,
+        },
+      }).then(function(response) {
+        console.log('getClientData() response.data from factory: ', response.data);
+        client = response.data;
+      });
+    });
+  }
+
   return {
     client: client,
     testMessage: testMessage,
@@ -83,5 +100,4 @@ function saveClientData(client) {
     export: exportCsv,
     saveClientData: saveClientData,
   };
-},
-]);
+}]);

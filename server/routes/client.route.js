@@ -7,6 +7,30 @@ var mongoConnection = require('../modules/mongo-connection');
 // mongoConnection.connect();
 
 /*************************************
+GET REQUESTS
+*////////////////////////////////////////
+
+router.get('/get', function(req,res){
+  console.log('client/get route hit');
+  console.log('req.query is: ', req.query);
+  var clientId = require('mongodb').ObjectId(req.query.id);
+  Client.find({
+    _id: clientId
+    },function(err,result){
+    if(err){
+      console.log('there was an error finding the client: ',err);
+      res.sendStatus(500);
+    } else {
+      console.log('successfully found this client:',result);
+      res.send(result)
+    }//end else
+  })//end /get
+});//end
+
+
+
+
+/*************************************
 POST REQUESTS
 *////////////////////////////////////////
 

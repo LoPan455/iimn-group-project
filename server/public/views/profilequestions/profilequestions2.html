@@ -2,12 +2,12 @@
 
 <md-toolbar class="toolbar" layout-align="center center">
 	<h1>Financial Health Assessment Tool</h1>
-	<h2>Welcome, {{pqc.client.firstName}} {{pqc.client.lastName}}</h2>
+	<h2>Welcome, {{pqc.client.details.firstName}} {{pqc.client.details.lastName}}</h2>
 </md-toolbar>
 
 <div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
 
-      <md-radio-group ng-model="pqc.client.dependents">
+      <md-radio-group ng-model="pqc.client.details.dependents">
         <h2>Do you have any children or dependents?</h2>
         <md-radio-button ng-value="true">Yes</md-radio-button>
         <md-radio-button ng-value="false">No</md-radio-button>
@@ -17,4 +17,5 @@
           <a href="#profilequestions1">Back</a>
           <md-button class="md-raised md-primary" href="#profilequestions3">Next</md-button>
         </md-content>
+				<p style="color: black">pqc.client.details is: {{pqc.client.details}}</p>
 </div>
