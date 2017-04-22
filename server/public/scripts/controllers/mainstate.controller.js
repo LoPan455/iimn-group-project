@@ -1,4 +1,4 @@
-app.controller('MainStateController', function(ClientFactory, hotkeys, $state) {
+app.controller('MainStateController', function(ClientFactory, hotkeys, $state, $firebaseAuth) {
 
 
   console.log('MainStateController controller running');
@@ -40,7 +40,7 @@ app.controller('MainStateController', function(ClientFactory, hotkeys, $state) {
 
   var auth = $firebaseAuth();
 
-  self.client = ClientFactory.client;
+
   // building this out to prevent the race condition on inadvertent page reload
      auth.$onAuthStateChanged(function(firebaseUser) {
        console.log('$onAuthStateChangedTriggered');
