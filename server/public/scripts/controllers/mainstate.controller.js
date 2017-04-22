@@ -1,9 +1,10 @@
-app.controller('MainStateController', function(ClientFactory,$firebaseAuth) {
+app.controller('MainStateController', function(ClientFactory,$firebaseAuth,$scope) {
 
   console.log('MainStateController controller running');
 
   var self = this;
   self.client = ClientFactory.client;
+  self.currentNavItem = 'main.budget';
   // ClientFactory.saveClientData(self.client);
 
   var auth = $firebaseAuth();
