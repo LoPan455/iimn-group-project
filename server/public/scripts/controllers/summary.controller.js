@@ -7,16 +7,16 @@ app.controller('SummaryController', function(ClientFactory) {
 // ClientFactory.saveClientData(self.client);
 
 
-  self.totalLifeExpenses = self.client.monthlyTotalDependentRelatedExpenses + self.client.monthlyTotalCreditCardLoanDebtPayments + self.client.monthlyTotalPersonalExpenses + self.client.monthlyTotalMiscellaneousExpenses;
+  self.totalLifeExpenses = self.client.details.monthlyTotalDependentRelatedExpenses + self.client.details.monthlyTotalCreditCardLoanDebtPayments + self.client.details.monthlyTotalPersonalExpenses + self.client.details.monthlyTotalMiscellaneousExpenses;
 
   //recommended budget expenses based on income
-  self.suggestedHousing = self.client.totalMonthlyIncome * 0.35;
-  self.suggestedUtilities = self.client.totalMonthlyIncome * 0.05;
-  self.suggestedFood = self.client.totalMonthlyIncome * 0.1;
-  self.suggestedTransportation = self.client.totalMonthlyIncome * 0.1;
-  self.suggestedHealth = self.client.totalMonthlyIncome * 0.05;
-  self.suggestedSavings = self.client.totalMonthlyIncome * 0.1;
-  self.suggestedMisc = self.client.totalMonthlyIncome * 0.15; 
+  self.suggestedHousing = self.client.details.totalMonthlyIncome * 0.35;
+  self.suggestedUtilities = self.client.details.totalMonthlyIncome * 0.05;
+  self.suggestedFood = self.client.details.totalMonthlyIncome * 0.1;
+  self.suggestedTransportation = self.client.details.totalMonthlyIncome * 0.1;
+  self.suggestedHealth = self.client.details.totalMonthlyIncome * 0.05;
+  self.suggestedSavings = self.client.details.totalMonthlyIncome * 0.1;
+  self.suggestedMisc = self.client.details.totalMonthlyIncome * 0.15; 
 
 
   self.benchmarkData = [35, 5, 10, 10, 5, 10, 15];
@@ -30,7 +30,7 @@ app.controller('SummaryController', function(ClientFactory) {
 
 
 
-  self.clientData = [self.client.monthlyTotalHousingExpenses, self.client.monthlyTotalUtilities, self.client.monthlyTotalFoodExpenses, self.client.monthlyTotalTransportationExpenses, self.client.monthlyTotalHealthRelatedExpenses, self.client.monthlySavingsTarget, self.totalLifeExpenses ];
+  self.clientData = [self.client.details.monthlyTotalHousingExpenses, self.client.details.monthlyTotalUtilities, self.client.details.monthlyTotalFoodExpenses, self.client.details.monthlyTotalTransportationExpenses, self.client.details.monthlyTotalHealthRelatedExpenses, self.client.details.monthlySavingsTarget, self.totalLifeExpenses ];
   self.clientLabels = ["Housing", "Utilities", "Food", "Transportation", "Health", "Savings", "Miscellaneous"];
   self.clientOptions = {
           legend: {

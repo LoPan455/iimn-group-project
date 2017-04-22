@@ -2,14 +2,14 @@
 
 <md-toolbar class="toolbar" layout-align="center center">
 	<h1>Financial Health Assessment Tool</h1>
-	<h2>Welcome, {{pqc.client.firstName}} {{pqc.client.lastName}}</h2>
+	<h2>Welcome, {{pqc.client.details.firstName}} {{pqc.client.details.lastName}}</h2>
 
 </md-toolbar>
 
 <div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
 
   <div>
-    <md-radio-group ng-model="pqc.client.housing">
+    <md-radio-group ng-model="pqc.client.details.housing">
       <h2>Do you rent or own your home?</h2>
       <md-radio-button ng-value="'Rent'">Rent</md-radio-button>
       <md-radio-button ng-value="'Own'">Own</md-radio-button>

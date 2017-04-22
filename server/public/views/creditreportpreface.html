@@ -1,33 +1,33 @@
 <div layout="column" ng-cloak class="md-inline-form">
 
 <div>
-  <md-radio-group ng-model="crc.client.presentForPull">
+  <md-radio-group ng-model="crc.client.details.presentForPull">
     <h3>Is the agency pulling the credit report with the participant present(in person or via phone)?</h3>
     <md-radio-button ng-value="true">Yes</md-radio-button>
     <md-radio-button ng-value="false">No</md-radio-button>
   </md-radio-group>
 
-  <md-radio-group ng-model="crc.client.creditErrors" ng-if="crc.client.presentForPull">
+  <md-radio-group ng-model="crc.client.details.creditErrors" ng-if="crc.client.details.presentForPull">
     <h3>Does the participant see any activity on the report that does not belong to him/her, or does participant see any errors on the report?</h3>
     <md-radio-button ng-value="false">Yes</md-radio-button>
     <md-radio-button ng-value="true">No</md-radio-button>
   </md-radio-group>
 
-  <md-radio-group ng-model="crc.client.pullSuccess">
+  <md-radio-group ng-model="crc.client.details.pullSuccess">
     <h3>Was the organization able to pull the credit report?</h3>
     <md-radio-button ng-value="true">Yes, report(s) available</md-radio-button>
     <md-radio-button ng-value="false">No report/score available</md-radio-button>
     <md-radio-button ng-value="'refused'">Client refused credit report pull</md-radio-button>
   </md-radio-group>
 
-  <md-radio-group ng-if="crc.client.pullSuccess == false" ng-model="crc.client.pullSubstatus">
+  <md-radio-group ng-if="crc.client.details.pullSuccess == false" ng-model="crc.client.details.pullSubstatus">
     <h5>Reason for no report:</h5>
     <md-radio-button ng-value="'agencyUnavailable'">-agency could not access Business report</md-radio-button>
     <md-radio-button ng-value="'consumerUnavailable'">-client could not access Consumer report</md-radio-button>
     <md-radio-button ng-value="'both'">Both</md-radio-button>
   </md-radio-group>
 
-  <!-- <md-radio-group ng-model="crc.client.pullSuccess">
+  <!-- <md-radio-group ng-model="crc.client.details.pullSuccess">
     <h3>Was the organization able to pull the credit report?</h3>
     <md-radio-button ng-value="true">Yes</md-radio-button>
     <md-radio-button ng-value="false">No</md-radio-button>
