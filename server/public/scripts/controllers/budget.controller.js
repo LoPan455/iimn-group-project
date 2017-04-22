@@ -1,26 +1,42 @@
-app.controller('BudgetController', function(ClientFactory) {
+app.controller('BudgetController', function(ClientFactory, hotkeys, $state) {
+
   console.log('BudgetController controller running');
   var self = this;
+  var auth = $firebaseAuth();
 
   self.client = ClientFactory.client;
-  console.log('self.client is an empty object', self.client);
-  ClientFactory.saveClientData(self.client);
 
-  self.client.totalMonthlyIncome = self.client.totalMonthlyIncome || 0;
-  self.client.totalMonthlyExpenses = self.client.totalMonthlyExpenses || 0;
+  // building this out to prevent the race condition on inadvertent page reload
+     auth.$onAuthStateChanged(function(firebaseUser) {
+       console.log('$onAuthStateChangedTriggered');
+       if (firebaseUser) {
+         if (self.client.details.hasOwnProperty('_id') ){
+           console.log('ok, you have a client. self.client.details.details is: ',self.client.details);
+           console.log('we will save the updated client now....');
+           ClientFactory.saveClientData(self.client.details)
+         } else {
+           console.log('you no longer have a client in the front end, perfoming rescue');
+           ClientFactory.rescueClientData()
+         }
+       }
+   });
 
-  self.client.monthlySavingsTarget = self.client.monthlySavingsTarget;
-  self.client.totalMonthlyNetIncome = self.client.totalMonthlyNetIncome || 0;
 
-  self.client.monthlyTotalHousingExpenses = self.client.monthlyTotalHousingExpenses || 0;
-  self.client.monthlyTotalUtilities = self.client.monthlyTotalUtilities || 0;
-  self.client.monthlyTotalFoodExpenses = self.client.monthlyTotalFoodExpenses || 0;
-  self.client.monthlyTotalTransportationExpenses = self.client.monthlyTotalTransportationExpenses || 0;
-  self.client.monthlyTotalHealthRelatedExpenses = self.client.monthlyTotalHealthRelatedExpenses || 0;
-  self.client.monthlyTotalDependentRelatedExpenses = self.client.monthlyTotalDependentRelatedExpenses || 0;
-  self.client.monthlyTotalCreditCardLoanDebtPayments = self.client.monthlyTotalCreditCardLoanDebtPayments || 0;
-  self.client.monthlyTotalPersonalExpenses = self.client.monthlyTotalPersonalExpenses || 0;
-  self.client.monthlyTotalMiscellaneousExpenses = self.client.monthlyTotalMiscellaneousExpenses || 0;
+  self.client.details.totalMonthlyIncome = self.client.details.totalMonthlyIncome || 0;
+  self.client.details.totalMonthlyExpenses = self.client.details.totalMonthlyExpenses || 0;
+
+  self.client.details.monthlySavingsTarget = self.client.details.monthlySavingsTarget;
+  self.client.details.totalMonthlyNetIncome = self.client.details.totalMonthlyNetIncome || 0;
+
+  self.client.details.monthlyTotalHousingExpenses = self.client.details.monthlyTotalHousingExpenses || 0;
+  self.client.details.monthlyTotalUtilities = self.client.details.monthlyTotalUtilities || 0;
+  self.client.details.monthlyTotalFoodExpenses = self.client.details.monthlyTotalFoodExpenses || 0;
+  self.client.details.monthlyTotalTransportationExpenses = self.client.details.monthlyTotalTransportationExpenses || 0;
+  self.client.details.monthlyTotalHealthRelatedExpenses = self.client.details.monthlyTotalHealthRelatedExpenses || 0;
+  self.client.details.monthlyTotalDependentRelatedExpenses = self.client.details.monthlyTotalDependentRelatedExpenses || 0;
+  self.client.details.monthlyTotalCreditCardLoanDebtPayments = self.client.details.monthlyTotalCreditCardLoanDebtPayments || 0;
+  self.client.details.monthlyTotalPersonalExpenses = self.client.details.monthlyTotalPersonalExpenses || 0;
+  self.client.details.monthlyTotalMiscellaneousExpenses = self.client.details.monthlyTotalMiscellaneousExpenses || 0;
 
 
 
@@ -28,35 +44,35 @@ app.controller('BudgetController', function(ClientFactory) {
     if (incomeField == null) {
       incomeField = 0;
     }
-    self.client.totalMonthlyIncome += Number(incomeField);
+    self.client.details.totalMonthlyIncome += Number(incomeField);
     self.calculateBudget();
-    return self.client.totalMonthlyIncome;
+    return self.client.details.totalMonthlyIncome;
   };
 
   self.updateIncome = function(incomeField) {
     if (incomeField == null) {
       incomeField = 0;
     }
-    self.client.totalMonthlyIncome -= incomeField;
+    self.client.details.totalMonthlyIncome -= incomeField;
     self.calculateBudget();
-    return self.client.totalMonthlyIncome;
+    return self.client.details.totalMonthlyIncome;
   };
 
   self.updateExpenses = function() {
-    self.client.totalMonthlyExpenses = self.client.monthlyTotalHousingExpenses + self.client.monthlyTotalUtilities + self.client.monthlyTotalFoodExpenses + self.client.monthlyTotalTransportationExpenses +
-    self.client.monthlyTotalHealthRelatedExpenses +
-    self.client.monthlyTotalDependentRelatedExpenses +
-    self.client.monthlyTotalCreditCardLoanDebtPayments +
-    self.client.monthlyTotalPersonalExpenses +
-    self.client.monthlyTotalMiscellaneousExpenses;
+    self.client.details.totalMonthlyExpenses = self.client.details.monthlyTotalHousingExpenses + self.client.details.monthlyTotalUtilities + self.client.details.monthlyTotalFoodExpenses + self.client.details.monthlyTotalTransportationExpenses +
+    self.client.details.monthlyTotalHealthRelatedExpenses +
+    self.client.details.monthlyTotalDependentRelatedExpenses +
+    self.client.details.monthlyTotalCreditCardLoanDebtPayments +
+    self.client.details.monthlyTotalPersonalExpenses +
+    self.client.details.monthlyTotalMiscellaneousExpenses;
 
     self.calculateBudget();
-    return self.client.totalMonthlyExpenses;
+    return self.client.details.totalMonthlyExpenses;
   };
 
   self.calculateBudget = function() {
-    self.client.totalMonthlyNetIncome = self.client.totalMonthlyIncome - self.client.totalMonthlyExpenses;
-    return self.client.totalMonthlyNetIncome;
+    self.client.details.totalMonthlyNetIncome = self.client.details.totalMonthlyIncome - self.client.details.totalMonthlyExpenses;
+    return self.client.details.totalMonthlyNetIncome;
   };
 
 
@@ -66,16 +82,16 @@ app.controller('BudgetController', function(ClientFactory) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalHousingExpenses += Number(expenseField);
-    return self.client.monthlyTotalHousingExpenses;
+    self.client.details.monthlyTotalHousingExpenses += Number(expenseField);
+    return self.client.details.monthlyTotalHousingExpenses;
   };
 
   self.updateHousing = function(expenseField) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalHousingExpenses -= expenseField;
-    return self.client.monthlyTotalHousingExpenses;
+    self.client.details.monthlyTotalHousingExpenses -= expenseField;
+    return self.client.details.monthlyTotalHousingExpenses;
   };
 
   //utilities section
@@ -83,16 +99,16 @@ app.controller('BudgetController', function(ClientFactory) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalUtilities += Number(expenseField);
-    return self.client.monthlyTotalUtilities;
+    self.client.details.monthlyTotalUtilities += Number(expenseField);
+    return self.client.details.monthlyTotalUtilities;
   };
 
   self.updateUtilities = function(expenseField) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalUtilities -= expenseField;
-    return self.client.monthlyTotalUtilities;
+    self.client.details.monthlyTotalUtilities -= expenseField;
+    return self.client.details.monthlyTotalUtilities;
   };
 
   //food section
@@ -100,16 +116,16 @@ app.controller('BudgetController', function(ClientFactory) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalFoodExpenses += Number(expenseField);
-    return self.client.monthlyTotalFoodExpenses;
+    self.client.details.monthlyTotalFoodExpenses += Number(expenseField);
+    return self.client.details.monthlyTotalFoodExpenses;
   };
 
   self.updateFood = function(expenseField) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalFoodExpenses -= expenseField;
-    return self.client.monthlyTotalFoodExpenses;
+    self.client.details.monthlyTotalFoodExpenses -= expenseField;
+    return self.client.details.monthlyTotalFoodExpenses;
   };
 
   //transportation section
@@ -117,16 +133,16 @@ app.controller('BudgetController', function(ClientFactory) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalTransportationExpenses += Number(expenseField);
-    return self.client.monthlyTotalTransportationExpenses;
+    self.client.details.monthlyTotalTransportationExpenses += Number(expenseField);
+    return self.client.details.monthlyTotalTransportationExpenses;
   };
 
   self.updateTransportation = function(expenseField) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalTransportationExpenses -= expenseField;
-    return self.client.monthlyTotalTransportationExpenses;
+    self.client.details.monthlyTotalTransportationExpenses -= expenseField;
+    return self.client.details.monthlyTotalTransportationExpenses;
   };
 
   //health section
@@ -134,16 +150,16 @@ app.controller('BudgetController', function(ClientFactory) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalHealthRelatedExpenses += Number(expenseField);
-    return self.client.monthlyTotalHealthRelatedExpenses;
+    self.client.details.monthlyTotalHealthRelatedExpenses += Number(expenseField);
+    return self.client.details.monthlyTotalHealthRelatedExpenses;
   };
 
   self.updateHealth = function(expenseField) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalHealthRelatedExpenses -= expenseField;
-    return self.client.monthlyTotalHealthRelatedExpenses;
+    self.client.details.monthlyTotalHealthRelatedExpenses -= expenseField;
+    return self.client.details.monthlyTotalHealthRelatedExpenses;
   };
 
   //dependent section
@@ -151,16 +167,16 @@ app.controller('BudgetController', function(ClientFactory) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalDependentRelatedExpenses += Number(expenseField);
-    return self.client.monthlyTotalDependentRelatedExpenses;
+    self.client.details.monthlyTotalDependentRelatedExpenses += Number(expenseField);
+    return self.client.details.monthlyTotalDependentRelatedExpenses;
   };
 
   self.updateDependent = function(expenseField) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalDependentRelatedExpenses -= expenseField;
-    return self.client.monthlyTotalDependentRelatedExpenses;
+    self.client.details.monthlyTotalDependentRelatedExpenses -= expenseField;
+    return self.client.details.monthlyTotalDependentRelatedExpenses;
   };
 
   //debt section
@@ -168,48 +184,78 @@ app.controller('BudgetController', function(ClientFactory) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalCreditCardLoanDebtPayments += Number(expenseField);
-    return self.client.monthlyTotalCreditCardLoanDebtPayments;
+    self.client.details.monthlyTotalCreditCardLoanDebtPayments += Number(expenseField);
+    return self.client.details.monthlyTotalCreditCardLoanDebtPayments;
   };
 
   self.updateDebt = function(expenseField) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalCreditCardLoanDebtPayments -= expenseField
-    return self.client.monthlyTotalCreditCardLoanDebtPayments;
+    self.client.details.monthlyTotalCreditCardLoanDebtPayments -= expenseField
+    return self.client.details.monthlyTotalCreditCardLoanDebtPayments;
   };
   //personal section
   self.addPersonal = function(expenseField) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalPersonalExpenses += Number(expenseField);
-    return self.client.monthlyTotalPersonalExpenses;
+    self.client.details.monthlyTotalPersonalExpenses += Number(expenseField);
+    return self.client.details.monthlyTotalPersonalExpenses;
   };
 
   self.updatePersonal = function(expenseField) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalPersonalExpenses -= expenseField
-    return self.client.monthlyTotalPersonalExpenses;
+    self.client.details.monthlyTotalPersonalExpenses -= expenseField
+    return self.client.details.monthlyTotalPersonalExpenses;
   };
   //misc section
   self.addMisc = function(expenseField) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalMiscellaneousExpenses += Number(expenseField);
-    return self.client.monthlyTotalMiscellaneousExpenses;
+    self.client.details.monthlyTotalMiscellaneousExpenses += Number(expenseField);
+    return self.client.details.monthlyTotalMiscellaneousExpenses;
   };
 
   self.updateMisc = function(expenseField) {
     if (expenseField == null) {
       expenseField = 0;
     }
-    self.client.monthlyTotalMiscellaneousExpenses -= expenseField
-    return self.client.monthlyTotalMiscellaneousExpenses;
+    self.client.details.monthlyTotalMiscellaneousExpenses -= expenseField
+    return self.client.details.monthlyTotalMiscellaneousExpenses;
   };
+
+  hotkeys.add({
+    combo: 'alt+1',
+    description: 'Switch to budget income',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      $state.transitionTo('main.budget.income');
+    }
+  });
+
+  hotkeys.add({
+    combo: 'alt+2',
+    description: 'Switch to budget expenses',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      $state.transitionTo('main.budget.expenses');
+    }
+  });
+
+  hotkeys.add({
+    combo: 'alt+3',
+    description: 'Switch to budget snapshot',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      $state.transitionTo('main.budget.snapshot');
+    }
+  });
 
 }); //end app.controller

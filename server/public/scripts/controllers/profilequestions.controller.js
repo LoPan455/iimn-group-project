@@ -1,10 +1,41 @@
-app.controller('ProfileQuestionsController', function(ClientFactory) {
+app.controller('ProfileQuestionsController', function(ClientFactory,$firebaseAuth) {
 
   console.log('ProfileQuestionsController controller running');
   var self = this;
+  var auth = $firebaseAuth();
   self.client = ClientFactory.client;
   self.assistanceSection = true;
-  ClientFactory.saveClientData(self.client);
+
+
+ // building this out to prevent the race condition on inadvertent page reload
+    auth.$onAuthStateChanged(function(firebaseUser) {
+      console.log('$onAuthStateChangedTriggered');
+      if (firebaseUser) {
+        if (self.client.details.hasOwnProperty('_id') ){
+          console.log('ok, you have a client. self.client.details is: ',self.client.details);
+          console.log('we will save the updated client now....');
+          ClientFactory.saveClientData(self.client.details)
+        } else {
+          console.log('you no longer have a client in the front end, perfoming rescue');
+          ClientFactory.rescueClientData()
+        }
+      }
+  });
+
+
+  //
+  // if (self.client.details._id == null){
+  //   console.log('you no longer have a client in the front end, perfom rescue');
+  // } else {
+  //   console.log('ok, you have a client. self.client.details is: ',self.client.details);
+  //   console.log('we will save the updated client now....');
+  //   ClientFactory.saveClientData(self.client.details)
+  // }
+
+
+
+
+    // ClientFactory.saveClientData(self.client);
 
 
   self.confirmAssistance = function(){
@@ -12,39 +43,39 @@ app.controller('ProfileQuestionsController', function(ClientFactory) {
   };
 
   self.undoAssistance = function (){
-    self.client.SNAP = null;
-    self.client.TANF = null;
-    self.client.SSI = null;
-    self.client.alimony = null;
-    self.client.workersComp = null;
-    self.client.otherAssist = null;
+    self.client.details.SNAP = null;
+    self.client.details.TANF = null;
+    self.client.details.SSI = null;
+    self.client.details.alimony = null;
+    self.client.details.workersComp = null;
+    self.client.details.otherAssist = null;
   }
 
   self.undoShare = function() {
     // console.log('mawige is what bwings us together');
-    if (self.client.individual != null) {
-      self.client.individual = null;  
+    if (self.client.details.individual != null) {
+      self.client.details.individual = null;
     }
   };
 
   self.neverBorrowed = function(){
-    self.client.borrowed = false;
-    self.client.creditCard = null;
-    self.client.autoLoan = null;
-    self.client.mortgage = null;
-    self.client.heloc = null;
-    self.client.studentLoan = null;
-    self.client.otherLoan = null;
+    self.client.details.borrowed = false;
+    self.client.details.creditCard = null;
+    self.client.details.autoLoan = null;
+    self.client.details.mortgage = null;
+    self.client.details.heloc = null;
+    self.client.details.studentLoan = null;
+    self.client.details.otherLoan = null;
   };
 
   self.clearAccounts = function(){
-    self.client.checking = false;
-    self.client.savings = false;
+    self.client.details.checking = false;
+    self.client.details.savings = false;
   };
 
 
   self.undoVehicle = function() {
-      self.client.numberVehicles = null;
+      self.client.details.numberVehicles = null;
   };
 
 
