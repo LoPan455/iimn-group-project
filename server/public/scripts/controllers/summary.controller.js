@@ -59,6 +59,7 @@ app.controller('SummaryController', function(ClientFactory,$firebaseAuth) {
 
 
 self.export = function() {
+  console.log('CSV-Spreadsheet Download clicked.', self.export)
   ClientFactory.export();
 };
 

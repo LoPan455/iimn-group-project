@@ -35,7 +35,7 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
       $http({ 
         method: 'post',
         url: '/summary/getcsv',
-        params: currentClientId,
+        params: client,
         headers: {
           id_token: idToken,
         },
