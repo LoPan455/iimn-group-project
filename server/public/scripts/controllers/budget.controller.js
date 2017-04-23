@@ -1,10 +1,26 @@
-app.controller('BudgetController', function(ClientFactory) {
+app.controller('BudgetController', function(ClientFactory, hotkeys, $state) {
+
   console.log('BudgetController controller running');
   var self = this;
+  var auth = $firebaseAuth();
 
   self.client = ClientFactory.client;
-  console.log('self.client is an empty object', self.client);
-  ClientFactory.saveClientData(self.client);
+
+  // building this out to prevent the race condition on inadvertent page reload
+     auth.$onAuthStateChanged(function(firebaseUser) {
+       console.log('$onAuthStateChangedTriggered');
+       if (firebaseUser) {
+         if (self.client.details.hasOwnProperty('_id') ){
+           console.log('ok, you have a client. self.client.details.details is: ',self.client.details);
+           console.log('we will save the updated client now....');
+           ClientFactory.saveClientData(self.client.details)
+         } else {
+           console.log('you no longer have a client in the front end, perfoming rescue');
+           ClientFactory.rescueClientData()
+         }
+       }
+   });
+
 
   self.client.details.totalMonthlyIncome = self.client.details.totalMonthlyIncome || 0;
   self.client.details.totalMonthlyExpenses = self.client.details.totalMonthlyExpenses || 0;
@@ -211,5 +227,35 @@ app.controller('BudgetController', function(ClientFactory) {
     self.client.details.monthlyTotalMiscellaneousExpenses -= expenseField
     return self.client.details.monthlyTotalMiscellaneousExpenses;
   };
+
+  hotkeys.add({
+    combo: 'alt+1',
+    description: 'Switch to budget income',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      $state.transitionTo('main.budget.income');
+    }
+  });
+
+  hotkeys.add({
+    combo: 'alt+2',
+    description: 'Switch to budget expenses',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      $state.transitionTo('main.budget.expenses');
+    }
+  });
+
+  hotkeys.add({
+    combo: 'alt+3',
+    description: 'Switch to budget snapshot',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      $state.transitionTo('main.budget.snapshot');
+    }
+  });
 
 }); //end app.controller

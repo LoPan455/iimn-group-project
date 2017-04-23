@@ -1,9 +1,28 @@
-app.controller('BalanceSheetController', function(ClientFactory) {
+app.controller('BalanceSheetController', function(ClientFactory, hotkeys, $state) {
+
 
   console.log('BalanceSheetController controller running');
   var self = this;
-    self.client = ClientFactory.client;
-    ClientFactory.saveClientData(self.client);
+
+  self.client = ClientFactory.client;
+
+  var auth = $firebaseAuth();
+
+  self.client = ClientFactory.client;
+  // building this out to prevent the race condition on inadvertent page reload
+     auth.$onAuthStateChanged(function(firebaseUser) {
+       console.log('$onAuthStateChangedTriggered');
+       if (firebaseUser) {
+         if (self.client.details.hasOwnProperty('_id') ){
+           console.log('ok, you have a client. self.client.details.details is: ',self.client.details);
+           console.log('we will save the updated client now....');
+           ClientFactory.saveClientData(self.client.details)
+         } else {
+           console.log('you no longer have a client in the front end, perfoming rescue');
+           ClientFactory.rescueClientData()
+         }
+       }
+   });
 
 
     //calculated variables
@@ -14,11 +33,15 @@ app.controller('BalanceSheetController', function(ClientFactory) {
 
     //liability variables
     self.client.details.totalHousingLiabilities = self.client.details.totalHousingLiabilities|| 0;
+
     self.client.details.totalTransportationLiabilities = self.client.details.totalTransportationLiabilities || 0;
     self.client.details.totalCreditCardsOtherLoanBalance = self.client.details.totalCreditCardsOtherLoanBalance || 0;
     self.client.details.totalUnpaidBillsNotInCollections = self.client.details.totalUnpaidBillsNotInCollections || 0;
     self.client.details.totalCollectionsChargeOffsJudgments = self.client.details.totalCollectionsChargeOffsJudgments || 0;
+
     self.client.details.totalLiabilities = self.client.details.totalLiabilities || 0;
+
+
 
 // asset functions
     self.addAssets = function (assetField){
@@ -136,4 +159,35 @@ app.controller('BalanceSheetController', function(ClientFactory) {
       self.client.details.totalNetWorth = self.client.details.totalAssets - self.client.details.totalLiabilities;
       return self.client.details.totalNetWorth;
     };
+
+    hotkeys.add({
+      combo: 'alt+1',
+      description: 'Switch to Balancesheet Assets',
+      callback: function(){
+        self.addAssets();
+        self.updateLibailities();
+        $state.transitionTo('main.balanceSheet.assets');
+      }
+    });
+
+    hotkeys.add({
+      combo: 'alt+2',
+      description: 'Switch to Balancesheet Liabilities',
+      callback: function(){
+        self.addAssets();
+        self.updateLibailities();
+        $state.transitionTo('main.balanceSheet.liabilities');
+      }
+    });
+
+    hotkeys.add({
+      combo: 'alt+3',
+      description: 'Switch to Balancesheet Snapshot',
+      callback: function(){
+        self.addAssets();
+        self.updateLibailities();
+        $state.transitionTo('main.balanceSheet.snapshot');
+      }
+    });
+
 });//end app.controller

@@ -1,4 +1,19 @@
 https://www.npmjs.com/package/json2csv
+
+/////////////////////////////////////////////////////////////////////////////////
+#Example 2
+var json2csv = require('json2csv');
+var fields = ['field1', 'field2', 'field3'];
+ 
+try {
+  var result = json2csv({ data: myData, fields: fields });
+  console.log(result);
+} catch (err) {
+  // Errors are thrown for bad options, or if the data is empty and no fields are provided. 
+  // Be sure to provide fields if it is possible that your data array will be empty. 
+  console.error(err);
+}
+
 /////////////////////////////////////////////////////////////////////////////////
 #Example 2
 *Similarly to mongoexport you can choose which fields to export.*

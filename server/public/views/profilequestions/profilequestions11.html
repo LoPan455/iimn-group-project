@@ -3,10 +3,12 @@
 	<h1>Financial Health Assessment Tool</h1>
 </md-toolbar>
 <div layout-align="center center" layout="column" ng-cloak class="profile md-inline-form md-display-1">
+
 	<h4>Summary for {{pqc.client.details.firstName}} {{pqc.client.details.lastName}}</h4>
 
 	<div class="profile md-inline-form md-title" layout="column"  layout-align="left left">
     <md-content class="profile profileSummaryMargin">
+
       <p ng-if="pqc.client.details.maritalStatus == 'married'">You are married</p>
       <p ng-if="pqc.client.details.maritalStatus == 'single'">You are not married</p>
       <p ng-if="pqc.client.details.individual == true">You file single</p>

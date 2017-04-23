@@ -3,61 +3,38 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var mongoConnection = require('../modules/mongo-connection');
 var Client = require('../models/clientMasterSchema');
-var json2csv = require('json2csv');
+// var json2csv = require('json2csv');
+var csv = require('express-csv');
 var fs = require('fs');
 
-var arrayOfObjects = [
-	{
-		"firstName" : "01a",
-		"lastName" : "01b",
-		"email" : "01c"
-	},
-	{
-		"firstName" : "02a",
-		"lastName" : "02b",
-		"email" : "02c"
-	},
-	{
-		"firstName" : "03a",
-		"lastName" : "03b",
-		"email" : "03c"
-	},
-	{
-		"firstName" : "04a",
-		"lastName" : "04b",
-		"email" : "04c"
-	}
-];
-var propertyKeys = ['firstName', 'lastName', 'email'];
-var client = json2csv({data: arrayOfObjects, fields: propertyKeys }); // Hardcoding works
+router.post('/getcsv', function(req, res){
+	var clientId = require('mongodb').ObjectId(req.query.id);
+	// console.log('summary.route.js / router.post / req.query.id: ', req.query.id); // = undefined
+	// console.log('summary.route.js / router.post / req.query: ', req.query); // = empty object {}
+	console.log('summary.route.js / router.post / mongodb-ObjectId(req.query.id): ', require('mongodb').ObjectId(req.query.id)); // = empty object {}
+	// console.log('summary.route.js / router.post / req: ', req); // = Big object with no db data
+	// console.log('summary.route.js / router.post / clientId: ', clientId); // = an id (58fbbba9863c3a1c5e7b716d) not in db!!
+  var data = [clientId]; // CSV-create an array from the mongo object so we can use .unshift() later
+  var headers = Object.keys(clientId); // CSV-create a header row from the object's keys/properties
+	Client.find({_id: clientId}, function (err, client) {
 
-// *NOTE: This still hard-coded from clientfactory / var currentClientId*
-router.post('/export/', function(req,res){ // don't need /:id because getting entire object?
-	var clientId = require('mongodb').ObjectId(req.query.id);  // this is with currentClientId
-  		Client.find(
-          {_id: clientId},
-					function (err, client) {
-            if (err) {
-                console.log('error on db lookup POST: ',err);
-                res.status(500).send(err)
-            } else {
-						fs.writeFile('client-export-file.csv', client, function(err) {  // clientId
-					  res.send(client); // saves to server
-            console.log('json2csv-fs.writeFile success / client: ', client);
-					});	
-	    } //end else
-  }); //end newClient.save
-}); //end router.post
+	// console.log('summary.route.js / router.post / res: ', res); // = 
+	console.log('summary.route.js / router.post / res.query: ', res.query); // = 
+	// console.log('summary.route.js / router.post / res.data: ', res.data); // = undefined
+	console.log('summary.route.js / router.post / clientId: ', clientId); // = an id (58fbbba9863c3a1c5e7b716d) not in db!!
+	console.log('summary.route.js / router.post / client: ', client); // = empty array brackets []
 
-
-
-
-// fs.writeFile('client-export-file.csv', clientId, function(err) {
-// var csv = json2csv({data: arrayOfObjects, fields: propertyKeys });
-//  //   res.send(csv) // saves to server
-//       res.attachment('client-export-file.csv')
-// 			fs.unlink('client-export-file.csv')
-
+		if (err) {
+			console.log('error on db lookup POST: ',err);
+			res.status(500).send(err);
+			} else {
+				console.log('summary.route.js / router.post / else / data: ', data); // the var data which is same as clientId above within [ ]
+				data.unshift(headers); 	// CSV-push keys array to the beginning of data array
+				// console.log('data: ', data);
+				res.csv(data); //CSV
+			}
+			});
+		});
 
 module.exports = router;
 
