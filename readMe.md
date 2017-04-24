@@ -25,3 +25,12 @@ _Italics_
 7. PropelwareBusiness Automation for Quickbooks/SalesForce/E-Commerence<br>
 8. Target_Retail Sales<br>
 9. The Nerdery_Full-Stack Software Development<br>
+
+*Career Day:*
+1. Granicus_Gov't Cloud Services/Support
+2. Azend_Full-Stack Software Development
+3. The Nerdery_Full-Stack Software Development
+4. infor/Team Absolute_Full-Stack Software Development/Cloud Solutions
+5. CH Robinson_Domestic/International Logistics
+6. Modis_IT/Engineering Recruiters
+7. OppSource_Sales Development Software/CMS
