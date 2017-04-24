@@ -2,8 +2,8 @@ app.controller('BalanceSheetController', function(ClientFactory,$firebaseAuth) {
 
   console.log('BalanceSheetController controller running');
   var self = this;
-
   self.client = ClientFactory.client;
+  self.currentNavItem = 'main.balanceSheet.assets';
 
   var auth = $firebaseAuth();
 
