@@ -15,10 +15,10 @@ app.controller('SummaryController', function(ClientFactory,$firebaseAuth) {
          if (self.client.details.hasOwnProperty('_id') ){
            console.log('ok, you have a client. self.client.details.details is: ',self.client.details);
            console.log('we will save the updated client now....');
-           ClientFactory.saveClientData(self.client.details)
+           ClientFactory.saveClientData(self.client.details);
          } else {
            console.log('you no longer have a client in the front end, perfoming rescue');
-           ClientFactory.rescueClientData()
+           ClientFactory.rescueClientData();
          }
        }
    });
@@ -36,7 +36,8 @@ app.controller('SummaryController', function(ClientFactory,$firebaseAuth) {
   self.suggestedMisc = self.client.details.totalMonthlyIncome * 0.15;
 
 
-  self.benchmarkData = [35, 5, 10, 10, 5, 10, 15];
+  // self.benchmarkData = [35, 5, 10, 10, 5, 10, 15];
+  self.benchmarkData = [self.suggestedHousing, self.suggestedUtilities, self.suggestedFood, self.suggestedTransportation, self.suggestedHealth, self.suggestedSavings, self.suggestedMisc];
   self.benchmarkLabels = ["Housing", "Utilities", "Food", "Transportation", "Health", "Savings", "Miscellaneous"];
   self.benchmarkOptions = {
           legend: {

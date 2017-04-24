@@ -1,4 +1,4 @@
-app.controller('BalanceSheetController', function(ClientFactory, hotkeys, $state) {
+app.controller('BalanceSheetController', function(ClientFactory, hotkeys, $state, $firebaseAuth) {
 
 
   console.log('BalanceSheetController controller running');

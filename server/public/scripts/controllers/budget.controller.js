@@ -1,4 +1,4 @@
-app.controller('BudgetController', function(ClientFactory, hotkeys, $state) {
+app.controller('BudgetController', function(ClientFactory, hotkeys, $state, $firebaseAuth) {
 
   console.log('BudgetController controller running');
   var self = this;
