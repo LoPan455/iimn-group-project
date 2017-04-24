@@ -5,6 +5,7 @@ app.controller('MainStateController', function(ClientFactory, hotkeys, $state, $
 
   var self = this;
   self.client = ClientFactory.client;
+  self.currentNavItem = 'main.budget';
   // ClientFactory.saveClientData(self.client);
   hotkeys.add({
     combo: 'shift+alt+1',
