@@ -5,6 +5,7 @@ app.controller('BudgetController', function(ClientFactory, hotkeys, $state, $fir
   var auth = $firebaseAuth();
 
   self.client = ClientFactory.client;
+  self.currentNavItem = 'main.budget.income'
 
   // building this out to prevent the race condition on inadvertent page reload
      auth.$onAuthStateChanged(function(firebaseUser) {
