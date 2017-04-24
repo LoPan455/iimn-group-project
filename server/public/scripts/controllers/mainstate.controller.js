@@ -1,4 +1,5 @@
-app.controller('MainStateController', function(ClientFactory,$firebaseAuth,$scope) {
+app.controller('MainStateController', function(ClientFactory, hotkeys, $state, $firebaseAuth) {
+
 
   console.log('MainStateController controller running');
 
@@ -6,10 +7,41 @@ app.controller('MainStateController', function(ClientFactory,$firebaseAuth,$scop
   self.client = ClientFactory.client;
   self.currentNavItem = 'main.budget';
   // ClientFactory.saveClientData(self.client);
+  hotkeys.add({
+    combo: 'shift+alt+1',
+    description: 'Directs to budget view',
+    callback: function(){
+      $state.transitionTo('main.budget')
+    }
+  });
+
+  hotkeys.add({
+    combo: 'shift+alt+2',
+    description: 'Directs to balancesheet view',
+    callback: function(){
+      $state.transitionTo('main.balanceSheet')
+    }
+  });
+
+  hotkeys.add({
+    combo: 'shift+alt+3',
+    description: 'Directs to credit report view',
+    callback: function(){
+      $state.transitionTo('main.creditReport.scores')
+    }
+  });
+
+  hotkeys.add({
+    combo: 'shift+alt+4',
+    description: 'Directs to summary view',
+    callback: function(){
+      $state.transitionTo('main.summary')
+    }
+  });
 
   var auth = $firebaseAuth();
 
-  self.client = ClientFactory.client;
+
   // building this out to prevent the race condition on inadvertent page reload
      auth.$onAuthStateChanged(function(firebaseUser) {
        console.log('$onAuthStateChangedTriggered');

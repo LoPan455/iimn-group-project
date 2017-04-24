@@ -6,7 +6,7 @@ mongoConnection.connect();
 
 
 router.get('/clientbalanceschema', function(req, res) {
-  console.log('/login route hit: ', req.decodedToken);
+  console.log('clientSchema.route.js / login route hit: ', req.decodedToken);
   var clientBalanceSchemaToken = req.decodedToken; // creating variable which equals the decoded token email.
   
   
@@ -18,10 +18,10 @@ router.get('/clientbalanceschema', function(req, res) {
     },
     function(err, receipt) {
       if (err) {
-        console.log('Error completing user query', err);
+        console.log('clientSchema.route.js / error completing user query', err);
         res.sendStatus(500);
       } else {
-          console.log('successful user query', receipt);
+          console.log('clientSchema.route.js / successful user query', receipt);
           res.sendStatus(200); // send is for data, status for messages.
 
         }

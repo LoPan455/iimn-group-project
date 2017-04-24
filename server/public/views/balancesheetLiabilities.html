@@ -1,13 +1,10 @@
 <!-- NOTE:This is Balance Sheet Liabilities Tab-->
-
 <h1>Total Liabilities <span ng-model="bsc.client.details.totalLiabilities" ng-if="bsc.client.details.totalLiabilities > 0">{{bsc.client.details.totalLiabilities | currency:"$":0}}</span></h1>
-
 
 <div layout="column" ng-cloak class="md-inline-form" ng-keyup="bsc.updateLibailities()" ng-mousemove="bsc.updateLibailities()"><!---->
 
 
   <div ng-if="bsc.client.details.housing === 'Own'"><!-- housingLiabilities section -->
-
     <h3>Housing Liabilities <span ng-model="bsc.client.details.totalHousingLiabilities" ng-if="bsc.client.details.totalHousingLiabilities > 0">{{bsc.client.details.totalHousingLiabilities | currency:"$":0}}</span></h3>
 
     <md-input-container>
@@ -26,9 +23,7 @@
 
     </md-input-container>
 
-
   <!-- <h4>Total Housing Liabilities:<span ng-model="bsc.client.details.totalHousingLiabilities">{{bsc.client.details.totalHousingLiabilities}}</span></h4> -->
-
   </div>
 
 
@@ -58,7 +53,6 @@
     </md-input-container>
 
     <!-- <h4>Total Transportation Liabilities: <span ng-model="bsc.client.details.totalTransportationLiabilities">{{bsc.client.details.totalTransportationLiabilities}}</span></h4> -->
-
 
   </div>
 
@@ -102,14 +96,10 @@
     </md-input-container>
 
     <!-- <h4>Total Credit Card & Loan Liabilities:<span ng-model="bsc.client.details.totalCreditCardsOtherLoanBalance">{{bsc.client.details.totalCreditCardsOtherLoanBalance}}</span></h4> -->
-
-
   </div>
 
   <div><!-- unpaid bills seciton -->
-
     <h3>Unpaid Bills (not in collection) <span ng-model="bsc.client.details.totalUnpaidBillsNotInCollections" ng-if="bsc.client.details.totalUnpaidBillsNotInCollections > 0">{{bsc.client.details.totalUnpaidBillsNotInCollections | currency:"$":0}}</span></h3>
-
     <md-input-container >
       <label for="utility">Unpaid Utilities</label>
 
@@ -146,10 +136,7 @@
 
     </md-input-container>
 
-
     <!-- <h4>Total Unpaid Bills (not in collection):<span ng-model="bsc.client.details.totalUnpaidBillsNotInCollections">{{bsc.client.details.totalUnpaidBillsNotInCollections}}</span></h4> -->
-
-
   </div>
 
   <div ng-if="bsc.client.details.pastDueCalls"><!-- collections/judgement section ng-if="bsc.client.details.collectionCall"-->
@@ -198,11 +185,8 @@
       </md-input-container>
     </div>
 
-
     <!-- <h4>Total Collections/Charge-Offs/Judgements:<span ng-model="bsc.client.details.totalCollectionsChargeOffsJudgments">{{bsc.client.details.totalCollectionsChargeOffsJudgments}}</span></h4> -->
-
   </div>
-
 
 
 

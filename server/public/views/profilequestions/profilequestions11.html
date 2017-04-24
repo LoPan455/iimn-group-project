@@ -24,7 +24,7 @@
       <p ng-if="pqc.client.details.housing == 'Own'">You own your home</p>
       <p ng-if="pqc.client.details.housing == 'Rent'">You rent your home</p>
       <p ng-if="pqc.client.details.vehicle">You own {{pqc.client.details.numberVehicles}} car(s)</p>
-      <p ng-if="pqc.client.details.bank == true">Your bank accounts are:<span ng-if="(pqc.client.details.checking == true && pqc.client.details.savings != true)">checking</span> <span ng-if="(pqc.client.details.checking != true && pqc.client.details.savings == true)">savings</span><span ng-if="(pqc.client.details.checking == true && pqc.client.details.savings == true)">checking & savings</span></p>
+      <p ng-if="pqc.client.details.bank == true">Your bank accounts are: <span ng-if="(pqc.client.details.checking == true && pqc.client.details.savings != true)">checking</span> <span ng-if="(pqc.client.details.checking != true && pqc.client.details.savings == true)">savings</span><span ng-if="(pqc.client.details.checking == true && pqc.client.details.savings == true)">checking & savings</span></p>
       <p ng-if="pqc.client.details.creditCard"> You have a credit card </p>
       <p ng-if="pqc.client.details.autoLoan"> You have an auto loan </p>
       <p ng-if="pqc.client.details.mortgage"> You have a mortgage </p>

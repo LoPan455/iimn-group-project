@@ -14,10 +14,10 @@ app.controller('ProfileQuestionsController', function(ClientFactory,$firebaseAut
         if (self.client.details.hasOwnProperty('_id') ){
           console.log('ok, you have a client. self.client.details is: ',self.client.details);
           console.log('we will save the updated client now....');
-          ClientFactory.saveClientData(self.client.details)
+          ClientFactory.saveClientData(self.client.details);
         } else {
           console.log('you no longer have a client in the front end, perfoming rescue');
-          ClientFactory.rescueClientData()
+          ClientFactory.rescueClientData();
         }
       }
   });
@@ -49,14 +49,12 @@ app.controller('ProfileQuestionsController', function(ClientFactory,$firebaseAut
     self.client.details.alimony = null;
     self.client.details.workersComp = null;
     self.client.details.otherAssist = null;
-  }
+  };
 
   self.undoShare = function() {
     // console.log('mawige is what bwings us together');
-
     if (self.client.details.individual != null) {
       self.client.details.individual = null;
-
     }
   };
 

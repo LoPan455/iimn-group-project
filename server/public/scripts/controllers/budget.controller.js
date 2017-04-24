@@ -1,4 +1,5 @@
-app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
+app.controller('BudgetController', function(ClientFactory, hotkeys, $state, $firebaseAuth) {
+
   console.log('BudgetController controller running');
   var self = this;
   var auth = $firebaseAuth();
@@ -227,5 +228,35 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
     self.client.details.monthlyTotalMiscellaneousExpenses -= expenseField
     return self.client.details.monthlyTotalMiscellaneousExpenses;
   };
+
+  hotkeys.add({
+    combo: 'alt+1',
+    description: 'Switch to budget income',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      $state.transitionTo('main.budget.income');
+    }
+  });
+
+  hotkeys.add({
+    combo: 'alt+2',
+    description: 'Switch to budget expenses',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      $state.transitionTo('main.budget.expenses');
+    }
+  });
+
+  hotkeys.add({
+    combo: 'alt+3',
+    description: 'Switch to budget snapshot',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      $state.transitionTo('main.budget.snapshot');
+    }
+  });
 
 }); //end app.controller
