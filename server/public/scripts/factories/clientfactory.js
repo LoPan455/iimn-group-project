@@ -40,14 +40,22 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
           id_token: idToken,
         },
       }).then(function(response) {
-      // console.log('clientfactory / function exportCsv / then(function / getToken = ', idToken)
-      // console.log('clientfactory / then(function / response = ', response) // Object {data: ""_bsontype","id"↵"ObjectID","X��Y�_��|,"↵", status: 200, config: Object, statusText: "OK", headers: function}
-      console.log('clientfactory / response typeOf = ', typeof response) // = object
-      console.log('clientfactory / response.data typeOf = ', typeof response.data) // = string
-      console.log('clientfactory / response.data = ', response.data) // = "_bsontype","id"↵"ObjectID","X��Y�_��|,"↵
+      // console.log('clientfactory / function exportCsv / then(function / getToken = ', idToken) // returns firebase id token
+      console.log('clientfactory / then(function / response = ', response); // Object {data: ""_bsontype","id"↵"ObjectID","X��Y�_��|,"↵", status: 200, config: Object, statusText: "OK", headers: function}
+      console.log('clientfactory / response typeOf = ', typeof response); // = object
+      console.log('clientfactory / response.data typeOf = ', typeof response.data); // = string
+      console.log('clientfactory / response.data = ', response.data); // = "_bsontype","id"↵"ObjectID","X��Y�_��|,"↵
 
       // Note: CSV Code
+      // https://developer.mozilla.org/en-US/docs/Web/API/Blob
       var blob = new Blob([response.data], { type: response.config.dataType });
+      console.log('clientfactory / blob typeOf = ', typeof blob); // = 
+      
+      var reader = new FileReader();
+      reader.addEventListener("loadend", function() {
+      // reader.result contains the contents of blob as a typed array
+      });
+      reader.readAsArrayBuffer(blob);
 
       var windowUrl = (window.URL || window.webkitURL);
       var downloadUrl = windowUrl.createObjectURL(blob);
