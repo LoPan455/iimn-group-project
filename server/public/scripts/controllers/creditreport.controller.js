@@ -4,6 +4,7 @@ app.controller('CreditReportController', function(ClientFactory,$firebaseAuth) {
 
   var self = this;
   self.client = ClientFactory.client;
+  self.currentNavItem = 'main.creditReport.scores'
 
   var auth = $firebaseAuth();
 
