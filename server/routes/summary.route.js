@@ -27,7 +27,8 @@ router.post('/getcsv', function(req, res){
 		if (err) {
 			console.log('error on db lookup POST: ',err);
 			res.status(500).send(err);
-			} else {
+		} else {
+			
 				console.log('summary.route.js / router.post / else / data: ', data); // the var data which is same as clientId above within [ ]
 				data.unshift(headers); 	// CSV-push keys array to the beginning of data array
 				// console.log('data: ', data);
