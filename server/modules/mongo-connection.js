@@ -10,4 +10,3 @@ var connectToMongoDatabase = function(){
   });
 }
 module.exports = { connect: connectToMongoDatabase };
-// exporting an object with an attritube called connect

@@ -8,6 +8,7 @@ var decoder = require('./modules/decoder.js');
 var bodyParser = require('body-parser');
 var summary = require('./routes/summary.route.js');
 
+
 app.get('/', function(req, res){
   res.sendFile(path.resolve('server/public/views/index.html'));
 });

@@ -1,8 +1,9 @@
+// This willl process the encyrpted token attached to any inbound requests and check the 'users' db collection to confirm that the requestor exists in the db.
+
 var admin = require("firebase-admin");
 var serviceAccount = require("../firebase-service-account.json");
 var UserMon = require('../models/user');
-var mongoConnection = require('../modules/mongo-connection'); // needed for user authorization
-mongoConnection.connect(); // checks for a valid user in the database
+
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -11,9 +12,15 @@ admin.initializeApp({
 
 var tokenDecoder = function(req, res, next) {
   if (req.headers.id_token) {
+
+    // decodes the encrypted token
+
     admin.auth().verifyIdToken(req.headers.id_token).then(function(decodedToken) {
       req.decodedToken = decodedToken;
       var userEmail = req.decodedToken.email;
+
+      // checks for a corresponding user in the db
+
       UserMon.findOne(
         {
           email: userEmail
@@ -25,6 +32,9 @@ var tokenDecoder = function(req, res, next) {
             res.sendStatus(500);
           } else {
             console.log('successful user query', user);
+
+            // runs whatever function is next in app.js
+
             next();
           }
         })
@@ -34,7 +44,7 @@ var tokenDecoder = function(req, res, next) {
         });
       })
     } else {
-      res.sendStatus(403); // chrome error hanfdling??
+      res.sendStatus(403);
     }
   };
 
