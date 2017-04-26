@@ -39,6 +39,9 @@ var tokenDecoder = function(req, res, next) {
           }
         })
         .catch(function(error) {
+
+          // error handling in the event the token cannnot be verified
+
           console.log('User token unverified');
           res.sendStatus(403);
         });
