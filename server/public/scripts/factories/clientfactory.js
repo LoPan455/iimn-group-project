@@ -28,11 +28,11 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
     });
   }
 // CSV Export Function
-  function exportCsv() { 
+  function exportCsv() {
     console.log('exportCsv function run');
       var firebaseUser = auth.$getAuth();
-      firebaseUser.getToken().then(function(idToken) { 
-      $http({ 
+      firebaseUser.getToken().then(function(idToken) {
+      $http({
         method: 'post',
         url: '/summary/getcsv',
         params: client,
@@ -49,8 +49,8 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
       // Note: CSV Code
       // https://developer.mozilla.org/en-US/docs/Web/API/Blob
       var blob = new Blob([response.data], { type: response.config.dataType });
-      console.log('clientfactory / blob typeOf = ', typeof blob); // = 
-      
+      console.log('clientfactory / blob typeOf = ', typeof blob); // =
+
       var reader = new FileReader();
       reader.addEventListener("loadend", function() {
       // reader.result contains the contents of blob as a typed array
@@ -112,6 +112,14 @@ function saveClientData(client) {
     });
   }
 
+  //function for resetting the client for a new session
+  function newSession() {
+    console.log('new session hit');
+    client = { details: {} };
+    saveClientData(client);
+    return client;
+  }
+
   return {
     client: client,
     testMessage: testMessage,
@@ -119,6 +127,7 @@ function saveClientData(client) {
     newClient: newClient,
     export: exportCsv,
     saveClientData: saveClientData,
-    rescueClientData: rescueClientData
+    rescueClientData: rescueClientData,
+    newSession: newSession
   };
 }]);

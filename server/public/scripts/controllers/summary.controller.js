@@ -1,4 +1,4 @@
-app.controller('SummaryController', function(ClientFactory,$firebaseAuth) {
+app.controller('SummaryController', function(ClientFactory,$firebaseAuth, hotkeys, $state) {
   console.log('SummaryController controller running');
 
 
@@ -64,7 +64,16 @@ self.export = function() {
   ClientFactory.export();
 };
 
-
+hotkeys.add({
+  combo: 'shift+alt+n',
+  description: 'Begins a new interview session',
+  callback: function(){
+    console.log('Before new session', self.client);
+    ClientFactory.newSession();
+    console.log('After new session',self.client);
+    $state.transitionTo('welcome')
+  }
+});
 
 
 });//end app.controller
