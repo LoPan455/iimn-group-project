@@ -57,4 +57,4 @@ app.controller('MainStateController', function(ClientFactory, hotkeys, $state, $
        }
    });
 
-});//end app.controller
+});

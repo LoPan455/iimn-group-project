@@ -36,7 +36,6 @@ app.controller('ProfileQuestionsController', function(ClientFactory,$firebaseAut
   };
 
   self.undoShare = function() {
-    // console.log('mawige is what bwings us together');
     if (self.client.details.individual != null) {
       self.client.details.individual = null;
     }
@@ -63,4 +62,4 @@ app.controller('ProfileQuestionsController', function(ClientFactory,$firebaseAut
   };
 
 
-});//end app.controller
+});

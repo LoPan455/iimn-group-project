@@ -36,7 +36,7 @@ app.controller('SummaryController', function(ClientFactory,$firebaseAuth, hotkey
   self.suggestedMisc = self.client.details.totalMonthlyIncome * 0.15;
 
 
-  // self.benchmarkData = [35, 5, 10, 10, 5, 10, 15];
+  
   self.benchmarkData = [self.suggestedHousing, self.suggestedUtilities, self.suggestedFood, self.suggestedTransportation, self.suggestedHealth, self.suggestedSavings, self.suggestedMisc];
   self.benchmarkLabels = ["Housing", "Utilities", "Food", "Transportation", "Health", "Savings", "Miscellaneous"];
   self.benchmarkOptions = {
