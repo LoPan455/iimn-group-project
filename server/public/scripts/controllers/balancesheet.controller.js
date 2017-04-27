@@ -16,10 +16,10 @@ app.controller('BalanceSheetController', function(ClientFactory, hotkeys, $state
          if (self.client.details.hasOwnProperty('_id') ){
            console.log('ok, you have a client. self.client.details.details is: ',self.client.details);
            console.log('we will save the updated client now....');
-           ClientFactory.saveClientData(self.client.details)
+           ClientFactory.saveClientData(self.client.details);
          } else {
            console.log('you no longer have a client in the front end, perfoming rescue');
-           ClientFactory.rescueClientData()
+           ClientFactory.rescueClientData();
          }
        }
    });
@@ -45,7 +45,7 @@ app.controller('BalanceSheetController', function(ClientFactory, hotkeys, $state
 
 // asset functions
     self.addAssets = function (assetField){
-      if (assetField == null) {
+      if (assetField === undefined) {
         assetField = 0;
       }
     self.client.details.totalAssets += Number (assetField);
@@ -53,7 +53,7 @@ app.controller('BalanceSheetController', function(ClientFactory, hotkeys, $state
   };
 
     self.updateAssets = function(assetField){
-      if (assetField == null) {
+      if (assetField === undefined) {
         assetField = 0;
       }
       self.client.details.totalAssets -=  assetField;
@@ -64,7 +64,7 @@ app.controller('BalanceSheetController', function(ClientFactory, hotkeys, $state
 // liabilities functions
     // housing section
     self.addHousing = function(subSection) {
-      if (subSection == null) {
+      if (subSection === undefined) {
         subSection = 0;
       }
       self.client.details.totalHousingLiabilities += Number (subSection);
@@ -72,16 +72,16 @@ app.controller('BalanceSheetController', function(ClientFactory, hotkeys, $state
     };
 
     self.updateHouse = function(inputField){
-      if (inputField == null) {
+      if (inputField === undefined) {
         inputField = 0;
       }
-      self.client.details.totalHousingLiabilities -=  inputField
+      self.client.details.totalHousingLiabilities -=  inputField;
       return self.client.details.totalHousingLiabilities;
     };
 
     //transport section
     self.addAuto = function(subSection) {
-      if (subSection == null) {
+      if (subSection === undefined) {
         subSection = 0;
       }
       self.client.details.totalTransportationLiabilities += Number (subSection);
@@ -89,34 +89,34 @@ app.controller('BalanceSheetController', function(ClientFactory, hotkeys, $state
     };
 
     self.updateAuto = function(inputField){
-      if (inputField == null) {
+      if (inputField === undefined) {
         inputField = 0;
       }
-      self.client.details.totalTransportationLiabilities -=  inputField
+      self.client.details.totalTransportationLiabilities -=  inputField;
       return self.client.details.totalTransportationLiabilities;
     };
 
     // loan section
     self.addLoans = function(subSection) {
-      if (subSection == null) {
+      if (subSection === undefined) {
         subSection = 0;
       }
       self.client.details.totalCreditCardsOtherLoanBalance += Number (subSection);
       return self.client.details.totalCreditCardsOtherLoanBalance;
-    }
+    };
 
     self.updateLoans = function(inputField){
-      if (inputField == null) {
+      if (inputField === undefined) {
         inputField = 0;
       }
 
-      self.client.details.totalCreditCardsOtherLoanBalance -=  inputField
+      self.client.details.totalCreditCardsOtherLoanBalance -=  inputField;
       return self.client.details.totalCreditCardsOtherLoanBalance;
     };
 
     // bills section
     self.addBills = function(subSection) {
-      if (subSection == null) {
+      if (subSection === undefined) {
         subSection = 0;
       }
       self.client.details.totalUnpaidBillsNotInCollections += Number (subSection);
@@ -124,16 +124,16 @@ app.controller('BalanceSheetController', function(ClientFactory, hotkeys, $state
     };
 
     self.updateBills = function(inputField){
-      if (inputField == null) {
+      if (inputField === undefined) {
         inputField = 0;
       }
-      self.client.details.totalUnpaidBillsNotInCollections -=  inputField
+      self.client.details.totalUnpaidBillsNotInCollections -=  inputField;
       return self.client.details.totalUnpaidBillsNotInCollections;
     };
 
     //collection section
     self.addCollection = function(subSection) {
-      if (subSection == null) {
+      if (subSection === undefined) {
         subSection = 0;
 
       }
@@ -142,10 +142,10 @@ app.controller('BalanceSheetController', function(ClientFactory, hotkeys, $state
     };
 
     self.updateCollection = function(inputField){
-      if (inputField == null) {
+      if (inputField === undefined) {
         inputField = 0;
       }
-      self.client.details.totalCollectionsChargeOffsJudgments -=  inputField
+      self.client.details.totalCollectionsChargeOffsJudgments -=  inputField;
       return self.client.details.totalCollectionsChargeOffsJudgments;
     };
 

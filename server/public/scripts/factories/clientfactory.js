@@ -3,8 +3,6 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
   var client = { details: {} };
   var today = new Date();
   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-  var clientTester = {};
-  var testMessage = ' sumtext ';
   var auth = $firebaseAuth(); // Auth with every server request
 
   function newClient(newClient) {
@@ -40,6 +38,7 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
           id_token: idToken,
         },
       }).then(function(response) {
+
       // console.log('clientfactory / function exportCsv / then(function / getToken = ', idToken) // returns firebase id token
       console.log('clientfactory / then(function / response = ', response); // Object {data: ""_bsontype","id"↵"ObjectID","X��Y�_��|,"↵", status: 200, config: Object, statusText: "OK", headers: function}
       console.log('clientfactory / response typeOf = ', typeof response); // = object
@@ -122,8 +121,6 @@ function saveClientData(client) {
 
   return {
     client: client,
-    testMessage: testMessage,
-    clientTester: clientTester,
     newClient: newClient,
     export: exportCsv,
     saveClientData: saveClientData,
