@@ -19,6 +19,10 @@
     display: none;
   }
 
+  #csvbutton {
+    display: none;
+  }
+
   #printTitle {
     display:inline-block;
     text-align: center;

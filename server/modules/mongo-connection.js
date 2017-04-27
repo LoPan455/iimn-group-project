@@ -1,5 +1,11 @@
+// define and execute the application's connection to the MongoDb
+
+
 var mongoose = require('mongoose');
 var connectionString = require('./database-config');
+
+// Establishes connection to the mongo database
+
 var connectToMongoDatabase = function(){
   mongoose.connect(connectionString);
   mongoose.connection.on('connected', function() {
@@ -10,4 +16,3 @@ var connectToMongoDatabase = function(){
   });
 }
 module.exports = { connect: connectToMongoDatabase };
-// exporting an object with an attritube called connect

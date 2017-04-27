@@ -191,7 +191,6 @@ md-radio-button{
   outline: none;
 }
 
-
 .summaryInput{
   min-width: 450px;
   padding-bottom: -10px;
@@ -200,4 +199,13 @@ md-radio-button{
 
 #printTitle {
   display: none;
+}
+
+#csvbutton {
+  margin-bottom: 50px !important;
+  margin-right: 75px !important;
+  float: right;
+  background-color: #c19A6B !important;
+  width: 250px !important;
+  height: 50px !important;
 }
