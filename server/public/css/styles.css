@@ -190,3 +190,11 @@ a {
 md-radio-button{
   outline: none;
 }
+#csvbutton {
+  margin-bottom: 50px !important;
+  margin-right: 75px !important;
+  float: right;
+  background-color: #c19A6B !important; 
+  width: 250px !important;
+  height: 50px !important;
+}
