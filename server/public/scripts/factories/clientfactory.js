@@ -111,11 +111,20 @@ function saveClientData(client) {
     });
   }
 
+  //function for resetting the client for a new session
+  function newSession() {
+    console.log('new session hit');
+    client = { details: {} };
+    saveClientData(client);
+    return client;
+  }
+
   return {
     client: client,
     newClient: newClient,
     export: exportCsv,
     saveClientData: saveClientData,
-    rescueClientData: rescueClientData
+    rescueClientData: rescueClientData,
+    newSession: newSession
   };
 }]);
