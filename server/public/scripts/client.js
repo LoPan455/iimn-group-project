@@ -8,4 +8,4 @@ var app = angular.module('fhatApp', ['ngMaterial','ui.router','firebase','chart.
     .accentPalette('deep-orange');
 });
 
-// deep-orange #ff5722
+// Angular_material's deep-orange is likely #ff5722

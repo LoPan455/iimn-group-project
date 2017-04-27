@@ -22,22 +22,6 @@ app.controller('ProfileQuestionsController', function(ClientFactory,$firebaseAut
       }
   });
 
-
-  //
-  // if (self.client.details._id == null){
-  //   console.log('you no longer have a client in the front end, perfom rescue');
-  // } else {
-  //   console.log('ok, you have a client. self.client.details is: ',self.client.details);
-  //   console.log('we will save the updated client now....');
-  //   ClientFactory.saveClientData(self.client.details)
-  // }
-
-
-
-
-    // ClientFactory.saveClientData(self.client);
-
-
   self.confirmAssistance = function(){
     self.assistanceSection = !self.assistanceSection;
   };

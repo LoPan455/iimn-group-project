@@ -3,8 +3,6 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
   var client = { details: {} };
   var today = new Date();
   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-  var clientTester = {};
-  var testMessage = ' sumtext ';
   var auth = $firebaseAuth(); // Auth with every server request
 
   function newClient(newClient) {
@@ -28,11 +26,11 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
     });
   }
 // CSV Export Function
-  function exportCsv() { 
+  function exportCsv() {
     console.log('exportCsv function run');
       var firebaseUser = auth.$getAuth();
-      firebaseUser.getToken().then(function(idToken) { 
-      $http({ 
+      firebaseUser.getToken().then(function(idToken) {
+      $http({
         method: 'post',
         url: '/summary/getcsv',
         params: client,
@@ -40,6 +38,7 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
           id_token: idToken,
         },
       }).then(function(response) {
+
       // console.log('clientfactory / function exportCsv / then(function / getToken = ', idToken) // returns firebase id token
       console.log('clientfactory / then(function / response = ', response); // Object {data: ""_bsontype","id"↵"ObjectID","X��Y�_��|,"↵", status: 200, config: Object, statusText: "OK", headers: function}
       console.log('clientfactory / response typeOf = ', typeof response); // = object
@@ -49,8 +48,8 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
       // Note: CSV Code
       // https://developer.mozilla.org/en-US/docs/Web/API/Blob
       var blob = new Blob([response.data], { type: response.config.dataType });
-      console.log('clientfactory / blob typeOf = ', typeof blob); // = 
-      
+      console.log('clientfactory / blob typeOf = ', typeof blob); // =
+
       var reader = new FileReader();
       reader.addEventListener("loadend", function() {
       // reader.result contains the contents of blob as a typed array
@@ -114,8 +113,6 @@ function saveClientData(client) {
 
   return {
     client: client,
-    testMessage: testMessage,
-    clientTester: clientTester,
     newClient: newClient,
     export: exportCsv,
     saveClientData: saveClientData,

@@ -14,7 +14,6 @@ app.factory('LoginFactory', [
       auth.$signInWithPopup('google')
         .then(function(firebaseUser) {
           console.log('fhat authenticated as: ', firebaseUser.user.email);
-
         })
         .catch(function(error) {
           console.log('firebaseUser authentication failed: ', error);
