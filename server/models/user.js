@@ -1,3 +1,5 @@
+ // declaration of the User schema used to correlate a Firebaseuser.email to a user in our users collection
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 

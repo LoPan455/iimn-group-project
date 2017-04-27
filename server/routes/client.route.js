@@ -4,7 +4,6 @@ var Client = require('../models/clientMasterSchema');
 var mongoose = require('mongoose');
 var mongoConnection = require('../modules/mongo-connection');
 
-// mongoConnection.connect();
 
 /*************************************
 GET REQUESTS
@@ -12,8 +11,6 @@ GET REQUESTS
 
   // the client 'rescue' option
 
-
-//  model.find({ ... }).sort({ field : criteria}).exec(function(err, model){ ... });
 
 router.get('/rescue', function(req,res){
   console.log('client/resuce route hit');
