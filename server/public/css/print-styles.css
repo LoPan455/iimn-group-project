@@ -1,0 +1,27 @@
+@media print{
+  md-content{
+    /*font-size: 12px;*/
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+  }
+
+  .chart{
+    margin-top: 50px;
+    padding-left: 8px;
+  }
+
+  .budgetRow{
+    margin-top: -15px;
+  }
+
+  .doNotPrint{
+    display: none;
+  }
+
+  #printTitle {
+    display:inline-block;
+    text-align: center;
+    text-decoration: underline;
+  }
+}/*close print display configurations*/

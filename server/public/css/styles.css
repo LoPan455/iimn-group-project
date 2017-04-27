@@ -113,7 +113,7 @@ md-content h1{
 /*used welcome and goals/action steps of summary*/
 .welcomeInput {
   font-size: 40px;
-  padding-bottom: 10px: 
+  padding-bottom: 10px:
   /*margin-left: 100px;*/
 }
 
@@ -189,4 +189,15 @@ a {
 /*this fixed that strange blue border on the no buttons that call functions*/
 md-radio-button{
   outline: none;
+}
+
+
+.summaryInput{
+  min-width: 450px;
+  padding-bottom: -10px;
+  margin-bottom: -10px;
+}
+
+#printTitle {
+  display: none;
 }

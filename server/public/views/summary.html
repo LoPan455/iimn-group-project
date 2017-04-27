@@ -7,8 +7,9 @@ FDB45C yellow orange health
 4D5360 almost black misc -->
 
 <div ng-cloak>
+  <h2 id="printTitle">Summary</h2>
     <md-content class="md-padding" flex>
-        <div layout="row">
+        <div layout="row" class="budgetRow">
 
             <div flex="15">
                 <h4 class="largerFont">Suggested Budget</h4>
@@ -91,7 +92,7 @@ FDB45C yellow orange health
         </div>
         <!-- end of pies section -->
 
-        
+
         <div class="topMargin" flex>
             <md-whiteframe class="md-whiteframe-5dp" layout="row" layout layout-align="space-around center">
                 <p class="evenLargerFont">Total Assets: {{sc.client.details.totalAssets | currency:"$":0}}</p>
@@ -105,7 +106,7 @@ FDB45C yellow orange health
             <form flex="50">
                 <md-input-container>
                     <label class="evenLargerFont">Goals:</label>
-                    <textarea class="largerFont" type="text" ng-model="bc.client.details.goals"></textarea>
+                    <textarea class="largerFont summaryInput" type="text" ng-model="bc.client.details.goals"></textarea>
                 </md-input-container>
             </form>
             <!-- </md-whiteframe> -->
@@ -113,7 +114,7 @@ FDB45C yellow orange health
             <form flex="50">
                 <md-input-container>
                     <label class="evenLargerFont">Action Steps:</label>
-                    <textarea class="largerFont" type="text" ng-model="bc.client.details.actionSteps"></textarea>
+                    <textarea class="largerFont summaryInput" type="text" ng-model="bc.client.details.actionSteps"></textarea>
                 </md-input-container>
             </form>
         </md-whiteframe>
@@ -123,6 +124,6 @@ FDB45C yellow orange health
     <!--CSV Export Button-->
     <div id="tester">
         <!--located http://localhost:5000/#/main-->
-        <md-button class="md-primary" ng-click="sc.export()">CSV-Spreadsheet Download</button>
+        <md-button class="md-primary doNotPrint" ng-click="sc.export()">CSV-Spreadsheet Download</button>
             <!--<p>{{sc.exportTester}}</p>-->
             </div>
