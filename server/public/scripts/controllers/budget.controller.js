@@ -11,7 +11,7 @@ app.controller('BudgetController', function(ClientFactory, hotkeys, $state, $fir
      auth.$onAuthStateChanged(function(firebaseUser) {
        console.log('$onAuthStateChangedTriggered');
        if (firebaseUser) {
-         if (self.client.details.hasOwnProperty('_id') ){
+         if (self.client.details.hasOwnProperty('_id') ){ // similar to TypeOf
            console.log('ok, you have a client. self.client.details.details is: ',self.client.details);
            console.log('we will save the updated client now....');
            ClientFactory.saveClientData(self.client.details);
