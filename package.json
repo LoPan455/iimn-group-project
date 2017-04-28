@@ -1,7 +1,7 @@
 {
-  "name": "material-demo",
+  "name": "IIMN Financial Health Assessment Tool",
   "version": "1.0.0",
-  "description": "Short Demo for Angular Material and ui-route",
+  "description": "Tool to assist IIMN Financial Coaches during Financial Health consultations",
   "main": "app.js",
   "scripts": {
     "test": "nodemon server/app.js",
