@@ -107,7 +107,6 @@
               <md-input-container class="">
                 <label>Groceries</label>
                 <input ng-model="bc.client.details.monthlyGroceries" type="number" ng-focus="bc.updateFood(bc.client.details.monthlyGroceries)" ng-blur="bc.addFood(bc.client.details.monthlyGroceries)">
-
               </md-input-container>
               <md-input-container class="">
                 <label>Other Food</label>
@@ -190,9 +189,9 @@
 
                 <br>
 
-
                 <h2 ng-if="bc.client.details.dependents">Child/Dependent Expenses
                   <span ng-model="bc.client.details.monthlyTotalDependentRelatedExpenses" ng-if="bc.client.details.monthlyTotalDependentRelatedExpenses > 0" placeholder ="$" type ="number"> {{bc.client.details.monthlyTotalDependentRelatedExpenses | currency:"$":0}}</span></h2>
+
 
                   <div ng-if="bc.client.details.dependents">
                     <md-input-container class="">
@@ -215,7 +214,6 @@
 
 
                   <br>
-
 
                   <h2 ng-if="bc.client.details.borrowedMoney || bc.client.details.creditCard">Credit Card and Debt Payments
                     <span ng-model="bc.client.details.monthlyTotalCreditCardLoanDebtPayments" ng-if="bc.client.details.monthlyTotalCreditCardLoanDebtPayments > 0" placeholder ="$" type ="number"> {{bc.client.details.monthlyTotalCreditCardLoanDebtPayments | currency:"$":0}}</span></h2>

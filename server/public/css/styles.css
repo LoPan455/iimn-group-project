@@ -113,6 +113,7 @@ md-content h1{
 /*used welcome and goals/action steps of summary*/
 .welcomeInput {
   font-size: 40px;
+  padding-bottom: 10px:
   /*margin-left: 100px;*/
 }
 
@@ -165,14 +166,14 @@ a {
   color: white;
 }
 
-.topMargin{
+/*for summary page whiteframe boxes*/
+.topMargin {
   margin-top: 20px;
 }
 
 .pieChartMargin {
   margin-right: 30px;
   margin-left: 30px;
-
 }
 
 /*used on summary key and input field of action steps and goals*/
@@ -184,4 +185,27 @@ a {
 .evenLargerFont {
   font-size: 23px;
   color: #9B9B8B;
+}
+/*this fixed that strange blue border on the no buttons that call functions*/
+md-radio-button{
+  outline: none;
+}
+
+.summaryInput{
+  min-width: 450px;
+  padding-bottom: -10px;
+  margin-bottom: -10px;
+}
+
+#printTitle {
+  display: none;
+}
+
+#csvbutton {
+  margin-bottom: 50px !important;
+  margin-right: 75px !important;
+  float: right;
+  background-color: #c19A6B !important;
+  width: 250px !important;
+  height: 50px !important;
 }

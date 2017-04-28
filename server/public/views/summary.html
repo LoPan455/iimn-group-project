@@ -1,14 +1,7 @@
-<!-- 97BBCD light blue housing
-DCDCDC gray utilities
-F7464A red Food
-46BFBD green Transportation
-FDB45C yellow orange health
-949FB1 dark gray savings
-4D5360 almost black misc -->
-
 <div ng-cloak>
+  <h2 id="printTitle">Summary</h2>
     <md-content class="md-padding" flex>
-        <div layout="row">
+        <div layout="row" class="budgetRow">
 
             <div flex="15">
                 <h4 class="largerFont">Suggested Budget</h4>
@@ -46,14 +39,14 @@ FDB45C yellow orange health
             </div>
 
             <div class="pieChartMargin" flex="30" layout="row" layout-align="center center">
-                <canvas width="300" height="300" id="pie" class="chart chart-pie" chart-data="sc.benchmarkData" chart-labels="sc.benchmarkLabels" chart-options="sc.benchmarkOptions"></canvas>
+                <canvas width="300" height="300" id="pie" class="chart chart-pie" chart-data="sc.benchmarkData" chart-labels="sc.benchmarkLabels"
+                    chart-options="sc.benchmarkOptions"></canvas>
             </div>
 
             <div flex="15">
                 <h4 class="largerFont">Your Budget</h4>
                 <table>
                     <tr>
-
                         <td class="housing largerFont">Housing:</td>
                         <td>{{sc.client.details.monthlyTotalHousingExpenses | currency:"$":0}}</td>
                     </tr>
@@ -80,18 +73,16 @@ FDB45C yellow orange health
                     <tr>
                         <td class="miscellaneous largerFont">Miscellaneous:</td>
                         <td>{{sc.totalLifeExpenses | currency:"$":0}}</td>
-
                     </tr>
                 </table>
             </div>
 
             <div class="pieChartMargin" flex="30" layout="row" layout-align="center center">
-                <canvas width="300" height="300" id="pie" class="chart chart-pie" chart-data="sc.clientData" chart-labels="sc.clientLabels" chart-options="sc.clientOptions"></canvas>
+                <canvas width="300" height="300" id="pie" class="chart chart-pie" chart-data="sc.clientData" chart-labels="sc.clientLabels"
+                    chart-options="sc.clientOptions"></canvas>
             </div>
         </div>
         <!-- end of pies section -->
-
-
 
 
         <div class="topMargin" flex>
@@ -99,27 +90,32 @@ FDB45C yellow orange health
                 <p class="evenLargerFont">Total Assets: {{sc.client.details.totalAssets | currency:"$":0}}</p>
                 <p class="evenLargerFont">Total Liabilities: {{sc.client.details.totalLiabilities | currency:"$":0}}</p>
                 <p class="evenLargerFont">Total Net Worth: {{sc.client.details.totalNetWorth | currency:"$":0}}</p>
-
             </md-whiteframe>
         </div>
 
-      <!-- <div layout="row"> -->
+        <!-- <div layout="row"> -->
         <md-whiteframe class="md-whiteframe-5dp topMargin" layout="row" layout layout-align="space-around center">
-         <form flex="50">
-            <md-input-container>
-              <label class="evenLargerFont">Goals:</label>
-              <textarea class="largerFont" type="text" ng-model="bc.client.details.goals"></textarea>
-            </md-input-container>
-         </form>
-        <!-- </md-whiteframe> -->
-        <!-- <md-whiteframe class="md-whiteframe-5dp" layout="row" layout layout-align="space-around center"> -->
-          <form flex="50">
-            <md-input-container>
-              <label class="evenLargerFont">Action Steps:</label>
-              <textarea class="largerFont" type="text" ng-model="bc.client.details.actionSteps"></textarea>
-            </md-input-container>
-          </form>
-      </md-whiteframe>
-     <!-- </div> -->
-  </md-content>
-</div>
+            <form flex="50">
+                <md-input-container>
+                    <label class="evenLargerFont">Goals:</label>
+                    <textarea class="largerFont summaryInput" type="text" ng-model="bc.client.details.goals"></textarea>
+                </md-input-container>
+            </form>
+            <!-- </md-whiteframe> -->
+            <!-- <md-whiteframe class="md-whiteframe-5dp" layout="row" layout layout-align="space-around center"> -->
+            <form flex="50">
+                <md-input-container>
+                    <label class="evenLargerFont">Action Steps:</label>
+                    <textarea class="largerFont summaryInput" type="text" ng-model="bc.client.details.actionSteps"></textarea>
+                </md-input-container>
+            </form>
+        </md-whiteframe>
+        <!-- </div> -->
+    </md-content>
+
+    <!--CSV Export Button-->
+    <div id="tester">
+        <!--located http://localhost:5000/#/main-->
+        <md-button id="csvbutton" class="md-accent md-raised" ng-click="sc.export()"><strong>Spreadsheet Download</strong><em>  (CSV)</em></button>
+            <!--<p>{{sc.exportTester}}</p>-->
+            </div>

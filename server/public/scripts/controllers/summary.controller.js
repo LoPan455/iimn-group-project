@@ -1,5 +1,6 @@
-app.controller('SummaryController', function(ClientFactory,$firebaseAuth) {
+app.controller('SummaryController', function(ClientFactory,$firebaseAuth, hotkeys, $state) {
   console.log('SummaryController controller running');
+
 
   var self = this;
   self.client = ClientFactory.client;
@@ -14,10 +15,10 @@ app.controller('SummaryController', function(ClientFactory,$firebaseAuth) {
          if (self.client.details.hasOwnProperty('_id') ){
            console.log('ok, you have a client. self.client.details.details is: ',self.client.details);
            console.log('we will save the updated client now....');
-           ClientFactory.saveClientData(self.client.details)
+           ClientFactory.saveClientData(self.client.details);
          } else {
            console.log('you no longer have a client in the front end, perfoming rescue');
-           ClientFactory.rescueClientData()
+           ClientFactory.rescueClientData();
          }
        }
    });
@@ -35,7 +36,8 @@ app.controller('SummaryController', function(ClientFactory,$firebaseAuth) {
   self.suggestedMisc = self.client.details.totalMonthlyIncome * 0.15;
 
 
-  self.benchmarkData = [35, 5, 10, 10, 5, 10, 15];
+  
+  self.benchmarkData = [self.suggestedHousing, self.suggestedUtilities, self.suggestedFood, self.suggestedTransportation, self.suggestedHealth, self.suggestedSavings, self.suggestedMisc];
   self.benchmarkLabels = ["Housing", "Utilities", "Food", "Transportation", "Health", "Savings", "Miscellaneous"];
   self.benchmarkOptions = {
           legend: {
@@ -43,6 +45,7 @@ app.controller('SummaryController', function(ClientFactory,$firebaseAuth) {
               position: 'right'
           }
       };
+
 
 
 // client pie-chart populated
@@ -57,10 +60,20 @@ app.controller('SummaryController', function(ClientFactory,$firebaseAuth) {
 
 
 self.export = function() {
+  console.log('CSV-Spreadsheet Download clicked.')
   ClientFactory.export();
 };
 
-
+hotkeys.add({
+  combo: 'shift+alt+n',
+  description: 'Begins a new interview session',
+  callback: function(){
+    console.log('Before new session', self.client);
+    ClientFactory.newSession();
+    console.log('After new session',self.client);
+    $state.transitionTo('welcome')
+  }
+});
 
 
 });//end app.controller

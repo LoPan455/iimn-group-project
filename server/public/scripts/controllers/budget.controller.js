@@ -1,21 +1,23 @@
-app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
+app.controller('BudgetController', function(ClientFactory, hotkeys, $state, $firebaseAuth) {
+
   console.log('BudgetController controller running');
   var self = this;
   var auth = $firebaseAuth();
 
   self.client = ClientFactory.client;
+  self.currentNavItem = 'main.budget.income';
 
   // building this out to prevent the race condition on inadvertent page reload
      auth.$onAuthStateChanged(function(firebaseUser) {
        console.log('$onAuthStateChangedTriggered');
        if (firebaseUser) {
-         if (self.client.details.hasOwnProperty('_id') ){
+         if (self.client.details.hasOwnProperty('_id') ){ // similar to TypeOf
            console.log('ok, you have a client. self.client.details.details is: ',self.client.details);
            console.log('we will save the updated client now....');
-           ClientFactory.saveClientData(self.client.details)
+           ClientFactory.saveClientData(self.client.details);
          } else {
            console.log('you no longer have a client in the front end, perfoming rescue');
-           ClientFactory.rescueClientData()
+           ClientFactory.rescueClientData();
          }
        }
    });
@@ -40,7 +42,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
 
 
   self.addIncome = function(incomeField) {
-    if (incomeField == null) {
+    if (incomeField === undefined) {
       incomeField = 0;
     }
     self.client.details.totalMonthlyIncome += Number(incomeField);
@@ -49,7 +51,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
   };
 
   self.updateIncome = function(incomeField) {
-    if (incomeField == null) {
+    if (incomeField === undefined) {
       incomeField = 0;
     }
     self.client.details.totalMonthlyIncome -= incomeField;
@@ -78,7 +80,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
 
   //housing section
   self.addHousing = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalHousingExpenses += Number(expenseField);
@@ -86,7 +88,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
   };
 
   self.updateHousing = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalHousingExpenses -= expenseField;
@@ -95,7 +97,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
 
   //utilities section
   self.addUtilities = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalUtilities += Number(expenseField);
@@ -103,7 +105,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
   };
 
   self.updateUtilities = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalUtilities -= expenseField;
@@ -112,7 +114,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
 
   //food section
   self.addFood = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalFoodExpenses += Number(expenseField);
@@ -120,7 +122,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
   };
 
   self.updateFood = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalFoodExpenses -= expenseField;
@@ -129,7 +131,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
 
   //transportation section
   self.addTransportation = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalTransportationExpenses += Number(expenseField);
@@ -137,7 +139,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
   };
 
   self.updateTransportation = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalTransportationExpenses -= expenseField;
@@ -146,7 +148,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
 
   //health section
   self.addHealth = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalHealthRelatedExpenses += Number(expenseField);
@@ -154,7 +156,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
   };
 
   self.updateHealth = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalHealthRelatedExpenses -= expenseField;
@@ -163,7 +165,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
 
   //dependent section
   self.addDependent = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalDependentRelatedExpenses += Number(expenseField);
@@ -171,7 +173,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
   };
 
   self.updateDependent = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalDependentRelatedExpenses -= expenseField;
@@ -180,7 +182,7 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
 
   //debt section
   self.addDebt = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalCreditCardLoanDebtPayments += Number(expenseField);
@@ -188,15 +190,15 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
   };
 
   self.updateDebt = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
-    self.client.details.monthlyTotalCreditCardLoanDebtPayments -= expenseField
+    self.client.details.monthlyTotalCreditCardLoanDebtPayments -= expenseField;
     return self.client.details.monthlyTotalCreditCardLoanDebtPayments;
   };
   //personal section
   self.addPersonal = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalPersonalExpenses += Number(expenseField);
@@ -204,15 +206,15 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
   };
 
   self.updatePersonal = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
-    self.client.details.monthlyTotalPersonalExpenses -= expenseField
+    self.client.details.monthlyTotalPersonalExpenses -= expenseField;
     return self.client.details.monthlyTotalPersonalExpenses;
   };
   //misc section
   self.addMisc = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
     self.client.details.monthlyTotalMiscellaneousExpenses += Number(expenseField);
@@ -220,11 +222,41 @@ app.controller('BudgetController', function(ClientFactory,$firebaseAuth) {
   };
 
   self.updateMisc = function(expenseField) {
-    if (expenseField == null) {
+    if (expenseField === undefined) {
       expenseField = 0;
     }
-    self.client.details.monthlyTotalMiscellaneousExpenses -= expenseField
+    self.client.details.monthlyTotalMiscellaneousExpenses -= expenseField;
     return self.client.details.monthlyTotalMiscellaneousExpenses;
   };
+
+  hotkeys.add({
+    combo: 'alt+1',
+    description: 'Switch to budget income',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      $state.transitionTo('main.budget.income');
+    }
+  });
+
+  hotkeys.add({
+    combo: 'alt+2',
+    description: 'Switch to budget expenses',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      $state.transitionTo('main.budget.expenses');
+    }
+  });
+
+  hotkeys.add({
+    combo: 'alt+3',
+    description: 'Switch to budget snapshot',
+    callback: function(){
+      self.addIncome();
+      self.updateExpenses();
+      $state.transitionTo('main.budget.snapshot');
+    }
+  });
 
 }); //end app.controller

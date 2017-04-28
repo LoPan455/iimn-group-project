@@ -3,33 +3,23 @@
 		<h1>Financial Health Assessment Tool</h1>
 	</md-toolbar>
 
-	<!-- <md-toolbar class="noLogoToolbar" layout-align="center center">
-		<h1>Financial Health Assessment Tool</h1>
-	</md-toolbar> -->
-
 	<div layout="column" role="main">
 		<md-content>
 			<div class="login-screen" layout="column" layout-align="top center" layout-fill>
 				<p>
 					<md-input-container>
 						<label style="text-align:center;" class="welcomeInput">First Name</label>
-						<input style="min-width: 250px;" ng-model="wc.client.details.firstName">
+						<input style="min-width: 250px;" ng-model="wc.client.firstName">
 					</md-input-container>
 
 					<md-input-container>
 						<label style="text-align:left;" class="welcomeInput">Last Name</label>
-						<input style="min-width: 250px;" ng-model="wc.client.details.lastName">
+						<input style="min-width: 250px;" ng-model="wc.client.lastName">
 					</md-input-container>
 
 					<div>
 						<md-whiteframe layout="column" layout-align="center center">
-
-
-
 								<md-button class="md-whiteframe-24dp md-raised md-primary" href="#profilequestions1" ng-click="wc.saveNewClient(wc.client)">Go To Profile</md-button>
-
-
-
 						</md-whiteframe>
 					</div>
 			</div>

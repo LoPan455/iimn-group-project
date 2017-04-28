@@ -1,10 +1,8 @@
 app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($http, $firebaseAuth,$location) {
   console.log('Client Factory has loaded');
   var client = { details: {} };
-  // var currentClientId = ''; // used to track the current client for periodic saves
-
-  var clientTester = {};
-  var testMessage = ' sumtext ';
+  var today = new Date();
+  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
   var auth = $firebaseAuth(); // Auth with every server request
 
   function newClient(newClient) {
@@ -27,30 +25,39 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
       });
     });
   }
-
+// CSV Export Function
   function exportCsv() {
-    // var exportCsv = function() {
     console.log('exportCsv function run');
-    var firebaseUser = auth.$getAuth();
-    firebaseUser.getToken().then(function(idToken) {
-      // Auth with every server request
-        $http({
-        method: 'POST',
-        url: '/summary/export',
-        params: {
-          id: currentClientId,
-        },
+      var firebaseUser = auth.$getAuth();
+      firebaseUser.getToken().then(function(idToken) { 
+        console.log('current client: ', client);
+      $http({
+        method: 'post',
+        url: '/summary/getcsv',
+        data: client, // not params: client,
         headers: {
           id_token: idToken,
         },
       }).then(function(response) {
-        console.log(
-          'clientFactory / function exportCsv response: ',
-          response.data
-        );
+      // Note: CSV Code
+      // https://developer.mozilla.org/en-US/docs/Web/API/Blob
+      var blob = new Blob([response.data], { type: response.config.dataType });
+      var reader = new FileReader();
+      reader.addEventListener("loadend", function() {
+      // reader.result contains the contents of blob as a typed array
       });
-    });
-  }
+      reader.readAsArrayBuffer(blob);
+      var windowUrl = (window.URL || window.webkitURL);
+      var downloadUrl = windowUrl.createObjectURL(blob);
+      var anchor = document.createElement("a");
+      anchor.href = downloadUrl;
+      anchor.download = "IIMN-Client-Data_" + date + ".csv";
+      document.body.appendChild(anchor);
+      anchor.click();
+      windowUrl.revokeObjectURL(blob);
+  }); // FOR: then-function
+}); // FOR: firebaseUser
+} // FOR: function exportCsv()
 
 function saveClientData(client) {
     console.log('saveClientData function called. Sending this object: ',client);
@@ -93,13 +100,20 @@ function saveClientData(client) {
     });
   }
 
+  //function for resetting the client for a new session
+  function newSession() {
+    console.log('new session hit');
+    client = { details: {} };
+    saveClientData(client);
+    return client;
+  }
+
   return {
     client: client,
-    testMessage: testMessage,
-    clientTester: clientTester,
     newClient: newClient,
     export: exportCsv,
     saveClientData: saveClientData,
-    rescueClientData: rescueClientData
+    rescueClientData: rescueClientData,
+    newSession: newSession
   };
 }]);

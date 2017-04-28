@@ -3,61 +3,31 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var mongoConnection = require('../modules/mongo-connection');
 var Client = require('../models/clientMasterSchema');
-var json2csv = require('json2csv');
+// var json2csv = require('json2csv');
+var csv = require('express-csv');
 var fs = require('fs');
 
-var arrayOfObjects = [
-	{
-		"firstName" : "01a",
-		"lastName" : "01b",
-		"email" : "01c"
-	},
-	{
-		"firstName" : "02a",
-		"lastName" : "02b",
-		"email" : "02c"
-	},
-	{
-		"firstName" : "03a",
-		"lastName" : "03b",
-		"email" : "03c"
-	},
-	{
-		"firstName" : "04a",
-		"lastName" : "04b",
-		"email" : "04c"
-	}
-];
-var propertyKeys = ['firstName', 'lastName', 'email'];
-var client = json2csv({data: arrayOfObjects, fields: propertyKeys }); // Hardcoding works
-
-// *NOTE: This still hard-coded from clientfactory / var currentClientId*
-router.post('/export/', function(req,res){ // don't need /:id because getting entire object?
-	var clientId = require('mongodb').ObjectId(req.query.id);  // this is with currentClientId
-  		Client.find(
-          {_id: clientId},
-					function (err, client) {
-            if (err) {
-                console.log('error on db lookup POST: ',err);
-                res.status(500).send(err)
-            } else {
-						fs.writeFile('client-export-file.csv', client, function(err) {  // clientId
-					  res.send(client); // saves to server
-            console.log('json2csv-fs.writeFile success / client: ', client);
-					});	
-	    } //end else
-  }); //end newClient.save
-}); //end router.post
-
-
-
-
-// fs.writeFile('client-export-file.csv', clientId, function(err) {
-// var csv = json2csv({data: arrayOfObjects, fields: propertyKeys });
-//  //   res.send(csv) // saves to server
-//       res.attachment('client-export-file.csv')
-// 			fs.unlink('client-export-file.csv')
-
+router.post('/getcsv', function(req, res){
+	// var clientId = require('mongodb').ObjectId(req.query.id);
+	var clientId = req.body.details._id;
+	console.log('summary.route.js / router.post / req.query.id: ', req.body); 
+	Client.findOne({_id: clientId},function (err, result) {
+		console.log('summary.route.js / router.post / clientId: ', clientId); // = 
+		// result.test = "phil-test!";
+		if (err) {
+			console.log('error on db lookup POST: ', err);
+			res.status(500).send(err);
+		} else {
+			var obj = result.toObject();
+			obj.test = "hello";
+			console.log('object? ', obj);
+			var data = [obj]; // CSV-create an array from the mongo object so we can use .unshift() later
+			var headers = Object.keys(obj); // CSV-create a header row from the object's keys/properties
+			data.unshift(headers); 	// CSV-push keys array to the beginning of data array
+			console.log('final data: ', data);
+			res.csv(data); 
+		}
+	});
+		});
 
 module.exports = router;
-

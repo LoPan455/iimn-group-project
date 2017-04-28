@@ -1,15 +1,15 @@
-<md-toolbar class="toolbar" layout-align="center center">
+<md-toolbar class="toolbar doNotPrint" layout-align="center center">
 	<h1>Financial Health Assessment Tool</h1>
 </md-toolbar>
 
 <div ng-cloak >
     <md-content>
-            <md-toolbar layout-align="center center" class="mainStateToolbar">
-                <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+            <md-toolbar layout-align="center center" class="mainStateToolbar doNotPrint">
+                <md-nav-bar md-selected-nav-item="msc.currentNavItem" nav-bar-aria-label="navigation links">
                     <!-- <md-nav-item md-nav-sref="#profile" name="profile">Profile</md-nav-item> -->
-                    <md-nav-item ui-sref-active-eq='active' md-nav-sref="main.budget" name="main.budget">Budget</md-nav-item>
-                    <md-nav-item ui-sref-active-eq='active' md-nav-sref="main.balanceSheet" name="main.balanceSheet">Balance Sheet</md-nav-item>
-                    <md-nav-item ui-sref-active-eq='active' md-nav-sref="main.creditReport" name="main.creditReport">Credit Report</md-nav-item>
+                    <md-nav-item ui-sref-active='active' md-nav-sref="main.budget" name="main.budget">Budget</md-nav-item>
+                    <md-nav-item ui-sref-active-eq='active' md-nav-sref="main.balanceSheet.assets" name="main.balanceSheet">Balance Sheet</md-nav-item>
+                    <md-nav-item ui-sref-active-eq='active' md-nav-sref="main.creditReport.scores" name="main.creditReport.scores">Credit Report</md-nav-item>
                     <md-nav-item ui-sref-active-eq='active' md-nav-sref="main.summary" name="main.summary">Summary</md-nav-item>
                 </md-nav-bar>
             </md-toolbar>
