@@ -1,4 +1,4 @@
-app.controller('SummaryController', function(ClientFactory,$firebaseAuth) {
+app.controller('SummaryController', function(ClientFactory,$firebaseAuth, hotkeys, $state) {
   console.log('SummaryController controller running');
 
 
@@ -36,7 +36,7 @@ app.controller('SummaryController', function(ClientFactory,$firebaseAuth) {
   self.suggestedMisc = self.client.details.totalMonthlyIncome * 0.15;
 
 
-  // self.benchmarkData = [35, 5, 10, 10, 5, 10, 15];
+  
   self.benchmarkData = [self.suggestedHousing, self.suggestedUtilities, self.suggestedFood, self.suggestedTransportation, self.suggestedHealth, self.suggestedSavings, self.suggestedMisc];
   self.benchmarkLabels = ["Housing", "Utilities", "Food", "Transportation", "Health", "Savings", "Miscellaneous"];
   self.benchmarkOptions = {
@@ -64,7 +64,16 @@ self.export = function() {
   ClientFactory.export();
 };
 
-
+hotkeys.add({
+  combo: 'shift+alt+n',
+  description: 'Begins a new interview session',
+  callback: function(){
+    console.log('Before new session', self.client);
+    ClientFactory.newSession();
+    console.log('After new session',self.client);
+    $state.transitionTo('welcome')
+  }
+});
 
 
 });//end app.controller

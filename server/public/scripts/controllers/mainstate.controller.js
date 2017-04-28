@@ -11,7 +11,7 @@ app.controller('MainStateController', function(ClientFactory, hotkeys, $state, $
     combo: 'shift+alt+1',
     description: 'Directs to budget view',
     callback: function(){
-      $state.transitionTo('main.budget')
+      $state.transitionTo('main.budget');
     }
   });
 
@@ -19,7 +19,7 @@ app.controller('MainStateController', function(ClientFactory, hotkeys, $state, $
     combo: 'shift+alt+2',
     description: 'Directs to balancesheet view',
     callback: function(){
-      $state.transitionTo('main.balanceSheet')
+      $state.transitionTo('main.balanceSheet');
     }
   });
 
@@ -27,7 +27,7 @@ app.controller('MainStateController', function(ClientFactory, hotkeys, $state, $
     combo: 'shift+alt+3',
     description: 'Directs to credit report view',
     callback: function(){
-      $state.transitionTo('main.creditReport.scores')
+      $state.transitionTo('main.creditReport.scores');
     }
   });
 
@@ -35,7 +35,7 @@ app.controller('MainStateController', function(ClientFactory, hotkeys, $state, $
     combo: 'shift+alt+4',
     description: 'Directs to summary view',
     callback: function(){
-      $state.transitionTo('main.summary')
+      $state.transitionTo('main.summary');
     }
   });
 
@@ -49,12 +49,12 @@ app.controller('MainStateController', function(ClientFactory, hotkeys, $state, $
          if (self.client.details.hasOwnProperty('_id') ){
            console.log('ok, you have a client. self.client.details.details is: ',self.client.details);
            console.log('we will save the updated client now....');
-           ClientFactory.saveClientData(self.client.details)
+           ClientFactory.saveClientData(self.client.details);
          } else {
            console.log('you no longer have a client in the front end, perfoming rescue');
-           ClientFactory.rescueClientData()
+           ClientFactory.rescueClientData();
          }
        }
    });
 
-});//end app.controller
+});

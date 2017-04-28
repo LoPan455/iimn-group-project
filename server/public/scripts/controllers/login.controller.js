@@ -4,7 +4,6 @@ app.controller('LoginController', ['LoginFactory', function(LoginFactory) {
 
   var self = this;
   self.user = LoginFactory.loggedInUser;
-
   self.message = 'LoginController message';
 
 

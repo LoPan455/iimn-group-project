@@ -3,8 +3,6 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
   var client = { details: {} };
   var today = new Date();
   var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-  var clientTester = {};
-  var testMessage = ' sumtext ';
   var auth = $firebaseAuth(); // Auth with every server request
 
   function newClient(newClient) {
@@ -28,12 +26,12 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
     });
   }
 // CSV Export Function
-  function exportCsv() { 
+  function exportCsv() {
     console.log('exportCsv function run');
       var firebaseUser = auth.$getAuth();
       firebaseUser.getToken().then(function(idToken) { 
         console.log('current client: ', client);
-      $http({ 
+      $http({
         method: 'post',
         url: '/summary/getcsv',
         data: client, // not params: client,
@@ -102,13 +100,20 @@ function saveClientData(client) {
     });
   }
 
+  //function for resetting the client for a new session
+  function newSession() {
+    console.log('new session hit');
+    client = { details: {} };
+    saveClientData(client);
+    return client;
+  }
+
   return {
     client: client,
-    testMessage: testMessage,
-    clientTester: clientTester,
     newClient: newClient,
     export: exportCsv,
     saveClientData: saveClientData,
-    rescueClientData: rescueClientData
+    rescueClientData: rescueClientData,
+    newSession: newSession
   };
 }]);
