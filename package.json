@@ -1,5 +1,5 @@
 {
-  "name": "IIMN Financial Health Assessment Tool",
+  "name": "iimn-tool",
   "version": "1.0.0",
   "description": "Tool to assist IIMN Financial Coaches during Financial Health consultations",
   "main": "app.js",
