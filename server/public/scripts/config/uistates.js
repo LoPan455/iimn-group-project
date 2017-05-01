@@ -63,7 +63,7 @@ app.config(function($stateProvider,$urlRouterProvider) {
     name: 'main.budget.snapshot',
     controller: 'BudgetController',
     controllerAs: 'bc',
-    templateUrl:'/views/budgetsnapshot.html'
+    templateUrl:'/views/budgetSnapshot.html'
   };
   var balanceSheet = {
     name: 'main.balanceSheet',
