@@ -29,39 +29,28 @@ app.factory('ClientFactory', ['$http','$firebaseAuth','$location', function($htt
   function exportCsv() {
     console.log('exportCsv function run');
       var firebaseUser = auth.$getAuth();
-      firebaseUser.getToken().then(function(idToken) {
+      firebaseUser.getToken().then(function(idToken) { 
+        console.log('current client: ', client);
       $http({
         method: 'post',
         url: '/summary/getcsv',
-        params: client,
+        data: client, // not params: client,
         headers: {
           id_token: idToken,
         },
       }).then(function(response) {
-
-      // console.log('clientfactory / function exportCsv / then(function / getToken = ', idToken) // returns firebase id token
-      console.log('clientfactory / then(function / response = ', response); // Object {data: ""_bsontype","id"↵"ObjectID","X��Y�_��|,"↵", status: 200, config: Object, statusText: "OK", headers: function}
-      console.log('clientfactory / response typeOf = ', typeof response); // = object
-      console.log('clientfactory / response.data typeOf = ', typeof response.data); // = string
-      console.log('clientfactory / response.data = ', response.data); // = "_bsontype","id"↵"ObjectID","X��Y�_��|,"↵
-
       // Note: CSV Code
       // https://developer.mozilla.org/en-US/docs/Web/API/Blob
       var blob = new Blob([response.data], { type: response.config.dataType });
-      console.log('clientfactory / blob typeOf = ', typeof blob); // =
-
       var reader = new FileReader();
       reader.addEventListener("loadend", function() {
       // reader.result contains the contents of blob as a typed array
       });
       reader.readAsArrayBuffer(blob);
-
       var windowUrl = (window.URL || window.webkitURL);
       var downloadUrl = windowUrl.createObjectURL(blob);
       var anchor = document.createElement("a");
       anchor.href = downloadUrl;
-      // var fileNamePattern = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/
-      // anchor.download = fileNamePattern.exec(headers['content-disposition'])[1]
       anchor.download = "IIMN-Client-Data_" + date + ".csv";
       document.body.appendChild(anchor);
       anchor.click();
@@ -111,11 +100,20 @@ function saveClientData(client) {
     });
   }
 
+  //function for resetting the client for a new session
+  function newSession() {
+    console.log('new session hit');
+    client = { details: {} };
+    saveClientData(client);
+    return client;
+  }
+
   return {
     client: client,
     newClient: newClient,
     export: exportCsv,
     saveClientData: saveClientData,
-    rescueClientData: rescueClientData
+    rescueClientData: rescueClientData,
+    newSession: newSession
   };
 }]);

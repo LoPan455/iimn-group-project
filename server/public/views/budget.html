@@ -3,14 +3,13 @@
   <md-nav-bar
     md-selected-nav-item="bc.currentNavItem"
     nav-bar-aria-label="navigation links">
-    <!-- layout-align="center center" in md-nav-bar has no affect-->
     <md-nav-item md-nav-sref="main.budget.income" name="main.budget.income">Income</md-nav-item>
     <md-nav-item md-nav-sref="main.budget.expenses" name="main.budget.expenses">Expenses</md-nav-item>
-    <!-- <md-nav-item md-nav-sref="main.budget.savings" name="main.budget.savings">Savings Goal</md-nav-item> -->
+
     <md-nav-item md-nav-sref="main.budget.snapshot" name="main.budget.snapshot">Budget Snapshot</md-nav-item>
   </md-nav-bar>
 
-  <!-- Whatever is in Tab 1, 2, or 3 goes in ui-view tag below because they are children-->
+  
   <div class="ext-content">
     <ui-view></ui-view>
   </div>

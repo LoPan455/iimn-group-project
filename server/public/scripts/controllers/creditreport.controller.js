@@ -24,7 +24,7 @@ app.controller('CreditReportController', function(ClientFactory,$firebaseAuth) {
        }
    });
 
-  // self.creditCardArray = [{cardNumber:1, name:"", limit:}];
+
 
 
 
