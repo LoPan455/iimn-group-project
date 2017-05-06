@@ -23,9 +23,9 @@ router.get('/rescue', function(req,res){
       res.sendStatus(500);
     } else {
       console.log('successfully found this client:',result);
-      res.send(result)
+      res.send(result);
     }//end else
-  })//end /get
+  });//end /get
 });//end
 
 
@@ -46,9 +46,9 @@ router.post('/newClient', function(req,res){
       res.sendStatus(500);
     } else {
       console.log('successfully added a new client to the db: ',result);
-      res.send(result)
+      res.send(result);
     }//end else
-  })//end newClient.save
+  });//end newClient.save
 });//end router.post
 
 /*****************************************
@@ -59,7 +59,7 @@ router.patch('/update/',function(req,res){
   // console.log('client/update:id route hit. req is: ', req);
   console.log('client.route.js / router.patch / req.body = ',req.body);
   var clientId = require('mongodb').ObjectId(req.query.id);
-  var clientObject = req.body
+  var clientObject = req.body;
   Client.update(
           {_id: clientId},
           {
@@ -67,12 +67,12 @@ router.patch('/update/',function(req,res){
           },function (err, client) {
             if (err) {
                 console.log('there was an error updating the client document',err);
-                res.status(500).send(err)
+                res.status(500).send(err);
             }
             console.log('client.route.js / router.patch / client.update success: ',client);
             res.send(client);
         });
-    })//end router.put
+    });//end router.put
 
 
 
